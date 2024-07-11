@@ -14,6 +14,8 @@ import javax.swing.*;
 import java.awt.print.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ControladorReceta {
     private FrmReceta frmReceta;
@@ -23,7 +25,11 @@ public class ControladorReceta {
         this.frmReceta.getBtnImprimir().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                imprimirReceta();
+                try {
+                    imprimirReceta();
+                } catch (PrinterException ex) {
+                    Logger.getLogger(ControladorReceta.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -32,7 +38,7 @@ public class ControladorReceta {
         frmReceta.setVisible(true);
     }
 
-    private void imprimirReceta() {
+    private void imprimirReceta() throws PrinterException {
         PrinterJob printerJob = PrinterJob.getPrinterJob();
         printerJob.setJobName("Imprimir Receta");
 
@@ -49,11 +55,19 @@ public class ControladorReceta {
             }
         });
 
-        if (printerJob.printDialog()) {
-            try {
-                printerJob.print();
-            } catch (PrinterException e) {
-                JOptionPane.showMessageDialog(frmReceta, "Error de impresión: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        PrintService[] printServices = PrintServiceLookup.lookupPrintServices(null, null);
+
+        PrintService selectedPrintService = ServiceUI.printDialog(null, 100, 100, printServices, printerJob.getPrintService(), null, null);
+
+        if (selectedPrintService != null) {
+            printerJob.setPrintService(selectedPrintService);
+
+            if (printerJob.printDialog()) {
+                try {
+                    printerJob.print();
+                } catch (PrinterException ex) {
+                    JOptionPane.showMessageDialog(frmReceta, "Error de impresión: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
     }
