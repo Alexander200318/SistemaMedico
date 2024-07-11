@@ -5,11 +5,16 @@
  */
 package Vista;
 
+import javax.swing.JButton;
+import javax.swing.JDesktopPane;
+
 /**
  *
  * @author Jhony
  */
 public class FrmPantallaPrincipal extends javax.swing.JFrame {
+
+    private JDesktopPane desktopPane; // Aquí declaramos el JDesktopPane
 
     /**
      * Creates new form FrmPantallaPrincipal
@@ -17,7 +22,9 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     public FrmPantallaPrincipal() {
         initComponents();
         this.setExtendedState(this.MAXIMIZED_BOTH);
-    }
+
+       }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,11 +51,11 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 680, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
