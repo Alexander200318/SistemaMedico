@@ -13,6 +13,6 @@ public class Main {
         FrmLogin frmLogin = new FrmLogin();
         ControladorLogin controladorLogin = new ControladorLogin(frmLogin);
         controladorLogin.iniciar();
-        frmLogin.setVisible(true);
+        frmLogin.setVisible(true);     
     }
 }
