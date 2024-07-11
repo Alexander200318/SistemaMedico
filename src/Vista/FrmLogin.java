@@ -19,7 +19,6 @@ public class FrmLogin extends javax.swing.JFrame {
      */
     public FrmLogin() {
         initComponents();
-        this.setExtendedState(this.MAXIMIZED_BOTH);
     }
     
 
@@ -109,6 +108,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.add(TxtLabelRegistrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 660, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Contraseña");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 360, 140, 20));
 
@@ -117,6 +117,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.add(BtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 450, 140, 30));
 
         TxtContraseñaLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        TxtContraseñaLogin.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(TxtContraseñaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 270, 30));
 
         jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
@@ -135,6 +136,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 310, 170, 10));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Cedula/Correo");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 280, -1, 20));
 

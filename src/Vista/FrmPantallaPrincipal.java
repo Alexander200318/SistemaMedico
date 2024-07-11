@@ -17,7 +17,7 @@ import javax.swing.JDesktopPane;
  */
 public class FrmPantallaPrincipal extends javax.swing.JFrame {
 
-    private JDesktopPane desktopPane; // Aquí declaramos el JDesktopPane
+    private JDesktopPane desktopPane;
 
     /**
      * Creates new form FrmPantallaPrincipal
@@ -26,7 +26,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(this.MAXIMIZED_BOTH);
 
-       }
+    }
 
     public JButton getBoton_prueba() {
         return boton_prueba;
@@ -36,14 +36,13 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         this.boton_prueba = boton_prueba;
     }
 
-    public JDesktopPane getDesktopPane() {
-        return desktopPane;
+    public JDesktopPane getDeskPaneprueba() {
+        return DeskPaneprueba;
     }
 
-    public void setDesktopPane(JDesktopPane desktopPane) {
-        this.desktopPane = desktopPane;
+    public void setDeskPaneprueba(JDesktopPane DeskPaneprueba) {
+        this.DeskPaneprueba = DeskPaneprueba;
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,7 +56,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        DeskPaneprueba = new javax.swing.JDesktopPane();
         boton_prueba = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -69,15 +68,15 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
+        javax.swing.GroupLayout DeskPanepruebaLayout = new javax.swing.GroupLayout(DeskPaneprueba);
+        DeskPaneprueba.setLayout(DeskPanepruebaLayout);
+        DeskPanepruebaLayout.setHorizontalGroup(
+            DeskPanepruebaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 791, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        DeskPanepruebaLayout.setVerticalGroup(
+            DeskPanepruebaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 536, Short.MAX_VALUE)
         );
 
         boton_prueba.setText("jButton1");
@@ -91,24 +90,24 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(DeskPaneprueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(boton_prueba)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(34, 34, 34))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(235, 235, 235)
-                .addComponent(boton_prueba)
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(271, 271, 271)
+                        .addComponent(boton_prueba))
+                    .addComponent(DeskPaneprueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 84, Short.MAX_VALUE))
         );
 
-        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 570));
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 620));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -133,15 +132,13 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_pruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_pruebaActionPerformed
-      FrmReceta impre=new FrmReceta();
-        this.jDesktopPane1.add(impre);
-        try {
-            impre.setSelected(true);
-             impre.setVisible(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(FrmPantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
+        JDesktopPane desktopPane = DeskPaneprueba;
+
+        FrmInterfazImprimir frmInterfazImprimir = new FrmInterfazImprimir();
+        frmInterfazImprimir.setSize(desktopPane.getSize());
+        desktopPane.add(frmInterfazImprimir);
+        frmInterfazImprimir.setVisible(true);
+
     }//GEN-LAST:event_boton_pruebaActionPerformed
 
     /**
@@ -180,8 +177,8 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane DeskPaneprueba;
     private javax.swing.JButton boton_prueba;
-    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

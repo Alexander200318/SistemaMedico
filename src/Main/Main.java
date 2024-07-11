@@ -4,10 +4,11 @@
  */
 package Main;
 
+import Controlador.ControladorInterfazImprimir;
 import Controlador.ControladorLogin;
-import Controlador.ControladorReceta;
+import Vista.FrmImpresion;
 import Vista.FrmLogin;
-import Vista.FrmReceta;
+import Vista.FrmInterfazImprimir;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,9 +17,10 @@ public class Main {
         controladorLogin.iniciar();
         frmLogin.setVisible(true);
 
-        FrmReceta frmReceta = new FrmReceta();
-        ControladorReceta controladorReceta = new ControladorReceta(frmReceta);
-        controladorReceta.iniciar();
-        frmReceta.setVisible(true);
+        FrmInterfazImprimir frmInterfazImprimir = new FrmInterfazImprimir();
+        FrmImpresion frmImpresion = new FrmImpresion();
+        ControladorInterfazImprimir controladorInterfazImprimir = new ControladorInterfazImprimir(frmInterfazImprimir, frmImpresion);
+        controladorInterfazImprimir.iniciar();
+        frmInterfazImprimir.setVisible(true);
     }
 }
