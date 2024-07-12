@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.ControladorInterfazImprimir;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.util.logging.Level;
@@ -17,11 +18,10 @@ import javax.swing.JOptionPane;
  */
 public class FrmInterfazImprimir extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form prueba
-     */
+    ControladorInterfazImprimir control;
     public FrmInterfazImprimir() {
         initComponents();
+        control=new ControladorInterfazImprimir(this);
     }
     
 
@@ -62,18 +62,7 @@ public class FrmInterfazImprimir extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirActionPerformed
-        PrinterJob job=PrinterJob.getPrinterJob();
-        
-        job.setPrintable(frmImpresion1);
-        
-        if (job.printDialog()) {
-            try {
-                job.print();
-            } catch (PrinterException ex) {
-            }
-        }else{
-            JOptionPane.showMessageDialog(this, "La impresion se cancelo");
-        }  
+
     }//GEN-LAST:event_BtnImprimirActionPerformed
 
 

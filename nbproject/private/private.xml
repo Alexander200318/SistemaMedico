@@ -3,16 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ricar/OneDrive/Documentos/GitHub/ProyectoMedicina/src/Vista/FrmInterfazImprimir.java</file>
-            <file>file:/C:/Users/Ricar/OneDrive/Documentos/GitHub/ProyectoMedicina/src/Controlador/ControladorInterfazImprimir.java</file>
-            <file>file:/C:/Users/Ricar/OneDrive/Documentos/GitHub/ProyectoMedicina/src/Vista/FrmLogin.java</file>
-            <file>file:/C:/Users/Ricar/OneDrive/Documentos/GitHub/ProyectoMedicina/src/Vista/FrmPantallaPrincipal.java</file>
-            <file>file:/C:/Users/Ricar/OneDrive/Documentos/GitHub/ProyectoMedicina/src/Vista/FrmRegistrarse.java</file>
-            <file>file:/C:/Users/Ricar/OneDrive/Documentos/GitHub/ProyectoMedicina/src/Controlador/ControladorLogin.java</file>
-            <file>file:/C:/Users/Ricar/OneDrive/Documentos/GitHub/ProyectoMedicina/src/Main/Main.java</file>
-            <file>file:/C:/Users/Ricar/OneDrive/Documentos/GitHub/ProyectoMedicina/src/Vista/FrmImpresion.java</file>
-            <file>file:/C:/Users/Ricar/OneDrive/Documentos/GitHub/ProyectoMedicina/src/Controlador/ControladorImpresion.java</file>
-            <file>file:/C:/Users/Ricar/OneDrive/Documentos/GitHub/ProyectoMedicina/src/Controlador/ControladorRegistro.java</file>
+            <file>file:/C:/Users/alexa.ISMA/OneDrive/Documentos/GitHub/FICHERO_CLINICO/src/Controlador/ControladorInterfazImprimir.java</file>
+            <file>file:/C:/Users/alexa.ISMA/OneDrive/Documentos/GitHub/FICHERO_CLINICO/src/Controlador/ControladorLogin.java</file>
+            <file>file:/C:/Users/alexa.ISMA/OneDrive/Documentos/GitHub/FICHERO_CLINICO/src/Vista/FrmImpresion.java</file>
+            <file>file:/C:/Users/alexa.ISMA/OneDrive/Documentos/GitHub/FICHERO_CLINICO/src/Controlador/ControladorRegistro.java</file>
+            <file>file:/C:/Users/alexa.ISMA/OneDrive/Documentos/GitHub/FICHERO_CLINICO/src/Vista/FrmPantallaPrincipal.java</file>
+            <file>file:/C:/Users/alexa.ISMA/OneDrive/Documentos/GitHub/FICHERO_CLINICO/src/Main/Main.java</file>
         </group>
     </open-files>
 </project-private>

@@ -13,25 +13,37 @@ import java.awt.print.PrinterJob;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+
 public class ControladorInterfazImprimir {
     private FrmInterfazImprimir vistaInterfaz;
     private FrmImpresion frmImpresion;
     private JButton btnImprimir;
 
     public ControladorInterfazImprimir(FrmInterfazImprimir vistaInterfaz, FrmImpresion frmImpresion) {
-        this.vistaInterfaz = vistaInterfaz;
-        this.frmImpresion = frmImpresion;
+       
+                
     }
 
-    public void iniciar() {
-        vistaInterfaz.setVisible(true); 
+    public ControladorInterfazImprimir(FrmInterfazImprimir vistaInterfaz) {
+        this.vistaInterfaz=vistaInterfaz;
+
+         vistaInterfaz.setVisible(true); 
         btnImprimir = vistaInterfaz.getBtnImprimir();
-        btnImprimir.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                imprimir();
-            }
+        this.vistaInterfaz.getBtnImprimir().addActionListener((e) -> {
+            imprimir();
         });
+    }
+    
+    
+
+    public void iniciar() {
+       
+//        btnImprimir.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                imprimir();
+//            }
+//        });
     }
 
     private void imprimir() {
@@ -43,7 +55,7 @@ public class ControladorInterfazImprimir {
                 job.print();
             } catch (PrinterException ex) {
                 ex.printStackTrace();
-                JOptionPane.showMessageDialog(vistaInterfaz, "Error en la impresión: " + ex.getMessage(), "Error de impresión", JOptionPane.ERROR_MESSAGE);
+//                JOptionPane.showMessageDialog(vistaInterfaz, "Error en la impresión: " + ex.getMessage(), "Error de impresión", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(vistaInterfaz, "La impresión se canceló", "Cancelado", JOptionPane.WARNING_MESSAGE);
