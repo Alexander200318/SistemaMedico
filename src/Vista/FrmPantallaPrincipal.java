@@ -170,9 +170,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         Pane_UsuarioMenu.setLayout(Pane_UsuarioMenuLayout);
         Pane_UsuarioMenuLayout.setHorizontalGroup(
             Pane_UsuarioMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pane_UsuarioMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BtnUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+            .addComponent(BtnUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
         Pane_UsuarioMenuLayout.setVerticalGroup(
             Pane_UsuarioMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
