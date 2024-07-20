@@ -5,6 +5,7 @@
 package controlador_Vist;
 
 import Vista.PANEL_PRINCIPAL_PACIENTE;
+import Vista.PanelDatosPaciente;
 import Vista.REGISTRO_PACIENTE;
 import java.awt.BorderLayout;
 
@@ -19,12 +20,27 @@ public class Panel_Prin_PacienteDAO {
         this.PanelPaciente.getBtn_NuevoPaciente().addActionListener((e) -> {
             pasarPanel();
         });
+         this.PanelPaciente.getBtn_prueba().addActionListener((e) -> {
+            pasarDatos();
+        });
+
 
     }
 
     public void pasarPanel() {
 
         REGISTRO_PACIENTE RegistrarPaciente = new REGISTRO_PACIENTE();
+        RegistrarPaciente.setSize(980, 660);
+        RegistrarPaciente.setLocation(0, 0);
+        PanelPaciente.getPanel_camb_Registro().removeAll();
+        PanelPaciente.getPanel_camb_Registro().add(RegistrarPaciente, BorderLayout.CENTER);
+        PanelPaciente.getPanel_camb_Registro().revalidate();
+        PanelPaciente.getPanel_camb_Registro().repaint();
+
+    }
+    public void pasarDatos() {
+
+        PanelDatosPaciente RegistrarPaciente = new PanelDatosPaciente();
         RegistrarPaciente.setSize(980, 660);
         RegistrarPaciente.setLocation(0, 0);
         PanelPaciente.getPanel_camb_Registro().removeAll();

@@ -17,10 +17,10 @@ public class Main {
         controladorLogin.iniciar();
         frmLogin.setVisible(true);
 
-        FrmInterfazImprimir frmInterfazImprimir = new FrmInterfazImprimir();
-        FrmImpresion frmImpresion = new FrmImpresion();
-        ControladorInterfazImprimir controladorInterfazImprimir = new ControladorInterfazImprimir(frmInterfazImprimir, frmImpresion);
-        controladorInterfazImprimir.iniciar();
-        frmInterfazImprimir.setVisible(true);
+//        FrmInterfazImprimir frmInterfazImprimir = new FrmInterfazImprimir();
+//        FrmImpresion frmImpresion = new FrmImpresion();
+//        ControladorInterfazImprimir controladorInterfazImprimir = new ControladorInterfazImprimir(frmInterfazImprimir, frmImpresion);
+//        controladorInterfazImprimir.iniciar();
+//        frmInterfazImprimir.setVisible(true);
     }
 }

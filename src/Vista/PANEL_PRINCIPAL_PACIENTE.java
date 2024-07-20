@@ -5,6 +5,7 @@
 package Vista;
 
 import controlador_Vist.Panel_Prin_PacienteDAO;
+import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -36,6 +37,14 @@ public class PANEL_PRINCIPAL_PACIENTE extends javax.swing.JPanel {
         this.Panel_camb_Registro = Panel_camb_Registro;
     }
 
+    public JButton getBtn_prueba() {
+        return Btn_prueba;
+    }
+
+    public void setBtn_prueba(JButton Btn_prueba) {
+        this.Btn_prueba = Btn_prueba;
+    }
+
     
     
     
@@ -51,6 +60,7 @@ public class PANEL_PRINCIPAL_PACIENTE extends javax.swing.JPanel {
         panelRound5 = new Modelo.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        Btn_prueba = new javax.swing.JButton();
         panelRound1 = new Modelo.PanelRound();
         Btn_NuevoPaciente = new javax.swing.JButton();
 
@@ -109,21 +119,32 @@ public class PANEL_PRINCIPAL_PACIENTE extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        Btn_prueba.setText("Paciente Datos");
+        Btn_prueba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_pruebaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelRound5Layout = new javax.swing.GroupLayout(panelRound5);
         panelRound5.setLayout(panelRound5Layout);
         panelRound5Layout.setHorizontalGroup(
             panelRound5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound5Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelRound5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Btn_prueba)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound5Layout.setVerticalGroup(
             panelRound5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound5Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Btn_prueba)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Panel_camb_RegistroLayout = new javax.swing.GroupLayout(Panel_camb_Registro);
@@ -189,9 +210,14 @@ public class PANEL_PRINCIPAL_PACIENTE extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_NuevoPacienteActionPerformed
 
+    private void Btn_pruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pruebaActionPerformed
+         
+    }//GEN-LAST:event_Btn_pruebaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_NuevoPaciente;
+    private javax.swing.JButton Btn_prueba;
     private javax.swing.JPanel Panel_camb_Registro;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

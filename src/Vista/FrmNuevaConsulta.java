@@ -316,7 +316,8 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEstaturaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        FrmInterfazImprimir im=new FrmInterfazImprimir();
+        im.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
