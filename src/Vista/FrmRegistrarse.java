@@ -5,6 +5,10 @@
 package Vista;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
 /**
@@ -29,63 +33,271 @@ public class FrmRegistrarse extends javax.swing.JFrame {
         this.BtnRegistrarse = BtnRegistrarse;
     }
 
-    public JTextField getTxtApellidoRegistrarse() {
-        return TxtApellidoRegistrarse;
+    public JLabel getJLIdentficacionResg() {
+        return JLIdentficacionResg;
     }
 
-    public void setTxtApellidoRegistrarse(JTextField TxtApellidoRegistrarse) {
-        this.TxtApellidoRegistrarse = TxtApellidoRegistrarse;
+    public void setJLIdentficacionResg(JLabel JLIdentficacionResg) {
+        this.JLIdentficacionResg = JLIdentficacionResg;
     }
 
-    public JTextField getTxtCedulaRegistrarse() {
-        return TxtCedulaRegistrarse;
+    public JPasswordField getJPassContraResg() {
+        return JPassContraResg;
     }
 
-    public void setTxtCedulaRegistrarse(JTextField TxtCedulaRegistrarse) {
-        this.TxtCedulaRegistrarse = TxtCedulaRegistrarse;
+    public void setJPassContraResg(JPasswordField JPassContraResg) {
+        this.JPassContraResg = JPassContraResg;
     }
 
-    public JTextField getTxtConfiContraseñaRegistrarse() {
-        return TxtConfiContraseñaRegistrarse;
+    public JPasswordField getJPassNueContraResg() {
+        return JPassNueContraResg;
     }
 
-    public void setTxtConfiContraseñaRegistrarse(JTextField TxtConfiContraseñaRegistrarse) {
-        this.TxtConfiContraseñaRegistrarse = TxtConfiContraseñaRegistrarse;
+    public void setJPassNueContraResg(JPasswordField JPassNueContraResg) {
+        this.JPassNueContraResg = JPassNueContraResg;
     }
 
-    public JTextField getTxtContraseñaRegistrarse() {
-        return TxtContraseñaRegistrarse;
+    public JLabel getLbApelliResg() {
+        return LbApelliResg;
     }
 
-    public void setTxtContraseñaRegistrarse(JTextField TxtContraseñaRegistrarse) {
-        this.TxtContraseñaRegistrarse = TxtContraseñaRegistrarse;
+    public void setLbApelliResg(JLabel LbApelliResg) {
+        this.LbApelliResg = LbApelliResg;
     }
 
-    public JTextField getTxtNombreRegistrarse() {
-        return TxtNombreRegistrarse;
+    public JLabel getLbCeluResg() {
+        return LbCeluResg;
     }
 
-    public void setTxtNombreRegistrarse(JTextField TxtNombreRegistrarse) {
-        this.TxtNombreRegistrarse = TxtNombreRegistrarse;
+    public void setLbCeluResg(JLabel LbCeluResg) {
+        this.LbCeluResg = LbCeluResg;
     }
 
-    public JTextField getTxtTelefonoRegistrarse() {
-        return TxtTelefonoRegistrarse;
+    public JLabel getLbConfContraResg() {
+        return LbConfContraResg;
     }
 
-    public void setTxtTelefonoRegistrarse(JTextField TxtTelefonoRegistrarse) {
-        this.TxtTelefonoRegistrarse = TxtTelefonoRegistrarse;
+    public void setLbConfContraResg(JLabel LbConfContraResg) {
+        this.LbConfContraResg = LbConfContraResg;
     }
 
-    public JTextField getTxtCorreoRegistrarse() {
-        return TxtCorreoRegistrarse;
+    public JLabel getLbContraResg() {
+        return LbContraResg;
     }
 
-    public void setTxtCorreoRegistrarse(JTextField TxtCorreoRegistrarse) {
-        this.TxtCorreoRegistrarse = TxtCorreoRegistrarse;
+    public void setLbContraResg(JLabel LbContraResg) {
+        this.LbContraResg = LbContraResg;
     }
+
+    public JLabel getLbEmailResg() {
+        return LbEmailResg;
+    }
+
+    public void setLbEmailResg(JLabel LbEmailResg) {
+        this.LbEmailResg = LbEmailResg;
+    }
+
+    public JLabel getLbEspeciaResg() {
+        return LbEspeciaResg;
+    }
+
+    public void setLbEspeciaResg(JLabel LbEspeciaResg) {
+        this.LbEspeciaResg = LbEspeciaResg;
+    }
+
+    public JLabel getLbNomResg() {
+        return LbNomResg;
+    }
+
+    public void setLbNomResg(JLabel LbNomResg) {
+        this.LbNomResg = LbNomResg;
+    }
+
+    public JLabel getLbTituloResg() {
+        return LbTituloResg;
+    }
+
+    public void setLbTituloResg(JLabel LbTituloResg) {
+        this.LbTituloResg = LbTituloResg;
+    }
+
+    public JPanel getPanelDatosResg() {
+        return PanelDatosResg;
+    }
+
+    public void setPanelDatosResg(JPanel PanelDatosResg) {
+        this.PanelDatosResg = PanelDatosResg;
+    }
+
+    public JPanel getPanelIdentifcaResg() {
+        return PanelIdentifcaResg;
+    }
+
+    public void setPanelIdentifcaResg(JPanel PanelIdentifcaResg) {
+        this.PanelIdentifcaResg = PanelIdentifcaResg;
+    }
+
+    public JTextField getTxtApellidoResg() {
+        return TxtApellidoResg;
+    }
+
+    public void setTxtApellidoResg(JTextField TxtApellidoResg) {
+        this.TxtApellidoResg = TxtApellidoResg;
+    }
+
+    public JTextField getTxtCelularResg() {
+        return TxtCelularResg;
+    }
+
+    public void setTxtCelularResg(JTextField TxtCelularResg) {
+        this.TxtCelularResg = TxtCelularResg;
+    }
+
+    public JTextField getTxtEmailResg() {
+        return TxtEmailResg;
+    }
+
+    public void setTxtEmailResg(JTextField TxtEmailResg) {
+        this.TxtEmailResg = TxtEmailResg;
+    }
+
+    public JTextField getTxtEspecialidadResg() {
+        return TxtEspecialidadResg;
+    }
+
+    public void setTxtEspecialidadResg(JTextField TxtEspecialidadResg) {
+        this.TxtEspecialidadResg = TxtEspecialidadResg;
+    }
+
+    public JTextField getTxtIdentiResg() {
+        return TxtIdentiResg;
+    }
+
+    public void setTxtIdentiResg(JTextField TxtIdentiResg) {
+        this.TxtIdentiResg = TxtIdentiResg;
+    }
+
+    public JTextField getTxtNombreResg() {
+        return TxtNombreResg;
+    }
+
+    public void setTxtNombreResg(JTextField TxtNombreResg) {
+        this.TxtNombreResg = TxtNombreResg;
+    }
+
+    public JTextField getTxtTituloResg() {
+        return TxtTituloResg;
+    }
+
+    public void setTxtTituloResg(JTextField TxtTituloResg) {
+        this.TxtTituloResg = TxtTituloResg;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JSeparator getjSeparator10() {
+        return jSeparator10;
+    }
+
+    public void setjSeparator10(JSeparator jSeparator10) {
+        this.jSeparator10 = jSeparator10;
+    }
+
+    public JSeparator getjSeparator11() {
+        return jSeparator11;
+    }
+
+    public void setjSeparator11(JSeparator jSeparator11) {
+        this.jSeparator11 = jSeparator11;
+    }
+
+    public JSeparator getjSeparator12() {
+        return jSeparator12;
+    }
+
+    public void setjSeparator12(JSeparator jSeparator12) {
+        this.jSeparator12 = jSeparator12;
+    }
+
+    public JSeparator getjSeparator4() {
+        return jSeparator4;
+    }
+
+    public void setjSeparator4(JSeparator jSeparator4) {
+        this.jSeparator4 = jSeparator4;
+    }
+
+    public JSeparator getjSeparator5() {
+        return jSeparator5;
+    }
+
+    public void setjSeparator5(JSeparator jSeparator5) {
+        this.jSeparator5 = jSeparator5;
+    }
+
+    public JSeparator getjSeparator6() {
+        return jSeparator6;
+    }
+
+    public void setjSeparator6(JSeparator jSeparator6) {
+        this.jSeparator6 = jSeparator6;
+    }
+
+    public JSeparator getjSeparator7() {
+        return jSeparator7;
+    }
+
+    public void setjSeparator7(JSeparator jSeparator7) {
+        this.jSeparator7 = jSeparator7;
+    }
+
+    public JSeparator getjSeparator8() {
+        return jSeparator8;
+    }
+
+    public void setjSeparator8(JSeparator jSeparator8) {
+        this.jSeparator8 = jSeparator8;
+    }
+
+    public JSeparator getjSeparator9() {
+        return jSeparator9;
+    }
+
+    public void setjSeparator9(JSeparator jSeparator9) {
+        this.jSeparator9 = jSeparator9;
+    }
+
     
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -99,31 +311,37 @@ public class FrmRegistrarse extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        TxtCedulaRegistrarse = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel6 = new javax.swing.JLabel();
-        TxtNombreRegistrarse = new javax.swing.JTextField();
-        TxtApellidoRegistrarse = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        TxtTelefonoRegistrarse = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        TxtContraseñaRegistrarse = new javax.swing.JTextField();
-        jSeparator7 = new javax.swing.JSeparator();
-        jLabel10 = new javax.swing.JLabel();
-        TxtConfiContraseñaRegistrarse = new javax.swing.JTextField();
         BtnRegistrarse = new javax.swing.JButton();
+        PanelDatosResg = new javax.swing.JPanel();
+        LbEspeciaResg = new javax.swing.JLabel();
+        LbCeluResg = new javax.swing.JLabel();
+        LbTituloResg = new javax.swing.JLabel();
+        LbContraResg = new javax.swing.JLabel();
+        LbNomResg = new javax.swing.JLabel();
+        LbApelliResg = new javax.swing.JLabel();
+        LbEmailResg = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        TxtNombreResg = new javax.swing.JTextField();
+        jSeparator6 = new javax.swing.JSeparator();
+        TxtApellidoResg = new javax.swing.JTextField();
+        TxtEspecialidadResg = new javax.swing.JTextField();
+        jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
+        TxtCelularResg = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
+        TxtTituloResg = new javax.swing.JTextField();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
+        TxtEmailResg = new javax.swing.JTextField();
+        JPassContraResg = new javax.swing.JPasswordField();
+        LbConfContraResg = new javax.swing.JLabel();
+        JPassNueContraResg = new javax.swing.JPasswordField();
         jSeparator12 = new javax.swing.JSeparator();
-        jLabel11 = new javax.swing.JLabel();
-        TxtCorreoRegistrarse = new javax.swing.JTextField();
-        jSeparator13 = new javax.swing.JSeparator();
+        PanelIdentifcaResg = new javax.swing.JPanel();
+        TxtIdentiResg = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        JLIdentficacionResg = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,232 +350,124 @@ public class FrmRegistrarse extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel5.setText("Cédula:");
-
-        TxtCedulaRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TxtCedulaRegistrarse.setBorder(null);
-        TxtCedulaRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtCedulaRegistrarseActionPerformed(evt);
-            }
-        });
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REGISTRARSE", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 24))); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Logo_Instituto.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 320, 100));
 
-        jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 36)); // NOI18N
-        jLabel4.setText("Registrarse");
-
-        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel6.setText("Nombre:");
-
-        TxtNombreRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TxtNombreRegistrarse.setBorder(null);
-        TxtNombreRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtNombreRegistrarseActionPerformed(evt);
-            }
-        });
-
-        TxtApellidoRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TxtApellidoRegistrarse.setBorder(null);
-        TxtApellidoRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtApellidoRegistrarseActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel8.setText("Apellido:");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel7.setText("Teléfono:");
-
-        TxtTelefonoRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TxtTelefonoRegistrarse.setBorder(null);
-        TxtTelefonoRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtTelefonoRegistrarseActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel9.setText("Contraseña:");
-
-        TxtContraseñaRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TxtContraseñaRegistrarse.setBorder(null);
-        TxtContraseñaRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtContraseñaRegistrarseActionPerformed(evt);
-            }
-        });
-
-        jSeparator7.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel10.setText("Confirmar Contraseña:");
-
-        TxtConfiContraseñaRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TxtConfiContraseñaRegistrarse.setBorder(null);
-        TxtConfiContraseñaRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtConfiContraseñaRegistrarseActionPerformed(evt);
-            }
-        });
-
-        BtnRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        BtnRegistrarse.setText("Registrarse");
+        BtnRegistrarse.setFont(new java.awt.Font("Rockwell Nova", 1, 14)); // NOI18N
+        BtnRegistrarse.setText("REGISTRARSE");
         BtnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnRegistrarseActionPerformed(evt);
             }
         });
+        jPanel1.add(BtnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 530, 190, 30));
 
-        jSeparator8.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
+        PanelDatosResg.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDatosResg.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
+        PanelDatosResg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jSeparator9.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
+        LbEspeciaResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
+        LbEspeciaResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbEspeciaResg.setText("Especialidad:");
+        PanelDatosResg.add(LbEspeciaResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
-        jSeparator10.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
+        LbCeluResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
+        LbCeluResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbCeluResg.setText("Celular:");
+        PanelDatosResg.add(LbCeluResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, -1));
 
-        jSeparator11.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
+        LbTituloResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
+        LbTituloResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbTituloResg.setText("Titulo:");
+        PanelDatosResg.add(LbTituloResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 100, -1));
 
-        jSeparator12.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
+        LbContraResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
+        LbContraResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbContraResg.setText("Contraseña:");
+        PanelDatosResg.add(LbContraResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel11.setText("Correo:");
+        LbNomResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
+        LbNomResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbNomResg.setText("Nombre:");
+        PanelDatosResg.add(LbNomResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 110, -1));
 
-        TxtCorreoRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TxtCorreoRegistrarse.setBorder(null);
-        TxtCorreoRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtCorreoRegistrarseActionPerformed(evt);
-            }
-        });
+        LbApelliResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
+        LbApelliResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbApelliResg.setText("Apellido:");
+        PanelDatosResg.add(LbApelliResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 100, -1));
 
-        jSeparator13.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator13.setForeground(new java.awt.Color(0, 0, 0));
+        LbEmailResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
+        LbEmailResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbEmailResg.setText("Email:");
+        PanelDatosResg.add(LbEmailResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 110, -1));
+        PanelDatosResg.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 200, 10));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(249, 249, 249)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator8)
-                    .addComponent(jLabel5)
-                    .addComponent(TxtCedulaRegistrarse)
-                    .addComponent(TxtApellidoRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                    .addComponent(jLabel6)
-                    .addComponent(TxtNombreRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                    .addComponent(jLabel8)
-                    .addComponent(jSeparator9, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7)
-                    .addComponent(TxtTelefonoRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                    .addComponent(jLabel9)
-                    .addComponent(TxtContraseñaRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                    .addComponent(jLabel10)
-                    .addComponent(TxtConfiContraseñaRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                    .addComponent(jSeparator11)
-                    .addComponent(jSeparator12)
-                    .addComponent(jSeparator7))
-                .addGap(185, 185, 185))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TxtCorreoRegistrarse)
-                    .addComponent(jLabel11)
-                    .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(BtnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(326, 326, 326))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(TxtCedulaRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(TxtTelefonoRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(TxtNombreRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(TxtContraseñaRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(TxtApellidoRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(TxtConfiContraseñaRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator10, javax.swing.GroupLayout.DEFAULT_SIZE, 10, Short.MAX_VALUE)
-                    .addComponent(jSeparator7))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(TxtCorreoRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(BtnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        TxtNombreResg.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        TxtNombreResg.setBorder(null);
+        PanelDatosResg.add(TxtNombreResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 200, 20));
+        PanelDatosResg.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 200, 10));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 1020, 580));
+        TxtApellidoResg.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        TxtApellidoResg.setBorder(null);
+        PanelDatosResg.add(TxtApellidoResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, 200, 20));
+
+        TxtEspecialidadResg.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        TxtEspecialidadResg.setBorder(null);
+        PanelDatosResg.add(TxtEspecialidadResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 200, 20));
+        PanelDatosResg.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 200, 10));
+        PanelDatosResg.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, 200, 10));
+
+        TxtCelularResg.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        TxtCelularResg.setBorder(null);
+        PanelDatosResg.add(TxtCelularResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 190, 200, 20));
+        PanelDatosResg.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 200, 10));
+
+        TxtTituloResg.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        TxtTituloResg.setBorder(null);
+        PanelDatosResg.add(TxtTituloResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 200, 20));
+        PanelDatosResg.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 200, 10));
+        PanelDatosResg.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 200, 10));
+
+        TxtEmailResg.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        TxtEmailResg.setBorder(null);
+        PanelDatosResg.add(TxtEmailResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 200, 20));
+
+        JPassContraResg.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        JPassContraResg.setBorder(null);
+        PanelDatosResg.add(JPassContraResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 200, 20));
+
+        LbConfContraResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
+        LbConfContraResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbConfContraResg.setText("Confirmar Contraseña:");
+        PanelDatosResg.add(LbConfContraResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
+
+        JPassNueContraResg.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        JPassNueContraResg.setBorder(null);
+        PanelDatosResg.add(JPassNueContraResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, 200, 20));
+        PanelDatosResg.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 200, 10));
+
+        PanelIdentifcaResg.setBackground(new java.awt.Color(255, 255, 255));
+        PanelIdentifcaResg.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Identificación", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
+        PanelIdentifcaResg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TxtIdentiResg.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        TxtIdentiResg.setBorder(null);
+        PanelIdentifcaResg.add(TxtIdentiResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 280, 20));
+        PanelIdentifcaResg.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 280, 10));
+
+        JLIdentficacionResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
+        JLIdentficacionResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLIdentficacionResg.setText("Cedula:");
+        PanelIdentifcaResg.add(JLIdentficacionResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        PanelDatosResg.add(PanelIdentifcaResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 400, 60));
+
+        jPanel1.add(PanelDatosResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 960, 400));
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 1020, 580));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo Login Medida Exacta.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -375,34 +485,6 @@ public class FrmRegistrarse extends javax.swing.JFrame {
     private void BtnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistrarseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnRegistrarseActionPerformed
-
-    private void TxtConfiContraseñaRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtConfiContraseñaRegistrarseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtConfiContraseñaRegistrarseActionPerformed
-
-    private void TxtContraseñaRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtContraseñaRegistrarseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtContraseñaRegistrarseActionPerformed
-
-    private void TxtTelefonoRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTelefonoRegistrarseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtTelefonoRegistrarseActionPerformed
-
-    private void TxtApellidoRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtApellidoRegistrarseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtApellidoRegistrarseActionPerformed
-
-    private void TxtNombreRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNombreRegistrarseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtNombreRegistrarseActionPerformed
-
-    private void TxtCedulaRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCedulaRegistrarseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtCedulaRegistrarseActionPerformed
-
-    private void TxtCorreoRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCorreoRegistrarseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtCorreoRegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -430,6 +512,7 @@ public class FrmRegistrarse extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmRegistrarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -441,30 +524,36 @@ public class FrmRegistrarse extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegistrarse;
-    private javax.swing.JTextField TxtApellidoRegistrarse;
-    private javax.swing.JTextField TxtCedulaRegistrarse;
-    private javax.swing.JTextField TxtConfiContraseñaRegistrarse;
-    private javax.swing.JTextField TxtContraseñaRegistrarse;
-    private javax.swing.JTextField TxtCorreoRegistrarse;
-    private javax.swing.JTextField TxtNombreRegistrarse;
-    private javax.swing.JTextField TxtTelefonoRegistrarse;
+    public javax.swing.JLabel JLIdentficacionResg;
+    private javax.swing.JPasswordField JPassContraResg;
+    private javax.swing.JPasswordField JPassNueContraResg;
+    public javax.swing.JLabel LbApelliResg;
+    public javax.swing.JLabel LbCeluResg;
+    public javax.swing.JLabel LbConfContraResg;
+    public javax.swing.JLabel LbContraResg;
+    public javax.swing.JLabel LbEmailResg;
+    public javax.swing.JLabel LbEspeciaResg;
+    public javax.swing.JLabel LbNomResg;
+    public javax.swing.JLabel LbTituloResg;
+    private javax.swing.JPanel PanelDatosResg;
+    private javax.swing.JPanel PanelIdentifcaResg;
+    public javax.swing.JTextField TxtApellidoResg;
+    public javax.swing.JTextField TxtCelularResg;
+    public javax.swing.JTextField TxtEmailResg;
+    public javax.swing.JTextField TxtEspecialidadResg;
+    public javax.swing.JTextField TxtIdentiResg;
+    public javax.swing.JTextField TxtNombreResg;
+    public javax.swing.JTextField TxtTituloResg;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
-    private javax.swing.JSeparator jSeparator13;
-    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;

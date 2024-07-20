@@ -6,7 +6,9 @@ package Vista;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
 
 /**
  *
@@ -42,7 +44,7 @@ public class FrmLogin extends javax.swing.JFrame {
         return TxtContraseñaLogin;
     }
 
-    public void setTxtContraseñaLogin(JTextField TxtContraseñaLogin) {
+    public void setTxtContraseñaLogin(JPasswordField TxtContraseñaLogin) {
         this.TxtContraseñaLogin = TxtContraseñaLogin;
     }
 
@@ -53,8 +55,8 @@ public class FrmLogin extends javax.swing.JFrame {
     public void setTxtLabelRegistrarBtn(JLabel TxtLabelRegistrarBtn) {
         this.TxtLabelRegistrarBtn = TxtLabelRegistrarBtn;
     }
-    
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,8 +72,8 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         TxtLabelRegistrarBtn = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        TxtContraseñaLogin = new javax.swing.JPasswordField();
         BtnIniciarSesion = new javax.swing.JButton();
-        TxtContraseñaLogin = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         TxtCedulaCorreoLogin = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
@@ -111,14 +113,11 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Contraseña");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 360, 140, 20));
+        jPanel1.add(TxtContraseñaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 270, 30));
 
         BtnIniciarSesion.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         BtnIniciarSesion.setText("ACEPTAR");
         jPanel1.add(BtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 450, 140, 30));
-
-        TxtContraseñaLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TxtContraseñaLogin.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(TxtContraseñaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 270, 30));
 
         jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
@@ -212,7 +211,7 @@ public class FrmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnIniciarSesion;
     private javax.swing.JTextField TxtCedulaCorreoLogin;
-    private javax.swing.JTextField TxtContraseñaLogin;
+    private javax.swing.JPasswordField TxtContraseñaLogin;
     private javax.swing.JLabel TxtLabelRegistrarBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
