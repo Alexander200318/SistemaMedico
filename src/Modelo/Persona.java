@@ -4,56 +4,74 @@
  */
 package Modelo;
 
-import java.sql.Date; 
+import java.sql.Blob;
+import java.sql.Date;
 
-/**
- *
- * @author alexa
- */
 public class Persona {
-     private int idPersona;
-         private String cedula;
 
-    private String nombre;
-    private String apellido;
-    private Date fechaNacimiento;
-    private String tipoPersona;
-    private String carrera;
-    private int ciclo;
-    private String direccionDomicilio;
+    private int idPersona;
+    private String identificacion;
+    private String primNombre;
+    private String segNombre;
+    private String primApellido;
+    private String segApellido;
+    private String email;
+    private String direccion;
     private String barrio;
-    private String parroquia;
     private String canton;
     private String provincia;
     private String telefono;
+    private Date fechaNacimiento;
+    private String lugar;
     private String pais;
-    private int edad;
     private String genero;
     private String estadoCivil;
-    private String tipoSangre;
+    private String sexo;
+    private Blob foto;
+    private String etnia;
+    private Date fechaRegistro;
+    private String carnetConadis;
+    private boolean discapacidad;
+    private String tipoDiscapacidad;
+    private int porctDiscapacidad;
+    private String contactoEmergencia;
+    private boolean estadoActivo;
 
-    public Persona(int idPersona, String cedula, String nombre, String apellido, Date fechaNacimiento, String tipoPersona, String carrera, int ciclo, String direccionDomicilio, String barrio, String parroquia, String canton, String provincia, String telefono, String pais, int edad, String genero, String estadoCivil, String tipoSangre) {
+    // Constructor
+    public Persona(int idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo) {
         this.idPersona = idPersona;
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.tipoPersona = tipoPersona;
-        this.carrera = carrera;
-        this.ciclo = ciclo;
-        this.direccionDomicilio = direccionDomicilio;
+        this.identificacion = identificacion;
+        this.primNombre = primNombre;
+        this.segNombre = segNombre;
+        this.primApellido = primApellido;
+        this.segApellido = segApellido;
+        this.email = email;
+        this.direccion = direccion;
         this.barrio = barrio;
-        this.parroquia = parroquia;
         this.canton = canton;
         this.provincia = provincia;
         this.telefono = telefono;
+        this.fechaNacimiento = fechaNacimiento;
+        this.lugar = lugar;
         this.pais = pais;
-        this.edad = edad;
         this.genero = genero;
         this.estadoCivil = estadoCivil;
-        this.tipoSangre = tipoSangre;
+        this.sexo = sexo;
+        this.foto = foto;
+        this.etnia = etnia;
+        this.fechaRegistro = fechaRegistro;
+        this.carnetConadis = carnetConadis;
+        this.discapacidad = discapacidad;
+        this.tipoDiscapacidad = tipoDiscapacidad;
+        this.porctDiscapacidad = porctDiscapacidad;
+        this.contactoEmergencia = contactoEmergencia;
+        this.estadoActivo = estadoActivo;
     }
 
+    public Persona() {
+    }
+
+    // Getters y Setters
     public int getIdPersona() {
         return idPersona;
     }
@@ -62,68 +80,60 @@ public class Persona {
         this.idPersona = idPersona;
     }
 
-    public String getCedula() {
-        return cedula;
+    public String getIdentificacion() {
+        return identificacion;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getPrimNombre() {
+        return primNombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setPrimNombre(String primNombre) {
+        this.primNombre = primNombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getSegNombre() {
+        return segNombre;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setSegNombre(String segNombre) {
+        this.segNombre = segNombre;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
+    public String getPrimApellido() {
+        return primApellido;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setPrimApellido(String primApellido) {
+        this.primApellido = primApellido;
     }
 
-    public String getTipoPersona() {
-        return tipoPersona;
+    public String getSegApellido() {
+        return segApellido;
     }
 
-    public void setTipoPersona(String tipoPersona) {
-        this.tipoPersona = tipoPersona;
+    public void setSegApellido(String segApellido) {
+        this.segApellido = segApellido;
     }
 
-    public String getCarrera() {
-        return carrera;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCarrera(String carrera) {
-        this.carrera = carrera;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public int getCiclo() {
-        return ciclo;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setCiclo(int ciclo) {
-        this.ciclo = ciclo;
-    }
-
-    public String getDireccionDomicilio() {
-        return direccionDomicilio;
-    }
-
-    public void setDireccionDomicilio(String direccionDomicilio) {
-        this.direccionDomicilio = direccionDomicilio;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getBarrio() {
@@ -132,14 +142,6 @@ public class Persona {
 
     public void setBarrio(String barrio) {
         this.barrio = barrio;
-    }
-
-    public String getParroquia() {
-        return parroquia;
-    }
-
-    public void setParroquia(String parroquia) {
-        this.parroquia = parroquia;
     }
 
     public String getCanton() {
@@ -166,20 +168,28 @@ public class Persona {
         this.telefono = telefono;
     }
 
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
+
     public String getPais() {
         return pais;
     }
 
     public void setPais(String pais) {
         this.pais = pais;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     public String getGenero() {
@@ -198,15 +208,116 @@ public class Persona {
         this.estadoCivil = estadoCivil;
     }
 
-    public String getTipoSangre() {
-        return tipoSangre;
+    public String getSexo() {
+        return sexo;
     }
 
-    public void setTipoSangre(String tipoSangre) {
-        this.tipoSangre = tipoSangre;
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
-    
-    
-    
-    
+
+    public Blob getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Blob foto) {
+        this.foto = foto;
+    }
+
+    public String getEtnia() {
+        return etnia;
+    }
+
+    public void setEtnia(String etnia) {
+        this.etnia = etnia;
+    }
+
+    public Date getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(Date fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    public String getCarnetConadis() {
+        return carnetConadis;
+    }
+
+    public void setCarnetConadis(String carnetConadis) {
+        this.carnetConadis = carnetConadis;
+    }
+
+    public boolean isDiscapacidad() {
+        return discapacidad;
+    }
+
+    public void setDiscapacidad(boolean discapacidad) {
+        this.discapacidad = discapacidad;
+    }
+
+    public String getTipoDiscapacidad() {
+        return tipoDiscapacidad;
+    }
+
+    public void setTipoDiscapacidad(String tipoDiscapacidad) {
+        this.tipoDiscapacidad = tipoDiscapacidad;
+    }
+
+    public int getPorctDiscapacidad() {
+        return porctDiscapacidad;
+    }
+
+    public void setPorctDiscapacidad(int porctDiscapacidad) {
+        this.porctDiscapacidad = porctDiscapacidad;
+    }
+
+    public String getContactoEmergencia() {
+        return contactoEmergencia;
+    }
+
+    public void setContactoEmergencia(String contactoEmergencia) {
+        this.contactoEmergencia = contactoEmergencia;
+    }
+
+    public boolean isEstadoActivo() {
+        return estadoActivo;
+    }
+
+    public void setEstadoActivo(boolean estadoActivo) {
+        this.estadoActivo = estadoActivo;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "idPersona=" + idPersona +
+                ", identificacion='" + identificacion + '\'' +
+                ", primNombre='" + primNombre + '\'' +
+                ", segNombre='" + segNombre + '\'' +
+                ", primApellido='" + primApellido + '\'' +
+                ", segApellido='" + segApellido + '\'' +
+                ", email='" + email + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", barrio='" + barrio + '\'' +
+                ", canton='" + canton + '\'' +
+                ", provincia='" + provincia + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", lugar='" + lugar + '\'' +
+                ", pais='" + pais + '\'' +
+                ", genero='" + genero + '\'' +
+                ", estadoCivil='" + estadoCivil + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", foto=" + foto +
+                ", etnia='" + etnia + '\'' +
+                ", fechaRegistro=" + fechaRegistro +
+                ", carnetConadis='" + carnetConadis + '\'' +
+                ", discapacidad=" + discapacidad +
+                ", tipoDiscapacidad='" + tipoDiscapacidad + '\'' +
+                ", porctDiscapacidad=" + porctDiscapacidad +
+                ", contactoEmergencia='" + contactoEmergencia + '\'' +
+                ", estadoActivo=" + estadoActivo +
+                '}';
+    }
 }

@@ -33,14 +33,6 @@ public class FrmRegistrarse extends javax.swing.JFrame {
         this.BtnRegistrarse = BtnRegistrarse;
     }
 
-    public JLabel getJLIdentficacionResg() {
-        return JLIdentficacionResg;
-    }
-
-    public void setJLIdentficacionResg(JLabel JLIdentficacionResg) {
-        this.JLIdentficacionResg = JLIdentficacionResg;
-    }
-
     public JPasswordField getJPassContraResg() {
         return JPassContraResg;
     }
@@ -55,86 +47,6 @@ public class FrmRegistrarse extends javax.swing.JFrame {
 
     public void setJPassNueContraResg(JPasswordField JPassNueContraResg) {
         this.JPassNueContraResg = JPassNueContraResg;
-    }
-
-    public JLabel getLbApelliResg() {
-        return LbApelliResg;
-    }
-
-    public void setLbApelliResg(JLabel LbApelliResg) {
-        this.LbApelliResg = LbApelliResg;
-    }
-
-    public JLabel getLbCeluResg() {
-        return LbCeluResg;
-    }
-
-    public void setLbCeluResg(JLabel LbCeluResg) {
-        this.LbCeluResg = LbCeluResg;
-    }
-
-    public JLabel getLbConfContraResg() {
-        return LbConfContraResg;
-    }
-
-    public void setLbConfContraResg(JLabel LbConfContraResg) {
-        this.LbConfContraResg = LbConfContraResg;
-    }
-
-    public JLabel getLbContraResg() {
-        return LbContraResg;
-    }
-
-    public void setLbContraResg(JLabel LbContraResg) {
-        this.LbContraResg = LbContraResg;
-    }
-
-    public JLabel getLbEmailResg() {
-        return LbEmailResg;
-    }
-
-    public void setLbEmailResg(JLabel LbEmailResg) {
-        this.LbEmailResg = LbEmailResg;
-    }
-
-    public JLabel getLbEspeciaResg() {
-        return LbEspeciaResg;
-    }
-
-    public void setLbEspeciaResg(JLabel LbEspeciaResg) {
-        this.LbEspeciaResg = LbEspeciaResg;
-    }
-
-    public JLabel getLbNomResg() {
-        return LbNomResg;
-    }
-
-    public void setLbNomResg(JLabel LbNomResg) {
-        this.LbNomResg = LbNomResg;
-    }
-
-    public JLabel getLbTituloResg() {
-        return LbTituloResg;
-    }
-
-    public void setLbTituloResg(JLabel LbTituloResg) {
-        this.LbTituloResg = LbTituloResg;
-    }
-
-    public JPanel getPanelDatosResg() {
-        return PanelDatosResg;
-    }
-
-    public void setPanelDatosResg(JPanel PanelDatosResg) {
-        this.PanelDatosResg = PanelDatosResg;
-    }
-
-    public JPanel getPanelIdentifcaResg() {
-        return PanelIdentifcaResg;
-    }
-
-    public void setPanelIdentifcaResg(JPanel PanelIdentifcaResg) {
-        this.PanelIdentifcaResg = PanelIdentifcaResg;
     }
 
     public JTextField getTxtApellidoResg() {
@@ -193,111 +105,7 @@ public class FrmRegistrarse extends javax.swing.JFrame {
         this.TxtTituloResg = TxtTituloResg;
     }
 
-    public JLabel getjLabel1() {
-        return jLabel1;
-    }
-
-    public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
-    }
-
-    public JLabel getjLabel2() {
-        return jLabel2;
-    }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
-    }
-
-    public JPanel getjPanel1() {
-        return jPanel1;
-    }
-
-    public void setjPanel1(JPanel jPanel1) {
-        this.jPanel1 = jPanel1;
-    }
-
-    public JPanel getjPanel2() {
-        return jPanel2;
-    }
-
-    public void setjPanel2(JPanel jPanel2) {
-        this.jPanel2 = jPanel2;
-    }
-
-    public JSeparator getjSeparator10() {
-        return jSeparator10;
-    }
-
-    public void setjSeparator10(JSeparator jSeparator10) {
-        this.jSeparator10 = jSeparator10;
-    }
-
-    public JSeparator getjSeparator11() {
-        return jSeparator11;
-    }
-
-    public void setjSeparator11(JSeparator jSeparator11) {
-        this.jSeparator11 = jSeparator11;
-    }
-
-    public JSeparator getjSeparator12() {
-        return jSeparator12;
-    }
-
-    public void setjSeparator12(JSeparator jSeparator12) {
-        this.jSeparator12 = jSeparator12;
-    }
-
-    public JSeparator getjSeparator4() {
-        return jSeparator4;
-    }
-
-    public void setjSeparator4(JSeparator jSeparator4) {
-        this.jSeparator4 = jSeparator4;
-    }
-
-    public JSeparator getjSeparator5() {
-        return jSeparator5;
-    }
-
-    public void setjSeparator5(JSeparator jSeparator5) {
-        this.jSeparator5 = jSeparator5;
-    }
-
-    public JSeparator getjSeparator6() {
-        return jSeparator6;
-    }
-
-    public void setjSeparator6(JSeparator jSeparator6) {
-        this.jSeparator6 = jSeparator6;
-    }
-
-    public JSeparator getjSeparator7() {
-        return jSeparator7;
-    }
-
-    public void setjSeparator7(JSeparator jSeparator7) {
-        this.jSeparator7 = jSeparator7;
-    }
-
-    public JSeparator getjSeparator8() {
-        return jSeparator8;
-    }
-
-    public void setjSeparator8(JSeparator jSeparator8) {
-        this.jSeparator8 = jSeparator8;
-    }
-
-    public JSeparator getjSeparator9() {
-        return jSeparator9;
-    }
-
-    public void setjSeparator9(JSeparator jSeparator9) {
-        this.jSeparator9 = jSeparator9;
-    }
-
-    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.

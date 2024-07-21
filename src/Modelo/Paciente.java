@@ -4,20 +4,25 @@
  */
 package Modelo;
 
+import com.mysql.cj.jdbc.Blob;
 import java.sql.Date; 
 
 /**
  *
  * @author alexa
  */
-public class Paciente extends Persona{
+import java.sql.Date;
+
+public class Paciente extends Persona {
     private String tipoPaciente;
 
-    public Paciente(int idPersona, String cedula, String nombre, String apellido, Date fechaNacimiento, String tipoPersona, String carrera, int ciclo, String direccionDomicilio, String barrio, String parroquia, String canton, String provincia, String telefono, String pais, int edad, String genero, String estadoCivil, String tipoSangre, String tipoPaciente ) {
-        super(idPersona, cedula, nombre, apellido, fechaNacimiento, tipoPersona, carrera, ciclo, direccionDomicilio, barrio, parroquia, canton, provincia, telefono, pais, edad, genero, estadoCivil, tipoSangre);
+    // Constructor
+    public Paciente(int idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo, String tipoPaciente) {
+        super(idPersona, identificacion, primNombre, segNombre, primApellido, segApellido, email, direccion, barrio, canton, provincia, telefono, fechaNacimiento, lugar, pais, genero, estadoCivil, sexo, foto, etnia, fechaRegistro, carnetConadis, discapacidad, tipoDiscapacidad, porctDiscapacidad, contactoEmergencia, estadoActivo);
         this.tipoPaciente = tipoPaciente;
     }
 
+    // Getter y Setter para tipoPaciente
     public String getTipoPaciente() {
         return tipoPaciente;
     }
@@ -25,8 +30,5 @@ public class Paciente extends Persona{
     public void setTipoPaciente(String tipoPaciente) {
         this.tipoPaciente = tipoPaciente;
     }
-    
-    
-  
-    
 }
+

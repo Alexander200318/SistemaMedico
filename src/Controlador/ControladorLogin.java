@@ -17,7 +17,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
 
 public class ControladorLogin implements ActionListener {
@@ -49,21 +48,24 @@ public class ControladorLogin implements ActionListener {
 
     private void iniciarSesion() {
         String cedulaCorreo = loginForm.getTxtCedulaCorreoLogin().getText();
-        String contraseña = loginForm.getTxtContraseñaLogin().getText();
+        char[] passwordChars = loginForm.getPasswordContraseñaLogin().getPassword();
+        String contraseña = new String(passwordChars);
 
         if (validarCredenciales(cedulaCorreo, contraseña)) {
             FrmPantallaPrincipal frmPantallaPrincipal = new FrmPantallaPrincipal();
             frmPantallaPrincipal.setVisible(true);
             loginForm.dispose();
         } else {
-            JOptionPane.showMessageDialog(loginForm, "Usuario o contraseña incorrectos", "Error de Autenticación", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(loginForm, "Cédula, correo o contraseña incorrectos, o el usuario no es un doctor registrado", "Error de Autenticación", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private boolean validarCredenciales(String cedulaCorreo, String contraseña) {
         Conexion conexion = new Conexion();
         Connection con = conexion.getConexion();
-        String sql = "SELECT * FROM usuario WHERE (cedula = ? OR correo_electronico = ?) AND contraseña = ?";
+        String sql = "SELECT d.Id_Doctor FROM Persona p " +
+                     "JOIN Doctor d ON p.Id_Persona = d.Id_Persona " +
+                     "WHERE (p.Identificacion = ? OR p.Email = ?) AND d.Contrasena = ? AND d.Doc_Est_Activo = true";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -73,7 +75,7 @@ public class ControladorLogin implements ActionListener {
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return true;
+                return true; 
             }
         } catch (SQLException e) {
             System.err.println(e);
@@ -84,12 +86,12 @@ public class ControladorLogin implements ActionListener {
                 System.err.println(e);
             }
         }
-        return false;
+        return false; 
     }
 
     private void abrirFormularioRegistro() {
         FrmRegistrarse frmRegistrarse = new FrmRegistrarse();
-        ControladorRegistro controladorRegistro = new ControladorRegistro(frmRegistrarse);
+        ControladorRegistro controladorRegistro = new ControladorRegistro(frmRegistrarse, loginForm);
         frmRegistrarse.setVisible(true);
         loginForm.dispose();
     }
