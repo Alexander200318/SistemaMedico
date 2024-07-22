@@ -54,11 +54,11 @@ public class REGISTRO_PACIENTE extends javax.swing.JPanel {
     }
 
     public JTextField getText_Direcion_pac() {
-        return text_Direcion_pac;
+        return text_Parroquia_pac;
     }
 
     public void setText_Direcion_pac(JTextField text_Direcion_pac) {
-        this.text_Direcion_pac = text_Direcion_pac;
+        this.text_Parroquia_pac = text_Direcion_pac;
     }
 
     public JTextField getText_Nombre_pac() {
@@ -124,7 +124,7 @@ public class REGISTRO_PACIENTE extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         text_Apellido_pac = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        text_Direcion_pac = new javax.swing.JTextField();
+        text_Parroquia_pac = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         text_Canton_pac = new javax.swing.JTextField();
@@ -134,6 +134,34 @@ public class REGISTRO_PACIENTE extends javax.swing.JPanel {
         text_Direccion_pac = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         Btn_Guardar_pac = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        text_Barrio_pac = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        text_Provincia_pac = new javax.swing.JTextField();
+        text_Apellido_pac1 = new javax.swing.JTextField();
+        text_Ciclo_pac1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        text_Fecha_Nacim_pac = new javax.swing.JTextField();
+        text_Lugar_pac = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
         setAutoscrolls(true);
         setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
@@ -142,41 +170,59 @@ public class REGISTRO_PACIENTE extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(980, 660));
         setPreferredSize(new java.awt.Dimension(980, 660));
 
-        jLabel9.setText("Cedula:");
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setText("Edad:");
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 100, 40, 20));
 
         text_Cedula_pac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 text_Cedula_pacActionPerformed(evt);
             }
         });
+        panelRound1.add(text_Cedula_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 130, -1));
+        panelRound1.add(text_Nombre_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 130, 20));
 
         text_Pais_pac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 text_Pais_pacActionPerformed(evt);
             }
         });
+        panelRound1.add(text_Pais_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 130, -1));
 
-        jLabel10.setText("Apellido:");
+        jLabel10.setText("Apellidos:");
+        panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 60, 20));
+        panelRound1.add(text_Apellido_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 130, -1));
 
-        jLabel11.setText("Telefono:");
+        jLabel11.setText("Barrio:");
+        panelRound1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 60, 20));
+        panelRound1.add(text_Parroquia_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 130, -1));
 
-        jLabel12.setText("Pais:");
+        jLabel12.setText("Provincia:");
+        panelRound1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 70, -1, 20));
 
-        jLabel13.setText("Direccion:");
+        jLabel13.setText("Dirección:");
+        panelRound1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 60, 20));
 
         text_Canton_pac.setToolTipText("");
+        panelRound1.add(text_Canton_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 70, 130, -1));
 
-        jLabel14.setText("Direcion:");
+        jLabel14.setText("Parroquia:");
+        panelRound1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 60, 20));
+        panelRound1.add(text_Telefono_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 130, -1));
 
-        jLabel15.setText("Nombre:");
+        jLabel15.setText("Nombres:");
+        panelRound1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 60, 20));
 
         text_Direccion_pac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 text_Direccion_pacActionPerformed(evt);
             }
         });
+        panelRound1.add(text_Direccion_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 130, -1));
 
-        jLabel16.setText("Canton");
+        jLabel16.setText("Cantón:");
+        panelRound1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 60, 20));
 
         Btn_Guardar_pac.setText("Guardar");
         Btn_Guardar_pac.addActionListener(new java.awt.event.ActionListener() {
@@ -184,89 +230,107 @@ public class REGISTRO_PACIENTE extends javax.swing.JPanel {
                 Btn_Guardar_pacActionPerformed(evt);
             }
         });
+        panelRound1.add(Btn_Guardar_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 553, -1, -1));
 
-        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
-        panelRound1.setLayout(panelRound1Layout);
-        panelRound1Layout.setHorizontalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelRound1Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(text_Cedula_pac, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelRound1Layout.createSequentialGroup()
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(text_Nombre_pac, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelRound1Layout.createSequentialGroup()
-                                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(text_Direccion_pac, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(text_Apellido_pac, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(text_Telefono_pac, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(text_Direcion_pac, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(text_Pais_pac, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(text_Canton_pac, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addGap(415, 415, 415)
-                        .addComponent(Btn_Guardar_pac)))
-                .addContainerGap(423, Short.MAX_VALUE))
-        );
-        panelRound1Layout.setVerticalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(text_Cedula_pac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(text_Nombre_pac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(text_Apellido_pac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(text_Direccion_pac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(text_Telefono_pac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(text_Direcion_pac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addGap(38, 38, 38)
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_Pais_pac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addGap(26, 26, 26)
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(text_Canton_pac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGap(60, 60, 60)
-                .addComponent(Btn_Guardar_pac)
-                .addContainerGap(382, Short.MAX_VALUE))
-        );
+        jLabel17.setText("Cedula:");
+        panelRound1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, -1));
+
+        jLabel18.setText("Carrera:");
+        panelRound1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 50, 20));
+
+        jLabel19.setText("Ciclo:");
+        panelRound1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 40, 60, 20));
+
+        jLabel20.setText("Género:");
+        panelRound1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 60, 20));
+
+        text_Barrio_pac.setToolTipText("");
+        panelRound1.add(text_Barrio_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 130, -1));
+
+        jLabel21.setText("Teléfono:");
+        panelRound1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 60, 20));
+
+        jLabel22.setText("F Nacim:");
+        panelRound1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 60, 20));
+
+        jLabel23.setText("Lugar:");
+        panelRound1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 60, 20));
+
+        jLabel24.setText("País:");
+        panelRound1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 60, 20));
+
+        text_Provincia_pac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_Provincia_pacActionPerformed(evt);
+            }
+        });
+        panelRound1.add(text_Provincia_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 70, 70, -1));
+
+        text_Apellido_pac1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_Apellido_pac1ActionPerformed(evt);
+            }
+        });
+        panelRound1.add(text_Apellido_pac1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 130, -1));
+        panelRound1.add(text_Ciclo_pac1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 40, 70, -1));
+
+        jLabel1.setText("T. Sangre:");
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 60, 20));
+
+        jLabel2.setText("E. Civil");
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 50, 20));
+
+        text_Fecha_Nacim_pac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_Fecha_Nacim_pacActionPerformed(evt);
+            }
+        });
+        panelRound1.add(text_Fecha_Nacim_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 130, -1));
+
+        text_Lugar_pac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_Lugar_pacActionPerformed(evt);
+            }
+        });
+        panelRound1.add(text_Lugar_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 130, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setText("4.-ENFERMEDAD ACTUAL");
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setText("1.-DATOS DE FILIACIÓN:");
+        panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 940, 60));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setText("2.-MOTIVO DE CONSTULTA:");
+        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelRound1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 130, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelRound1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 130, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelRound1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 130, -1));
+        panelRound1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 100, 70, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setText("3.-ANTECEDENTES FAMILIARES Y PERSONALES:");
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane3.setViewportView(jTextArea2);
+
+        panelRound1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 940, -1));
 
         jScrollPane2.setViewportView(panelRound1);
 
@@ -298,9 +362,29 @@ public class REGISTRO_PACIENTE extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_Guardar_pacActionPerformed
 
+    private void text_Provincia_pacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_Provincia_pacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_Provincia_pacActionPerformed
+
+    private void text_Apellido_pac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_Apellido_pac1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_Apellido_pac1ActionPerformed
+
+    private void text_Fecha_Nacim_pacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_Fecha_Nacim_pacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_Fecha_Nacim_pacActionPerformed
+
+    private void text_Lugar_pacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_Lugar_pacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_Lugar_pacActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Guardar_pac;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -308,16 +392,40 @@ public class REGISTRO_PACIENTE extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private Modelo.PanelRound panelRound1;
     private javax.swing.JTextField text_Apellido_pac;
+    private javax.swing.JTextField text_Apellido_pac1;
+    private javax.swing.JTextField text_Barrio_pac;
     private javax.swing.JTextField text_Canton_pac;
     private javax.swing.JTextField text_Cedula_pac;
+    private javax.swing.JTextField text_Ciclo_pac1;
     private javax.swing.JTextField text_Direccion_pac;
-    private javax.swing.JTextField text_Direcion_pac;
+    private javax.swing.JTextField text_Fecha_Nacim_pac;
+    private javax.swing.JTextField text_Lugar_pac;
     private javax.swing.JTextField text_Nombre_pac;
     private javax.swing.JTextField text_Pais_pac;
+    private javax.swing.JTextField text_Parroquia_pac;
+    private javax.swing.JTextField text_Provincia_pac;
     private javax.swing.JTextField text_Telefono_pac;
     // End of variables declaration//GEN-END:variables
 }

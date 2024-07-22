@@ -4,31 +4,52 @@
  */
 package Modelo;
 
-import com.mysql.cj.jdbc.Blob;
 import java.sql.Date; 
 
-/**
- *
- * @author alexa
- */
-import java.sql.Date;
-
-public class Paciente extends Persona {
-    private String tipoPaciente;
+public class Paciente {
+    private int idPaciente;
+    private Persona persona;
+    private boolean pacEstActivo;
 
     // Constructor
-    public Paciente(int idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo, String tipoPaciente) {
-        super(idPersona, identificacion, primNombre, segNombre, primApellido, segApellido, email, direccion, barrio, canton, provincia, telefono, fechaNacimiento, lugar, pais, genero, estadoCivil, sexo, foto, etnia, fechaRegistro, carnetConadis, discapacidad, tipoDiscapacidad, porctDiscapacidad, contactoEmergencia, estadoActivo);
-        this.tipoPaciente = tipoPaciente;
+    public Paciente(int idPaciente, Persona persona, boolean pacEstActivo) {
+        this.idPaciente = idPaciente;
+        this.persona = persona;
+        this.pacEstActivo = pacEstActivo;
     }
 
-    // Getter y Setter para tipoPaciente
-    public String getTipoPaciente() {
-        return tipoPaciente;
+    // Getters and Setters
+    public int getIdPaciente() {
+        return idPaciente;
     }
 
-    public void setTipoPaciente(String tipoPaciente) {
-        this.tipoPaciente = tipoPaciente;
+    public void setIdPaciente(int idPaciente) {
+        this.idPaciente = idPaciente;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    public boolean isPacEstActivo() {
+        return pacEstActivo;
+    }
+
+    public void setPacEstActivo(boolean pacEstActivo) {
+        this.pacEstActivo = pacEstActivo;
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "idPaciente=" + idPaciente +
+                ", persona=" + persona +
+                ", pacEstActivo=" + pacEstActivo +
+                '}';
     }
 }
 

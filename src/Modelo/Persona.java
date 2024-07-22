@@ -4,11 +4,14 @@
  */
 package Modelo;
 
-import java.sql.Blob;
-import java.sql.Date;
+import java.sql.Date; 
+import java.util.Arrays;
 
+/**
+ *
+ * @author alexa
+ */
 public class Persona {
-
     private int idPersona;
     private String identificacion;
     private String primNombre;
@@ -27,7 +30,7 @@ public class Persona {
     private String genero;
     private String estadoCivil;
     private String sexo;
-    private Blob foto;
+    private byte[] foto;
     private String etnia;
     private Date fechaRegistro;
     private String carnetConadis;
@@ -38,7 +41,7 @@ public class Persona {
     private boolean estadoActivo;
 
     // Constructor
-    public Persona(int idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo) {
+    public Persona(int idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, byte[] foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo) {
         this.idPersona = idPersona;
         this.identificacion = identificacion;
         this.primNombre = primNombre;
@@ -68,10 +71,7 @@ public class Persona {
         this.estadoActivo = estadoActivo;
     }
 
-    public Persona() {
-    }
-
-    // Getters y Setters
+    // Getters and Setters
     public int getIdPersona() {
         return idPersona;
     }
@@ -216,11 +216,11 @@ public class Persona {
         this.sexo = sexo;
     }
 
-    public Blob getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(Blob foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
 
@@ -309,7 +309,7 @@ public class Persona {
                 ", genero='" + genero + '\'' +
                 ", estadoCivil='" + estadoCivil + '\'' +
                 ", sexo='" + sexo + '\'' +
-                ", foto=" + foto +
+                ", foto=" + Arrays.toString(foto) +
                 ", etnia='" + etnia + '\'' +
                 ", fechaRegistro=" + fechaRegistro +
                 ", carnetConadis='" + carnetConadis + '\'' +
