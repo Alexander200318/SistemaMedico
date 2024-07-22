@@ -4,35 +4,31 @@
  */
 package Modelo;
 
-import java.sql.Date; 
+import java.sql.Blob;
+import java.sql.Date;
 
-public class Paciente {
+public class Paciente extends Persona {
     private int idPaciente;
-    private Persona persona;
     private boolean pacEstActivo;
 
     // Constructor
-    public Paciente(int idPaciente, Persona persona, boolean pacEstActivo) {
-        this.idPaciente = idPaciente;
-        this.persona = persona;
+    public Paciente(Integer idPaciente, Integer idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo, boolean pacEstActivo) {
+        super(idPersona, identificacion, primNombre, segNombre, primApellido, segApellido, email, direccion, barrio, canton, provincia, telefono, fechaNacimiento, lugar, pais, genero, estadoCivil, sexo, foto, etnia, fechaRegistro, carnetConadis, discapacidad, tipoDiscapacidad, porctDiscapacidad, contactoEmergencia, estadoActivo);
+        this.idPaciente = idPaciente != null ? idPaciente : 0; // Usar 0 si es null
         this.pacEstActivo = pacEstActivo;
     }
 
-    // Getters and Setters
+    public Paciente() {
+        super();
+    }
+
+    // Getters y Setters
     public int getIdPaciente() {
         return idPaciente;
     }
 
     public void setIdPaciente(int idPaciente) {
         this.idPaciente = idPaciente;
-    }
-
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
     }
 
     public boolean isPacEstActivo() {
@@ -47,9 +43,7 @@ public class Paciente {
     public String toString() {
         return "Paciente{" +
                 "idPaciente=" + idPaciente +
-                ", persona=" + persona +
                 ", pacEstActivo=" + pacEstActivo +
-                '}';
+                "} " + super.toString();
     }
 }
-

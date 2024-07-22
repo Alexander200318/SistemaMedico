@@ -4,27 +4,57 @@
  */
 package controlador_Vist;
 
+import Controlador.ControladorMostrarPaciente;
+import Modelo.Persona;
 import Vista.PANEL_PRINCIPAL_PACIENTE;
 import Vista.PanelDatosPaciente;
 import Vista.REGISTRO_PACIENTE;
 import java.awt.BorderLayout;
+import java.util.List;
+import javax.swing.JTable;
 
 public class Panel_Prin_PacienteDAO {
 
     PANEL_PRINCIPAL_PACIENTE PanelPaciente;
+    ControladorMostrarPaciente Contropaciente;
 
+//    public Panel_Prin_PacienteDAO(PANEL_PRINCIPAL_PACIENTE PanelPaciente) {
+//        this.PanelPaciente = PanelPaciente;
+////        this.PanelPaciente.setVisible(true);
+//
+//        this.PanelPaciente.getBtn_NuevoPaciente().addActionListener((e) -> {
+//            pasarPanel();
+//        });
+//        this.PanelPaciente.getBtn_prueba().addActionListener((e) -> {
+//            pasarDatos();
+//        });
+//        DatosTablaPaciente(this.PanelPaciente.getTablaDatosPaciente());
+//
+//    }
     public Panel_Prin_PacienteDAO(PANEL_PRINCIPAL_PACIENTE PanelPaciente) {
         this.PanelPaciente = PanelPaciente;
-//        this.PanelPaciente.setVisible(true);
+        this.PanelPaciente.setVisible(true);
+        DatosTablaPaciente(this.PanelPaciente.getTablaDatosPaciente());
 
-        this.PanelPaciente.getBtn_NuevoPaciente().addActionListener((e) -> {
-            pasarPanel();
-        });
-         this.PanelPaciente.getBtn_prueba().addActionListener((e) -> {
-            pasarDatos();
-        });
+        // Add action listener for the search button
+        this.PanelPaciente.getBtnBuscar().addActionListener(e -> buscarPaciente());
+    }
 
+    public void DatosTablaPaciente(JTable tabla) {
+        Contropaciente = new ControladorMostrarPaciente();
+        List<Persona> listDatos = Contropaciente.obtenerPersonas("");
+        PacienteTablaModelDatos tablapaciente = new PacienteTablaModelDatos(listDatos);
+        tabla.setModel(tablapaciente);
+        tabla.revalidate();
+    }
 
+    public void buscarPaciente() {
+        String filtro = PanelPaciente.getTxtIngresarNombreOCedula().getText().trim();
+        Contropaciente = new ControladorMostrarPaciente();
+        List<Persona> listDatos = Contropaciente.obtenerPersonas(filtro);
+        PacienteTablaModelDatos tablapaciente = new PacienteTablaModelDatos(listDatos);
+        PanelPaciente.getTablaDatosPaciente().setModel(tablapaciente);
+        PanelPaciente.getTablaDatosPaciente().revalidate();
     }
 
     public void pasarPanel() {
@@ -38,6 +68,7 @@ public class Panel_Prin_PacienteDAO {
         PanelPaciente.getPanel_camb_Registro().repaint();
 
     }
+
     public void pasarDatos() {
 
         PanelDatosPaciente RegistrarPaciente = new PanelDatosPaciente();

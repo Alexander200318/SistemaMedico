@@ -4,14 +4,11 @@
  */
 package Modelo;
 
-import java.sql.Date; 
-import java.util.Arrays;
+import java.sql.Blob;
+import java.sql.Date;
 
-/**
- *
- * @author alexa
- */
 public class Persona {
+
     private int idPersona;
     private String identificacion;
     private String primNombre;
@@ -30,7 +27,7 @@ public class Persona {
     private String genero;
     private String estadoCivil;
     private String sexo;
-    private byte[] foto;
+    private Blob foto;
     private String etnia;
     private Date fechaRegistro;
     private String carnetConadis;
@@ -41,8 +38,8 @@ public class Persona {
     private boolean estadoActivo;
 
     // Constructor
-    public Persona(int idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, byte[] foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo) {
-        this.idPersona = idPersona;
+    public Persona(Integer idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo) {
+        this.idPersona = idPersona != null ? idPersona : 0; // Usar 0 si es null
         this.identificacion = identificacion;
         this.primNombre = primNombre;
         this.segNombre = segNombre;
@@ -71,7 +68,11 @@ public class Persona {
         this.estadoActivo = estadoActivo;
     }
 
-    // Getters and Setters
+    public Persona() {
+    }
+
+    // Getters y Setters
+
     public int getIdPersona() {
         return idPersona;
     }
@@ -216,11 +217,11 @@ public class Persona {
         this.sexo = sexo;
     }
 
-    public byte[] getFoto() {
+    public Blob getFoto() {
         return foto;
     }
 
-    public void setFoto(byte[] foto) {
+    public void setFoto(Blob foto) {
         this.foto = foto;
     }
 
@@ -290,34 +291,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" +
-                "idPersona=" + idPersona +
-                ", identificacion='" + identificacion + '\'' +
-                ", primNombre='" + primNombre + '\'' +
-                ", segNombre='" + segNombre + '\'' +
-                ", primApellido='" + primApellido + '\'' +
-                ", segApellido='" + segApellido + '\'' +
-                ", email='" + email + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", barrio='" + barrio + '\'' +
-                ", canton='" + canton + '\'' +
-                ", provincia='" + provincia + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                ", lugar='" + lugar + '\'' +
-                ", pais='" + pais + '\'' +
-                ", genero='" + genero + '\'' +
-                ", estadoCivil='" + estadoCivil + '\'' +
-                ", sexo='" + sexo + '\'' +
-                ", foto=" + Arrays.toString(foto) +
-                ", etnia='" + etnia + '\'' +
-                ", fechaRegistro=" + fechaRegistro +
-                ", carnetConadis='" + carnetConadis + '\'' +
-                ", discapacidad=" + discapacidad +
-                ", tipoDiscapacidad='" + tipoDiscapacidad + '\'' +
-                ", porctDiscapacidad=" + porctDiscapacidad +
-                ", contactoEmergencia='" + contactoEmergencia + '\'' +
-                ", estadoActivo=" + estadoActivo +
-                '}';
+        return "Persona{" + "idPersona=" + idPersona + ", identificacion=" + identificacion + ", primNombre=" + primNombre + ", segNombre=" + segNombre + ", primApellido=" + primApellido + ", segApellido=" + segApellido + ", email=" + email + ", direccion=" + direccion + ", barrio=" + barrio + ", canton=" + canton + ", provincia=" + provincia + ", telefono=" + telefono + ", fechaNacimiento=" + fechaNacimiento + ", lugar=" + lugar + ", pais=" + pais + ", genero=" + genero + ", estadoCivil=" + estadoCivil + ", sexo=" + sexo + ", foto=" + foto + ", etnia=" + etnia + ", fechaRegistro=" + fechaRegistro + ", carnetConadis=" + carnetConadis + ", discapacidad=" + discapacidad + ", tipoDiscapacidad=" + tipoDiscapacidad + ", porctDiscapacidad=" + porctDiscapacidad + ", contactoEmergencia=" + contactoEmergencia + ", estadoActivo=" + estadoActivo + '}';
     }
+    
 }
