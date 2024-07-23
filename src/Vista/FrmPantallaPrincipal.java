@@ -127,11 +127,19 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(51, 0, 204));
         jPanel3.setEnabled(false);
         jPanel3.setPreferredSize(new java.awt.Dimension(1280, 720));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PANEL_CAMBIO.setBackground(new java.awt.Color(255, 255, 255));
-        PANEL_CAMBIO.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel3.add(PANEL_CAMBIO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1280, 680));
+
+        javax.swing.GroupLayout PANEL_CAMBIOLayout = new javax.swing.GroupLayout(PANEL_CAMBIO);
+        PANEL_CAMBIO.setLayout(PANEL_CAMBIOLayout);
+        PANEL_CAMBIOLayout.setHorizontalGroup(
+            PANEL_CAMBIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1280, Short.MAX_VALUE)
+        );
+        PANEL_CAMBIOLayout.setVerticalGroup(
+            PANEL_CAMBIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 680, Short.MAX_VALUE)
+        );
 
         panelRound2.setBackground(new java.awt.Color(102, 102, 255));
         panelRound2.setRoundBottomLeft(20);
@@ -301,7 +309,20 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel3.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 40));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(PANEL_CAMBIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(PANEL_CAMBIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

@@ -42,7 +42,6 @@ public class Panel_INICIO extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1280, 680));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlreportesgeneralesinicio.setBackground(new java.awt.Color(255, 255, 255));
         pnlreportesgeneralesinicio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REPORTES GENERALES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 26), new java.awt.Color(32, 65, 109))); // NOI18N
@@ -112,8 +111,6 @@ public class Panel_INICIO extends javax.swing.JPanel {
 
         pnlreportesgeneralesinicio.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 290, 240));
 
-        add(pnlreportesgeneralesinicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 1240, 330));
-
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -121,8 +118,6 @@ public class Panel_INICIO extends javax.swing.JPanel {
         LblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Logo.png"))); // NOI18N
         jPanel2.add(LblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -50, 270, 350));
-
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 320, 310));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
@@ -141,7 +136,29 @@ public class Panel_INICIO extends javax.swing.JPanel {
         jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 660, 20));
         jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 400, 10));
 
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 900, 310));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlreportesgeneralesinicio, javax.swing.GroupLayout.PREFERRED_SIZE, 1240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(pnlreportesgeneralesinicio, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
