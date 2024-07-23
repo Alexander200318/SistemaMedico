@@ -54,7 +54,7 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         PNLIdentifiReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "IDENTIFICACIÓN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
         PNLIdentifiReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLbCedulaIngreRepor.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
+        JLbCedulaIngreRepor.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 16)); // NOI18N
         JLbCedulaIngreRepor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLbCedulaIngreRepor.setText("Ingrese la cédula:");
         PNLIdentifiReport.add(JLbCedulaIngreRepor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 150, -1));
@@ -64,6 +64,7 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         TxtCedBuscarReport.setBorder(null);
         PNLIdentifiReport.add(TxtCedBuscarReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 320, 20));
 
+        BtnBuscarReport.setBackground(new java.awt.Color(64, 172, 159));
         BtnBuscarReport.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         BtnBuscarReport.setText("BUSCAR");
         BtnBuscarReport.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +120,7 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         });
         PNLSeleccionReport.add(CBXSeleccReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 260, 30));
 
+        BtnSeleccionarReport.setBackground(new java.awt.Color(64, 172, 159));
         BtnSeleccionarReport.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 11)); // NOI18N
         BtnSeleccionarReport.setText("SELECCIONAR");
         BtnSeleccionarReport.addActionListener(new java.awt.event.ActionListener() {

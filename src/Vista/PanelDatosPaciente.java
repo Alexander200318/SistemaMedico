@@ -566,7 +566,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         panelRound1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 130, 10));
         panelRound1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 170, 10));
 
-        jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 710, 270));
+        jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 710, 280));
 
         panelRound4.setBackground(new java.awt.Color(255, 255, 255));
         panelRound4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CONSULTA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
@@ -576,7 +576,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         panelRound4.setRoundTopRight(10);
         panelRound4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnNuevaConsulta.setBackground(new java.awt.Color(51, 153, 255));
+        BtnNuevaConsulta.setBackground(new java.awt.Color(64, 172, 159));
         BtnNuevaConsulta.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         BtnNuevaConsulta.setText("Nueva Consulta");
         BtnNuevaConsulta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -693,7 +693,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANTECEDENTES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.setBackground(new java.awt.Color(102, 204, 255));
+        jTabbedPane1.setBackground(new java.awt.Color(64, 172, 159));
         jTabbedPane1.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

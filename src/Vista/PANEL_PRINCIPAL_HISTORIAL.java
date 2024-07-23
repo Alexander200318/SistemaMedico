@@ -125,9 +125,11 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Cbx_Sexo_Hist = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
         Txt_Nombres_Hist = new javax.swing.JTextField();
         Btn_Limpiar_Hist = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
         panelRound2 = new Modelo.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_Historial = new javax.swing.JTable();
@@ -139,55 +141,76 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(20);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Txt_Cedula_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_Cedula_Hist.setForeground(new java.awt.Color(204, 204, 204));
+        Txt_Cedula_Hist.setBorder(null);
         Txt_Cedula_Hist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Txt_Cedula_HistActionPerformed(evt);
             }
         });
-        panelRound1.add(Txt_Cedula_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, 30));
+        panelRound1.add(Txt_Cedula_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 30));
 
-        Cbx_Triage_Hist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Cbx_Triage_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         Cbx_Triage_Hist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "No Urgente", "Prioridad", "Emergencia" }));
         panelRound1.add(Cbx_Triage_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 180, 30));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel2.setText("Categoria Triage");
         panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        Btn_Buscar_Hist.setText("Buscar");
+        Btn_Buscar_Hist.setBackground(new java.awt.Color(64, 172, 159));
+        Btn_Buscar_Hist.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        Btn_Buscar_Hist.setText("BUSCAR");
         panelRound1.add(Btn_Buscar_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 100, 190, 30));
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel1.setText("Ingresa el numero de Identificacion:");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        Fecha_Calendario_inicial.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
+        Fecha_Calendario_inicial.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         panelRound1.add(Fecha_Calendario_inicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, 150, 30));
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel3.setText("Ingrese la fecha Inicial");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, -1, 20));
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel4.setText("Ingresebla fecha Final");
         panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 10, -1, 20));
 
-        Fecha_Calendario_final.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
+        Fecha_Calendario_final.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         panelRound1.add(Fecha_Calendario_final, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 30, 160, 30));
-        panelRound1.add(Txt_Apellido_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 170, 30));
 
+        Txt_Apellido_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        Txt_Apellido_Hist.setBorder(null);
+        panelRound1.add(Txt_Apellido_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 180, 30));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel5.setText("Apellidos:");
         panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
 
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel6.setText("Nombres:");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel7.setText("Sexo:");
         panelRound1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
 
+        Cbx_Sexo_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         Cbx_Sexo_Hist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "Hombre", "Mujer" }));
         panelRound1.add(Cbx_Sexo_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 200, 30));
 
-        jLabel9.setText("Apellidos:");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
-
+        Txt_Nombres_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        Txt_Nombres_Hist.setBorder(null);
         Txt_Nombres_Hist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Txt_Nombres_HistActionPerformed(evt);
@@ -195,8 +218,13 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         });
         panelRound1.add(Txt_Nombres_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 180, 30));
 
-        Btn_Limpiar_Hist.setText("Limpiar");
+        Btn_Limpiar_Hist.setBackground(new java.awt.Color(64, 172, 159));
+        Btn_Limpiar_Hist.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        Btn_Limpiar_Hist.setText("LIMPIAR");
         panelRound1.add(Btn_Limpiar_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 100, 170, 30));
+        panelRound1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 180, 10));
+        panelRound1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, 10));
+        panelRound1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 180, 10));
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
         panelRound2.setRoundBottomLeft(20);
@@ -290,8 +318,10 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private Modelo.PanelRound panelRound1;
     private Modelo.PanelRound panelRound2;
     private javax.swing.JTable tabla_Historial;

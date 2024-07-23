@@ -67,7 +67,7 @@
             <Component class="javax.swing.JButton" name="btnOpciones">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="66" type="rgb"/>
+                  <Color blue="9f" green="ac" red="40" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -82,7 +82,7 @@
             <Component class="javax.swing.JButton" name="btnTerminarConsulta">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="66" type="rgb"/>
+                  <Color blue="9f" green="ac" red="40" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Maiandra GD" size="14" style="1"/>
@@ -263,7 +263,7 @@
             <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="66" type="rgb"/>
+                  <Color blue="9f" green="ac" red="40" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Maiandra GD" size="16" style="1"/>
@@ -903,7 +903,7 @@
                     <Component class="javax.swing.JButton" name="btnGuardarHistorial">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="cc" red="66" type="rgb"/>
+                          <Color blue="9f" green="ac" red="40" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
@@ -1348,7 +1348,7 @@
                     <Component class="javax.swing.JButton" name="btnSiguiente">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="cc" red="66" type="rgb"/>
+                          <Color blue="9f" green="ac" red="40" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
@@ -1494,7 +1494,7 @@
                     <Component class="javax.swing.JButton" name="txtImprimirReceta">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="cc" red="66" type="rgb"/>
+                          <Color blue="9f" green="ac" red="40" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>

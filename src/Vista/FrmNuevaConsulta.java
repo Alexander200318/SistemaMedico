@@ -158,7 +158,7 @@ ControladorFrmNuevaConsul controlador;
         panelRound2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS GENERALES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnOpciones.setBackground(new java.awt.Color(102, 204, 255));
+        btnOpciones.setBackground(new java.awt.Color(64, 172, 159));
         btnOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpcionesActionPerformed(evt);
@@ -166,7 +166,7 @@ ControladorFrmNuevaConsul controlador;
         });
         panelRound2.add(btnOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 70, 40, 30));
 
-        btnTerminarConsulta.setBackground(new java.awt.Color(102, 204, 255));
+        btnTerminarConsulta.setBackground(new java.awt.Color(64, 172, 159));
         btnTerminarConsulta.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         btnTerminarConsulta.setText("TERMINAR CONSULTA");
         panelRound2.add(btnTerminarConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 180, 30));
@@ -206,7 +206,7 @@ ControladorFrmNuevaConsul controlador;
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.setBackground(new java.awt.Color(102, 204, 255));
+        jTabbedPane1.setBackground(new java.awt.Color(64, 172, 159));
         jTabbedPane1.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -416,7 +416,7 @@ ControladorFrmNuevaConsul controlador;
 
         jPanel2.add(panelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 560, 270));
 
-        btnGuardarHistorial.setBackground(new java.awt.Color(102, 204, 255));
+        btnGuardarHistorial.setBackground(new java.awt.Color(64, 172, 159));
         btnGuardarHistorial.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         btnGuardarHistorial.setText("ACTUALIZAR");
         btnGuardarHistorial.addActionListener(new java.awt.event.ActionListener() {
@@ -551,7 +551,7 @@ ControladorFrmNuevaConsul controlador;
 
         jPanel3.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 560, 130));
 
-        btnSiguiente.setBackground(new java.awt.Color(102, 204, 255));
+        btnSiguiente.setBackground(new java.awt.Color(64, 172, 159));
         btnSiguiente.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -597,7 +597,7 @@ ControladorFrmNuevaConsul controlador;
 
         jPanel6.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 630, 90));
 
-        txtImprimirReceta.setBackground(new java.awt.Color(102, 204, 255));
+        txtImprimirReceta.setBackground(new java.awt.Color(64, 172, 159));
         txtImprimirReceta.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         txtImprimirReceta.setText("IMPRIMIR RECETA");
         txtImprimirReceta.addActionListener(new java.awt.event.ActionListener() {

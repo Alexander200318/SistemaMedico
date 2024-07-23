@@ -78,7 +78,7 @@
             <Component class="javax.swing.JLabel" name="JLbCedulaIngreRepor">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Neue Haas Grotesk Text Pro" size="18" style="1"/>
+                  <Font name="Neue Haas Grotesk Text Pro" size="16" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Ingrese la c&#xe9;dula:"/>
@@ -119,6 +119,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="BtnBuscarReport">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="9f" green="ac" red="40" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="MS Reference Sans Serif" size="14" style="1"/>
                 </Property>
@@ -239,6 +242,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="BtnSeleccionarReport">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="9f" green="ac" red="40" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="MS Reference Sans Serif" size="11" style="1"/>
                 </Property>

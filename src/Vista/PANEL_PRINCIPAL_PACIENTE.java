@@ -177,7 +177,7 @@ public class PANEL_PRINCIPAL_PACIENTE extends javax.swing.JPanel {
         panelRound1.setRoundTopLeft(20);
         panelRound1.setRoundTopRight(20);
 
-        Btn_NuevoPaciente.setBackground(new java.awt.Color(153, 255, 153));
+        Btn_NuevoPaciente.setBackground(new java.awt.Color(64, 172, 159));
         Btn_NuevoPaciente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Btn_NuevoPaciente.setForeground(new java.awt.Color(255, 255, 255));
         Btn_NuevoPaciente.setText("Registra Paciente");

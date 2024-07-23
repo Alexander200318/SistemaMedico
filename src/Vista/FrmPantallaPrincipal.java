@@ -141,7 +141,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
             .addGap(0, 680, Short.MAX_VALUE)
         );
 
-        panelRound2.setBackground(new java.awt.Color(102, 102, 255));
+        panelRound2.setBackground(new java.awt.Color(64, 172, 159));
         panelRound2.setRoundBottomLeft(20);
         panelRound2.setRoundBottomRight(20);
         panelRound2.setRoundTopLeft(20);
@@ -149,7 +149,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
 
         Pane_UsuarioMenu.setBackground(new java.awt.Color(102, 102, 255));
 
-        BtnUsuario.setBackground(new java.awt.Color(102, 102, 255));
+        BtnUsuario.setBackground(new java.awt.Color(64, 172, 159));
         BtnUsuario.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         BtnUsuario.setForeground(new java.awt.Color(255, 255, 255));
         BtnUsuario.setText("Usuario");
@@ -180,7 +180,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
 
         Pane_HistorialMenu.setBackground(new java.awt.Color(102, 102, 255));
 
-        BtnHistorial.setBackground(new java.awt.Color(102, 102, 255));
+        BtnHistorial.setBackground(new java.awt.Color(64, 172, 159));
         BtnHistorial.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         BtnHistorial.setForeground(new java.awt.Color(255, 255, 255));
         BtnHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/conversacion.png"))); // NOI18N
@@ -212,7 +212,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
 
         Pane_PacienteMenu.setBackground(new java.awt.Color(102, 102, 255));
 
-        BtnPaciente.setBackground(new java.awt.Color(102, 102, 255));
+        BtnPaciente.setBackground(new java.awt.Color(64, 172, 159));
         BtnPaciente.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         BtnPaciente.setForeground(new java.awt.Color(255, 255, 255));
         BtnPaciente.setText("Paciente");
@@ -248,7 +248,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
 
         Pane_InicioMenu.setBackground(new java.awt.Color(102, 102, 255));
 
-        BtnInicio.setBackground(new java.awt.Color(102, 102, 255));
+        BtnInicio.setBackground(new java.awt.Color(64, 172, 159));
         BtnInicio.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         BtnInicio.setForeground(new java.awt.Color(255, 255, 255));
         BtnInicio.setText("Inicio");

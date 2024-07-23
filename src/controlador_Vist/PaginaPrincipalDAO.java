@@ -55,7 +55,7 @@ public class PaginaPrincipalDAO {
             @Override
             public void mouseExited(MouseEvent e) {
                 if (selectedButton != principal.getBtnHistorial()) {
-                    principal.getPane_HistorialMenu().setBackground(new Color(102, 102, 255));
+                    principal.getPane_HistorialMenu().setBackground(new Color(64,172,159));
                     principal.getBtnHistorial().setForeground(Color.WHITE);
                     principal.getBtnHistorial().setIcon(new ImageIcon("src/Recursos/conversacion.png"));
                 }

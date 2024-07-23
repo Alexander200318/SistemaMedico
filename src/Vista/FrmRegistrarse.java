@@ -164,7 +164,8 @@ public class FrmRegistrarse extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Logo_Instituto.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 320, 100));
 
-        BtnRegistrarse.setFont(new java.awt.Font("Rockwell Nova", 1, 14)); // NOI18N
+        BtnRegistrarse.setBackground(new java.awt.Color(64, 172, 159));
+        BtnRegistrarse.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         BtnRegistrarse.setText("REGISTRARSE");
         BtnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
