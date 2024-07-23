@@ -69,81 +69,27 @@ public class FrmLogin extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
-        TxtLabelRegistrarBtn = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        PasswordContraseñaLogin = new javax.swing.JPasswordField();
-        BtnIniciarSesion = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JSeparator();
-        TxtCedulaCorreoLogin = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        TxtCedulaCorreoLogin = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        PasswordContraseñaLogin = new javax.swing.JPasswordField();
+        BtnIniciarSesion = new javax.swing.JButton();
+        TxtLabelRegistrarBtn = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        LblLogo = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 650, 170, 20));
-
-        jLabel7.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("¿No tienes Cuenta?");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 630, -1, -1));
-
-        TxtLabelRegistrarBtn.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        TxtLabelRegistrarBtn.setForeground(new java.awt.Color(255, 255, 255));
-        TxtLabelRegistrarBtn.setText("Registrate aquí!");
-        TxtLabelRegistrarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TxtLabelRegistrarBtnMouseClicked(evt);
-            }
-        });
-        jPanel1.add(TxtLabelRegistrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 660, -1, 20));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Contraseña");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 360, 140, 20));
-        jPanel1.add(PasswordContraseñaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 270, 30));
-
-        BtnIniciarSesion.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
-        BtnIniciarSesion.setText("ACEPTAR");
-        jPanel1.add(BtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 450, 140, 30));
-
-        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 390, 130, 10));
-
-        TxtCedulaCorreoLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(TxtCedulaCorreoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 320, 270, 30));
-
-        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 80, 270, 20));
-
-        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 310, 170, 10));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Cedula/Correo");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 280, -1, 20));
-
-        jLabel4.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("INICIAR SESIÓN");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 50, -1, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Logo_Instituto.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
@@ -152,14 +98,62 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo Login.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 720));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INICIAR SESIÓN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Maiandra GD", 1, 26))); // NOI18N
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("CONTRASEÑA:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 180, 20));
+
+        TxtCedulaCorreoLogin.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        TxtCedulaCorreoLogin.setBorder(null);
+        jPanel2.add(TxtCedulaCorreoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 270, 30));
+
+        jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("CORREO:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 160, 20));
+
+        PasswordContraseñaLogin.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        PasswordContraseñaLogin.setBorder(null);
+        jPanel2.add(PasswordContraseñaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 260, 30));
+
+        BtnIniciarSesion.setBackground(new java.awt.Color(64, 172, 159));
+        BtnIniciarSesion.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        BtnIniciarSesion.setText("ACEPTAR");
+        jPanel2.add(BtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 140, 30));
+
+        TxtLabelRegistrarBtn.setBackground(new java.awt.Color(255, 255, 255));
+        TxtLabelRegistrarBtn.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        TxtLabelRegistrarBtn.setForeground(new java.awt.Color(32, 65, 109));
+        TxtLabelRegistrarBtn.setText("Registrate aquí!");
+        TxtLabelRegistrarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtLabelRegistrarBtnMouseClicked(evt);
+            }
+        });
+        jPanel2.add(TxtLabelRegistrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, -1, 20));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(64, 172, 159));
+        jLabel7.setText("¿No tienes Cuenta?");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, -1, -1));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 310, 10));
+
+        LblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Logo (2).png"))); // NOI18N
+        jPanel2.add(LblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 310, 190));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 270, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 270, 10));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, 170, 10));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 310, 600));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Complemento.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 380, 720));
-
-        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 300, 170, 10));
-
-        jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 80, 270, 20));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -211,22 +205,21 @@ public class FrmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnIniciarSesion;
+    private javax.swing.JLabel LblLogo;
     private javax.swing.JPasswordField PasswordContraseñaLogin;
     private javax.swing.JTextField TxtCedulaCorreoLogin;
     private javax.swing.JLabel TxtLabelRegistrarBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     // End of variables declaration//GEN-END:variables
 }
