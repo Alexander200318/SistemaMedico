@@ -82,7 +82,7 @@ public class PANEL_PRINCIPAL_PACIENTE extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         Btn_NuevoPaciente = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(32, 65, 109));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         Panel_camb_Registro.setBackground(new java.awt.Color(255, 255, 255));
         Panel_camb_Registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

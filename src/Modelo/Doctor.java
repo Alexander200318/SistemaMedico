@@ -5,7 +5,8 @@
 package Modelo;
 
 public class Doctor {
-
+    
+    private int idDoctor;
     private String Identificacion;
     private String Nombre;
     private String Apellido;
@@ -18,6 +19,14 @@ public class Doctor {
     private int Id_Persona; 
 
     // Getters y Setters
+
+    public int getIdDoctor() {
+        return idDoctor;
+    }
+
+    public void setIdDoctor(int idDoctor) {
+        this.idDoctor = idDoctor;
+    }
 
     public String getIdentificacion() {
         return Identificacion;
@@ -99,7 +108,8 @@ public class Doctor {
         this.Id_Persona = Id_Persona;
     }
 
-    public Doctor(String Identificacion, String Nombre, String Apellido, String Especialidad, String Email, String Contrasena, String Celular, String Titulo, boolean Doc_Est_Activo, int Id_Persona) {
+    public Doctor(int idDoctor, String Identificacion, String Nombre, String Apellido, String Especialidad, String Email, String Contrasena, String Celular, String Titulo, boolean Doc_Est_Activo, int Id_Persona) {
+        this.idDoctor = idDoctor;
         this.Identificacion = Identificacion;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -117,17 +127,6 @@ public class Doctor {
 
     @Override
     public String toString() {
-        return "Doctor{" +
-                "Identificacion='" + Identificacion + '\'' +
-                ", Nombre='" + Nombre + '\'' +
-                ", Apellido='" + Apellido + '\'' +
-                ", Especialidad='" + Especialidad + '\'' +
-                ", Email='" + Email + '\'' +
-                ", Contrasena='" + Contrasena + '\'' +
-                ", Celular='" + Celular + '\'' +
-                ", Titulo='" + Titulo + '\'' +
-                ", Doc_Est_Activo=" + Doc_Est_Activo +
-                ", Id_Persona=" + Id_Persona +
-                '}';
+        return "Doctor{" + "idDoctor=" + idDoctor + ", Identificacion=" + Identificacion + ", Nombre=" + Nombre + ", Apellido=" + Apellido + ", Especialidad=" + Especialidad + ", Email=" + Email + ", Contrasena=" + Contrasena + ", Celular=" + Celular + ", Titulo=" + Titulo + ", Doc_Est_Activo=" + Doc_Est_Activo + ", Id_Persona=" + Id_Persona + '}';
     }
 }

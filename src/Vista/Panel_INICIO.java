@@ -5,6 +5,7 @@
 package Vista;
 
 import controlador_Vist.Panel_Prin_InicioDAO;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -18,6 +19,15 @@ public class Panel_INICIO extends javax.swing.JPanel {
         initComponents();
         contro=new Panel_Prin_InicioDAO(this);
     }
+
+    public JLabel getLblNombeApellidoDocPrincipal() {
+        return lblNombeApellidoDocPrincipal;
+    }
+
+    public void setLblNombeApellidoDocPrincipal(JLabel lblNombeApellidoDocPrincipal) {
+        this.lblNombeApellidoDocPrincipal = lblNombeApellidoDocPrincipal;
+    }
+    
 
     
 

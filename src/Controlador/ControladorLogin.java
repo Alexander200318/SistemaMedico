@@ -27,7 +27,7 @@ public class ControladorLogin implements ActionListener {
 
     public ControladorLogin(FrmLogin loginForm) {
         this.loginForm = loginForm;
-        singleton=Singleton.getInstance();
+        singleton = Singleton.getInstance();
         this.loginForm.getBtnIniciarSesion().addActionListener(this);
         this.loginForm.getTxtLabelRegistrarBtn().addMouseListener(new MouseAdapter() {
             @Override
@@ -46,6 +46,7 @@ public class ControladorLogin implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginForm.getBtnIniciarSesion()) {
             iniciarSesion();
+            System.out.println("id doctor" + singleton.getId_Doctor());
         }
     }
 
@@ -78,12 +79,9 @@ public class ControladorLogin implements ActionListener {
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                while (rs.next()) {                    
-                    int id= rs.getInt("Id_Doctor");
-                    singleton.setId_Doctor(id);
-                    return true; 
-                }
-                return true; 
+                int id = rs.getInt("Id_Doctor");
+                singleton.setId_Doctor(id);
+                return true;
             }
         } catch (SQLException e) {
             System.err.println(e);
@@ -94,7 +92,7 @@ public class ControladorLogin implements ActionListener {
                 System.err.println(e);
             }
         }
-        return false; 
+        return false;
     }
 
     private void abrirFormularioRegistro() {
