@@ -12,6 +12,7 @@ public class Singleton {
  private static volatile Singleton instance; ////No borrar    IMPORTANTE
  
  private  int IdPaciente;
+ private int Id_Doctor;
  
 
  
@@ -23,6 +24,15 @@ public class Singleton {
         return instance;
     }
 
+    public int getId_Doctor() {
+        return Id_Doctor;
+    }
+
+    public void setId_Doctor(int Id_Doctor) {
+        this.Id_Doctor = Id_Doctor;
+    }
+
+    
     public int getIdPaciente() {
         return IdPaciente;
     }

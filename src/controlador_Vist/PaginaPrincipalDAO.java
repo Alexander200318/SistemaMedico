@@ -7,6 +7,7 @@ package controlador_Vist;
 import Vista.FrmPantallaPrincipal;
 import Vista.PANEL_PRINCIPAL_HISTORIAL;
 import Vista.PANEL_PRINCIPAL_PACIENTE;
+import Vista.Panel_INICIO;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -31,6 +32,15 @@ public class PaginaPrincipalDAO {
     }
 
     public void Eventos_menu() {
+         Panel_INICIO PanelPaciente=new Panel_INICIO();
+                PanelPaciente.setSize(1280, 680);
+                PanelPaciente.setLocation(0, 0);
+                
+                principal.getPANEL_CAMBIO().removeAll();
+                principal.getPANEL_CAMBIO().add(PanelPaciente, BorderLayout.CENTER);
+                principal.getPANEL_CAMBIO().revalidate();
+                principal.getPANEL_CAMBIO().repaint();
+                
 /////////////////////////////////////// BOTON HISTORIAL
         principal.getBtnHistorial().addMouseListener(new MouseAdapter() {
             @Override
@@ -237,7 +247,19 @@ public class PaginaPrincipalDAO {
                 System.out.println("Botón Actividad INICIO");
                 
                 
+                   
                 
+                Panel_INICIO PanelPaciente=new Panel_INICIO();
+                PanelPaciente.setSize(1280, 680);
+                PanelPaciente.setLocation(0, 0);
+                
+                principal.getPANEL_CAMBIO().removeAll();
+                principal.getPANEL_CAMBIO().add(PanelPaciente, BorderLayout.CENTER);
+                principal.getPANEL_CAMBIO().revalidate();
+                principal.getPANEL_CAMBIO().repaint();
+                
+                
+                System.out.println("Botón Actividad PACIENTE");
                 
             }
         });

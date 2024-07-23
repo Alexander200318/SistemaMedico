@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.Conexion;
+import Modelo.Singleton;
 import Vista.FrmLogin;
 import Vista.FrmPantallaPrincipal;
 import Vista.FrmRegistrarse;
@@ -22,9 +23,11 @@ import javax.swing.JOptionPane;
 public class ControladorLogin implements ActionListener {
 
     private final FrmLogin loginForm;
+    Singleton singleton;
 
     public ControladorLogin(FrmLogin loginForm) {
         this.loginForm = loginForm;
+        singleton=Singleton.getInstance();
         this.loginForm.getBtnIniciarSesion().addActionListener(this);
         this.loginForm.getTxtLabelRegistrarBtn().addMouseListener(new MouseAdapter() {
             @Override
@@ -75,6 +78,11 @@ public class ControladorLogin implements ActionListener {
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+                while (rs.next()) {                    
+                    int id= rs.getInt("Id_Doctor");
+                    singleton.setId_Doctor(id);
+                    return true; 
+                }
                 return true; 
             }
         } catch (SQLException e) {
