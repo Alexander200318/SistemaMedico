@@ -110,7 +110,6 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         PANEL_CAMBIO = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         panelRound2 = new Modelo.PanelRound();
         Pane_UsuarioMenu = new javax.swing.JPanel();
         BtnUsuario = new javax.swing.JButton();
@@ -130,23 +129,15 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jCheckBox1.setText("jCheckBox1");
-
         javax.swing.GroupLayout PANEL_CAMBIOLayout = new javax.swing.GroupLayout(PANEL_CAMBIO);
         PANEL_CAMBIO.setLayout(PANEL_CAMBIOLayout);
         PANEL_CAMBIOLayout.setHorizontalGroup(
             PANEL_CAMBIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_CAMBIOLayout.createSequentialGroup()
-                .addContainerGap(765, Short.MAX_VALUE)
-                .addComponent(jCheckBox1)
-                .addGap(430, 430, 430))
+            .addGap(0, 1280, Short.MAX_VALUE)
         );
         PANEL_CAMBIOLayout.setVerticalGroup(
             PANEL_CAMBIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PANEL_CAMBIOLayout.createSequentialGroup()
-                .addGap(217, 217, 217)
-                .addComponent(jCheckBox1)
-                .addContainerGap(443, Short.MAX_VALUE))
+            .addGap(0, 680, Short.MAX_VALUE)
         );
 
         jPanel3.add(PANEL_CAMBIO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1280, 680));
@@ -263,7 +254,6 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         BtnInicio.setForeground(new java.awt.Color(255, 255, 255));
         BtnInicio.setText("Inicio");
         BtnInicio.setToolTipText("");
-        BtnInicio.setActionCommand("Inicio");
         BtnInicio.setBorder(null);
         BtnInicio.setBorderPainted(false);
         BtnInicio.setContentAreaFilled(false);
@@ -395,7 +385,6 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel Pane_InicioMenu;
     private javax.swing.JPanel Pane_PacienteMenu;
     private javax.swing.JPanel Pane_UsuarioMenu;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JPanel jPanel3;
     private Modelo.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables

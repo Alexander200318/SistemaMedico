@@ -5,7 +5,7 @@
 package Controlador;
 
 import Modelo.Conexion;
-import Modelo.Persona;
+import Modelo.Paciente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,20 +15,50 @@ import java.util.List;
 
 public class ControladorMostrarPaciente {
 
-    public List<Persona> obtenerPersonas(String filtro) {
+    public List<Paciente> obtenerPaciente(String filtro) {
         Conexion cnxt = new Conexion();
-        List<Persona> personas = new ArrayList<>();
+        List<Paciente> pacientes = new ArrayList<>();
 
-        String query = "SELECT Identificacion, prim_Nombre, prim_Apellido, Sexo, Telefono, Direccion FROM persona WHERE prim_Nombre LIKE ? OR Identificacion LIKE ?";
-        try (Connection connection = cnxt.getConexion();
+        // Verifica si el filtro no está vacío o nulo
+        String whereClause = "";
+        if (filtro != null && !filtro.trim().isEmpty()) {
+            whereClause = " WHERE per.Identificacion LIKE ? "
+                        + "OR per.prim_Nombre LIKE ? "
+                        + "OR per.prim_Apellido LIKE ? "
+                        + "OR per.Sexo LIKE ? "
+                        + "OR per.Telefono LIKE ? "
+                        + "OR per.Direccion LIKE ? ";
+        }
+
+        String query = "SELECT \n"
+                + "    per.Identificacion AS Identificacion,\n"
+                + "    per.prim_Nombre AS prim_Nombre,\n"
+                + "    per.prim_Apellido AS prim_Apellido,\n"
+                + "    per.Sexo AS Sexo,\n"
+                + "    per.Telefono AS Telefono,\n"
+                + "    per.Direccion AS Direccion,\n"
+                + "    pac.Id_Paciente AS idPaciente\n"
+                + "FROM \n"
+                + "    Paciente pac\n"
+                + "JOIN \n"
+                + "    Persona per ON pac.Id_Persona = per.Id_Persona" 
+                + whereClause;
+
+        try (Connection connection = cnxt.getConexion(); 
              PreparedStatement statement = connection.prepareStatement(query)) {
-
-            statement.setString(1, "%" + filtro + "%");
-            statement.setString(2, "%" + filtro + "%");
+             
+            // Si hay un filtro, establece los valores en la declaración preparada
+            if (!whereClause.isEmpty()) {
+                String filtroLike = "%" + filtro + "%";
+                for (int i = 1; i <= 6; i++) {
+                    statement.setString(i, filtroLike);
+                }
+            }
 
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
+                int idPaciente = resultSet.getInt("idPaciente");
                 String identificacion = resultSet.getString("Identificacion");
                 String primNombre = resultSet.getString("prim_Nombre");
                 String primApellido = resultSet.getString("prim_Apellido");
@@ -36,19 +66,20 @@ public class ControladorMostrarPaciente {
                 String telefono = resultSet.getString("Telefono");
                 String direccion = resultSet.getString("Direccion");
 
-                Persona persona = new Persona();
-                persona.setIdentificacion(identificacion);
-                persona.setPrimNombre(primNombre);
-                persona.setPrimApellido(primApellido);
-                persona.setSexo(sexo);
-                persona.setTelefono(telefono);
-                persona.setDireccion(direccion);
+                Paciente pacientess = new Paciente();
+                pacientess.setIdPaciente(idPaciente);
+                pacientess.setIdentificacion(identificacion);
+                pacientess.setPrimNombre(primNombre);
+                pacientess.setPrimApellido(primApellido);
+                pacientess.setSexo(sexo);
+                pacientess.setTelefono(telefono);
+                pacientess.setDireccion(direccion);
 
-                personas.add(persona);
+                pacientes.add(pacientess);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return personas;
+        return pacientes;
     }
 }

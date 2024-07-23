@@ -117,4 +117,10 @@ public class Antecedentes {
     public void setVacunas(String vacunas) {
         this.vacunas = vacunas;
     }
+
+    @Override
+    public String toString() {
+        return "Antecedentes{" + "idAntecedentes=" + idAntecedentes + ", alergias=" + alergias + ", clinico=" + clinico + ", ginecologico=" + ginecologico + ", traumatologico=" + traumatologico + ", quirurgico=" + quirurgico + ", farmacologico=" + farmacologico + ", enfermedades=" + enfermedades + ", cirugias=" + cirugias + ", vacunas=" + vacunas + '}';
+    }
+    
 }

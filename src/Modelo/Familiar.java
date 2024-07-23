@@ -53,4 +53,10 @@ public class Familiar {
     public void setIdPaciente(int idPaciente) {
         this.idPaciente = idPaciente;
     }
+
+    @Override
+    public String toString() {
+        return "Familiar{" + "idAntFamiliares=" + idAntFamiliares + ", parentesco=" + parentesco + ", idAntecedentes=" + idAntecedentes + ", idPaciente=" + idPaciente + '}';
+    }
+    
 }

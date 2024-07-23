@@ -80,8 +80,6 @@ public class PANEL_PRINCIPAL_PACIENTE extends javax.swing.JPanel {
         panelRound1 = new Modelo.PanelRound();
         Btn_NuevoPaciente = new javax.swing.JButton();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         panelRound4.setBackground(new java.awt.Color(255, 255, 255));
         panelRound4.setRoundBottomLeft(20);
         panelRound4.setRoundBottomRight(20);
@@ -103,7 +101,7 @@ public class PANEL_PRINCIPAL_PACIENTE extends javax.swing.JPanel {
                 .addComponent(TxtIngresarNombreOCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(BtnBuscar)
-                .addContainerGap(352, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound4Layout.setVerticalGroup(
             panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,8 +171,6 @@ public class PANEL_PRINCIPAL_PACIENTE extends javax.swing.JPanel {
                 .addGap(530, 530, 530))
         );
 
-        add(Panel_camb_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 980, 660));
-
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(20);
         panelRound1.setRoundBottomRight(20);
@@ -208,7 +204,25 @@ public class PANEL_PRINCIPAL_PACIENTE extends javax.swing.JPanel {
                 .addContainerGap(589, Short.MAX_VALUE))
         );
 
-        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 20, 260, 650));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(Panel_camb_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(Panel_camb_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_NuevoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NuevoPacienteActionPerformed

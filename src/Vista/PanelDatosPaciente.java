@@ -388,6 +388,8 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         LabelEnfermedadesConsuFamiliar = new javax.swing.JLabel();
         LabelCirugiasConsuFamiliar = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        LabelParentescoConsuFamiliar = new javax.swing.JLabel();
         panelRound1 = new Modelo.PanelRound();
         LblFotoConsu = new javax.swing.JLabel();
         LabelNombreConsu = new javax.swing.JLabel();
@@ -596,126 +598,63 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Antecedentes Personales", jPanel1);
 
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel34.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel34.setText("Antecedentes Familiares");
+        jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 178, -1));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         jLabel35.setText("Alergias:");
+        jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 26, 180, 10));
 
         LabelAlergiasConsuFamiliar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(LabelAlergiasConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 281, 40));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         jLabel36.setText("Clinico:");
+        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         LabelClinicoConsuFamiliar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(LabelClinicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 281, 40));
 
         jLabel37.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         jLabel37.setText("Traumatologico:");
+        jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         LabelTraumatologicoConsuFamiliar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(LabelTraumatologicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 281, 40));
 
         LabelFarmacologicoConsuFamiliar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(LabelFarmacologicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 281, 40));
 
         jLabel38.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         jLabel38.setText("Farmacologico:");
+        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
         jLabel39.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         jLabel39.setText("Enfermedades:");
+        jPanel2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 99, -1));
 
         LabelEnfermedadesConsuFamiliar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(LabelEnfermedadesConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 281, 40));
 
         LabelCirugiasConsuFamiliar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(LabelCirugiasConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 281, 40));
 
         jLabel40.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         jLabel40.setText("Cirugias:");
+        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 80, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)
-                                .addComponent(LabelAlergiasConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(LabelClinicoConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11)
-                                .addComponent(LabelTraumatologicoConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(19, 19, 19)
-                                .addComponent(LabelFarmacologicoConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11)
-                                .addComponent(LabelEnfermedadesConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(LabelCirugiasConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel34)
-                .addGap(1, 1, 1)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel35))
-                    .addComponent(LabelAlergiasConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel36))
-                    .addComponent(LabelClinicoConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel37))
-                    .addComponent(LabelTraumatologicoConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel38))
-                    .addComponent(LabelFarmacologicoConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel39))
-                    .addComponent(LabelEnfermedadesConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel40))
-                    .addComponent(LabelCirugiasConsuFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(171, Short.MAX_VALUE))
-        );
+        jLabel43.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        jLabel43.setText("Parentesco:");
+        jPanel2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        LabelParentescoConsuFamiliar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(LabelParentescoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 281, 40));
 
         jTabbedPane1.addTab("Antecedentes Familiares", jPanel2);
 
@@ -982,6 +921,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel LabelNacimientoConsu;
     private javax.swing.JLabel LabelNombreConsu;
     private javax.swing.JLabel LabelOcularConsu;
+    private javax.swing.JLabel LabelParentescoConsuFamiliar;
     private javax.swing.JLabel LabelPesoConsu;
     private javax.swing.JLabel LabelPresion_ArterialConsu;
     private javax.swing.JLabel LabelR_PupilarConsu;
@@ -1028,6 +968,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
