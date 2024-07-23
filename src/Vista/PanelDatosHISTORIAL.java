@@ -39,6 +39,7 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         CBXSeleccReport = new javax.swing.JComboBox<>();
         BtnSeleccionarReport = new javax.swing.JButton();
         PNLReportGrafico = new javax.swing.JPanel();
+        panelRound1 = new Modelo.PanelRound();
         Fondo = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 680));
@@ -148,6 +149,25 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
 
         PNLReporte.add(PNLReportGrafico, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 450, 400));
 
+        panelRound1.setBorder(new javax.swing.border.MatteBorder(null));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 28, Short.MAX_VALUE)
+        );
+
+        PNLReporte.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 30));
+
         add(PNLReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 1200, 650));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo Login.png"))); // NOI18N
@@ -182,5 +202,6 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
     public javax.swing.JTextField TxtCedBuscarReport;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator4;
+    private Modelo.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 }

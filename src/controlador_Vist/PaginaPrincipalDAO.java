@@ -47,7 +47,7 @@ public class PaginaPrincipalDAO {
             public void mouseEntered(MouseEvent e) {
                 if (selectedButton != principal.getBtnHistorial()) {
                     principal.getPane_HistorialMenu().setBackground(Color.WHITE);
-                    principal.getBtnHistorial().setForeground(new Color(51, 102, 255));
+                    principal.getBtnHistorial().setForeground(new Color(32,65,109));
                     principal.getBtnHistorial().setIcon(new ImageIcon("src/Recursos/conversacion2.png"));
                 }
             }
@@ -66,15 +66,15 @@ public class PaginaPrincipalDAO {
                 if (selectedButton != null && selectedButton != principal.getBtnHistorial()) {
                     // Restaura el estado del botón anteriormente seleccionado
                     if (selectedButton == principal.getBtnUsuario()) {
-                        principal.getPane_UsuarioMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_UsuarioMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
 
                     } else if (selectedButton == principal.getBtnPaciente()) {
-                        principal.getPane_PacienteMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_PacienteMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
 
                     } else if (selectedButton == principal.getBtnInicio()) {
-                        principal.getPane_InicioMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_InicioMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
                     }
                 }
@@ -83,7 +83,7 @@ public class PaginaPrincipalDAO {
                 
                 selectedButton = principal.getBtnHistorial();
                 principal.getPane_HistorialMenu().setBackground(Color.WHITE);
-                principal.getBtnHistorial().setForeground(new Color(51, 102, 255));
+                principal.getBtnHistorial().setForeground(new Color(32,65,109));
                 principal.getBtnHistorial().setIcon(new ImageIcon("src/Recursos/conversacion2.png"));
                 System.out.println("Botón  seleccionado HISTORIAL");
                 
@@ -111,14 +111,14 @@ public class PaginaPrincipalDAO {
             public void mouseEntered(MouseEvent e) {
                 if (selectedButton != principal.getBtnUsuario()) {
                     principal.getPane_UsuarioMenu().setBackground(Color.WHITE);
-                    principal.getBtnUsuario().setForeground(new Color(51, 0, 204));
+                    principal.getBtnUsuario().setForeground(new Color(32,65,109));
                 }
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 if (selectedButton != principal.getBtnUsuario()) {
-                    principal.getPane_UsuarioMenu().setBackground(new Color(102, 102, 255));
+                    principal.getPane_UsuarioMenu().setBackground(new Color(64,172,159));
                     principal.getBtnUsuario().setForeground(Color.WHITE);
                 }
             }
@@ -128,15 +128,15 @@ public class PaginaPrincipalDAO {
                 if (selectedButton != null && selectedButton != principal.getBtnUsuario()) {
                     // Restaura el estado del botón anteriormente seleccionado
                     if (selectedButton == principal.getBtnHistorial()) {
-                        principal.getPane_HistorialMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_HistorialMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
                         selectedButton.setIcon(new ImageIcon("src/Recursos/conversacion.png"));
                     } else if (selectedButton == principal.getBtnPaciente()) {
-                        principal.getPane_PacienteMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_PacienteMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
 
                     } else if (selectedButton == principal.getBtnInicio()) {
-                        principal.getPane_InicioMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_InicioMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
                     }
                 }
@@ -144,7 +144,7 @@ public class PaginaPrincipalDAO {
                 // Actualiza el botón seleccionado
                 selectedButton = principal.getBtnUsuario();
                 principal.getPane_UsuarioMenu().setBackground(Color.WHITE);
-                principal.getBtnUsuario().setForeground(new Color(51, 0, 204));
+                principal.getBtnUsuario().setForeground(new Color(32,65,109));
                 System.out.println("Botón Actividad USUARIO");
             }
         });
@@ -154,14 +154,14 @@ public class PaginaPrincipalDAO {
             public void mouseEntered(MouseEvent e) {
                 if (selectedButton != principal.getBtnPaciente()) {
                     principal.getPane_PacienteMenu().setBackground(Color.WHITE);
-                    principal.getBtnPaciente().setForeground(new Color(51, 0, 204));
+                    principal.getBtnPaciente().setForeground(new Color(32,65,109));
                 }
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 if (selectedButton != principal.getBtnPaciente()) {
-                    principal.getPane_PacienteMenu().setBackground(new Color(102, 102, 255));
+                    principal.getPane_PacienteMenu().setBackground(new Color(64,172,159));
                     principal.getBtnPaciente().setForeground(Color.WHITE);
                 }
             }
@@ -171,23 +171,23 @@ public class PaginaPrincipalDAO {
                 if (selectedButton != null && selectedButton != principal.getBtnPaciente()) {
                     // Restaura el estado del botón anteriormente seleccionado
                     if (selectedButton == principal.getBtnHistorial()) {
-                        principal.getPane_HistorialMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_HistorialMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
                         selectedButton.setIcon(new ImageIcon("src/Recursos/conversacion.png"));
 
                     } else if (selectedButton == principal.getBtnUsuario()) {
-                        principal.getPane_UsuarioMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_UsuarioMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
 
                     } else if (selectedButton == principal.getBtnInicio()) {
-                        principal.getPane_InicioMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_InicioMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
                     }
                 }
 
                 selectedButton = principal.getBtnPaciente();
                 principal.getPane_PacienteMenu().setBackground(Color.WHITE);
-                principal.getBtnPaciente().setForeground(new Color(51, 0, 204));
+                principal.getBtnPaciente().setForeground(new Color(32,65,109));
                 
                 
                 PANEL_PRINCIPAL_PACIENTE PanelPaciente=new PANEL_PRINCIPAL_PACIENTE();
@@ -210,14 +210,14 @@ public class PaginaPrincipalDAO {
             public void mouseEntered(MouseEvent e) {
                 if (selectedButton != principal.getBtnInicio()) {
                     principal.getPane_InicioMenu().setBackground(Color.WHITE);
-                    principal.getBtnInicio().setForeground(new Color(51, 0, 204));
+                    principal.getBtnInicio().setForeground(new Color(32,65,109));
                 }
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 if (selectedButton != principal.getBtnInicio()) {
-                    principal.getPane_InicioMenu().setBackground(new Color(102, 102, 255));
+                    principal.getPane_InicioMenu().setBackground(new Color(64,172,159));
                     principal.getBtnInicio().setForeground(Color.WHITE);
                 }
             }
@@ -227,15 +227,15 @@ public class PaginaPrincipalDAO {
                 if (selectedButton != null && selectedButton != principal.getBtnInicio()) {
                     // Restaura el estado del botón anteriormente seleccionado
                     if (selectedButton == principal.getBtnHistorial()) {
-                        principal.getPane_HistorialMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_HistorialMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
                         selectedButton.setIcon(new ImageIcon("src/Recursos/conversacion.png"));
 
                     } else if (selectedButton == principal.getBtnUsuario()) {
-                        principal.getPane_UsuarioMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_UsuarioMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
                     } else if (selectedButton == principal.getBtnPaciente()) {
-                        principal.getPane_PacienteMenu().setBackground(new Color(102, 102, 255));
+                        principal.getPane_PacienteMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
                     }
                 }
@@ -243,7 +243,7 @@ public class PaginaPrincipalDAO {
                
                 selectedButton = principal.getBtnInicio();
                 principal.getPane_InicioMenu().setBackground(Color.WHITE);
-                principal.getBtnInicio().setForeground(new Color(51, 0, 204));
+                principal.getBtnInicio().setForeground(new Color(32,65,109));
                 System.out.println("Botón Actividad INICIO");
                 
                 

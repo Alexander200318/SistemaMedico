@@ -142,12 +142,10 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         );
 
         panelRound2.setBackground(new java.awt.Color(64, 172, 159));
-        panelRound2.setRoundBottomLeft(20);
-        panelRound2.setRoundBottomRight(20);
         panelRound2.setRoundTopLeft(20);
         panelRound2.setRoundTopRight(20);
 
-        Pane_UsuarioMenu.setBackground(new java.awt.Color(102, 102, 255));
+        Pane_UsuarioMenu.setBackground(new java.awt.Color(64, 172, 159));
 
         BtnUsuario.setBackground(new java.awt.Color(64, 172, 159));
         BtnUsuario.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
@@ -178,7 +176,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        Pane_HistorialMenu.setBackground(new java.awt.Color(102, 102, 255));
+        Pane_HistorialMenu.setBackground(new java.awt.Color(64, 172, 159));
 
         BtnHistorial.setBackground(new java.awt.Color(64, 172, 159));
         BtnHistorial.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
@@ -210,7 +208,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        Pane_PacienteMenu.setBackground(new java.awt.Color(102, 102, 255));
+        Pane_PacienteMenu.setBackground(new java.awt.Color(64, 172, 159));
 
         BtnPaciente.setBackground(new java.awt.Color(64, 172, 159));
         BtnPaciente.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
@@ -246,7 +244,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        Pane_InicioMenu.setBackground(new java.awt.Color(102, 102, 255));
+        Pane_InicioMenu.setBackground(new java.awt.Color(64, 172, 159));
 
         BtnInicio.setBackground(new java.awt.Color(64, 172, 159));
         BtnInicio.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N

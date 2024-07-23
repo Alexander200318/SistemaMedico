@@ -88,8 +88,6 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="9f" green="ac" red="40" type="rgb"/>
             </Property>
-            <Property name="roundBottomLeft" type="int" value="20"/>
-            <Property name="roundBottomRight" type="int" value="20"/>
             <Property name="roundTopLeft" type="int" value="20"/>
             <Property name="roundTopRight" type="int" value="20"/>
           </Properties>
@@ -135,7 +133,7 @@
             <Container class="javax.swing.JPanel" name="Pane_UsuarioMenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="66" red="66" type="rgb"/>
+                  <Color blue="9f" green="ac" red="40" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -187,7 +185,7 @@
             <Container class="javax.swing.JPanel" name="Pane_HistorialMenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="66" red="66" type="rgb"/>
+                  <Color blue="9f" green="ac" red="40" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -242,7 +240,7 @@
             <Container class="javax.swing.JPanel" name="Pane_PacienteMenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="66" red="66" type="rgb"/>
+                  <Color blue="9f" green="ac" red="40" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -306,7 +304,7 @@
             <Container class="javax.swing.JPanel" name="Pane_InicioMenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="66" red="66" type="rgb"/>
+                  <Color blue="9f" green="ac" red="40" type="rgb"/>
                 </Property>
               </Properties>
 
