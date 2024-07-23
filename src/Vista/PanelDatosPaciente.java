@@ -511,6 +511,9 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         LblFotoConsu.setToolTipText("");
         LblFotoConsu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panelRound1.add(LblFotoConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 119, 130));
+
+        LabelNombreConsu.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        LabelNombreConsu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         panelRound1.add(LabelNombreConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 331, 20));
         panelRound1.add(LabelNacimientoConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 125, 20));
         panelRound1.add(LabelEdadConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 60, 20));

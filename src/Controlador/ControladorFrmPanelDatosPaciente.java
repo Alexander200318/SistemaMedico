@@ -38,7 +38,7 @@ public class ControladorFrmPanelDatosPaciente {
 
     public void obtenerDatosPaciente() {
         int idPaciente = singleton.getIdPaciente();
-        System.out.println("probando"+idPaciente);
+        System.out.println("probando " + idPaciente);
 
         Conexion conexion = new Conexion();
         Connection con = conexion.getConexion();
@@ -94,7 +94,6 @@ public class ControladorFrmPanelDatosPaciente {
                 "WHERE pac.Pac_Est_Activo = TRUE " +
                 "AND rt.Fecha_Triage = (SELECT MAX(Fecha_Triage) FROM RegistraTriage WHERE Id_Paciente = pac.Id_Paciente) " +
                 "LIMIT 0, 1000";
-
 
         try (PreparedStatement ps = con.prepareStatement(query)) {
             ResultSet rs = ps.executeQuery();
@@ -160,18 +159,16 @@ public class ControladorFrmPanelDatosPaciente {
                 panelDatosPaciente.getLabelVacunasConsuPersonales().setText(rs.getString("Personal_Vacunas"));
 
                 // Antecedentes Familiares
+                panelDatosPaciente.getLabelParentescoConsuFamiliar().setText(rs.getString("Parentesco"));
                 panelDatosPaciente.getLabelAlergiasConsuFamiliar().setText(rs.getString("Familiar_Alergias"));
                 panelDatosPaciente.getLabelClinicoConsuFamiliar().setText(rs.getString("Familiar_Clinico"));
                 panelDatosPaciente.getLabelTraumatologicoConsuFamiliar().setText(rs.getString("Familiar_Traumatologico"));
                 panelDatosPaciente.getLabelFarmacologicoConsuFamiliar().setText(rs.getString("Familiar_Farmacologico"));
                 panelDatosPaciente.getLabelEnfermedadesConsuFamiliar().setText(rs.getString("Familiar_Enfermedades"));
                 panelDatosPaciente.getLabelCirugiasConsuFamiliar().setText(rs.getString("Familiar_Cirugias"));
-            } else {
-                System.out.println("No se encontraron datos para el paciente con ID: " + idPaciente);
             }
-
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
+            System.out.println(e.toString());
         }
     }
 }
