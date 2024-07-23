@@ -6,7 +6,6 @@ package controlador_Vist;
 
 import Controlador.ControladorMostrarPaciente;
 import Modelo.Paciente;
-import Modelo.Persona;
 import Modelo.Singleton;
 import Vista.PANEL_PRINCIPAL_PACIENTE;
 import Vista.PanelDatosPaciente;

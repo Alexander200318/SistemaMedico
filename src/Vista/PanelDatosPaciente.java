@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.ControladorFrmPanelDatosPaciente;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -17,8 +18,18 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     /**
      * Creates new form DatosPaciente
      */
+    ControladorFrmPanelDatosPaciente control;
     public PanelDatosPaciente() {
         initComponents();
+        control = new ControladorFrmPanelDatosPaciente(this);
+    }
+
+    public JLabel getLabelParentescoConsuFamiliar() {
+        return LabelParentescoConsuFamiliar;
+    }
+
+    public void setLabelParentescoConsuFamiliar(JLabel LabelParentescoConsuFamiliar) {
+        this.LabelParentescoConsuFamiliar = LabelParentescoConsuFamiliar;
     }
 
     public JButton getBtnNuevaConsulta() {
@@ -457,6 +468,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jSeparator37 = new javax.swing.JSeparator();
         jSeparator38 = new javax.swing.JSeparator();
         jSeparator39 = new javax.swing.JSeparator();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         LabelAlergiasConsuFamiliar = new javax.swing.JLabel();
@@ -477,6 +489,8 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jSeparator29 = new javax.swing.JSeparator();
         jSeparator30 = new javax.swing.JSeparator();
         jSeparator31 = new javax.swing.JSeparator();
+        LabelParentescoConsuFamiliar = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -641,13 +655,13 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         jLabel56.setFont(new java.awt.Font("Maiandra GD", 1, 15)); // NOI18N
         jLabel56.setText("Total:");
-        panelRound3.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, -1, -1));
+        panelRound3.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
 
         jLabel57.setFont(new java.awt.Font("Maiandra GD", 1, 15)); // NOI18N
         jLabel57.setText("Motora:");
-        panelRound3.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, -1, -1));
-        panelRound3.add(LabelMotoraConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 80, 22));
-        panelRound3.add(LabelTotalConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 80, 22));
+        panelRound3.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, -1, -1));
+        panelRound3.add(LabelMotoraConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 80, 22));
+        panelRound3.add(LabelTotalConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 80, 22));
         panelRound3.add(LabelLlenado_CapilarConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 80, 22));
         panelRound3.add(LabelR_PupilarConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 80, 22));
 
@@ -662,12 +676,12 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         panelRound3.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 80, 10));
         panelRound3.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 80, 10));
         panelRound3.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 80, 10));
-        panelRound3.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 80, 10));
+        panelRound3.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 80, 10));
         panelRound3.add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 80, 10));
         panelRound3.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 80, 10));
         panelRound3.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 80, 10));
         panelRound3.add(jSeparator22, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 80, 10));
-        panelRound3.add(jSeparator23, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 80, 10));
+        panelRound3.add(jSeparator23, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 80, 10));
         panelRound3.add(jSeparator24, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 80, 10));
 
         jPanel3.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 710, 230));
@@ -739,42 +753,49 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         jLabel35.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
         jLabel35.setText("Alergias:");
-        jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 20));
-        jPanel2.add(LabelAlergiasConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 360, 40));
+        jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
+        jPanel2.add(LabelAlergiasConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 360, 40));
 
         jLabel36.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
         jLabel36.setText("Clinico:");
-        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 60, 30));
-        jPanel2.add(LabelClinicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 360, 40));
+        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 60, 30));
+        jPanel2.add(LabelClinicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 360, 40));
 
         jLabel37.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
         jLabel37.setText("Traumatologico:");
-        jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 120, -1));
-        jPanel2.add(LabelTraumatologicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 360, 40));
-        jPanel2.add(LabelFarmacologicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 360, 40));
+        jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 120, -1));
+        jPanel2.add(LabelTraumatologicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 360, 40));
+        jPanel2.add(LabelFarmacologicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 360, 40));
 
         jLabel38.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
         jLabel38.setText("Farmacologico:");
-        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, -1));
+        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 120, -1));
 
         jLabel39.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
         jLabel39.setText("Enfermedades:");
-        jPanel2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 110, 30));
-        jPanel2.add(LabelEnfermedadesConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 360, 40));
-        jPanel2.add(LabelCirugiasConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 360, 40));
+        jPanel2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 110, 30));
+        jPanel2.add(LabelEnfermedadesConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 360, 40));
+        jPanel2.add(LabelCirugiasConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 360, 40));
 
         jLabel40.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
         jLabel40.setText("Cirugias:");
-        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 80, 30));
-        jPanel2.add(jSeparator25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 360, 10));
-        jPanel2.add(jSeparator26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 360, 10));
-        jPanel2.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 360, 10));
-        jPanel2.add(jSeparator28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 360, 10));
-        jPanel2.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 360, 10));
-        jPanel2.add(jSeparator30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 360, 10));
-        jPanel2.add(jSeparator31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 360, 10));
+        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 80, 30));
+        jPanel2.add(jSeparator25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, 360, 10));
+        jPanel2.add(jSeparator26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 360, 10));
+        jPanel2.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 360, 10));
+        jPanel2.add(jSeparator28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 360, 10));
+        jPanel2.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 360, 10));
+        jPanel2.add(jSeparator30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 360, 10));
+        jPanel2.add(jSeparator31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 360, 10));
+        jPanel2.add(LabelParentescoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 360, 40));
 
-        jTabbedPane1.addTab("Antecedentes Familiares", jPanel2);
+        jLabel43.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+        jLabel43.setText("Parentesco");
+        jPanel2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 20));
+
+        jScrollPane2.setViewportView(jPanel2);
+
+        jTabbedPane1.addTab("Antecedentes Familiares", jScrollPane2);
 
         jPanel4.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 410, 540));
 
@@ -819,6 +840,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel LabelNacimientoConsu;
     private javax.swing.JLabel LabelNombreConsu;
     private javax.swing.JLabel LabelOcularConsu;
+    private javax.swing.JLabel LabelParentescoConsuFamiliar;
     private javax.swing.JLabel LabelPesoConsu;
     private javax.swing.JLabel LabelPresion_ArterialConsu;
     private javax.swing.JLabel LabelR_PupilarConsu;
@@ -863,6 +885,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
@@ -875,6 +898,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
