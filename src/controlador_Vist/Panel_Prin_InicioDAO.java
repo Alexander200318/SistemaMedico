@@ -23,7 +23,7 @@ public class Panel_Prin_InicioDAO {
     public Panel_Prin_InicioDAO(Panel_INICIO inicio) {
         this.inicio=inicio;
         
-        this.inicio.getTxt_nombre().setText(buscar(singleton.getId_Doctor()));
+        //this.inicio.getTxt_nombre().setText(buscar(singleton.getId_Doctor()));
         
         
     }

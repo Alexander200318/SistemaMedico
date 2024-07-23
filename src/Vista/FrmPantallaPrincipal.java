@@ -129,17 +129,8 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout PANEL_CAMBIOLayout = new javax.swing.GroupLayout(PANEL_CAMBIO);
-        PANEL_CAMBIO.setLayout(PANEL_CAMBIOLayout);
-        PANEL_CAMBIOLayout.setHorizontalGroup(
-            PANEL_CAMBIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
-        );
-        PANEL_CAMBIOLayout.setVerticalGroup(
-            PANEL_CAMBIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
-        );
-
+        PANEL_CAMBIO.setBackground(new java.awt.Color(255, 255, 255));
+        PANEL_CAMBIO.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(PANEL_CAMBIO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1280, 680));
 
         panelRound2.setBackground(new java.awt.Color(102, 102, 255));

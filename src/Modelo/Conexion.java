@@ -16,7 +16,7 @@ public class Conexion {
 
     Connection con = null;
 
-    String base = "sistemamedico";
+    String base = "SistemaMedico";
     String url = "jdbc:mysql://localhost:3306/" + base;
     String user = "root";
     String password = "1234";
