@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controlador.ControladorFrmNuevaConsul;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -18,8 +20,10 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
     /**
      * Creates new form FrmNuevaConsulta
      */
+ControladorFrmNuevaConsul controlador;
     public FrmNuevaConsulta() {
         initComponents();
+        controlador = new ControladorFrmNuevaConsul(this);
     }
 
    
@@ -29,7 +33,6 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         panelRound2 = new Modelo.PanelRound();
-        lblPadecimiento = new javax.swing.JLabel();
         btnOpciones = new javax.swing.JButton();
         btnTerminarConsulta = new javax.swing.JButton();
         lblFecha_Actual = new javax.swing.JLabel();
@@ -39,15 +42,22 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
         lblSexo = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         lblNumeroCel = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator9 = new javax.swing.JSeparator();
+        jPanel5 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         panelRound4 = new Modelo.PanelRound();
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         txtAntecedentes_Clinicos = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         txt_Alergias = new javax.swing.JTextArea();
@@ -72,10 +82,7 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
         jScrollPane17 = new javax.swing.JScrollPane();
         txtMedicamentosActivos = new javax.swing.JTextArea();
         jLabel16 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         panelRound6 = new Modelo.PanelRound();
-        jLabel17 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane19 = new javax.swing.JScrollPane();
         txtAntecedentesClinicosFamiliar = new javax.swing.JTextArea();
@@ -90,6 +97,7 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
         jScrollPane20 = new javax.swing.JScrollPane();
         txtAntecedentesFarmacologicosFamiliar = new javax.swing.JTextArea();
         jLabel21 = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JSeparator();
         btnGuardarHistorial = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         panelRound1 = new Modelo.PanelRound();
@@ -111,336 +119,421 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
         txtTemperatura = new javax.swing.JTextField();
         txtFrecRespiratoria = new javax.swing.JTextField();
         txtFreCardiaca = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
+        jSeparator11 = new javax.swing.JSeparator();
+        jSeparator12 = new javax.swing.JSeparator();
+        jSeparator13 = new javax.swing.JSeparator();
+        jSeparator14 = new javax.swing.JSeparator();
+        jSeparator15 = new javax.swing.JSeparator();
+        jSeparator16 = new javax.swing.JSeparator();
+        jSeparator17 = new javax.swing.JSeparator();
         panelRound3 = new Modelo.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtNotasConsulta = new javax.swing.JTextArea();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        btnSiguiente = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
         jScrollPane14 = new javax.swing.JScrollPane();
         txtExamenFisico = new javax.swing.JTextArea();
-        btnSiguiente = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        panelRound5 = new Modelo.PanelRound();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtAreaDiagnostico = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtAreaInstrucciones = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txtAreaMedicacion = new javax.swing.JTextArea();
+        txtImprimirReceta = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtAreaPlanTrat = new javax.swing.JTextArea();
-        txtImprimirReceta = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jScrollPane22 = new javax.swing.JScrollPane();
+        txtAreaMedicacion = new javax.swing.JTextArea();
+        jPanel11 = new javax.swing.JPanel();
+        jScrollPane23 = new javax.swing.JScrollPane();
+        txtAreaDiagnostico = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
-        panelRound2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panelRound2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS GENERALES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblPadecimiento.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelRound2.add(lblPadecimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 230, 27));
-
-        btnOpciones.setBackground(new java.awt.Color(0, 204, 204));
+        btnOpciones.setBackground(new java.awt.Color(102, 204, 255));
         btnOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpcionesActionPerformed(evt);
             }
         });
-        panelRound2.add(btnOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 40, 30));
+        panelRound2.add(btnOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 70, 40, 30));
 
-        btnTerminarConsulta.setBackground(new java.awt.Color(0, 204, 204));
-        btnTerminarConsulta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnTerminarConsulta.setText("Terminar Consulta");
-        panelRound2.add(btnTerminarConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 30, 160, 30));
+        btnTerminarConsulta.setBackground(new java.awt.Color(102, 204, 255));
+        btnTerminarConsulta.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        btnTerminarConsulta.setText("TERMINAR CONSULTA");
+        panelRound2.add(btnTerminarConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 180, 30));
 
-        lblFecha_Actual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelRound2.add(lblFecha_Actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 130, 27));
+        lblFecha_Actual.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        panelRound2.add(lblFecha_Actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 30, 190, 20));
 
-        lblNombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelRound2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 110, 27));
+        lblNombre.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        panelRound2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, 20));
 
-        lblFecha_Nacimiento.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelRound2.add(lblFecha_Nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 110, 27));
+        lblFecha_Nacimiento.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        panelRound2.add(lblFecha_Nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 190, 20));
 
-        lblEdad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelRound2.add(lblEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 100, 27));
+        lblEdad.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        panelRound2.add(lblEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 90, 20));
 
-        lblSexo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelRound2.add(lblSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 90, 27));
+        lblSexo.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        panelRound2.add(lblSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 90, 20));
 
-        lblEmail.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelRound2.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 170, 27));
+        lblEmail.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        panelRound2.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 190, 20));
 
-        lblNumeroCel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelRound2.add(lblNumeroCel, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 130, 27));
+        lblNumeroCel.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        panelRound2.add(lblNumeroCel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 190, 20));
+        panelRound2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 50, 190, 10));
+        panelRound2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 190, 10));
+        panelRound2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 90, 10));
+        panelRound2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+        panelRound2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 190, 10));
+        panelRound2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 190, 10));
+        panelRound2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 190, 10));
+        panelRound2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 90, 10));
 
-        jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 110));
+        jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1040, 130));
 
-        jTabbedPane1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTabbedPane1.setBackground(new java.awt.Color(102, 204, 255));
+        jTabbedPane1.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANTECEDENTES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound4.setBackground(new java.awt.Color(163, 253, 253));
+        panelRound4.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PERSONAL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
+        panelRound4.setMinimumSize(new java.awt.Dimension(398, 840));
+        panelRound4.setPreferredSize(new java.awt.Dimension(398, 840));
         panelRound4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelRound4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 400, 10));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("ANTECEDENTES TRAUMATOLOGICO");
-        panelRound4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        jLabel1.setText("ANTECEDENTES TRAUMATOLOGICO:");
+        panelRound4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         txtAntecedentes_Clinicos.setColumns(20);
+        txtAntecedentes_Clinicos.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAntecedentes_Clinicos.setLineWrap(true);
         txtAntecedentes_Clinicos.setRows(5);
+        txtAntecedentes_Clinicos.setWrapStyleWord(true);
         jScrollPane6.setViewportView(txtAntecedentes_Clinicos);
 
-        panelRound4.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 370, 60));
+        panelRound4.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 370, 60));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("ANTECEDENTES PERSONALES");
-        panelRound4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("ALERGIAS");
-        panelRound4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        jLabel3.setText("ALERGIAS:");
+        panelRound4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         txt_Alergias.setColumns(20);
+        txt_Alergias.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txt_Alergias.setLineWrap(true);
         txt_Alergias.setRows(5);
+        txt_Alergias.setWrapStyleWord(true);
         jScrollPane7.setViewportView(txt_Alergias);
 
-        panelRound4.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 370, 60));
+        panelRound4.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 370, 60));
 
         txtCirujias.setColumns(20);
+        txtCirujias.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtCirujias.setLineWrap(true);
         txtCirujias.setRows(5);
+        txtCirujias.setWrapStyleWord(true);
         jScrollPane8.setViewportView(txtCirujias);
 
-        panelRound4.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 370, 60));
+        panelRound4.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 370, 60));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setText("CIRUGIAS");
-        panelRound4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        jLabel4.setText("CIRUGIAS:");
+        panelRound4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setText("ANTECEDENTES CLINICOS");
-        panelRound4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        jLabel5.setText("ANTECEDENTES CLINICOS:");
+        panelRound4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         txtAntecedentesTraumatologicos.setColumns(20);
+        txtAntecedentesTraumatologicos.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAntecedentesTraumatologicos.setLineWrap(true);
         txtAntecedentesTraumatologicos.setRows(5);
+        txtAntecedentesTraumatologicos.setWrapStyleWord(true);
         jScrollPane10.setViewportView(txtAntecedentesTraumatologicos);
 
-        panelRound4.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 370, 60));
+        panelRound4.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 370, 60));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setText("ANTECEDENTES FARMACOLOGICOS");
-        panelRound4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        jLabel7.setText("ANTECEDENTES FARMACOLOGICOS:");
+        panelRound4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
         txtAntecedentesFarmacologicos.setColumns(20);
+        txtAntecedentesFarmacologicos.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAntecedentesFarmacologicos.setLineWrap(true);
         txtAntecedentesFarmacologicos.setRows(5);
+        txtAntecedentesFarmacologicos.setWrapStyleWord(true);
         jScrollPane11.setViewportView(txtAntecedentesFarmacologicos);
 
-        panelRound4.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 370, 60));
+        panelRound4.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 370, 60));
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel14.setText("ENFERMEDADES");
-        panelRound4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
+        jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        jLabel14.setText("ENFERMEDADES:");
+        panelRound4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
         txtEnfermedades.setColumns(20);
+        txtEnfermedades.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtEnfermedades.setLineWrap(true);
         txtEnfermedades.setRows(5);
+        txtEnfermedades.setWrapStyleWord(true);
         jScrollPane15.setViewportView(txtEnfermedades);
 
-        panelRound4.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 370, 60));
+        panelRound4.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 370, 60));
 
         txtVacunas.setColumns(20);
+        txtVacunas.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtVacunas.setLineWrap(true);
         txtVacunas.setRows(5);
+        txtVacunas.setWrapStyleWord(true);
         jScrollPane13.setViewportView(txtVacunas);
 
-        panelRound4.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, 370, 60));
+        panelRound4.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 370, 60));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel10.setText("VACUNAS:");
-        panelRound4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 80, -1));
+        panelRound4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 80, -1));
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel15.setText("ANTECEDENTES GINECOLOGICOS");
-        panelRound4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 680, 210, -1));
+        jLabel15.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        jLabel15.setText("ANTECEDENTES GINECOLOGICOS:");
+        panelRound4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 660, 210, -1));
 
         txtAntecedentesGinecologicos.setColumns(20);
+        txtAntecedentesGinecologicos.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAntecedentesGinecologicos.setLineWrap(true);
         txtAntecedentesGinecologicos.setRows(5);
+        txtAntecedentesGinecologicos.setWrapStyleWord(true);
         jScrollPane16.setViewportView(txtAntecedentesGinecologicos);
 
-        panelRound4.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 700, 370, 60));
+        panelRound4.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 680, 370, 60));
 
         txtMedicamentosActivos.setColumns(20);
+        txtMedicamentosActivos.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtMedicamentosActivos.setLineWrap(true);
         txtMedicamentosActivos.setRows(5);
+        txtMedicamentosActivos.setWrapStyleWord(true);
         jScrollPane17.setViewportView(txtMedicamentosActivos);
 
-        panelRound4.add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 790, 370, 60));
+        panelRound4.add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 770, 370, 50));
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel16.setText("MEDICAMENTOS ACTIVOS:");
-        panelRound4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 770, 170, -1));
-        panelRound4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 860, 400, 10));
+        panelRound4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 750, 170, -1));
 
         jScrollPane9.setViewportView(panelRound4);
 
-        jPanel2.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 410, 360));
+        jPanel2.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 410, 330));
 
-        panelRound6.setBackground(new java.awt.Color(163, 253, 253));
+        panelRound6.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FAMILIAR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
         panelRound6.setRoundBottomLeft(20);
         panelRound6.setRoundBottomRight(20);
         panelRound6.setRoundTopLeft(20);
         panelRound6.setRoundTopRight(20);
         panelRound6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel17.setText("ANTECEDENTES FAMILIARES");
-        panelRound6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-        panelRound6.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 560, 10));
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel18.setText("PARENTESCO");
-        panelRound6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        panelRound6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         txtAntecedentesClinicosFamiliar.setColumns(20);
+        txtAntecedentesClinicosFamiliar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAntecedentesClinicosFamiliar.setLineWrap(true);
         txtAntecedentesClinicosFamiliar.setRows(5);
+        txtAntecedentesClinicosFamiliar.setWrapStyleWord(true);
         jScrollPane19.setViewportView(txtAntecedentesClinicosFamiliar);
 
-        panelRound6.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 530, 40));
+        panelRound6.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 250, 80));
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel19.setText("ANTECEDENTES CLINICOS");
-        panelRound6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        panelRound6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 10));
 
+        txtParentesco.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtParentesco.setBorder(null);
         txtParentesco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtParentescoActionPerformed(evt);
             }
         });
-        panelRound6.add(txtParentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 180, -1));
+        panelRound6.add(txtParentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 180, 20));
 
         txtAntecedentesGinecologicosFamiliar.setColumns(20);
+        txtAntecedentesGinecologicosFamiliar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAntecedentesGinecologicosFamiliar.setLineWrap(true);
         txtAntecedentesGinecologicosFamiliar.setRows(5);
+        txtAntecedentesGinecologicosFamiliar.setWrapStyleWord(true);
         jScrollPane12.setViewportView(txtAntecedentesGinecologicosFamiliar);
 
-        panelRound6.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 530, 40));
+        panelRound6.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 260, 80));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel9.setText("ANTECEDENTES GINECOLOGICOS");
-        panelRound6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        panelRound6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, 10));
 
         txtAntecedentesTraumatologicosFamiliar.setColumns(20);
+        txtAntecedentesTraumatologicosFamiliar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAntecedentesTraumatologicosFamiliar.setLineWrap(true);
         txtAntecedentesTraumatologicosFamiliar.setRows(5);
+        txtAntecedentesTraumatologicosFamiliar.setWrapStyleWord(true);
         jScrollPane18.setViewportView(txtAntecedentesTraumatologicosFamiliar);
 
-        panelRound6.add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 530, 40));
+        panelRound6.add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 250, 70));
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel20.setText("ANTECEDENTES TRAUMATOLOGICO");
-        panelRound6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        panelRound6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 10));
 
         txtAntecedentesFarmacologicosFamiliar.setColumns(20);
+        txtAntecedentesFarmacologicosFamiliar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAntecedentesFarmacologicosFamiliar.setLineWrap(true);
         txtAntecedentesFarmacologicosFamiliar.setRows(5);
+        txtAntecedentesFarmacologicosFamiliar.setWrapStyleWord(true);
         jScrollPane20.setViewportView(txtAntecedentesFarmacologicosFamiliar);
 
-        panelRound6.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 530, 40));
+        panelRound6.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 260, 70));
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel21.setText("ANTECEDENTES FARMALOGICOS");
-        panelRound6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+        panelRound6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, 10));
+        panelRound6.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 180, 10));
 
-        jPanel2.add(panelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 560, 360));
+        jPanel2.add(panelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 560, 270));
 
-        btnGuardarHistorial.setBackground(new java.awt.Color(0, 243, 243));
-        btnGuardarHistorial.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnGuardarHistorial.setText("GUARDAR");
+        btnGuardarHistorial.setBackground(new java.awt.Color(102, 204, 255));
+        btnGuardarHistorial.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        btnGuardarHistorial.setText("ACTUALIZAR");
         btnGuardarHistorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarHistorialActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardarHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(892, 382, 130, 30));
+        jPanel2.add(btnGuardarHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 130, 30));
 
         jTabbedPane1.addTab("Historial", jPanel2);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "NOTAS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound1.setBackground(new java.awt.Color(204, 255, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "NOTAS DE PADECIMIENTO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblSatOxigeno.setFont(new java.awt.Font("Maiandra GD", 1, 13)); // NOI18N
         lblSatOxigeno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Estatura.png"))); // NOI18N
         lblSatOxigeno.setText("Saturación de Oxígeno:");
-        panelRound1.add(lblSatOxigeno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+        panelRound1.add(lblSatOxigeno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
+        lblEstatura.setFont(new java.awt.Font("Maiandra GD", 1, 13)); // NOI18N
         lblEstatura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Estatura.png"))); // NOI18N
         lblEstatura.setText("Estarura:");
-        panelRound1.add(lblEstatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        panelRound1.add(lblEstatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
+        lblPeso.setFont(new java.awt.Font("Maiandra GD", 1, 13)); // NOI18N
         lblPeso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Peso.png"))); // NOI18N
         lblPeso.setText("Peso:");
-        panelRound1.add(lblPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        panelRound1.add(lblPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
+        lblRefSatOxigeno.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         lblRefSatOxigeno.setText("80.00");
-        panelRound1.add(lblRefSatOxigeno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, 20));
+        panelRound1.add(lblRefSatOxigeno, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, 20));
 
-        lblTemperatura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Estatura.png"))); // NOI18N
+        lblTemperatura.setFont(new java.awt.Font("Maiandra GD", 1, 13)); // NOI18N
+        lblTemperatura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/control-de-temperatura.png"))); // NOI18N
         lblTemperatura.setText("Temperatura:");
-        panelRound1.add(lblTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        panelRound1.add(lblTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 150, -1));
 
-        lblFrecRespiratoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Estatura.png"))); // NOI18N
+        lblFrecRespiratoria.setFont(new java.awt.Font("Maiandra GD", 1, 13)); // NOI18N
+        lblFrecRespiratoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Frecuenca respiratoria.png"))); // NOI18N
         lblFrecRespiratoria.setText("Frecuencia Respiratoria:");
-        panelRound1.add(lblFrecRespiratoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+        panelRound1.add(lblFrecRespiratoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
+        lblFreCardiaca.setFont(new java.awt.Font("Maiandra GD", 1, 13)); // NOI18N
         lblFreCardiaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Estatura.png"))); // NOI18N
         lblFreCardiaca.setText("Frecuencia Cardiaca:");
-        panelRound1.add(lblFreCardiaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+        panelRound1.add(lblFreCardiaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
+        lblRefEstatura.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         lblRefEstatura.setText("1.80m");
-        panelRound1.add(lblRefEstatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, -1, 20));
+        panelRound1.add(lblRefEstatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, 20));
 
+        lblRefPeso.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         lblRefPeso.setText("80.00kg");
-        panelRound1.add(lblRefPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, 20));
+        panelRound1.add(lblRefPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, -1, 20));
 
+        lblRefTemperatura.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         lblRefTemperatura.setText("36.5°C");
-        panelRound1.add(lblRefTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, 20));
+        panelRound1.add(lblRefTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, 20));
 
+        lblRefFrecResp.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         lblRefFrecResp.setText("170r/m");
-        panelRound1.add(lblRefFrecResp, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, 20));
+        panelRound1.add(lblRefFrecResp, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, 20));
 
+        lblRefFreCardiaca.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         lblRefFreCardiaca.setText("80.00 bmp");
-        panelRound1.add(lblRefFreCardiaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, 20));
-        panelRound1.add(txtSaturacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, -1, -1));
+        panelRound1.add(lblRefFreCardiaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, 20));
 
+        txtSaturacion.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtSaturacion.setBorder(null);
+        panelRound1.add(txtSaturacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, 20));
+
+        txtEstatura.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtEstatura.setBorder(null);
         txtEstatura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEstaturaActionPerformed(evt);
             }
         });
-        panelRound1.add(txtEstatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
-        panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
-        panelRound1.add(txtTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
-        panelRound1.add(txtFrecRespiratoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
-        panelRound1.add(txtFreCardiaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, -1, -1));
+        panelRound1.add(txtEstatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, 20));
 
-        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel30.setText("NOTAS DE PADECIMIENTO ");
-        panelRound1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        txtPeso.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtPeso.setBorder(null);
+        panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, 20));
 
-        jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 385, 270));
+        txtTemperatura.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtTemperatura.setBorder(null);
+        panelRound1.add(txtTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, 20));
 
-        panelRound3.setBackground(new java.awt.Color(204, 255, 255));
+        txtFrecRespiratoria.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtFrecRespiratoria.setBorder(null);
+        panelRound1.add(txtFrecRespiratoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, 20));
+
+        txtFreCardiaca.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtFreCardiaca.setBorder(null);
+        panelRound1.add(txtFreCardiaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, 20));
+        panelRound1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 380, 10));
+        panelRound1.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 60, 10));
+        panelRound1.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 60, 10));
+        panelRound1.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 60, 10));
+        panelRound1.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 60, 10));
+        panelRound1.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 60, 10));
+        panelRound1.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 60, 10));
+
+        jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 385, 300));
+
+        panelRound3.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MOTIVO DE CONSULTA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
         panelRound3.setRoundBottomLeft(40);
         panelRound3.setRoundBottomRight(40);
         panelRound3.setRoundTopLeft(40);
@@ -448,122 +541,124 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
         panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtNotasConsulta.setColumns(20);
+        txtNotasConsulta.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtNotasConsulta.setLineWrap(true);
         txtNotasConsulta.setRows(5);
-        txtNotasConsulta.setText("Empieza a escribir...\n");
+        txtNotasConsulta.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtNotasConsulta);
 
-        panelRound3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 400, 100));
+        panelRound3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 540, 90));
 
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel25.setText("EXAMEN FÍSICO");
-        panelRound3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jPanel3.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 560, 130));
 
-        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel31.setText("NOTAS DE CONSULTA");
-        panelRound3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        txtExamenFisico.setColumns(20);
-        txtExamenFisico.setRows(5);
-        jScrollPane14.setViewportView(txtExamenFisico);
-
-        panelRound3.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 400, -1));
-
-        jPanel3.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 437, 270));
-
-        btnSiguiente.setBackground(new java.awt.Color(0, 243, 243));
-        btnSiguiente.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnSiguiente.setBackground(new java.awt.Color(102, 204, 255));
+        btnSiguiente.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSiguienteActionPerformed(evt);
             }
         });
-        jPanel3.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(892, 382, 130, 30));
+        jPanel3.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 130, 30));
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "EXAMEN FÍSICO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtExamenFisico.setColumns(20);
+        txtExamenFisico.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtExamenFisico.setLineWrap(true);
+        txtExamenFisico.setRows(5);
+        txtExamenFisico.setWrapStyleWord(true);
+        jScrollPane14.setViewportView(txtExamenFisico);
+
+        jPanel7.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 540, 100));
+
+        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 560, 130));
 
         jTabbedPane1.addTab("Notas de Padecimiento", jPanel3);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DIAGNÓSTICO Y TRATAMIENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound5.setBackground(new java.awt.Color(0, 224, 224));
-        panelRound5.setRoundBottomLeft(40);
-        panelRound5.setRoundBottomRight(40);
-        panelRound5.setRoundTopLeft(40);
-        panelRound5.setRoundTopRight(40);
-        panelRound5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel4.setBackground(new java.awt.Color(176, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INSTRUCCIONES MÉDICAS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtAreaDiagnostico.setColumns(20);
-        txtAreaDiagnostico.setRows(5);
-        jScrollPane2.setViewportView(txtAreaDiagnostico);
-
-        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 600, 50));
-
         txtAreaInstrucciones.setColumns(20);
+        txtAreaInstrucciones.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAreaInstrucciones.setLineWrap(true);
         txtAreaInstrucciones.setRows(5);
+        txtAreaInstrucciones.setWrapStyleWord(true);
         jScrollPane3.setViewportView(txtAreaInstrucciones);
 
-        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 600, 70));
+        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 610, 60));
 
-        txtAreaMedicacion.setColumns(20);
-        txtAreaMedicacion.setRows(5);
-        jScrollPane4.setViewportView(txtAreaMedicacion);
+        jPanel6.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 630, 90));
 
-        jPanel4.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 600, 70));
-
-        txtAreaPlanTrat.setColumns(20);
-        txtAreaPlanTrat.setRows(5);
-        jScrollPane5.setViewportView(txtAreaPlanTrat);
-
-        jPanel4.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 320, 130));
-
-        txtImprimirReceta.setText("Imprimir Receta");
+        txtImprimirReceta.setBackground(new java.awt.Color(102, 204, 255));
+        txtImprimirReceta.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtImprimirReceta.setText("IMPRIMIR RECETA");
         txtImprimirReceta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtImprimirRecetaActionPerformed(evt);
             }
         });
-        jPanel4.add(txtImprimirReceta, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 320, -1, -1));
+        jPanel6.add(txtImprimirReceta, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 290, -1, 30));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setText("PLAN DE TRATAMIENTO:");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, 20));
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PLAN DE TRATAMIENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel11.setText("DIAGNÓSTICO:");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 20));
+        txtAreaPlanTrat.setColumns(20);
+        txtAreaPlanTrat.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAreaPlanTrat.setLineWrap(true);
+        txtAreaPlanTrat.setRows(5);
+        txtAreaPlanTrat.setWrapStyleWord(true);
+        jScrollPane5.setViewportView(txtAreaPlanTrat);
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel12.setText("MEDICACIÓN:");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 20));
+        jPanel9.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 310, 220));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel13.setText("INSTRUCCIONES MÉDICAS:");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, 20));
+        jPanel6.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 330, 250));
 
-        panelRound5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 980, 350));
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MEDICACIÓN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel6.add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 1020, 390));
+        txtAreaMedicacion.setColumns(20);
+        txtAreaMedicacion.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAreaMedicacion.setLineWrap(true);
+        txtAreaMedicacion.setRows(5);
+        txtAreaMedicacion.setWrapStyleWord(true);
+        jScrollPane22.setViewportView(txtAreaMedicacion);
 
-        jLabel6.setText("DIAGNÓSTICO Y TRATAMIENTO");
-        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jPanel10.add(jScrollPane22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 610, 60));
+
+        jPanel6.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 630, 100));
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DIAGNÓSTICO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtAreaDiagnostico.setColumns(20);
+        txtAreaDiagnostico.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtAreaDiagnostico.setLineWrap(true);
+        txtAreaDiagnostico.setRows(5);
+        txtAreaDiagnostico.setWrapStyleWord(true);
+        jScrollPane23.setViewportView(txtAreaDiagnostico);
+
+        jPanel11.add(jScrollPane23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 610, 60));
+
+        jPanel6.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 630, 90));
 
         jTabbedPane1.addTab("Diagnóstico y Tratamiento", jPanel6);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1040, 460));
+        jPanel5.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 1000, 390));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1040, 430));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -871,14 +966,6 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
         this.lblNumeroCel = lblNumeroCel;
     }
 
-    public JLabel getLblPadecimiento() {
-        return lblPadecimiento;
-    }
-
-    public void setLblPadecimiento(JLabel lblPadecimiento) {
-        this.lblPadecimiento = lblPadecimiento;
-    }
-
     public JLabel getLblSexo() {
         return lblSexo;
     }
@@ -886,8 +973,7 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
     public void setLblSexo(JLabel lblSexo) {
         this.lblSexo = lblSexo;
     }
-    
-    
+
     //get y set de botones
 
     public JButton getBtnOpciones() {
@@ -945,6 +1031,10 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -961,33 +1051,28 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
     private javax.swing.JButton btnTerminarConsulta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -999,18 +1084,31 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane20;
+    private javax.swing.JScrollPane jScrollPane22;
+    private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblEmail;
@@ -1021,7 +1119,6 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
     private javax.swing.JLabel lblFrecRespiratoria;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNumeroCel;
-    private javax.swing.JLabel lblPadecimiento;
     private javax.swing.JLabel lblPeso;
     private javax.swing.JLabel lblRefEstatura;
     private javax.swing.JLabel lblRefFreCardiaca;
@@ -1036,7 +1133,6 @@ public class FrmNuevaConsulta extends javax.swing.JFrame {
     private Modelo.PanelRound panelRound2;
     private Modelo.PanelRound panelRound3;
     private Modelo.PanelRound panelRound4;
-    private Modelo.PanelRound panelRound5;
     private Modelo.PanelRound panelRound6;
     private javax.swing.JTextArea txtAntecedentesClinicosFamiliar;
     private javax.swing.JTextArea txtAntecedentesFarmacologicos;
