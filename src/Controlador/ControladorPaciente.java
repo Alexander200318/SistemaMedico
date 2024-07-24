@@ -60,7 +60,7 @@ public class ControladorPaciente {
             // Insertar en la tabla Paciente
             pS = conectBase.prepareStatement(sqlPaciente);
             //pS.setInt(1, paciente.getPersona().getIdPersona());
-            pS.setBoolean(2, paciente.isPacEstActivo());
+            pS.setBoolean(2, paciente.isEstadoActivo());
             pS.executeUpdate();
 
             conectBase.commit(); // Realizar commit

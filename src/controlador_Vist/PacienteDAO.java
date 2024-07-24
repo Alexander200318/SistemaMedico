@@ -19,94 +19,94 @@ public class PacienteDAO {
     }
 
     public Paciente obtenerPacientePorId(int idPaciente) {
-    Paciente paciente = null;
-    String query = "SELECT p.*, pa.* FROM Persona p JOIN Paciente pa ON p.idPersona = pa.idPersona WHERE pa.idPaciente = ?";
-    try (PreparedStatement stmt = connection.prepareStatement(query)) {
-        stmt.setInt(1, idPaciente);
-        ResultSet rs = stmt.executeQuery();
-        if (rs.next()) {
-            paciente = new Paciente(
-                rs.getInt("idPaciente"),
-                rs.getInt("idPersona"),
-                rs.getString("identificacion"),
-                rs.getString("primNombre"),
-                rs.getString("segNombre"),
-                rs.getString("primApellido"),
-                rs.getString("segApellido"),
-                rs.getString("email"),
-                rs.getString("direccion"),
-                rs.getString("barrio"),
-                rs.getString("canton"),
-                rs.getString("provincia"),
-                rs.getString("telefono"),
-                rs.getDate("fechaNacimiento"),
-                rs.getString("lugar"),
-                rs.getString("pais"),
-                rs.getString("genero"),
-                rs.getString("estadoCivil"),
-                rs.getString("sexo"),
-                rs.getBlob("foto"),
-                rs.getString("etnia"),
-                rs.getDate("fechaRegistro"),
-                rs.getString("carnetConadis"),
-                rs.getBoolean("discapacidad"),
-                rs.getString("tipoDiscapacidad"),
-                rs.getInt("porctDiscapacidad"),
-                rs.getString("contactoEmergencia"),
-                rs.getBoolean("estadoActivo"),
-                rs.getBoolean("pacEstActivo")
-            );
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-    return paciente;
-}
-
-    public Personal obtenerAntecedentesPersonalesPorIdPaciente(int idPaciente) {
-        Personal personal = null;
-        String query = "SELECT * FROM Personal WHERE idPaciente = ?";
+        Paciente paciente = null;
+        String query = "SELECT * FROM Paciente pa JOIN Persona pe ON pa.Id_Persona = pe.Id_Persona WHERE pa.Id_Paciente = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, idPaciente);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                Antecedentes antecedentes = new Antecedentes(
-                    rs.getInt("idAntecedentes"),
-                    rs.getString("alergias"),
-                    rs.getString("clinico"),
-                    rs.getString("ginecologico"),
-                    rs.getString("traumatologico"),
-                    rs.getString("quirurgico"),
-                    rs.getString("farmacologico"),
-                    rs.getString("enfermedades"),
-                    rs.getString("cirugias"),
-                    rs.getString("vacunas")
-                );
-                Paciente paciente = obtenerPacientePorId(idPaciente); // O una forma más eficiente de obtener el paciente
-                personal = new Personal(
-                    rs.getInt("idAnPersonales"),
-                    antecedentes,
-                    paciente
+                paciente = new Paciente(
+                    rs.getInt("Id_Paciente"),
+                    rs.getInt("Id_Persona"),
+                    rs.getString("Identificacion"),
+                    rs.getString("prim_Nombre"),
+                    rs.getString("seg_Nombre"),
+                    rs.getString("prim_Apellido"),
+                    rs.getString("seg_Apellido"),
+                    rs.getString("Email"),
+                    rs.getString("Direccion"),
+                    rs.getString("Barrio"),
+                    rs.getString("Canton"),
+                    rs.getString("Provincia"),
+                    rs.getString("Telefono"),
+                    rs.getDate("Fecha_Nacimiento"),
+                    rs.getString("Lugar"),
+                    rs.getString("Pais"),
+                    rs.getString("Genero"),
+                    rs.getString("Estado_Civil"),
+                    rs.getString("Sexo"),
+                    rs.getBlob("Foto"),
+                    rs.getString("Etnia"),
+                    rs.getDate("Fecha_Registro"),
+                    rs.getString("Carnet_Conadis"),
+                    rs.getBoolean("Discapacidad"),
+                    rs.getString("Tipo_Discapacidad"),
+                    rs.getInt("Porct_Discapacidad"),
+                    rs.getString("Contacto_Emergencia"),
+                    rs.getBoolean("Estado_Activo")
                 );
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return personal;
+        return paciente;
     }
+
+    public Personal obtenerAntecedentesPersonalesPorIdPaciente(int idPaciente) {
+    Personal personal = null;
+    String query = "SELECT * FROM AntecedentePersonal WHERE Id_Paciente = ?";
+    try (PreparedStatement stmt = connection.prepareStatement(query)) {
+        stmt.setInt(1, idPaciente);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            Antecedentes antecedentes = new Antecedentes(
+                rs.getInt("Id_Antecedentes"),
+                rs.getString("Alergias"),
+                rs.getString("Clinico"),
+                rs.getString("Ginecologico"),
+                rs.getString("Traumatologico"),
+                rs.getString("Quirurgico"),
+                rs.getString("Farmacologico"),
+                rs.getString("Enfermedades"),
+                rs.getString("Cirugias"),
+                rs.getString("Vacunas")
+            );
+            Paciente paciente = obtenerPacientePorId(idPaciente);
+            personal = new Personal(
+                rs.getInt("Id_AnPersonales"),
+                antecedentes,
+                paciente
+            );
+        }
+    } catch (SQLException e) {
+        System.err.println("Error al obtener antecedentes personales: " + e.getMessage());
+        e.printStackTrace();
+    }
+    return personal;
+}
 
     public Familiar obtenerAntecedentesFamiliaresPorIdPaciente(int idPaciente) {
         Familiar familiar = null;
-        String query = "SELECT * FROM Familiar WHERE idPaciente = ?";
+        String query = "SELECT * FROM AntecedentesFamiliar af WHERE af.Id_Paciente = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, idPaciente);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 familiar = new Familiar(
-                    rs.getInt("idAntFamiliares"),
-                    rs.getString("parentesco"),
-                    rs.getInt("idAntecedentes"),
-                    rs.getInt("idPaciente")
+                    rs.getInt("Id_AntFamiliares"),
+                    rs.getString("Parentesco"),
+                    rs.getInt("Id_Antecedentes"),
+                    rs.getInt("Id_Paciente")
                 );
             }
         } catch (SQLException e) {
@@ -117,22 +117,22 @@ public class PacienteDAO {
 
     public Antecedentes obtenerAntecedentesPorId(int idAntecedentes) {
         Antecedentes antecedentes = null;
-        String query = "SELECT * FROM Antecedentes WHERE idAntecedentes = ?";
+        String query = "SELECT * FROM Antecedentes WHERE Id_Antecedentes = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, idAntecedentes);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 antecedentes = new Antecedentes(
-                    rs.getInt("idAntecedentes"),
-                    rs.getString("alergias"),
-                    rs.getString("clinico"),
-                    rs.getString("ginecologico"),
-                    rs.getString("traumatologico"),
-                    rs.getString("quirurgico"),
-                    rs.getString("farmacologico"),
-                    rs.getString("enfermedades"),
-                    rs.getString("cirugias"),
-                    rs.getString("vacunas")
+                    rs.getInt("Id_Antecedentes"),
+                    rs.getString("Alergias"),
+                    rs.getString("Clinico"),
+                    rs.getString("Ginecologico"),
+                    rs.getString("Traumatologico"),
+                    rs.getString("Quirurgico"),
+                    rs.getString("Farmacologico"),
+                    rs.getString("Enfermedades"),
+                    rs.getString("Cirugias"),
+                    rs.getString("Vacunas")
                 );
             }
         } catch (SQLException e) {
@@ -142,7 +142,7 @@ public class PacienteDAO {
     }
 
     public void actualizarHistorial(Historial historial) {
-        String query = "UPDATE Historial SET descripcionHist = ?, hisEstActivo = ? WHERE idHistorial = ?";
+        String query = "UPDATE Historial SET Descripcion_Hist = ?, His_Est_Activo = ? WHERE Id_Historial = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, historial.getDescripcionHist());
             stmt.setBoolean(2, historial.isHisEstActivo());
@@ -154,7 +154,7 @@ public class PacienteDAO {
     }
 
     public void actualizarAntecedentes(Antecedentes antecedentes) {
-        String query = "UPDATE Antecedentes SET alergias = ?, clinico = ?, ginecologico = ?, traumatologico = ?, quirurgico = ?, farmacologico = ?, enfermedades = ?, cirugias = ?, vacunas = ? WHERE idAntecedentes = ?";
+        String query = "UPDATE Antecedentes SET Alergias = ?, Clinico = ?, Ginecologico = ?, Traumatologico = ?, Quirurgico = ?, Farmacologico = ?, Enfermedades = ?, Cirugias = ?, Vacunas = ? WHERE Id_Antecedentes = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, antecedentes.getAlergias());
             stmt.setString(2, antecedentes.getClinico());
@@ -173,7 +173,7 @@ public class PacienteDAO {
     }
 
     public void actualizarFamiliar(Familiar familiar) {
-        String query = "UPDATE Familiar SET parentesco = ?, idAntecedentes = ? WHERE idAntFamiliares = ?";
+        String query = "UPDATE AntecedentesFamiliar SET Parentesco = ?, Id_Antecedentes = ? WHERE Id_AntFamiliares = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, familiar.getParentesco());
             stmt.setInt(2, familiar.getIdAntecedentes());

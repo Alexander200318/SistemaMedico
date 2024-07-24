@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 public class ControladorFrmNuevaConsul {
     private FrmNuevaConsulta ventanaNvConsulta;
@@ -77,6 +78,7 @@ public class ControladorFrmNuevaConsul {
 
         // Cargar datos del paciente y antecedentes
         cargarDatosPaciente();
+        veridpaciente();
 
         // Configurar el ActionListener del botón
         this.btnGuardarHistorial.addActionListener(new ActionListener() {
@@ -91,17 +93,39 @@ public class ControladorFrmNuevaConsul {
             }
         });
     }
-
-    private void cargarDatosPaciente() {
-        int idPaciente = singleton.getIdPaciente();
-        Paciente paciente = pacienteDao.obtenerPacientePorId(idPaciente);
-        if (paciente != null) {
-            recibirDatosPaciente(paciente);
-        }
-        
-        cargarDatosExistentes(idPaciente);
+    
+    public void veridpaciente(){
+        System.out.println("id recibido"+singleton.getIdPaciente());
     }
 
+    //Metodo para cargar los datos del paciente en los jLbl
+    private void cargarDatosPaciente() {
+        try {
+            int idPaciente = singleton.getIdPaciente();
+
+            // Obtener datos del paciente desde la base de datos
+            Paciente paciente = pacienteDao.obtenerPacientePorId(idPaciente);
+
+            // Verificar si el paciente se obtuvo correctamente
+            if (paciente != null) {
+                // Pasar los datos del paciente a otra función para su procesamiento
+                recibirDatosPaciente(paciente);
+            } else {
+                // Manejar el caso donde no se encontró el paciente
+                System.out.println("Paciente no encontrado con ID: " + idPaciente);
+            }
+
+            // Cargar otros datos existentes relacionados
+            cargarDatosExistentes(idPaciente);
+
+        } catch (Exception e) {
+            // Manejar excepciones y registrar errores
+            e.printStackTrace();
+        }
+    }
+
+    //Metodo para cargar los datos del paciente en el area de los antecedentes
+    
     private void cargarDatosExistentes(int idPaciente) {
         Personal antecedentesPersonales = pacienteDao.obtenerAntecedentesPersonalesPorIdPaciente(idPaciente);
         Familiar antecedentesFamiliares = pacienteDao.obtenerAntecedentesFamiliaresPorIdPaciente(idPaciente);
@@ -128,21 +152,32 @@ public class ControladorFrmNuevaConsul {
         }
     }
 
+    //Metodo para cargar los datos del paciente en los lbl
     private void recibirDatosPaciente(Paciente paciente) {
-        ventanaNvConsulta.getLblNombre().setText(paciente.getPrimNombre() + " " + paciente.getPrimApellido());
-        ventanaNvConsulta.getLblEdad().setText(String.valueOf(calcularEdad(paciente.getFechaNacimiento().toString())));
-        ventanaNvConsulta.getLblEmail().setText(paciente.getEmail());
-        ventanaNvConsulta.getLblFecha_Nacimiento().setText(paciente.getFechaNacimiento().toString());
-        ventanaNvConsulta.getLblNumeroCel().setText(paciente.getTelefono());
-        ventanaNvConsulta.getLblSexo().setText(paciente.getSexo());
+    if (paciente != null) {
+        if (ventanaNvConsulta != null) {
+            SwingUtilities.invokeLater(() -> {
+                ventanaNvConsulta.getLblNombre().setText(paciente.getPrimNombre() + " " + paciente.getPrimApellido());
+                ventanaNvConsulta.getLblEdad().setText(String.valueOf(calcularEdad(paciente.getFechaNacimiento().toString())));
+                ventanaNvConsulta.getLblEmail().setText(paciente.getEmail());
+                ventanaNvConsulta.getLblFecha_Nacimiento().setText(paciente.getFechaNacimiento().toString());
+                ventanaNvConsulta.getLblNumeroCel().setText(paciente.getTelefono());
+                ventanaNvConsulta.getLblSexo().setText(paciente.getSexo());
 
-        // Formatear la fecha actual
-        // Formatear la fecha actual
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String fechaActual = LocalDate.now().format(formatter);
-        ventanaNvConsulta.getLblFecha_Actual().setText(fechaActual);
+                // Formatear la fecha actual
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                String fechaActual = LocalDate.now().format(formatter);
+                ventanaNvConsulta.getLblFecha_Actual().setText(fechaActual);
+            });
+        } else {
+            System.out.println("ventanaNvConsulta es null");
+        }
+    } else {
+        System.out.println("paciente es null");
     }
+}
 
+    //Accion del btnActualizar, area de antecedentes
     private void actualizarDatos() throws SQLException {
         // Crear y actualizar un historial
         Historial historial = new Historial();
@@ -180,18 +215,18 @@ public class ControladorFrmNuevaConsul {
         // Actualizar familiar
         pacienteDao.actualizarFamiliar(familiar);
     }
-
+//Metodo para guardar los datos de la consulta
     private void guardarConsulta() throws SQLException {
         
-        int idPaciente = singleton.getIdPaciente(); // Obtener el ID del paciente
+        int idPaciente = singleton.getIdPaciente();
         Consulta consulta = new Consulta(
             ventanaNvConsulta.getTxtEnfermedades().getText(),
             ventanaNvConsulta.getTxtNotasConsulta().getText(),
-            true // Suponiendo que el estado activo es true
+            true
         );
 
         Historial historial = new Historial(
-            Date.valueOf(LocalDate.now()), // Fecha actual
+            Date.valueOf(LocalDate.now()), 
             "Descripción del historial", // Ajustar según corresponda
             true,
             null, // Fecha de cierre, puede ser null inicialmente
