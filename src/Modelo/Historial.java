@@ -8,7 +8,7 @@ package Modelo;
  *
  * @author Joel
  */
-import java.util.Date;
+import java.sql.Date;
 
 public class Historial {
     private int idHistorial;
@@ -23,11 +23,25 @@ public class Historial {
     private int idDoctor;
 
     // Constructor sin argumentos
-    public Historial() {}
+    public Historial() {
+    
+    }
 
     // Constructor con todos los parámetros
     public Historial(int idHistorial, Date fecha, String descripcionHist, boolean hisEstActivo, Date fechaCierre, String estado, int idConsulta, int idPaciente, int idTriage, int idDoctor) {
         this.idHistorial = idHistorial;
+        this.fecha = fecha;
+        this.descripcionHist = descripcionHist;
+        this.hisEstActivo = hisEstActivo;
+        this.fechaCierre = fechaCierre;
+        this.estado = estado;
+        this.idConsulta = idConsulta;
+        this.idPaciente = idPaciente;
+        this.idTriage = idTriage;
+        this.idDoctor = idDoctor;
+    }
+    
+    public Historial(Date fecha, String descripcionHist, boolean hisEstActivo, Date fechaCierre, String estado, int idConsulta, int idPaciente, int idTriage, int idDoctor) {
         this.fecha = fecha;
         this.descripcionHist = descripcionHist;
         this.hisEstActivo = hisEstActivo;

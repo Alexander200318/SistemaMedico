@@ -31,35 +31,35 @@ public class ControladorPaciente {
             conectBase.setAutoCommit(false); // Desactivar auto commit
 
             // Insertar en la tabla Persona
-            pS = conectBase.prepareStatement(sqlPersona, PreparedStatement.RETURN_GENERATED_KEYS);
-            pS.setString(1, paciente.getPersona().getIdentificacion());
-            pS.setString(2, paciente.getPersona().getPrimNombre());
-            pS.setString(3, paciente.getPersona().getPrimApellido());
-            pS.setDate(4, paciente.getPersona().getFechaNacimiento());
-            pS.setString(5, paciente.getPersona().getDireccion());
-            pS.setString(6, paciente.getPersona().getCanton());
-            pS.setString(7, paciente.getPersona().getProvincia());
-            pS.setString(8, paciente.getPersona().getTelefono());
-            pS.setString(9, paciente.getPersona().getPais());
-            pS.setString(10, paciente.getPersona().getGenero());
-            pS.setString(11, paciente.getPersona().getEstadoCivil());
-            pS.setString(12, paciente.getPersona().getSexo());
-            pS.setDate(13, paciente.getPersona().getFechaRegistro());
-            pS.setBoolean(14, paciente.getPersona().isEstadoActivo());
-            pS.executeUpdate();
+//            pS = conectBase.prepareStatement(sqlPersona, PreparedStatement.RETURN_GENERATED_KEYS);
+//            pS.setString(1, paciente.getPersona().getIdentificacion());
+//            pS.setString(2, paciente.getPersona().getPrimNombre());
+//            pS.setString(3, paciente.getPersona().getPrimApellido());
+//            pS.setDate(4, paciente.getPersona().getFechaNacimiento());
+//            pS.setString(5, paciente.getPersona().getDireccion());
+//            pS.setString(6, paciente.getPersona().getCanton());
+//            pS.setString(7, paciente.getPersona().getProvincia());
+//            pS.setString(8, paciente.getPersona().getTelefono());
+//            pS.setString(9, paciente.getPersona().getPais());
+//            pS.setString(10, paciente.getPersona().getGenero());
+//            pS.setString(11, paciente.getPersona().getEstadoCivil());
+//            pS.setString(12, paciente.getPersona().getSexo());
+//            pS.setDate(13, paciente.getPersona().getFechaRegistro());
+//            pS.setBoolean(14, paciente.getPersona().isEstadoActivo());
+//            pS.executeUpdate();
 
             // Obtener el ID generado para Persona
             ResultSet generatedKeys = pS.getGeneratedKeys();
             if (generatedKeys.next()) {
                 int idPersona = generatedKeys.getInt(1);
-                paciente.getPersona().setIdPersona(idPersona);
+                //paciente.getPersona().setIdPersona(idPersona);
             } else {
                 throw new SQLException("Error al obtener el ID generado para Persona.");
             }
 
             // Insertar en la tabla Paciente
             pS = conectBase.prepareStatement(sqlPaciente);
-            pS.setInt(1, paciente.getPersona().getIdPersona());
+            //pS.setInt(1, paciente.getPersona().getIdPersona());
             pS.setBoolean(2, paciente.isPacEstActivo());
             pS.executeUpdate();
 

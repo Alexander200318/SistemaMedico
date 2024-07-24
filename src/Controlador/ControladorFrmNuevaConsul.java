@@ -5,13 +5,7 @@
 package Controlador;
 
 
-import Modelo.Antecedentes;
-import Modelo.Conexion;
-import Modelo.Familiar;
-import Modelo.Historial;
-import Modelo.Paciente;
-import Modelo.Personal;
-import Modelo.Singleton;
+import Modelo.*;
 import Vista.FrmNuevaConsulta;
 import controlador_Vist.PacienteDAO;
 import java.awt.event.ActionEvent;
@@ -21,7 +15,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.sql.Date;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -30,6 +25,7 @@ public class ControladorFrmNuevaConsul {
     private FrmNuevaConsulta ventanaNvConsulta;
     private Singleton singleton;
     private PacienteDAO pacienteDao;
+    private ConsultaDAO consultaDAO;
 
     // Campos de la ventana
     private JTextArea txtAntecedentesFarmacologicos;
@@ -77,17 +73,21 @@ public class ControladorFrmNuevaConsul {
         Conexion conexion = new Conexion();
         Connection connection = conexion.getConexion();
         this.pacienteDao = new PacienteDAO(connection);
+        this.consultaDAO = new ConsultaDAO(connection);
 
         // Cargar datos del paciente y antecedentes
-        cargarDatosExistentes(0);
-        actualizarDatos();
         cargarDatosPaciente();
 
         // Configurar el ActionListener del botón
         this.btnGuardarHistorial.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actualizarDatos();
+                try {
+                    actualizarDatos();
+                    guardarConsulta();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
     }
@@ -129,20 +129,21 @@ public class ControladorFrmNuevaConsul {
     }
 
     private void recibirDatosPaciente(Paciente paciente) {
-    ventanaNvConsulta.getLblNombre().setText(paciente.getPrimNombre() + " " + paciente.getPrimApellido());
-    ventanaNvConsulta.getLblEdad().setText(String.valueOf(calcularEdad(paciente.getFechaNacimiento().toString())));
-    ventanaNvConsulta.getLblEmail().setText(paciente.getEmail());
-    ventanaNvConsulta.getLblFecha_Nacimiento().setText(paciente.getFechaNacimiento().toString());
-    ventanaNvConsulta.getLblNumeroCel().setText(paciente.getTelefono());
-    ventanaNvConsulta.getLblSexo().setText(paciente.getSexo());
+        ventanaNvConsulta.getLblNombre().setText(paciente.getPrimNombre() + " " + paciente.getPrimApellido());
+        ventanaNvConsulta.getLblEdad().setText(String.valueOf(calcularEdad(paciente.getFechaNacimiento().toString())));
+        ventanaNvConsulta.getLblEmail().setText(paciente.getEmail());
+        ventanaNvConsulta.getLblFecha_Nacimiento().setText(paciente.getFechaNacimiento().toString());
+        ventanaNvConsulta.getLblNumeroCel().setText(paciente.getTelefono());
+        ventanaNvConsulta.getLblSexo().setText(paciente.getSexo());
 
-    // Formatear la fecha actual
-    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    String fechaActual = formatter.format(new Date());
-    ventanaNvConsulta.getLblFecha_Actual().setText(fechaActual);
-}
+        // Formatear la fecha actual
+        // Formatear la fecha actual
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String fechaActual = LocalDate.now().format(formatter);
+        ventanaNvConsulta.getLblFecha_Actual().setText(fechaActual);
+    }
 
-    private void actualizarDatos() {
+    private void actualizarDatos() throws SQLException {
         // Crear y actualizar un historial
         Historial historial = new Historial();
         historial.setDescripcionHist(txtAreaDiagnostico.getText());
@@ -178,6 +179,65 @@ public class ControladorFrmNuevaConsul {
 
         // Actualizar familiar
         pacienteDao.actualizarFamiliar(familiar);
+    }
+
+    private void guardarConsulta() throws SQLException {
+        
+        int idPaciente = singleton.getIdPaciente(); // Obtener el ID del paciente
+        Consulta consulta = new Consulta(
+            ventanaNvConsulta.getTxtEnfermedades().getText(),
+            ventanaNvConsulta.getTxtNotasConsulta().getText(),
+            true // Suponiendo que el estado activo es true
+        );
+
+        Historial historial = new Historial(
+            Date.valueOf(LocalDate.now()), // Fecha actual
+            "Descripción del historial", // Ajustar según corresponda
+            true,
+            null, // Fecha de cierre, puede ser null inicialmente
+            "En proceso", // Estado
+            consulta.getIdConsulta(),
+            idPaciente,
+            1, // Id_Triage (reemplazar con el ID real)
+            1 // Id_Doctor (reemplazar con el ID real)
+        );
+
+        Diagnostico diagnostico = new Diagnostico(
+            ventanaNvConsulta.getTxtAreaDiagnostico().getText(),
+            0, // CIE_10 (reemplazar con el código real)
+            true, // D_Presuntivo (reemplazar según corresponda)
+            false, // D_Definitivo (reemplazar según corresponda)
+            historial.getIdHistorial()
+        );
+
+        Seguimiento seguimiento = new Seguimiento(
+            "Notas de seguimiento", // Ajustar según corresponda
+            Date.valueOf(LocalDate.now()),
+            1, // Num_Seg (reemplazar con el número real)
+            historial.getIdHistorial(),
+            0, // Id_Seguimiento_Anterior (reemplazar con el ID real)
+            1 // Id_Doctor (reemplazar con el ID real)
+        );
+
+        Tratamiento tratamiento = new Tratamiento(
+            ventanaNvConsulta.getTxtAreaPlanTrat().getText(),
+            historial.getIdHistorial()
+        );
+
+        Receta receta = new Receta(
+            ventanaNvConsulta.getTxtAreaMedicacion().getText(),
+            "Descripción de la receta", // Ajustar según corresponda
+            tratamiento.getIdTratamiento()
+        );
+
+        RegistraConsulta registraConsulta = new RegistraConsulta(
+            Date.valueOf(LocalDate.now()),
+            consulta.getIdConsulta(),
+            1, // Id_Doctor (reemplazar con el ID real)
+            idPaciente
+        );
+
+        consultaDAO.guardarConsulta(consulta, historial, diagnostico, seguimiento, tratamiento, receta, registraConsulta);
     }
 
     private int calcularEdad(String fechaNacimiento) {
