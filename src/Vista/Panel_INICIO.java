@@ -86,6 +86,7 @@ public class Panel_INICIO extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -174,15 +175,20 @@ public class Panel_INICIO extends javax.swing.JPanel {
         lblNombeApellidoDocPrincipal.setFont(new java.awt.Font("Maiandra GD", 1, 48)); // NOI18N
         lblNombeApellidoDocPrincipal.setForeground(new java.awt.Color(64, 172, 159));
         lblNombeApellidoDocPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(lblNombeApellidoDocPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 660, 60));
+        jPanel4.add(lblNombeApellidoDocPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 580, 60));
 
         jLabel2.setFont(new java.awt.Font("Maiandra GD", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(32, 65, 109));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("BIENVENIDA/O");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 660, -1));
-        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 660, 20));
+        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 670, 20));
         jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 400, 10));
+
+        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(32, 65, 109));
+        jLabel1.setText("DR.");
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -216,6 +222,7 @@ public class Panel_INICIO extends javax.swing.JPanel {
     private javax.swing.JLabel LabelReportesSexo;
     private javax.swing.JLabel LabelTriagePrioridad;
     private javax.swing.JLabel LblLogo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

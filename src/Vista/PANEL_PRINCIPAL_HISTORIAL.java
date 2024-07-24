@@ -149,7 +149,6 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Txt_Cedula_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        Txt_Cedula_Hist.setForeground(new java.awt.Color(204, 204, 204));
         Txt_Cedula_Hist.setBorder(null);
         Txt_Cedula_Hist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
