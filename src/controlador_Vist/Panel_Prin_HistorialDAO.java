@@ -203,19 +203,19 @@ public class Panel_Prin_HistorialDAO {
         TableColumn column;
 
         column = tabla.getColumnModel().getColumn(0);
-        column.setPreferredWidth(75);
+        column.setPreferredWidth(55);
 
         column = tabla.getColumnModel().getColumn(1);
         column.setPreferredWidth(160);
 
         column = tabla.getColumnModel().getColumn(2);
-        column.setPreferredWidth(20);
+        column.setPreferredWidth(18);
 
         column = tabla.getColumnModel().getColumn(3);
         column.setPreferredWidth(50);
 
         column = tabla.getColumnModel().getColumn(4);
-        column.setPreferredWidth(60);
+        column.setPreferredWidth(80);
 
         column = tabla.getColumnModel().getColumn(5);
         column.setPreferredWidth(155);
@@ -224,7 +224,7 @@ public class Panel_Prin_HistorialDAO {
         column.setPreferredWidth(250);
 
         column = tabla.getColumnModel().getColumn(7);
-        column.setPreferredWidth(20);
+        column.setPreferredWidth(30);
 
         column = tabla.getColumnModel().getColumn(8);
         column.setPreferredWidth(10);

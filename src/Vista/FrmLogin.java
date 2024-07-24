@@ -107,7 +107,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel6.setText("CONTRASEÑA:");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 180, 20));
 
-        TxtCedulaCorreoLogin.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        TxtCedulaCorreoLogin.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         TxtCedulaCorreoLogin.setBorder(null);
         jPanel2.add(TxtCedulaCorreoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 270, 30));
 
@@ -116,7 +116,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel5.setText("CORREO:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 160, 20));
 
-        PasswordContraseñaLogin.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        PasswordContraseñaLogin.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         PasswordContraseñaLogin.setBorder(null);
         jPanel2.add(PasswordContraseñaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 260, 30));
 

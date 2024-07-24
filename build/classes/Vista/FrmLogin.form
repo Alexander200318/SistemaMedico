@@ -99,7 +99,7 @@
             <Component class="javax.swing.JTextField" name="TxtCedulaCorreoLogin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Maiandra GD" size="12" style="0"/>
+                  <Font name="Maiandra GD" size="14" style="0"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -128,7 +128,7 @@
             <Component class="javax.swing.JPasswordField" name="PasswordContrase&#xf1;aLogin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Maiandra GD" size="12" style="0"/>
+                  <Font name="Maiandra GD" size="14" style="0"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>

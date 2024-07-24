@@ -130,11 +130,18 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
         panelRound2 = new Modelo.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_Historial = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "HISTORIAL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
         panelRound1.setRoundBottomLeft(20);
         panelRound1.setRoundBottomRight(20);
         panelRound1.setRoundTopLeft(20);
@@ -149,65 +156,67 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
                 Txt_Cedula_HistActionPerformed(evt);
             }
         });
-        panelRound1.add(Txt_Cedula_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 30));
+        panelRound1.add(Txt_Cedula_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 220, 20));
 
         Cbx_Triage_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         Cbx_Triage_Hist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "No Urgente", "Prioridad", "Emergencia" }));
-        panelRound1.add(Cbx_Triage_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 180, 30));
+        Cbx_Triage_Hist.setBorder(null);
+        panelRound1.add(Cbx_Triage_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 68, 200, -1));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel2.setText("Categoria Triage");
-        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 40, 120, -1));
 
         Btn_Buscar_Hist.setBackground(new java.awt.Color(64, 172, 159));
         Btn_Buscar_Hist.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Btn_Buscar_Hist.setText("BUSCAR");
-        panelRound1.add(Btn_Buscar_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 100, 190, 30));
+        panelRound1.add(Btn_Buscar_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 120, 190, 30));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel1.setText("Ingresa el numero de Identificacion:");
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         Fecha_Calendario_inicial.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
-        panelRound1.add(Fecha_Calendario_inicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, 150, 30));
+        panelRound1.add(Fecha_Calendario_inicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 190, 30));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel3.setText("Ingrese la fecha Inicial");
-        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, -1, 20));
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, 30));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel4.setText("Ingresebla fecha Final");
-        panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 10, -1, 20));
+        panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, -1, 30));
 
         Fecha_Calendario_final.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
-        panelRound1.add(Fecha_Calendario_final, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 30, 160, 30));
+        panelRound1.add(Fecha_Calendario_final, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 200, 30));
 
         Txt_Apellido_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_Apellido_Hist.setBorder(null);
-        panelRound1.add(Txt_Apellido_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 180, 30));
+        panelRound1.add(Txt_Apellido_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 220, 20));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel5.setText("Apellidos:");
-        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
+        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 100, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel6.setText("Nombres:");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 100, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel7.setText("Sexo:");
-        panelRound1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
+        panelRound1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 40, 40, -1));
 
         Cbx_Sexo_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         Cbx_Sexo_Hist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "Hombre", "Mujer" }));
-        panelRound1.add(Cbx_Sexo_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 200, 30));
+        Cbx_Sexo_Hist.setBorder(null);
+        panelRound1.add(Cbx_Sexo_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 68, 200, -1));
 
         Txt_Nombres_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_Nombres_Hist.setBorder(null);
@@ -216,23 +225,29 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
                 Txt_Nombres_HistActionPerformed(evt);
             }
         });
-        panelRound1.add(Txt_Nombres_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 180, 30));
+        panelRound1.add(Txt_Nombres_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 220, 20));
 
         Btn_Limpiar_Hist.setBackground(new java.awt.Color(64, 172, 159));
         Btn_Limpiar_Hist.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Btn_Limpiar_Hist.setText("LIMPIAR");
-        panelRound1.add(Btn_Limpiar_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 100, 170, 30));
-        panelRound1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 180, 10));
-        panelRound1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, 10));
-        panelRound1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 180, 10));
+        panelRound1.add(Btn_Limpiar_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 120, 170, 30));
+        panelRound1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, 220, 10));
+        panelRound1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 230, 10));
+        panelRound1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 220, 10));
+        panelRound1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 90, 200, 10));
+        panelRound1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 200, 10));
+        panelRound1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 200, 20));
+        panelRound1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 190, 20));
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS DE HISTORIAL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
         panelRound2.setRoundBottomLeft(20);
         panelRound2.setRoundBottomRight(20);
         panelRound2.setRoundTopLeft(20);
         panelRound2.setRoundTopRight(20);
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tabla_Historial.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
+        tabla_Historial.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         tabla_Historial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -248,27 +263,13 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Identificasion", "Nombres", "Sexo", "Fecha Consulta", "Doctor ", "Diagnostico", "Nvl"
+                "Identificacion", "Nombres", "Sexo", "Fecha Consulta", "Doctor ", "Diagnostico", "Nvl"
             }
         ));
+        tabla_Historial.setDoubleBuffered(true);
         jScrollPane1.setViewportView(tabla_Historial);
 
-        javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
-        panelRound2.setLayout(panelRound2Layout);
-        panelRound2Layout.setHorizontalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
-        );
-        panelRound2Layout.setVerticalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
+        panelRound2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 28, 1220, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -278,17 +279,17 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 1268, Short.MAX_VALUE)
-                    .addComponent(panelRound2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -322,6 +323,10 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     private Modelo.PanelRound panelRound1;
     private Modelo.PanelRound panelRound2;
     private javax.swing.JTable tabla_Historial;

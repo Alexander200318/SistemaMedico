@@ -17,7 +17,7 @@ import java.util.List;
 public class ConsultaTableModel extends AbstractTableModel {
 
     private String[] columnNames = { // Nombres de las columnas de la tabla
-        "Identificasión", "Nombre Paciente", "Edad", "Sexo", "Fecha Consulta", "Nombre del Doctor", "Diagnóstico","Nvl Prioridad","Accion"
+        "IDENTIFICACIÓN", "NOMBRE", "EDAD", "SEXO", "FECHA CONSULTA", "MEDICO", "DIAGNÓSTICO","PRIORIDAD","VER"
     };
 
      private List< Encabezado_tabla_Histrl> consultas;

@@ -148,7 +148,7 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
 
         PNLReporte.add(PNLReportGrafico, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 450, 400));
 
-        add(PNLReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 1200, 650));
+        add(PNLReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 1200, 620));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo Login.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-7, 0, 1960, -1));
