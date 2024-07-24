@@ -4,7 +4,9 @@
  */
 package Vista;
 
+import Controlador.ControladorReportesGraficaPincipal;
 import controlador_Vist.Panel_Prin_InicioDAO;
+import java.awt.Panel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -15,9 +17,12 @@ import javax.swing.JTextField;
 public class Panel_INICIO extends javax.swing.JPanel {
 
     Panel_Prin_InicioDAO contro;
+    ControladorReportesGraficaPincipal reportefyM;
     public Panel_INICIO() {
         initComponents();
         contro=new Panel_Prin_InicioDAO(this);
+        reportefyM=new ControladorReportesGraficaPincipal(LabelReportesMyF,LabelReportesSexo,LabelTriagePrioridad,LabelRangoEdad);
+        
     }
 
     public JLabel getLblNombeApellidoDocPrincipal() {
@@ -27,20 +32,53 @@ public class Panel_INICIO extends javax.swing.JPanel {
     public void setLblNombeApellidoDocPrincipal(JLabel lblNombeApellidoDocPrincipal) {
         this.lblNombeApellidoDocPrincipal = lblNombeApellidoDocPrincipal;
     }
+
+    public JLabel getLabelReportesMyF() {
+        return LabelReportesMyF;
+    }
+
+    public void setLabelReportesMyF(JLabel LabelReportesMyF) {
+        this.LabelReportesMyF = LabelReportesMyF;
+    }
+
+    public JLabel getLabelReportesSexo() {
+        return LabelReportesSexo;
+    }
+
+    public void setLabelReportesSexo(JLabel LabelReportesSexo) {
+        this.LabelReportesSexo = LabelReportesSexo;
+    }
+
+    public JLabel getLabelTriagePrioridad() {
+        return LabelTriagePrioridad;
+    }
+
+    public void setLabelTriagePrioridad(JLabel LabelTriagePrioridad) {
+        this.LabelTriagePrioridad = LabelTriagePrioridad;
+    }
+
+    public JLabel getLabelRangoEdad() {
+        return LabelRangoEdad;
+    }
+
+    public void setLabelRangoEdad(JLabel LabelRangoEdad) {
+        this.LabelRangoEdad = LabelRangoEdad;
+    }
     
 
-    
-
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         pnlreportesgeneralesinicio = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        LabelRangoEdad = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        LabelReportesMyF = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
+        LabelReportesSexo = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
+        LabelTriagePrioridad = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         LblLogo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -64,11 +102,11 @@ public class Panel_INICIO extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addComponent(LabelRangoEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 218, Short.MAX_VALUE)
+            .addComponent(LabelRangoEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
         );
 
         pnlreportesgeneralesinicio.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 290, 240));
@@ -80,11 +118,11 @@ public class Panel_INICIO extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addComponent(LabelReportesMyF, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 218, Short.MAX_VALUE)
+            .addComponent(LabelReportesMyF, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
         );
 
         pnlreportesgeneralesinicio.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 290, 240));
@@ -96,11 +134,11 @@ public class Panel_INICIO extends javax.swing.JPanel {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addComponent(LabelReportesSexo, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 218, Short.MAX_VALUE)
+            .addComponent(LabelReportesSexo, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
         );
 
         pnlreportesgeneralesinicio.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 290, 240));
@@ -112,11 +150,11 @@ public class Panel_INICIO extends javax.swing.JPanel {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addComponent(LabelTriagePrioridad, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 218, Short.MAX_VALUE)
+            .addComponent(LabelTriagePrioridad, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
         );
 
         pnlreportesgeneralesinicio.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 290, 240));
@@ -173,6 +211,10 @@ public class Panel_INICIO extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelRangoEdad;
+    private javax.swing.JLabel LabelReportesMyF;
+    private javax.swing.JLabel LabelReportesSexo;
+    private javax.swing.JLabel LabelTriagePrioridad;
     private javax.swing.JLabel LblLogo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

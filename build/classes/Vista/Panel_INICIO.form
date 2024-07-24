@@ -97,15 +97,19 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="280" max="32767" attributes="0"/>
+                  <Component id="LabelRangoEdad" alignment="0" pref="280" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="LabelRangoEdad" alignment="0" pref="218" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="LabelRangoEdad">
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel5">
           <Properties>
@@ -130,15 +134,19 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="280" max="32767" attributes="0"/>
+                  <Component id="LabelReportesMyF" alignment="0" pref="280" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="LabelReportesMyF" alignment="0" pref="218" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="LabelReportesMyF">
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel6">
           <Properties>
@@ -163,15 +171,19 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="280" max="32767" attributes="0"/>
+                  <Component id="LabelReportesSexo" alignment="0" pref="280" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="LabelReportesSexo" alignment="0" pref="218" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="LabelReportesSexo">
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel7">
           <Properties>
@@ -196,15 +208,19 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="280" max="32767" attributes="0"/>
+                  <Component id="LabelTriagePrioridad" alignment="0" pref="280" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="LabelTriagePrioridad" alignment="0" pref="218" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="LabelTriagePrioridad">
+            </Component>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>

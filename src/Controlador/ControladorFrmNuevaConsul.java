@@ -10,15 +10,13 @@ import Modelo.Conexion;
 import Modelo.Familiar;
 import Modelo.Historial;
 import Modelo.Paciente;
+import Modelo.Personal;
 import Modelo.Singleton;
 import Vista.FrmNuevaConsulta;
-import controlador_Vist.PaginaNuevaConsultaDAO;
+import controlador_Vist.PacienteDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
@@ -31,6 +29,9 @@ import javax.swing.JTextField;
 public class ControladorFrmNuevaConsul {
     private FrmNuevaConsulta ventanaNvConsulta;
     private Singleton singleton;
+    private PacienteDAO pacienteDao;
+
+    // Campos de la ventana
     private JTextArea txtAntecedentesFarmacologicos;
     private JTextArea txtAntecedentesClinicosFamiliar;
     private JTextArea txtAntecedentesFarmacologicosFamiliar;
@@ -48,12 +49,10 @@ public class ControladorFrmNuevaConsul {
     private JTextArea txtExamenFisico;
     private JTextArea txtAreaDiagnostico;
     private JButton btnGuardarHistorial;
-    private PaginaNuevaConsultaDAO dao;
 
     public ControladorFrmNuevaConsul(FrmNuevaConsulta ventanaNvConsulta) {
         this.ventanaNvConsulta = ventanaNvConsulta;
         this.singleton = Singleton.getInstance();
-        
 
         // Inicialización de componentes
         this.txtAntecedentesFarmacologicos = ventanaNvConsulta.getTxtAntecedentesFarmacologicos();
@@ -74,11 +73,15 @@ public class ControladorFrmNuevaConsul {
         this.txtAreaDiagnostico = ventanaNvConsulta.getTxtAreaDiagnostico();
         this.btnGuardarHistorial = ventanaNvConsulta.getBtnGuardarHistorial();
 
-         // Inicializar el DAO
-        this.dao = new PaginaNuevaConsultaDAO();
+        // Inicializar el DAO
+        Conexion conexion = new Conexion();
+        Connection connection = conexion.getConexion();
+        this.pacienteDao = new PacienteDAO(connection);
 
-        // Cargar datos existentes
-        cargarDatosExistentes();
+        // Cargar datos del paciente y antecedentes
+        cargarDatosExistentes(0);
+        actualizarDatos();
+        cargarDatosPaciente();
 
         // Configurar el ActionListener del botón
         this.btnGuardarHistorial.addActionListener(new ActionListener() {
@@ -89,33 +92,55 @@ public class ControladorFrmNuevaConsul {
         });
     }
 
-    private void cargarDatosExistentes() {
-        Paciente paciente = dao.obtenerPacientePorId(/* id del paciente */);
-        Antecedentes antecedentesPersonales = dao.obtenerAntecedentesPersonalesPorIdPaciente(/* id del paciente */);
-        Familiar antecedentesFamiliares = dao.obtenerAntecedentesFamiliaresPorIdPaciente(/* id del paciente */);
-
-        // Rellenar los campos con los datos obtenidos
+    private void cargarDatosPaciente() {
+        int idPaciente = singleton.getIdPaciente();
+        Paciente paciente = pacienteDao.obtenerPacientePorId(idPaciente);
         if (paciente != null) {
             recibirDatosPaciente(paciente);
         }
+        
+        cargarDatosExistentes(idPaciente);
+    }
+
+    private void cargarDatosExistentes(int idPaciente) {
+        Personal antecedentesPersonales = pacienteDao.obtenerAntecedentesPersonalesPorIdPaciente(idPaciente);
+        Familiar antecedentesFamiliares = pacienteDao.obtenerAntecedentesFamiliaresPorIdPaciente(idPaciente);
+
         if (antecedentesPersonales != null) {
-            txtAntecedentesFarmacologicos.setText(antecedentesPersonales.getFarmacologico());
-            txtAntecedentes_Clinicos.setText(antecedentesPersonales.getClinico());
-            txtAntecedentesGinecologicos.setText(antecedentesPersonales.getGinecologico());
-            txtAntecedentesTraumatologicos.setText(antecedentesPersonales.getTraumatologico());
-            txt_Alergias.setText(antecedentesPersonales.getAlergias());
-            txtEnfermedades.setText(antecedentesPersonales.getEnfermedades());
-            txtCirujias.setText(antecedentesPersonales.getCirugias());
-            txtVacunas.setText(antecedentesPersonales.getVacunas());
+            Antecedentes personales = antecedentesPersonales.getAntecedentes();
+            txtAntecedentesFarmacologicos.setText(personales.getFarmacologico());
+            txtAntecedentes_Clinicos.setText(personales.getClinico());
+            txtAntecedentesGinecologicos.setText(personales.getGinecologico());
+            txtAntecedentesTraumatologicos.setText(personales.getTraumatologico());
+            txt_Alergias.setText(personales.getAlergias());
+            txtEnfermedades.setText(personales.getEnfermedades());
+            txtCirujias.setText(personales.getCirugias());
+            txtVacunas.setText(personales.getVacunas());
         }
+
         if (antecedentesFamiliares != null) {
+            Antecedentes familiares = pacienteDao.obtenerAntecedentesPorId(antecedentesFamiliares.getIdAntecedentes());
             txtParentesco.setText(antecedentesFamiliares.getParentesco());
-            txtAntecedentesClinicosFamiliar.setText(antecedentesFamiliares.get().getClinico());
-            txtAntecedentesFarmacologicosFamiliar.setText(antecedentesFamiliares.getAntecedentes().getFarmacologico());
-            txtAntecedentesGinecologicosFamiliar.setText(antecedentesFamiliares.getAntecedentes().getGinecologico());
-            txtAntecedentesTraumatologicosFamiliar.setText(antecedentesFamiliares.getAntecedentes().getTraumatologico());
+            txtAntecedentesClinicosFamiliar.setText(familiares.getClinico());
+            txtAntecedentesFarmacologicosFamiliar.setText(familiares.getFarmacologico());
+            txtAntecedentesGinecologicosFamiliar.setText(familiares.getGinecologico());
+            txtAntecedentesTraumatologicosFamiliar.setText(familiares.getTraumatologico());
         }
     }
+
+    private void recibirDatosPaciente(Paciente paciente) {
+    ventanaNvConsulta.getLblNombre().setText(paciente.getPrimNombre() + " " + paciente.getPrimApellido());
+    ventanaNvConsulta.getLblEdad().setText(String.valueOf(calcularEdad(paciente.getFechaNacimiento().toString())));
+    ventanaNvConsulta.getLblEmail().setText(paciente.getEmail());
+    ventanaNvConsulta.getLblFecha_Nacimiento().setText(paciente.getFechaNacimiento().toString());
+    ventanaNvConsulta.getLblNumeroCel().setText(paciente.getTelefono());
+    ventanaNvConsulta.getLblSexo().setText(paciente.getSexo());
+
+    // Formatear la fecha actual
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    String fechaActual = formatter.format(new Date());
+    ventanaNvConsulta.getLblFecha_Actual().setText(fechaActual);
+}
 
     private void actualizarDatos() {
         // Crear y actualizar un historial
@@ -124,7 +149,7 @@ public class ControladorFrmNuevaConsul {
         historial.setHisEstActivo(true);
 
         // Actualizar el historial
-        dao.actualizarHistorial(historial);
+        pacienteDao.actualizarHistorial(historial);
 
         // Crear y actualizar antecedentes personales
         Antecedentes antecedentesPersonales = new Antecedentes();
@@ -138,7 +163,7 @@ public class ControladorFrmNuevaConsul {
         antecedentesPersonales.setVacunas(txtVacunas.getText());
 
         // Actualizar antecedentes personales
-        dao.actualizarAntecedentes(antecedentesPersonales);
+        pacienteDao.actualizarAntecedentes(antecedentesPersonales);
 
         // Crear y actualizar antecedentes familiares
         Antecedentes antecedentesFamiliares = new Antecedentes();
@@ -149,45 +174,10 @@ public class ControladorFrmNuevaConsul {
 
         Familiar familiar = new Familiar();
         familiar.setParentesco(txtParentesco.getText());
-        familiar.setIdAntFamiliares(antecedentesFamiliares);
+        familiar.setIdAntecedentes(antecedentesFamiliares.getIdAntecedentes());
 
         // Actualizar familiar
-        dao.actualizarFamiliar(familiar);
-    }
-    
-    private void cargarDatosPaciente() {
-        int idPaciente = singleton.getIdPaciente();
-        Conexion conexion = new Conexion();
-        String query = "SELECT " +
-                "p.Email, " +
-                "p.Fecha_Nacimiento, " +
-                "p.Sexo, " +
-                "p.Telefono AS Telefono, " +
-                "CONCAT(p.prim_Nombre, ' ', p.prim_Apellido) AS Nombre " +
-                "FROM Paciente pac " +
-                "JOIN Persona p ON pac.Id_Persona = p.Id_Persona " +
-                "WHERE pac.Id_Paciente = ?";
-
-        try (Connection con = conexion.getConexion(); 
-             PreparedStatement ps = con.prepareStatement(query)) {
-            ps.setInt(1, idPaciente);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                ventanaNvConsulta.getLblEmail().setText(rs.getString("Email"));
-                ventanaNvConsulta.getLblFecha_Nacimiento().setText(rs.getString("Fecha_Nacimiento"));
-                ventanaNvConsulta.getLblNombre().setText(rs.getString("Nombre"));
-                ventanaNvConsulta.getLblNumeroCel().setText(rs.getString("Telefono"));
-                ventanaNvConsulta.getLblSexo().setText(rs.getString("Sexo"));
-                ventanaNvConsulta.getLblEdad().setText(String.valueOf(calcularEdad(rs.getString("Fecha_Nacimiento"))));
-                // Formatear la fecha actual
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-                String fechaActual = formatter.format(new Date());
-                ventanaNvConsulta.getLblFecha_Actual().setText(fechaActual);
-            }
-        } catch (SQLException e) {
-            System.out.println("Error al obtener los datos del paciente: " + e.toString());
-        }
+        pacienteDao.actualizarFamiliar(familiar);
     }
 
     private int calcularEdad(String fechaNacimiento) {
