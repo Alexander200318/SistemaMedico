@@ -246,12 +246,12 @@ public class ControladorFrmNuevaConsul {
         );
 
         Seguimiento seguimiento = new Seguimiento(
-            "Notas de seguimiento", // Ajustar según corresponda
+            "Notas de seguimiento", 
             Date.valueOf(LocalDate.now()),
-            1, // Num_Seg (reemplazar con el número real)
+            1, 
             historial.getIdHistorial(),
-            0, // Id_Seguimiento_Anterior (reemplazar con el ID real)
-            1 // Id_Doctor (reemplazar con el ID real)
+            0, 
+            1 
         );
 
         Tratamiento tratamiento = new Tratamiento(
@@ -261,14 +261,14 @@ public class ControladorFrmNuevaConsul {
 
         Receta receta = new Receta(
             ventanaNvConsulta.getTxtAreaMedicacion().getText(),
-            "Descripción de la receta", // Ajustar según corresponda
+            "Descripción de la receta", 
             tratamiento.getIdTratamiento()
         );
 
         RegistraConsulta registraConsulta = new RegistraConsulta(
             Date.valueOf(LocalDate.now()),
             consulta.getIdConsulta(),
-            1, // Id_Doctor (reemplazar con el ID real)
+            1, 
             idPaciente
         );
 
