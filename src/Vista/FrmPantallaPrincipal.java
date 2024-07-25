@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 public class FrmPantallaPrincipal extends javax.swing.JFrame {
 
-    private JDesktopPane desktopPane; // Aquí declaramos el JDesktopPane
+    private JDesktopPane desktopPane; 
 
     PaginaPrincipalDAO diseñoFuncion;
     public FrmPantallaPrincipal() {
@@ -101,6 +101,14 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     public void setPANEL_CAMBIO(JPanel PANEL_CAMBIO) {
         this.PANEL_CAMBIO = PANEL_CAMBIO;
     }
+
+    public JButton getBtncerrar() {
+        return Btncerrar;
+    }
+
+    public void setBtncerrar(JButton Btncerrar) {
+        this.Btncerrar = Btncerrar;
+    }
     
 
     @SuppressWarnings("unchecked")
@@ -119,6 +127,8 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         BtnPaciente = new javax.swing.JButton();
         Pane_InicioMenu = new javax.swing.JPanel();
         BtnInicio = new javax.swing.JButton();
+        Pane_InicioMenu1 = new javax.swing.JPanel();
+        Btncerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -276,11 +286,49 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
                 .addComponent(BtnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        Pane_InicioMenu1.setBackground(new java.awt.Color(64, 172, 159));
+
+        Btncerrar.setBackground(new java.awt.Color(64, 172, 159));
+        Btncerrar.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        Btncerrar.setForeground(new java.awt.Color(255, 255, 255));
+        Btncerrar.setText("Cerrar Sesión");
+        Btncerrar.setToolTipText("");
+        Btncerrar.setBorder(null);
+        Btncerrar.setBorderPainted(false);
+        Btncerrar.setContentAreaFilled(false);
+        Btncerrar.setFocusPainted(false);
+        Btncerrar.setFocusable(false);
+        Btncerrar.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        Btncerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtncerrarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Pane_InicioMenu1Layout = new javax.swing.GroupLayout(Pane_InicioMenu1);
+        Pane_InicioMenu1.setLayout(Pane_InicioMenu1Layout);
+        Pane_InicioMenu1Layout.setHorizontalGroup(
+            Pane_InicioMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pane_InicioMenu1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Btncerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        Pane_InicioMenu1Layout.setVerticalGroup(
+            Pane_InicioMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pane_InicioMenu1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Btncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
         panelRound2Layout.setHorizontalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
+                .addContainerGap(1148, Short.MAX_VALUE)
+                .addComponent(Pane_InicioMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
             .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelRound2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -295,7 +343,9 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         );
         panelRound2Layout.setVerticalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Pane_InicioMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelRound2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -347,6 +397,10 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnUsuarioActionPerformed
 
+    private void BtncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtncerrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtncerrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -390,9 +444,11 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BtnInicio;
     private javax.swing.JButton BtnPaciente;
     private javax.swing.JButton BtnUsuario;
+    private javax.swing.JButton Btncerrar;
     private javax.swing.JPanel PANEL_CAMBIO;
     private javax.swing.JPanel Pane_HistorialMenu;
     private javax.swing.JPanel Pane_InicioMenu;
+    private javax.swing.JPanel Pane_InicioMenu1;
     private javax.swing.JPanel Pane_PacienteMenu;
     private javax.swing.JPanel Pane_UsuarioMenu;
     private javax.swing.JPanel jPanel3;

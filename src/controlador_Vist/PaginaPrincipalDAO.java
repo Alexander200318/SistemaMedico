@@ -4,13 +4,19 @@
  */
 package controlador_Vist;
 
+import Controlador.ControladorLogin;
+import Controlador.ControladorPerfilDoctor;
+import Vista.FrmLogin;
 import Vista.FrmPantallaPrincipal;
 import Vista.PANEL_PRINCIPAL_HISTORIAL;
 import Vista.PANEL_PRINCIPAL_PACIENTE;
 import Vista.Panel_INICIO;
+import Vista.PerfilDoctor;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
@@ -20,7 +26,8 @@ import javax.swing.*;
  * @author alexa
  */
 public class PaginaPrincipalDAO {
-
+    
+    FrmLogin login;
     FrmPantallaPrincipal principal;
     private JButton selectedButton = null;
 
@@ -39,8 +46,7 @@ public class PaginaPrincipalDAO {
                 principal.getPANEL_CAMBIO().removeAll();
                 principal.getPANEL_CAMBIO().add(PanelPaciente, BorderLayout.CENTER);
                 principal.getPANEL_CAMBIO().revalidate();
-                principal.getPANEL_CAMBIO().repaint();
-                
+                principal.getPANEL_CAMBIO().repaint();                
 /////////////////////////////////////// BOTON HISTORIAL
         principal.getBtnHistorial().addMouseListener(new MouseAdapter() {
             @Override
@@ -126,7 +132,6 @@ public class PaginaPrincipalDAO {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (selectedButton != null && selectedButton != principal.getBtnUsuario()) {
-                    // Restaura el estado del botón anteriormente seleccionado
                     if (selectedButton == principal.getBtnHistorial()) {
                         principal.getPane_HistorialMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
@@ -134,20 +139,32 @@ public class PaginaPrincipalDAO {
                     } else if (selectedButton == principal.getBtnPaciente()) {
                         principal.getPane_PacienteMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
-
                     } else if (selectedButton == principal.getBtnInicio()) {
                         principal.getPane_InicioMenu().setBackground(new Color(64,172,159));
                         selectedButton.setForeground(Color.WHITE);
                     }
                 }
+                //////////////////////////////////////////////  BOTON PERFIL DOCTOR
 
-                // Actualiza el botón seleccionado
                 selectedButton = principal.getBtnUsuario();
                 principal.getPane_UsuarioMenu().setBackground(Color.WHITE);
                 principal.getBtnUsuario().setForeground(new Color(32,65,109));
-                System.out.println("Botón Actividad USUARIO");
+
+                // Instanciar PerfilDoctor y su controlador
+                PerfilDoctor perfilDoctorPanel = new PerfilDoctor();
+                perfilDoctorPanel.setSize(1280, 680);
+                perfilDoctorPanel.setLocation(0, 0);
+
+                // Crear el controlador para cargar los datos del doctor
+                ControladorPerfilDoctor controladorPaciente = new ControladorPerfilDoctor(perfilDoctorPanel);
+
+                principal.getPANEL_CAMBIO().removeAll();
+                principal.getPANEL_CAMBIO().add(perfilDoctorPanel, BorderLayout.CENTER);
+                principal.getPANEL_CAMBIO().revalidate();
+                principal.getPANEL_CAMBIO().repaint();
             }
         });
+        
         //////////////////////////////////////////////  BOTON PACIENTE
         principal.getBtnPaciente().addMouseListener(new MouseAdapter() {
             @Override
@@ -263,7 +280,20 @@ public class PaginaPrincipalDAO {
                 
             }
         });
-        /////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////CERRAR
+        
+        principal.getBtncerrar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int respuesta = JOptionPane.showConfirmDialog(principal, "¿Está seguro que desea cerrar sesión?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (respuesta == JOptionPane.YES_OPTION) {
+                    principal.dispose(); 
+                    FrmLogin loginForm = new FrmLogin();
+                    new ControladorLogin(loginForm);
+                    loginForm.setVisible(true); 
+                }
+            }
+        });
     }
 
 }
