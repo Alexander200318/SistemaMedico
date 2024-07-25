@@ -7,6 +7,7 @@ package controlador_Vist;
 import Controlador.ControladorMostrarPaciente;
 import Modelo.Paciente;
 import Modelo.Singleton;
+import Vista.FrmRegistrarsePaciente;
 import Vista.PANEL_PRINCIPAL_PACIENTE;
 import Vista.PanelDatosPaciente;
 import java.awt.BorderLayout;
@@ -30,7 +31,29 @@ public class Panel_Prin_PacienteDAO {
         // Add action listener for the search button
         this.PanelPaciente.getBtnBuscar().addActionListener(e -> buscarPaciente());
         MouseclickedTabla(this.PanelPaciente.getTablaDatosPaciente());
+        
+        
+        this.PanelPaciente.getBtn_NuevoPaciente().addActionListener((e) -> {
+            PasarARegistroPaciente();
+        });
+        
     }
+    
+    
+    public void PasarARegistroPaciente(){
+    
+     FrmRegistrarsePaciente pac=new FrmRegistrarsePaciente();
+            pac.setSize(1280,680);
+            pac.setLocation(0, 0);
+
+        this.PanelPaciente.removeAll();
+        this.PanelPaciente.add(pac, BorderLayout.CENTER);
+        this.PanelPaciente.revalidate();
+        this.PanelPaciente.repaint();
+    
+    
+    }
+    
 
     public void DatosTablaPaciente(JTable tabla) {
         Contropaciente = new ControladorMostrarPaciente();

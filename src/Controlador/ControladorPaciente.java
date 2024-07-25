@@ -60,7 +60,7 @@ public class ControladorPaciente {
             pS.setString(15, paciente.getPersona().getGenero());
             pS.setString(16, paciente.getPersona().getEstadoCivil());
             pS.setString(17, paciente.getPersona().getSexo());
-            pS.setBytes(18, paciente.getPersona().getFoto());
+            pS.setBlob(18, paciente.getPersona().getFoto());
             pS.setString(19, paciente.getPersona().getEtnia());
             pS.setDate(20, paciente.getPersona().getFechaRegistro());
             pS.setString(21, paciente.getPersona().getCarnetConadis());
