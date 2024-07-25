@@ -33,8 +33,8 @@ public class ControladorRegistro implements ActionListener {
     private void registrarDoctor() {
         // Obtener datos del formulario
         String identificacion = registroForm.getTxtIdentiResg().getText();
-        String nombre = registroForm.getTxtNombreResg().getText();
-        String apellido = registroForm.getTxtApellidoResg().getText();
+        String nombres = registroForm.getTxtNombreResg().getText().trim();
+        String apellidos = registroForm.getTxtApellidoResg().getText().trim();
         String celular = registroForm.getTxtCelularResg().getText();
         String email = registroForm.getTxtEmailResg().getText();
         String contrasena = new String(registroForm.getJPassContraResg().getPassword());
@@ -42,7 +42,7 @@ public class ControladorRegistro implements ActionListener {
         String titulo = registroForm.getTxtTituloResg().getText();
 
         // Validaciones
-        if (identificacion.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || celular.isEmpty() || email.isEmpty() || contrasena.isEmpty() || especialidad.isEmpty() || titulo.isEmpty()) {
+        if (identificacion.isEmpty() || nombres.isEmpty() || apellidos.isEmpty() || celular.isEmpty() || email.isEmpty() || contrasena.isEmpty() || especialidad.isEmpty() || titulo.isEmpty()) {
             JOptionPane.showMessageDialog(registroForm, "Todos los campos deben ser llenados", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -52,13 +52,33 @@ public class ControladorRegistro implements ActionListener {
             return;
         }
 
-        if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) {
-            JOptionPane.showMessageDialog(registroForm, "El nombre solo puede contener letras", "Error", JOptionPane.ERROR_MESSAGE);
+        // Validar formato de nombres y apellidos
+        if (!nombres.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+( [a-zA-ZáéíóúÁÉÍÓÚñÑ]+)?$")) {
+            JOptionPane.showMessageDialog(registroForm, "El nombre debe estar separado por un solo espacio", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        if (!apellido.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) {
-            JOptionPane.showMessageDialog(registroForm, "El apellido solo puede contener letras", "Error", JOptionPane.ERROR_MESSAGE);
+        if (!apellidos.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+( [a-zA-ZáéíóúÁÉÍÓÚñÑ]+)?$")) {
+            JOptionPane.showMessageDialog(registroForm, "El apellido debe estar separado por un solo espacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Separar nombres y apellidos
+        String[] nombrePartes = nombres.split(" ", 2);
+        String primNombre = nombrePartes[0];
+        String segNombre = nombrePartes.length > 1 ? nombrePartes[1].trim().replaceAll("\\s+", "") : "";
+
+        String[] apellidoPartes = apellidos.split(" ", 2);
+        String primApellido = apellidoPartes[0];
+        String segApellido = apellidoPartes.length > 1 ? apellidoPartes[1].trim().replaceAll("\\s+", "") : "";
+
+        if (!primNombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
+            JOptionPane.showMessageDialog(registroForm, "El primer nombre solo puede contener letras", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (!primApellido.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
+            JOptionPane.showMessageDialog(registroForm, "El primer apellido solo puede contener letras", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -89,33 +109,34 @@ public class ControladorRegistro implements ActionListener {
             psCheck.setString(1, identificacion);
             ResultSet rs = psCheck.executeQuery();
 
-            int idPersona;
             if (rs.next()) {
-                // La identificación ya existe, obtener el Id_Persona
-                idPersona = rs.getInt("Id_Persona");
-            } else {
-                // La identificación no existe, insertar nuevo registro en Persona
-                String insertPersonaSql = "INSERT INTO Persona (Identificacion, prim_Nombre, prim_Apellido, Email, Telefono, Estado_Activo) VALUES (?, ?, ?, ?, ?, ?)";
-                try (PreparedStatement psInsertPersona = con.prepareStatement(insertPersonaSql, PreparedStatement.RETURN_GENERATED_KEYS)) {
-                    psInsertPersona.setString(1, identificacion);
-                    psInsertPersona.setString(2, nombre);
-                    psInsertPersona.setString(3, apellido);
-                    psInsertPersona.setString(4, email);
-                    psInsertPersona.setString(5, celular);
-                    psInsertPersona.setBoolean(6, true); // Estado_Activo, asumiendo que siempre es true para nuevos registros
+                JOptionPane.showMessageDialog(registroForm, "La identificación ya existe", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
-                    int rowsInserted = psInsertPersona.executeUpdate();
-                    if (rowsInserted > 0) {
-                        // Obtener el Id_Persona generado
-                        ResultSet generatedKeys = psInsertPersona.getGeneratedKeys();
-                        if (generatedKeys.next()) {
-                            idPersona = generatedKeys.getInt(1);
-                        } else {
-                            throw new SQLException("No se pudo obtener el Id_Persona generado.");
-                        }
+            int idPersona;
+            String insertPersonaSql = "INSERT INTO Persona (Identificacion, prim_Nombre, seg_Nombre, prim_Apellido, seg_Apellido, Email, Telefono, Estado_Activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            try (PreparedStatement psInsertPersona = con.prepareStatement(insertPersonaSql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+                psInsertPersona.setString(1, identificacion);
+                psInsertPersona.setString(2, primNombre);
+                psInsertPersona.setString(3, segNombre);
+                psInsertPersona.setString(4, primApellido);
+                psInsertPersona.setString(5, segApellido);
+                psInsertPersona.setString(6, email);
+                psInsertPersona.setString(7, celular);
+                psInsertPersona.setBoolean(8, true); // Estado_Activo, asumiendo que siempre es true para nuevos registros
+
+                int rowsInserted = psInsertPersona.executeUpdate();
+                if (rowsInserted > 0) {
+                    // Obtener el Id_Persona generado
+                    ResultSet generatedKeys = psInsertPersona.getGeneratedKeys();
+                    if (generatedKeys.next()) {
+                        idPersona = generatedKeys.getInt(1);
                     } else {
-                        throw new SQLException("Error al insertar la persona.");
+                        throw new SQLException("No se pudo obtener el Id_Persona generado.");
                     }
+                } else {
+                    throw new SQLException("Error al insertar la persona.");
                 }
             }
 

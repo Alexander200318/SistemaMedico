@@ -200,12 +200,12 @@ public class FrmRegistrarse extends javax.swing.JFrame {
 
         LbNomResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
         LbNomResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LbNomResg.setText("Nombre:");
+        LbNomResg.setText("Nombres:");
         PanelDatosResg.add(LbNomResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 110, -1));
 
         LbApelliResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
         LbApelliResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LbApelliResg.setText("Apellido:");
+        LbApelliResg.setText("Apellidos:");
         PanelDatosResg.add(LbApelliResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 100, -1));
 
         LbEmailResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
