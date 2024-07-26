@@ -86,17 +86,7 @@ public class ControladorPerfilDoctor {
         });
 
         perfilDoctor.getbtncontra().addActionListener(e -> {
-            String contrasenaActual = JOptionPane.showInputDialog(perfilDoctor, "Ingrese su contraseña actual:");
-            if (contrasenaActual != null && !contrasenaActual.trim().isEmpty()) {
-                if (verificarContrasena(contrasenaActual)) {
-                    String nuevaContra = JOptionPane.showInputDialog(perfilDoctor, "Ingrese la nueva contraseña:");
-                    if (nuevaContra != null && !nuevaContra.trim().isEmpty()) {
-                        actualizarContrasena(nuevaContra);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(perfilDoctor, "Contraseña actual incorrecta.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }
+            actualizarContrasena(); // Mover la lógica de actualización de contraseña a un método separado
         });
     }
 
@@ -249,15 +239,33 @@ public class ControladorPerfilDoctor {
         return false;
     }
 
-    private void actualizarContrasena(String nuevaContra) {
-        System.out.println("Actualizando contraseña...");
-        // Validación de la contraseña
+    private void actualizarContrasena() {
+        // Pedir la contraseña actual
+        String contrasenaActual = JOptionPane.showInputDialog(perfilDoctor, "Ingrese la contraseña actual:");
+        if (contrasenaActual == null || contrasenaActual.trim().isEmpty()) {
+            return; // Cancelar si no se ingresa ninguna contraseña
+        }
+
+        // Verificar la contraseña actual
+        if (!verificarContrasena(contrasenaActual)) {
+            JOptionPane.showMessageDialog(perfilDoctor, "La contraseña actual es incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Pedir la nueva contraseña
+        String nuevaContra = JOptionPane.showInputDialog(perfilDoctor, "Ingrese la nueva contraseña:");
+        if (nuevaContra == null || nuevaContra.trim().isEmpty()) {
+            return; // Cancelar si no se ingresa ninguna contraseña
+        }
+
+        // Validación de la nueva contraseña
         String passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&\"'.^#()-])[A-Za-z\\d@$!%*?&\"'.^#()-]{8,}$";
         if (!nuevaContra.matches(passwordRegex)) {
             JOptionPane.showMessageDialog(perfilDoctor, "La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una minúscula, un número y un carácter especial.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
+        // Actualizar la contraseña en la base de datos
         Conexion cone = new Conexion();
         PreparedStatement ps = null;
         java.sql.Connection con = cone.getConexion();
