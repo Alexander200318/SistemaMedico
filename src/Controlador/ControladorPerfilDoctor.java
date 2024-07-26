@@ -32,7 +32,7 @@ public class ControladorPerfilDoctor {
         ResultSet rs = null;
         java.sql.Connection con = cone.getConexion();
 
-        String sql = "SELECT p.identificacion, p.prim_Nombre, p.prim_Apellido, p.email, d.especialidad, p.telefono, d.titulo "
+        String sql = "SELECT p.identificacion, p.prim_Nombre, p.seg_Nombre, p.prim_Apellido, p.seg_Apellido, p.email, d.especialidad, p.telefono, d.titulo, d.Contrasena "
                 + "FROM Doctor d "
                 + "JOIN Persona p ON d.Id_Persona = p.Id_Persona "
                 + "WHERE d.Id_Doctor = ?";
@@ -44,8 +44,8 @@ public class ControladorPerfilDoctor {
 
             if (rs.next()) {
                 perfilDoctor.getTxtIdentiResg().setText(rs.getString("identificacion"));
-                perfilDoctor.getTxtNombreResg().setText(rs.getString("prim_Nombre"));
-                perfilDoctor.getTxtApellidoResg().setText(rs.getString("prim_Apellido"));
+                perfilDoctor.getTxtNombreResg().setText(rs.getString("prim_Nombre") + " " + rs.getString("seg_Nombre"));
+                perfilDoctor.getTxtApellidoResg().setText(rs.getString("prim_Apellido") + " " + rs.getString("seg_Apellido"));
                 perfilDoctor.getTxtEmailResg().setText(rs.getString("email"));
                 perfilDoctor.getTxtEspecialidadResg().setText(rs.getString("especialidad"));
                 perfilDoctor.getTxtCelularResg().setText(rs.getString("telefono"));
@@ -86,14 +86,20 @@ public class ControladorPerfilDoctor {
         });
 
         perfilDoctor.getbtncontra().addActionListener(e -> {
-            String nuevaContra = JOptionPane.showInputDialog(perfilDoctor, "Ingrese la nueva contraseña:");
-            if (nuevaContra != null && !nuevaContra.trim().isEmpty()) {
-                actualizarContrasena(nuevaContra);
+            String contrasenaActual = JOptionPane.showInputDialog(perfilDoctor, "Ingrese su contraseña actual:");
+            if (contrasenaActual != null && !contrasenaActual.trim().isEmpty()) {
+                if (verificarContrasena(contrasenaActual)) {
+                    String nuevaContra = JOptionPane.showInputDialog(perfilDoctor, "Ingrese la nueva contraseña:");
+                    if (nuevaContra != null && !nuevaContra.trim().isEmpty()) {
+                        actualizarContrasena(nuevaContra);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(perfilDoctor, "Contraseña actual incorrecta.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
 
-    // habilitar los campos que se podran editar
     private void habilitarCampos(boolean habilitar) {
         perfilDoctor.getTxtIdentiResg().setEditable(false); // para no editar el identificador 
         perfilDoctor.getTxtNombreResg().setEditable(habilitar);
@@ -106,26 +112,46 @@ public class ControladorPerfilDoctor {
 
     private void actualizarDatosDoctor() {
         String identificacion = perfilDoctor.getTxtIdentiResg().getText();
-        String nombre = perfilDoctor.getTxtNombreResg().getText();
-        String apellido = perfilDoctor.getTxtApellidoResg().getText();
+        String nombres = perfilDoctor.getTxtNombreResg().getText().trim();
+        String apellidos = perfilDoctor.getTxtApellidoResg().getText().trim();
         String celular = perfilDoctor.getTxtCelularResg().getText();
         String email = perfilDoctor.getTxtEmailResg().getText();
         String especialidad = perfilDoctor.getTxtEspecialidadResg().getText();
         String titulo = perfilDoctor.getTxtTituloResg().getText();
 
         // Validaciones
-        if (nombre.isEmpty() || apellido.isEmpty() || celular.isEmpty() || email.isEmpty() || especialidad.isEmpty() || titulo.isEmpty()) {
+        if (nombres.isEmpty() || apellidos.isEmpty() || celular.isEmpty() || email.isEmpty() || especialidad.isEmpty() || titulo.isEmpty()) {
             JOptionPane.showMessageDialog(perfilDoctor, "Todos los campos deben ser llenados", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) {
-            JOptionPane.showMessageDialog(perfilDoctor, "El nombre solo puede contener letras", "Error", JOptionPane.ERROR_MESSAGE);
+        // Validar formato de nombres y apellidos
+        if (!nombres.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+( [a-zA-ZáéíóúÁÉÍÓÚñÑ]+)?$")) {
+            JOptionPane.showMessageDialog(perfilDoctor, "El nombre debe estar separado por un solo espacio", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        if (!apellido.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) {
-            JOptionPane.showMessageDialog(perfilDoctor, "El apellido solo puede contener letras", "Error", JOptionPane.ERROR_MESSAGE);
+        if (!apellidos.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+( [a-zA-ZáéíóúÁÉÍÓÚñÑ]+)?$")) {
+            JOptionPane.showMessageDialog(perfilDoctor, "El apellido debe estar separado por un solo espacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Separar nombres y apellidos
+        String[] nombrePartes = nombres.split(" ", 2);
+        String primNombre = nombrePartes[0];
+        String segNombre = nombrePartes.length > 1 ? nombrePartes[1].trim().replaceAll("\\s+", "") : "";
+
+        String[] apellidoPartes = apellidos.split(" ", 2);
+        String primApellido = apellidoPartes[0];
+        String segApellido = apellidoPartes.length > 1 ? apellidoPartes[1].trim().replaceAll("\\s+", "") : "";
+
+        if (!primNombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
+            JOptionPane.showMessageDialog(perfilDoctor, "El primer nombre solo puede contener letras", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (!primApellido.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
+            JOptionPane.showMessageDialog(perfilDoctor, "El primer apellido solo puede contener letras", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -145,18 +171,20 @@ public class ControladorPerfilDoctor {
         java.sql.Connection con = cone.getConexion();
 
         String sql = "UPDATE Persona p JOIN Doctor d ON p.Id_Persona = d.Id_Persona "
-                + "SET p.prim_Nombre = ?, p.prim_Apellido = ?, p.email = ?, d.especialidad = ?, p.telefono = ?, d.titulo = ? "
+                + "SET p.prim_Nombre = ?, p.seg_Nombre = ?, p.prim_Apellido = ?, p.seg_Apellido = ?, p.email = ?, d.especialidad = ?, p.telefono = ?, d.titulo = ? "
                 + "WHERE d.Id_Doctor = ?";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, nombre);
-            ps.setString(2, apellido);
-            ps.setString(3, email);
-            ps.setString(4, especialidad);
-            ps.setString(5, celular);
-            ps.setString(6, titulo);
-            ps.setInt(7, singleton.getId_Doctor());
+            ps.setString(1, primNombre);
+            ps.setString(2, segNombre);
+            ps.setString(3, primApellido);
+            ps.setString(4, segApellido);
+            ps.setString(5, email);
+            ps.setString(6, especialidad);
+            ps.setString(7, celular);
+            ps.setString(8, titulo);
+            ps.setInt(9, singleton.getId_Doctor());
 
             int updatedRows = ps.executeUpdate();
 
@@ -183,12 +211,50 @@ public class ControladorPerfilDoctor {
         }
     }
 
+    private boolean verificarContrasena(String contrasenaActual) {
+        Conexion cone = new Conexion();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        java.sql.Connection con = cone.getConexion();
+
+        String sql = "SELECT Contrasena FROM Doctor WHERE Id_Doctor = ?";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, singleton.getId_Doctor());
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String contrasenaBD = rs.getString("Contrasena");
+                return contrasenaActual.equals(contrasenaBD);
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+        return false;
+    }
+
     private void actualizarContrasena(String nuevaContra) {
         System.out.println("Actualizando contraseña...");
         // Validación de la contraseña
         String passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&\"'.^#()-])[A-Za-z\\d@$!%*?&\"'.^#()-]{8,}$";
         if (!nuevaContra.matches(passwordRegex)) {
-            JOptionPane.showMessageDialog(perfilDoctor, "La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una letra minúscula, un número y un carácter especial", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(perfilDoctor, "La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una minúscula, un número y un carácter especial.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -196,7 +262,7 @@ public class ControladorPerfilDoctor {
         PreparedStatement ps = null;
         java.sql.Connection con = cone.getConexion();
 
-        String sql = "UPDATE Doctor SET contrasena = ? WHERE Id_Doctor = ?";
+        String sql = "UPDATE Doctor SET Contrasena = ? WHERE Id_Doctor = ?";
 
         try {
             ps = con.prepareStatement(sql);
