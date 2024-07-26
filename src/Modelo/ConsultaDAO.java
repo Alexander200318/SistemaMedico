@@ -9,7 +9,7 @@ package Modelo;
  * @author Joel
  */
 import java.sql.Connection;
-import java.sql.Date;  // Asegúrate de importar java.sql.Date
+import java.sql.Date; 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 

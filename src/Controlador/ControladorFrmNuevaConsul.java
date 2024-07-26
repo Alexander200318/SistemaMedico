@@ -11,13 +11,14 @@ import controlador_Vist.PacienteDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.sql.Date;
 import java.sql.SQLException;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -29,46 +30,21 @@ public class ControladorFrmNuevaConsul {
     private ConsultaDAO consultaDAO;
 
     // Campos de la ventana
-    private JTextArea txtAntecedentesFarmacologicos;
-    private JTextArea txtAntecedentesClinicosFamiliar;
-    private JTextArea txtAntecedentesFarmacologicosFamiliar;
-    private JTextArea txtAntecedentesGinecologicosFamiliar;
-    private JTextArea txtAntecedentesTraumatologicosFamiliar;
-    private JTextField txtParentesco;
-    private JTextArea txtAntecedentesGinecologicos;
-    private JTextArea txtAntecedentesTraumatologicos;
-    private JTextArea txtAntecedentes_Clinicos;
-    private JTextArea txtCirujias;
-    private JTextArea txtEnfermedades;
-    private JTextArea txtVacunas;
-    private JTextArea txt_Alergias;
-    private JTextArea txtMedicamentosActivos;
     private JTextArea txtExamenFisico;
-    private JTextArea txtAreaDiagnostico;
     private JButton btnGuardarHistorial;
+    private JButton btnSiguiente;
+    private JButton btnTerminarConsulta;
+    private JTabbedPane tabbedPane;
 
     public ControladorFrmNuevaConsul(FrmNuevaConsulta ventanaNvConsulta) {
         this.ventanaNvConsulta = ventanaNvConsulta;
         this.singleton = Singleton.getInstance();
 
         // Inicialización de componentes
-        this.txtAntecedentesFarmacologicos = ventanaNvConsulta.getTxtAntecedentesFarmacologicos();
-        this.txtAntecedentesClinicosFamiliar = ventanaNvConsulta.getTxtAntecedentesClinicosFamiliar();
-        this.txtAntecedentesFarmacologicosFamiliar = ventanaNvConsulta.getTxtAntecedentesFarmacologicosFamiliar();
-        this.txtAntecedentesGinecologicosFamiliar = ventanaNvConsulta.getTxtAntecedentesGinecologicosFamiliar();
-        this.txtAntecedentesTraumatologicosFamiliar = ventanaNvConsulta.getTxtAntecedentesTraumatologicosFamiliar();
-        this.txtParentesco = ventanaNvConsulta.getTxtParentesco();
-        this.txtAntecedentesGinecologicos = ventanaNvConsulta.getTxtAntecedentesGinecologicos();
-        this.txtAntecedentesTraumatologicos = ventanaNvConsulta.getTxtAntecedentesTraumatologicos();
-        this.txtAntecedentes_Clinicos = ventanaNvConsulta.getTxtAntecedentes_Clinicos();
-        this.txtCirujias = ventanaNvConsulta.getTxtCirujias();
-        this.txtEnfermedades = ventanaNvConsulta.getTxtEnfermedades();
-        this.txtVacunas = ventanaNvConsulta.getTxtVacunas();
-        this.txt_Alergias = ventanaNvConsulta.getTxt_Alergias();
-        this.txtMedicamentosActivos = ventanaNvConsulta.getTxtMedicamentosActivos();
         this.txtExamenFisico = ventanaNvConsulta.getTxtExamenFisico();
-        this.txtAreaDiagnostico = ventanaNvConsulta.getTxtAreaDiagnostico();
-        this.btnGuardarHistorial = ventanaNvConsulta.getBtnGuardarHistorial();
+        this.btnSiguiente = ventanaNvConsulta.getBtnSiguiente();
+        this.btnTerminarConsulta = ventanaNvConsulta.getBtnTerminarConsulta();
+        this.tabbedPane = ventanaNvConsulta.getjTabbedPane();
 
         // Inicializar el DAO
         Conexion conexion = new Conexion();
@@ -76,29 +52,37 @@ public class ControladorFrmNuevaConsul {
         this.pacienteDao = new PacienteDAO(connection);
         this.consultaDAO = new ConsultaDAO(connection);
 
-        // Cargar datos del paciente y antecedentes
+        // Cargar datos del paciente
         cargarDatosPaciente();
         veridpaciente();
 
-        // Configurar el ActionListener del botón
-        this.btnGuardarHistorial.addActionListener(new ActionListener() {
+        // Configurar el ActionListener del botón "Siguiente"
+        this.btnSiguiente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cambiarAlSiguientePanel();
+            }
+        });
+
+        // Configurar el ActionListener del botón "Terminar Consulta"
+        this.btnTerminarConsulta.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    actualizarDatos();
                     guardarConsulta();
+                    JOptionPane.showMessageDialog(null, "Consulta guardada con éxito");
                 } catch (SQLException ex) {
-                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error al guardar la consulta: " + ex.getMessage());
                 }
             }
         });
     }
-    
-    public void veridpaciente(){
-        System.out.println("id recibido"+singleton.getIdPaciente());
+
+    public void veridpaciente() {
+        System.out.println("id recibido" + singleton.getIdPaciente());
     }
 
-    //Metodo para cargar los datos del paciente en los jLbl
+    // Método para cargar los datos del paciente en los JLabel
     private void cargarDatosPaciente() {
         try {
             int idPaciente = singleton.getIdPaciente();
@@ -115,118 +99,48 @@ public class ControladorFrmNuevaConsul {
                 System.out.println("Paciente no encontrado con ID: " + idPaciente);
             }
 
-            // Cargar otros datos existentes relacionados
-            cargarDatosExistentes(idPaciente);
-
         } catch (Exception e) {
             // Manejar excepciones y registrar errores
             e.printStackTrace();
         }
     }
 
-    //Metodo para cargar los datos del paciente en el area de los antecedentes
-    
-    private void cargarDatosExistentes(int idPaciente) {
-        Personal antecedentesPersonales = pacienteDao.obtenerAntecedentesPersonalesPorIdPaciente(idPaciente);
-        Familiar antecedentesFamiliares = pacienteDao.obtenerAntecedentesFamiliaresPorIdPaciente(idPaciente);
-
-        if (antecedentesPersonales != null) {
-            Antecedentes personales = antecedentesPersonales.getAntecedentes();
-            txtAntecedentesFarmacologicos.setText(personales.getFarmacologico());
-            txtAntecedentes_Clinicos.setText(personales.getClinico());
-            txtAntecedentesGinecologicos.setText(personales.getGinecologico());
-            txtAntecedentesTraumatologicos.setText(personales.getTraumatologico());
-            txt_Alergias.setText(personales.getAlergias());
-            txtEnfermedades.setText(personales.getEnfermedades());
-            txtCirujias.setText(personales.getCirugias());
-            txtVacunas.setText(personales.getVacunas());
-        }
-
-        if (antecedentesFamiliares != null) {
-            Antecedentes familiares = pacienteDao.obtenerAntecedentesPorId(antecedentesFamiliares.getIdAntecedentes());
-            txtParentesco.setText(antecedentesFamiliares.getParentesco());
-            txtAntecedentesClinicosFamiliar.setText(familiares.getClinico());
-            txtAntecedentesFarmacologicosFamiliar.setText(familiares.getFarmacologico());
-            txtAntecedentesGinecologicosFamiliar.setText(familiares.getGinecologico());
-            txtAntecedentesTraumatologicosFamiliar.setText(familiares.getTraumatologico());
-        }
-    }
-
-    //Metodo para cargar los datos del paciente en los lbl
+    // Método para recibir los datos del paciente y mostrarlos en los JLabel correspondientes
     private void recibirDatosPaciente(Paciente paciente) {
-    if (paciente != null) {
-        if (ventanaNvConsulta != null) {
-            SwingUtilities.invokeLater(() -> {
-                ventanaNvConsulta.getLblNombre().setText(paciente.getPrimNombre() + " " + paciente.getPrimApellido());
-                ventanaNvConsulta.getLblEdad().setText(String.valueOf(calcularEdad(paciente.getFechaNacimiento().toString())));
-                ventanaNvConsulta.getLblEmail().setText(paciente.getEmail());
-                ventanaNvConsulta.getLblFecha_Nacimiento().setText(paciente.getFechaNacimiento().toString());
-                ventanaNvConsulta.getLblNumeroCel().setText(paciente.getTelefono());
-                ventanaNvConsulta.getLblSexo().setText(paciente.getSexo());
+        if (paciente != null) {
+            if (ventanaNvConsulta != null) {
+                SwingUtilities.invokeLater(() -> {
+                    ventanaNvConsulta.getLblNombre().setText(paciente.getPrimNombre() + " " + paciente.getPrimApellido());
+                    ventanaNvConsulta.getLblEdad().setText(String.valueOf(calcularEdad(paciente.getFechaNacimiento().toString())));
+                    ventanaNvConsulta.getLblEmail().setText(paciente.getEmail());
+                    ventanaNvConsulta.getLblFecha_Nacimiento().setText(paciente.getFechaNacimiento().toString());
+                    ventanaNvConsulta.getLblNumeroCel().setText(paciente.getTelefono());
+                    ventanaNvConsulta.getLblSexo().setText(paciente.getSexo());
 
-                // Formatear la fecha actual
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                String fechaActual = LocalDate.now().format(formatter);
-                ventanaNvConsulta.getLblFecha_Actual().setText(fechaActual);
-            });
+                    // Formatear la fecha actual
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    String fechaActual = LocalDate.now().format(formatter);
+                    ventanaNvConsulta.getLblFecha_Actual().setText(fechaActual);
+                });
+            } else {
+                System.out.println("ventanaNvConsulta es null");
+            }
         } else {
-            System.out.println("ventanaNvConsulta es null");
+            System.out.println("paciente es null");
         }
-    } else {
-        System.out.println("paciente es null");
     }
-}
 
-    //Accion del btnActualizar, area de antecedentes
-    private void actualizarDatos() throws SQLException {
-        // Crear y actualizar un historial
-        Historial historial = new Historial();
-        historial.setDescripcionHist(txtAreaDiagnostico.getText());
-        historial.setHisEstActivo(true);
-
-        // Actualizar el historial
-        pacienteDao.actualizarHistorial(historial);
-
-        // Crear y actualizar antecedentes personales
-        Antecedentes antecedentesPersonales = new Antecedentes();
-        antecedentesPersonales.setFarmacologico(txtAntecedentesFarmacologicos.getText());
-        antecedentesPersonales.setClinico(txtAntecedentes_Clinicos.getText());
-        antecedentesPersonales.setGinecologico(txtAntecedentesGinecologicos.getText());
-        antecedentesPersonales.setTraumatologico(txtAntecedentesTraumatologicos.getText());
-        antecedentesPersonales.setAlergias(txt_Alergias.getText());
-        antecedentesPersonales.setEnfermedades(txtEnfermedades.getText());
-        antecedentesPersonales.setCirugias(txtCirujias.getText());
-        antecedentesPersonales.setVacunas(txtVacunas.getText());
-
-        // Actualizar antecedentes personales
-        pacienteDao.actualizarAntecedentes(antecedentesPersonales);
-
-        // Crear y actualizar antecedentes familiares
-        Antecedentes antecedentesFamiliares = new Antecedentes();
-        antecedentesFamiliares.setClinico(txtAntecedentesClinicosFamiliar.getText());
-        antecedentesFamiliares.setFarmacologico(txtAntecedentesFarmacologicosFamiliar.getText());
-        antecedentesFamiliares.setGinecologico(txtAntecedentesGinecologicosFamiliar.getText());
-        antecedentesFamiliares.setTraumatologico(txtAntecedentesTraumatologicosFamiliar.getText());
-
-        Familiar familiar = new Familiar();
-        familiar.setParentesco(txtParentesco.getText());
-        familiar.setIdAntecedentes(antecedentesFamiliares.getIdAntecedentes());
-
-        // Actualizar familiar
-        pacienteDao.actualizarFamiliar(familiar);
-    }
-//Metodo para guardar los datos de la consulta
+    // Método para guardar los datos de la consulta
     private void guardarConsulta() throws SQLException {
-        
         int idPaciente = singleton.getIdPaciente();
         Consulta consulta = new Consulta(
-            ventanaNvConsulta.getTxtEnfermedades().getText(),
             ventanaNvConsulta.getTxtNotasConsulta().getText(),
+            ventanaNvConsulta.getTxtAreaDiagnostico().getText(),
             true
         );
 
         Historial historial = new Historial(
-            Date.valueOf(LocalDate.now()), 
+            Date.valueOf(LocalDate.now()),
             "Descripción del historial", // Ajustar según corresponda
             true,
             null, // Fecha de cierre, puede ser null inicialmente
@@ -246,12 +160,12 @@ public class ControladorFrmNuevaConsul {
         );
 
         Seguimiento seguimiento = new Seguimiento(
-            "Notas de seguimiento", 
+            "Notas de seguimiento", // Ajustar según corresponda
             Date.valueOf(LocalDate.now()),
-            1, 
+            1, // Num_Seg (reemplazar con el número real)
             historial.getIdHistorial(),
-            0, 
-            1 
+            0, // Id_Seguimiento_Anterior (reemplazar con el ID real)
+            1 // Id_Doctor (reemplazar con el ID real)
         );
 
         Tratamiento tratamiento = new Tratamiento(
@@ -261,18 +175,29 @@ public class ControladorFrmNuevaConsul {
 
         Receta receta = new Receta(
             ventanaNvConsulta.getTxtAreaMedicacion().getText(),
-            "Descripción de la receta", 
+            "Descripción de la receta", // Ajustar según corresponda
             tratamiento.getIdTratamiento()
         );
 
         RegistraConsulta registraConsulta = new RegistraConsulta(
             Date.valueOf(LocalDate.now()),
             consulta.getIdConsulta(),
-            1, 
+            1, // Id_Doctor (reemplazar con el ID real)
             idPaciente
         );
 
         consultaDAO.guardarConsulta(consulta, historial, diagnostico, seguimiento, tratamiento, receta, registraConsulta);
+    }
+
+    // Método para cambiar al siguiente panel del JTabbedPane
+    private void cambiarAlSiguientePanel() {
+        int currentIndex = tabbedPane.getSelectedIndex();
+        int nextIndex = currentIndex + 1;
+        if (nextIndex < tabbedPane.getTabCount()) {
+            tabbedPane.setSelectedIndex(nextIndex);
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay más paneles disponibles.");
+        }
     }
 
     private int calcularEdad(String fechaNacimiento) {

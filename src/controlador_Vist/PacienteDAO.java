@@ -95,52 +95,6 @@ public class PacienteDAO {
     return personal;
 }
 
-    public Familiar obtenerAntecedentesFamiliaresPorIdPaciente(int idPaciente) {
-        Familiar familiar = null;
-        String query = "SELECT * FROM AntecedentesFamiliar af WHERE af.Id_Paciente = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setInt(1, idPaciente);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                familiar = new Familiar(
-                    rs.getInt("Id_AntFamiliares"),
-                    rs.getString("Parentesco"),
-                    rs.getInt("Id_Antecedentes"),
-                    rs.getInt("Id_Paciente")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return familiar;
-    }
-
-    public Antecedentes obtenerAntecedentesPorId(int idAntecedentes) {
-        Antecedentes antecedentes = null;
-        String query = "SELECT * FROM Antecedentes WHERE Id_Antecedentes = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setInt(1, idAntecedentes);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                antecedentes = new Antecedentes(
-                    rs.getInt("Id_Antecedentes"),
-                    rs.getString("Alergias"),
-                    rs.getString("Clinico"),
-                    rs.getString("Ginecologico"),
-                    rs.getString("Traumatologico"),
-                    rs.getString("Quirurgico"),
-                    rs.getString("Farmacologico"),
-                    rs.getString("Enfermedades"),
-                    rs.getString("Cirugias"),
-                    rs.getString("Vacunas")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return antecedentes;
-    }
-
     public void actualizarHistorial(Historial historial) {
         String query = "UPDATE Historial SET Descripcion_Hist = ?, His_Est_Activo = ? WHERE Id_Historial = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -153,34 +107,103 @@ public class PacienteDAO {
         }
     }
 
-    public void actualizarAntecedentes(Antecedentes antecedentes) {
-        String query = "UPDATE Antecedentes SET Alergias = ?, Clinico = ?, Ginecologico = ?, Traumatologico = ?, Quirurgico = ?, Farmacologico = ?, Enfermedades = ?, Cirugias = ?, Vacunas = ? WHERE Id_Antecedentes = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, antecedentes.getAlergias());
-            stmt.setString(2, antecedentes.getClinico());
-            stmt.setString(3, antecedentes.getGinecologico());
-            stmt.setString(4, antecedentes.getTraumatologico());
-            stmt.setString(5, antecedentes.getQuirurgico());
-            stmt.setString(6, antecedentes.getFarmacologico());
-            stmt.setString(7, antecedentes.getEnfermedades());
-            stmt.setString(8, antecedentes.getCirugias());
-            stmt.setString(9, antecedentes.getVacunas());
-            stmt.setInt(10, antecedentes.getIdAntecedentes());
-            stmt.executeUpdate();
+    // Método para guardar consulta
+    public void guardarConsulta(Consulta consulta, SignosVitales signosVitales, ExamenFisico examenFisico, Triage triage) {
+        Connection con = null;
+        PreparedStatement psTriage=null;
+        PreparedStatement psConsulta = null;
+        PreparedStatement psSignosVitales = null;
+        PreparedStatement psExamenFisico = null;
+
+        try {
+            con.setAutoCommit(false);  
+            //insertar triage 
+            String sqlTriage = "INSERT INTO Triage (Nivel_Prioridad, Tri_Est_Activo) VALUES (?,?)";
+            psTriage = con.prepareStatement(sqlTriage);
+            psTriage.setString(1, triage.getNivelPrioridad());
+            psTriage.setBoolean(2, triage.isTriEstActivo());
+            psTriage.executeUpdate();
+
+            // Insertar en la tabla Consulta
+            String sqlConsulta = "INSERT INTO Consulta (Enfermedad_Actual, Motivo, Cons_Est_Activo) VALUES (?, ?, ?)";
+            psConsulta = con.prepareStatement(sqlConsulta);
+            psConsulta.setString(1, consulta.getEnfermedadActual());
+            psConsulta.setString(2, consulta.getMotivo());
+            psConsulta.setBoolean(3, consulta.isConsEstActivo());
+            psConsulta.executeUpdate();
+
+            // Obtener el ID de la consulta recién insertada
+            int idConsulta = obtenerUltimoId(con);
+
+            // Insertar en la tabla Signos_Vitales
+            String sqlSignosVitales = "INSERT INTO Signos_Vitales (Presion_Arterial, Peso, Talla, Indice_Masa_Corporal, Frecuencia_Cardiaca, Frecuencia_Respiratoria, Temperatura, Saturacion_Oxigeno, Glasgow, Ocular, Verbal, Motora, Total, Llenado_Capilar, R_Pupilar, Id_Triage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            psSignosVitales = con.prepareStatement(sqlSignosVitales);
+            psSignosVitales.setString(1, signosVitales.getPresionArterial());
+            psSignosVitales.setFloat(2, signosVitales.getPeso());
+            psSignosVitales.setFloat(3, signosVitales.getTalla());
+            psSignosVitales.setFloat(4, signosVitales.getIndiceMasaCorporal());
+            psSignosVitales.setInt(5, signosVitales.getFrecuenciaCardiaca());
+            psSignosVitales.setInt(6, signosVitales.getFrecuenciaRespiratoria());
+            psSignosVitales.setFloat(7, signosVitales.getTemperatura());
+            psSignosVitales.setFloat(8, signosVitales.getSaturacionOxigeno());
+            psSignosVitales.setInt(9, signosVitales.getGlasgow());
+            psSignosVitales.setInt(10, signosVitales.getOcular());
+            psSignosVitales.setInt(11, signosVitales.getVerbal());
+            psSignosVitales.setInt(12, signosVitales.getMotora());
+            psSignosVitales.setInt(13, signosVitales.getTotal());
+            psSignosVitales.setString(14, signosVitales.getLlenadoCapilar());
+            psSignosVitales.setString(15, signosVitales.getrPupilar());
+            psSignosVitales.setInt(16, signosVitales.getIdTriage());
+            psSignosVitales.executeUpdate();
+
+            // Insertar en la tabla Examen_Fisico
+            String sqlExamenFisico = "INSERT INTO Examen_Fisico (Piel_y_Faneras, Cabeza, Cuello, Torax, Corazon, Abdomen, R_Inguinal, M_Superiores, M_Inferiores, Id_Triage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            psExamenFisico = con.prepareStatement(sqlExamenFisico);
+            psExamenFisico.setString(1, examenFisico.getPielYFaneras());
+            psExamenFisico.setString(2, examenFisico.getCabeza());
+            psExamenFisico.setString(3, examenFisico.getCuello());
+            psExamenFisico.setString(4, examenFisico.getTorax());
+            psExamenFisico.setString(5, examenFisico.getCorazon());
+            psExamenFisico.setString(6, examenFisico.getAbdomen());
+            psExamenFisico.setString(7, examenFisico.getRInguinal());
+            psExamenFisico.setString(8, examenFisico.getMSuperiores());
+            psExamenFisico.setString(9, examenFisico.getMInferiores());
+            psExamenFisico.setInt(10, examenFisico.getIdTriage());
+            psExamenFisico.executeUpdate();
+
+            con.commit();  
         } catch (SQLException e) {
+            try {
+                if (con != null) {
+                    con.rollback();  
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
+        } finally {
+            try {
+                if (psConsulta != null) psConsulta.close();
+                if (psSignosVitales != null) psSignosVitales.close();
+                if (psExamenFisico != null) psExamenFisico.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public void actualizarFamiliar(Familiar familiar) {
-        String query = "UPDATE AntecedentesFamiliar SET Parentesco = ?, Id_Antecedentes = ? WHERE Id_AntFamiliares = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, familiar.getParentesco());
-            stmt.setInt(2, familiar.getIdAntecedentes());
-            stmt.setInt(3, familiar.getIdAntFamiliares());
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+    // Método para obtener el último ID insertado en la base de datos
+    private int obtenerUltimoId(Connection con) throws SQLException {
+        String sqlUltimoId = "SELECT LAST_INSERT_ID()";
+        try (PreparedStatement ps = con.prepareStatement(sqlUltimoId)) {
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            }
         }
+        return 0;
     }
+    
 }

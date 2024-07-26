@@ -36,6 +36,8 @@ public class Triage {
     public void setTriEstActivo(boolean triEstActivo) {
         this.triEstActivo = triEstActivo;
     }
+    
+    
 
     public Triage(int idTriage, String nivelPrioridad, boolean triEstActivo) {
         this.idTriage = idTriage;
