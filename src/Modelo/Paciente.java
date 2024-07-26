@@ -26,7 +26,6 @@ public Paciente(int idPaciente, Integer idPersona, String identificacion, String
 
     
 
-
     public Persona getPersona() {
         return persona;
     }

@@ -39,7 +39,7 @@ public class Persona {
 
     // Constructor
     public Persona(Integer idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo) {
-        this.idPersona = idPersona != null ? idPersona : 0; // Usar 0 si es null
+        this.idPersona = idPersona ; // Usar 0 si es null
         this.identificacion = identificacion;
         this.primNombre = primNombre;
         this.segNombre = segNombre;

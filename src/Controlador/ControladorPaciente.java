@@ -24,12 +24,38 @@ public class ControladorPaciente {
 
     public boolean registrar(Paciente paciente, AntecedentesPersonales antecedentes,
             List<AntecedentesFamiliares> familiares, int idDoctor, String rol, Estudiante estudiante) {
+        // Verificaciones iniciales para asegurar que los datos no sean nulos
+        if (paciente == null || paciente.getPersona() == null) {
+            System.out.println("Paciente o Persona es nulo");
+            return false;
+        }
+
+        if (antecedentes == null) {
+            System.out.println("AntecedentesPersonales es nulo");
+        }
+
+        if (rol == null || (!rol.equals("estudiante") && !rol.equals("docente"))) {
+            System.out.println("Rol inválido");
+            return false;
+        }
+
+        if (estudiante == null && rol.equals("estudiante")) {
+            System.out.println("Estudiante es nulo pero rol es estudiante");
+            return false;
+        }
+
+        System.out.println("Iniciando proceso de registro...");
+        System.out.println("Identificación: " + paciente.getPersona().getIdentificacion());
+        System.out.println("PrimNombre: " + paciente.getPersona().getPrimNombre());
+        System.out.println("SegNombre: " + paciente.getPersona().getSegNombre());
+        // Agrega más campos si es necesario
+
         Conexion cnxt = new Conexion();
         PreparedStatement pS = null;
         Connection conectBase = cnxt.getConexion();
 
         // SQL para insertar en las tablas
-        String sqlPersona = "INSERT INTO Persona (Identificacion, prim_Nombre, seg_Nombre, prim_Apellido, seg_Apellido, Email, Direccion, Barrio, Canton, Provincia, Telefono, Fecha_Nacimiento, Lugar, Pais, Genero, Estado_Civil, Sexo, Foto, Etnia, Fecha_Registro, Carnet_Conadis, Tipo_Discapacidad, Porct_Discapacidad, Contacto_Emergencia, Estado_Activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlPersona = "INSERT INTO Persona (Identificacion, prim_Nombre, seg_Nombre, prim_Apellido, seg_Apellido, Email, Direccion, Barrio, Canton, Provincia, Telefono, Fecha_Nacimiento, Lugar, Pais, Genero, Estado_Civil, Sexo, Foto, Etnia, Fecha_Registro, Carnet_Conadis, Tipo_Discapacidad, Porct_Discapacidad, Contacto_Emergencia, Estado_Activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String sqlPaciente = "INSERT INTO Paciente (Id_Persona, Pac_Est_Activo) VALUES (?, ?)";
         String sqlAntecedentes = "INSERT INTO Antecedentes (Alergias, Clinico, Ginecologico, Traumatologico, Quirurgico, Farmacologico, Enfermedades, Cirugias, Vacunas) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String sqlFamiliar = "INSERT INTO Familiar (Id_Paciente, Parentesco, Id_Antecedente) VALUES (?, ?, ?)";
@@ -70,7 +96,7 @@ public class ControladorPaciente {
             pS.setString(25, paciente.getPersona().getContactoEmergencia());
             pS.setBoolean(26, paciente.getPersona().isEstadoActivo());
             pS.executeUpdate();
-            System.out.println("Parte 1");
+
             ResultSet generatedKeys = pS.getGeneratedKeys();
             int idPersona;
             if (generatedKeys.next()) {
@@ -94,7 +120,6 @@ public class ControladorPaciente {
             }
 
             // Insertar en la tabla Antecedentes del Paciente Principal solo si hay datos
-            System.out.println("parte 2");
             int idAntecedente = 0;
             if (antecedentes != null
                     && (antecedentes.getAlergias() != null || antecedentes.getClinico() != null
@@ -155,34 +180,32 @@ public class ControladorPaciente {
                         pS.setString(9, familiar.getVacunas());
                         pS.executeUpdate();
 
-                        ResultSet generatedKeysFamiliarAntecedente = pS.getGeneratedKeys();
-                        if (generatedKeysFamiliarAntecedente.next()) {
-                            idFamiliarAntecedente = generatedKeysFamiliarAntecedente.getInt(1);
+                        ResultSet generatedFamiliarAntecedentesKeys = pS.getGeneratedKeys();
+                        if (generatedFamiliarAntecedentesKeys.next()) {
+                            idFamiliarAntecedente = generatedFamiliarAntecedentesKeys.getInt(1);
                         } else {
-                            throw new SQLException("Error al obtener el ID generado para Antecedentes del Familiar.");
+                            throw new SQLException("Error al obtener el ID generado para Antecedentes de Familiar.");
                         }
-                        System.out.println("parte 3");
-                        // Insertar familiar y asociar con el antecedente si se generó un ID
-                        if (idFamiliarAntecedente > 0) {
-                            pS = conectBase.prepareStatement(sqlFamiliar);
-                            pS.setInt(1, idPaciente);
-                            pS.setString(2, familiar.getParentescoFamiliar());
-                            pS.setInt(3, idFamiliarAntecedente);
-                            pS.executeUpdate();
-                        }
+
+                        // Insertar en la tabla Familiar
+                        pS = conectBase.prepareStatement(sqlFamiliar);
+                        pS.setInt(1, idPaciente);
+                        pS.setString(2, familiar.getParentescoFamiliar());
+                        pS.setInt(3, idFamiliarAntecedente);
+                        pS.executeUpdate();
                     }
                 }
             }
 
-            // Insertar en la tabla RegistraPaciente
+            // Insertar en la tabla Registro del Paciente
             pS = conectBase.prepareStatement(sqlIngreso);
             pS.setInt(1, idPaciente);
             pS.setInt(2, idDoctor);
-            pS.setDate(3, new java.sql.Date(new java.util.Date().getTime()));
+            pS.setDate(3, new java.sql.Date(System.currentTimeMillis()));
             pS.executeUpdate();
 
-            // Insertar en la tabla Estudiante o Docente según el rol
-            if (rol.equals("estudiante")) {
+            // Insertar en la tabla Estudiante o Docente según corresponda
+            if ("estudiante".equals(rol) && estudiante != null) {
                 pS = conectBase.prepareStatement(sqlEstudiante);
                 pS.setInt(1, idPaciente);
                 pS.setString(2, estudiante.getNivelAcademico());
@@ -190,30 +213,25 @@ public class ControladorPaciente {
                 pS.setBoolean(4, estudiante.isEstEstado());
                 pS.setString(5, estudiante.getCiclo());
                 pS.executeUpdate();
-            } else if (rol.equals("docente")) {
+            } else if ("docente".equals(rol)) {
                 pS = conectBase.prepareStatement(sqlDocente);
                 pS.setInt(1, idPaciente);
                 pS.executeUpdate();
-            }
-            System.out.println("Parte 4");
-            // Confirmar transacción con mensaje de confirmación
-            int confirm = JOptionPane.showConfirmDialog(null, "¿Desea confirmar los cambios?", "Confirmación", JOptionPane.YES_NO_OPTION);
-            if (confirm == JOptionPane.YES_OPTION) {
-                conectBase.commit(); // Confirmar transacción
-                JOptionPane.showMessageDialog(null, "Cambios confirmados y guardados exitosamente.");
-                return true;
             } else {
-                conectBase.rollback(); // Deshacer cambios en caso de cancelación
-                JOptionPane.showMessageDialog(null, "Cambios cancelados.");
+                System.out.println("Rol inválido o datos de estudiante faltantes");
+                conectBase.rollback(); // Deshacer cambios si ocurre un error
                 return false;
             }
+
+            conectBase.commit(); // Confirmar cambios en la base de datos
+            return true;
         } catch (SQLException e) {
+            System.out.println("Error al registrar datos: " + e.getMessage());
             try {
                 conectBase.rollback(); // Deshacer cambios en caso de error
             } catch (SQLException rollbackEx) {
-                rollbackEx.printStackTrace();
+                System.out.println("Error al hacer rollback: " + rollbackEx.getMessage());
             }
-            e.printStackTrace();
             return false;
         } finally {
             try {
@@ -224,7 +242,7 @@ public class ControladorPaciente {
                     conectBase.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.out.println("Error al cerrar recursos: " + e.getMessage());
             }
         }
     }

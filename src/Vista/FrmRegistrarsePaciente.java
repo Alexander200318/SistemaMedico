@@ -29,6 +29,24 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         control=new Registro_PacienteDAO(this);    
     }
 
+    public JRadioButton getRbn_Femenino() {
+        return Rbn_Femenino;
+    }
+
+    public void setRbn_Femenino(JRadioButton Rbn_Femenino) {
+        this.Rbn_Femenino = Rbn_Femenino;
+    }
+
+    public JRadioButton getRbn_Masculino() {
+        return Rbn_Masculino;
+    }
+
+    public void setRbn_Masculino(JRadioButton Rbn_Masculino) {
+        this.Rbn_Masculino = Rbn_Masculino;
+    }
+    
+
+
     public JTextField getTxt_CarnetConadis() {
         return Txt_CarnetConadis;
     }
@@ -321,14 +339,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.Txt_Faml_PARENTESCO = Txt_Faml_PARENTESCO;
     }
 
-    public JTextField getTxt_Identificacion() {
-        return Txt_Identificacion;
-    }
-
-    public void setTxt_Identificacion(JTextField Txt_Identificacion) {
-        this.Txt_Identificacion = Txt_Identificacion;
-    }
-
+    
     public JTextField getTxt_Nombres() {
         return Txt_Nombres;
     }
@@ -425,13 +436,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.Txt_provincia = Txt_provincia;
     }
 
-    public JTextField getTxt_sexo() {
-        return Txt_sexo;
-    }
-
-    public void setTxt_sexo(JTextField Txt_sexo) {
-        this.Txt_sexo = Txt_sexo;
-    }
+   
 
     public JTextField getTxt_telefono() {
         return Txt_telefono;
@@ -457,16 +462,25 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.lbl_Foto = lbl_Foto;
     }
 
+    public JTextField getTxt_Identificacion_pac() {
+        return Txt_Identificacion_pac;
+    }
+
+    public void setTxt_Identificacion_pac(JTextField Txt_Identificacion_pac) {
+        this.Txt_Identificacion_pac = Txt_Identificacion_pac;
+    }
+
     
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        GrupoBotton = new javax.swing.ButtonGroup();
+        GrupoGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        Txt_Identificacion = new javax.swing.JTextField();
+        Txt_Identificacion_pac = new javax.swing.JTextField();
         Txt_Nombres = new javax.swing.JTextField();
         jSeparator10 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
@@ -536,8 +550,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator28 = new javax.swing.JSeparator();
         Spr_Porcen_Discapasidad = new javax.swing.JSpinner();
         Spr_ciclo = new javax.swing.JSpinner();
-        Txt_sexo = new javax.swing.JTextField();
-        jSeparator18 = new javax.swing.JSeparator();
         Btn_Cancelar = new javax.swing.JButton();
         Btn_Guardar = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
@@ -611,6 +623,8 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jLabel49 = new javax.swing.JLabel();
         Txt_CarnetConadis = new javax.swing.JTextField();
         jSeparator30 = new javax.swing.JSeparator();
+        Rbn_Femenino = new javax.swing.JRadioButton();
+        Rbn_Masculino = new javax.swing.JRadioButton();
 
         setPreferredSize(new java.awt.Dimension(1280, 680));
 
@@ -623,9 +637,9 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jLabel1.setText("NÚMERO  IDENTIFICASION : ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, 20));
 
-        Txt_Identificacion.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
-        Txt_Identificacion.setBorder(null);
-        jPanel1.add(Txt_Identificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 170, 20));
+        Txt_Identificacion_pac.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_Identificacion_pac.setBorder(null);
+        jPanel1.add(Txt_Identificacion_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 170, 20));
 
         Txt_Nombres.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
         Txt_Nombres.setBorder(null);
@@ -809,7 +823,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 610, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 620, 380, 10));
 
-        GrupoBotton.add(Rbn_docente);
+        buttonGroup1.add(Rbn_docente);
         Rbn_docente.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         Rbn_docente.setText("DOCENTE");
         Rbn_docente.addActionListener(new java.awt.event.ActionListener() {
@@ -819,7 +833,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         });
         jPanel1.add(Rbn_docente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, 80, -1));
 
-        GrupoBotton.add(Rbn_Alumno);
+        buttonGroup1.add(Rbn_Alumno);
         Rbn_Alumno.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         Rbn_Alumno.setText("ALUMNO");
         jPanel1.add(Rbn_Alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, -1, -1));
@@ -892,14 +906,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         Spr_ciclo.setEnabled(false);
         jPanel1.add(Spr_ciclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, -1, -1));
-
-        Txt_sexo.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
-        Txt_sexo.setBorder(null);
-        jPanel1.add(Txt_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, 170, 20));
-
-        jSeparator18.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator18.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 170, 10));
 
         Btn_Cancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Btn_Cancelar.setText("CANCELAR");
@@ -1289,7 +1295,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("FAMILIARES", jScrollPane1);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 360, 340));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 260, 360, 340));
 
         jLabel49.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel49.setText("CARNET DEL CONADIS : ");
@@ -1303,21 +1309,53 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator30.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator30, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 600, 170, 10));
 
+        GrupoGroup2.add(Rbn_Femenino);
+        Rbn_Femenino.setText("FEMENINO");
+        Rbn_Femenino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Rbn_FemeninoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Rbn_Femenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 420, -1, -1));
+
+        GrupoGroup2.add(Rbn_Masculino);
+        Rbn_Masculino.setText("MASCULINO");
+        Rbn_Masculino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Rbn_MasculinoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Rbn_Masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1268, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void Rbn_docenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rbn_docenteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Rbn_docenteActionPerformed
+
+    private void Rbn_FemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rbn_FemeninoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Rbn_FemeninoActionPerformed
+
+    private void Rbn_MasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rbn_MasculinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Rbn_MasculinoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1327,11 +1365,13 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JButton Btn_guardar_Familiar;
     private javax.swing.JComboBox<String> Cb_Parent_total;
     private javax.swing.JCheckBox Ckx_discapacidad;
-    private javax.swing.ButtonGroup GrupoBotton;
+    private javax.swing.ButtonGroup GrupoGroup2;
     private com.toedter.calendar.JDateChooser JCL_FechaNacimiento;
     private javax.swing.JPanel Panl_Ant_Familiares;
     private javax.swing.JPanel Panl_Ant_Personal;
     private javax.swing.JRadioButton Rbn_Alumno;
+    private javax.swing.JRadioButton Rbn_Femenino;
+    private javax.swing.JRadioButton Rbn_Masculino;
     private javax.swing.JRadioButton Rbn_docente;
     private javax.swing.JSpinner Spr_Porcen_Discapasidad;
     private javax.swing.JSpinner Spr_ciclo;
@@ -1358,7 +1398,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JTextField Txt_ContactoEmergencias;
     private javax.swing.JTextField Txt_Email;
     private javax.swing.JTextField Txt_Faml_PARENTESCO;
-    private javax.swing.JTextField Txt_Identificacion;
+    private javax.swing.JTextField Txt_Identificacion_pac;
     private javax.swing.JTextField Txt_Nombres;
     private javax.swing.JTextField Txt_Nvl_Academico;
     private javax.swing.JTextField Txt_barrio;
@@ -1371,9 +1411,9 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JTextField Txt_lugar;
     private javax.swing.JTextField Txt_pais;
     private javax.swing.JTextField Txt_provincia;
-    private javax.swing.JTextField Txt_sexo;
     private javax.swing.JTextField Txt_telefono;
     private javax.swing.JTextField Txt_tipoDiscapacidad;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1451,7 +1491,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator16;
-    private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator20;
