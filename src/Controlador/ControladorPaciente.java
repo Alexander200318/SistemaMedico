@@ -11,6 +11,7 @@ import Modelo.Conexion;
 import Modelo.Docente;
 import Modelo.Estudiante;
 import Modelo.Paciente;
+import Modelo.Persona;
 
 import java.sql.*;
 import java.sql.Connection;
@@ -21,11 +22,12 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ControladorPaciente {
-
-    public boolean registrar(Paciente paciente, AntecedentesPersonales antecedentes,
+    
+     
+    public boolean registrar(Persona persona , Paciente paciente, AntecedentesPersonales antecedentes,
             List<AntecedentesFamiliares> familiares, int idDoctor, String rol, Estudiante estudiante) {
         // Verificaciones iniciales para asegurar que los datos no sean nulos
-        if (paciente == null || paciente.getPersona() == null) {
+        if (paciente == null || paciente == null) {
             System.out.println("Paciente o Persona es nulo");
             return false;
         }
@@ -45,9 +47,9 @@ public class ControladorPaciente {
         }
 
         System.out.println("Iniciando proceso de registro...");
-        System.out.println("Identificación: " + paciente.getPersona().getIdentificacion());
-        System.out.println("PrimNombre: " + paciente.getPersona().getPrimNombre());
-        System.out.println("SegNombre: " + paciente.getPersona().getSegNombre());
+        System.out.println("Identificación: " + paciente.getIdentificacion());
+        System.out.println("PrimNombre: " + paciente.getPrimNombre());
+        System.out.println("SegNombre: " + paciente.getSegNombre());
         // Agrega más campos si es necesario
 
         Conexion cnxt = new Conexion();
@@ -69,32 +71,32 @@ public class ControladorPaciente {
 
             // Insertar en la tabla Persona
             pS = conectBase.prepareStatement(sqlPersona, PreparedStatement.RETURN_GENERATED_KEYS);
-            pS.setString(1, paciente.getPersona().getIdentificacion());
-            pS.setString(2, paciente.getPersona().getPrimNombre());
-            pS.setString(3, paciente.getPersona().getSegNombre());
-            pS.setString(4, paciente.getPersona().getPrimApellido());
-            pS.setString(5, paciente.getPersona().getSegApellido());
-            pS.setString(6, paciente.getPersona().getEmail());
-            pS.setString(7, paciente.getPersona().getDireccion());
-            pS.setString(8, paciente.getPersona().getBarrio());
-            pS.setString(9, paciente.getPersona().getCanton());
-            pS.setString(10, paciente.getPersona().getProvincia());
-            pS.setString(11, paciente.getPersona().getTelefono());
-            pS.setDate(12, paciente.getPersona().getFechaNacimiento());
-            pS.setString(13, paciente.getPersona().getLugar());
-            pS.setString(14, paciente.getPersona().getPais());
-            pS.setString(15, paciente.getPersona().getGenero());
-            pS.setString(16, paciente.getPersona().getEstadoCivil());
-            pS.setString(17, paciente.getPersona().getSexo());
-            pS.setBlob(18, paciente.getPersona().getFoto());
-            pS.setString(19, paciente.getPersona().getEtnia());
-            pS.setDate(20, paciente.getPersona().getFechaRegistro());
-            pS.setString(21, paciente.getPersona().getCarnetConadis());
-            pS.setBoolean(22, paciente.getPersona().isDiscapacidad());
-            pS.setString(23, paciente.getPersona().getTipoDiscapacidad());
-            pS.setInt(24, paciente.getPersona().getPorctDiscapacidad());
-            pS.setString(25, paciente.getPersona().getContactoEmergencia());
-            pS.setBoolean(26, paciente.getPersona().isEstadoActivo());
+            pS.setString(1, paciente.getIdentificacion());
+            pS.setString(2, paciente.getPrimNombre());
+            pS.setString(3, paciente.getSegNombre());
+            pS.setString(4, paciente.getPrimApellido());
+            pS.setString(5, paciente.getSegApellido());
+            pS.setString(6, paciente.getEmail());
+            pS.setString(7, paciente.getDireccion());
+            pS.setString(8, paciente.getBarrio());
+            pS.setString(9, paciente.getCanton());
+            pS.setString(10, paciente.getProvincia());
+            pS.setString(11, paciente.getTelefono());
+            pS.setDate(12, paciente.getFechaNacimiento());
+            pS.setString(13, paciente.getLugar());
+            pS.setString(14, paciente.getPais());
+            pS.setString(15, paciente.getGenero());
+            pS.setString(16, paciente.getEstadoCivil());
+            pS.setString(17, paciente.getSexo());
+            pS.setBlob(18, paciente.getFoto());
+            pS.setString(19, paciente.getEtnia());
+            pS.setDate(20, paciente.getFechaRegistro());
+            pS.setString(21, paciente.getCarnetConadis());
+            pS.setBoolean(22, paciente.isDiscapacidad());
+            pS.setString(23, paciente.getTipoDiscapacidad());
+            pS.setInt(24, paciente.getPorctDiscapacidad());
+            pS.setString(25, paciente.getContactoEmergencia());
+            pS.setBoolean(26, paciente.isEstadoActivo());
             pS.executeUpdate();
 
             ResultSet generatedKeys = pS.getGeneratedKeys();

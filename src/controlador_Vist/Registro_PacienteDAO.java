@@ -1,5 +1,3 @@
-
-
 package controlador_Vist;
 
 import Controlador.ControladorPaciente;
@@ -7,6 +5,7 @@ import Modelo.AntecedentesFamiliares;
 import Modelo.AntecedentesPersonales;
 import Modelo.Estudiante;
 import Modelo.Paciente;
+import Modelo.Persona;
 import Modelo.Singleton;
 import Vista.FrmRegistrarsePaciente;
 import java.util.ArrayList;
@@ -24,6 +23,7 @@ public class Registro_PacienteDAO {
     private List<AntecedentesFamiliares> familiares = new ArrayList<>();
 
     public Registro_PacienteDAO(FrmRegistrarsePaciente vistaPrincipal) {
+
         singleton = Singleton.getInstance();
         this.vistaPrincipal = vistaPrincipal;
         control = new ControladorPaciente();
@@ -67,17 +67,17 @@ public class Registro_PacienteDAO {
         String vacunas_Fm = vistaPrincipal.getTxA_Faml_vacunas().getText().trim();
 
         AntecedentesFamiliares familia = new AntecedentesFamiliares(
-            parentescoFamilia,
-            idAntecedentes_Fm,
-            alergias_Fm,
-            clinico_Fm,
-            ginecologico_Fm,
-            traumatologico_Fm,
-            quirurgico_Fm,
-            farmacologico_Fm,
-            enfermedades_Fm,
-            cirugias_Fm,
-            vacunas_Fm
+                parentescoFamilia,
+                idAntecedentes_Fm,
+                alergias_Fm,
+                clinico_Fm,
+                ginecologico_Fm,
+                traumatologico_Fm,
+                quirurgico_Fm,
+                farmacologico_Fm,
+                enfermedades_Fm,
+                cirugias_Fm,
+                vacunas_Fm
         );
 
         familiares.add(familia);
@@ -156,20 +156,20 @@ public class Registro_PacienteDAO {
         paciente.setEstadoActivo(true);
 
         AntecedentesPersonales antecedentesPersonales = new AntecedentesPersonales(
-            0, // Asignar ID si es necesario
-            getValidData(vistaPrincipal.getTxA_Persn_alergia().getText()),
-            getValidData(vistaPrincipal.getTxA_Persn_clinico().getText()),
-            getValidData(vistaPrincipal.getTxA_Persn_ginecologico().getText()),
-            getValidData(vistaPrincipal.getTxA_Persn_traumatologico().getText()),
-            getValidData(vistaPrincipal.getTxA_Persn_quirurgico().getText()),
-            getValidData(vistaPrincipal.getTxA_Persn_farmacologico().getText()),
-            getValidData(vistaPrincipal.getTxA_Persn_enfermedades().getText()),
-            getValidData(vistaPrincipal.getTxA_Persn_cirugias().getText()),
-            getValidData(vistaPrincipal.getTxA_Persn_vacunas().getText())
+                0, // Asignar ID si es necesario
+                getValidData(vistaPrincipal.getTxA_Persn_alergia().getText()),
+                getValidData(vistaPrincipal.getTxA_Persn_clinico().getText()),
+                getValidData(vistaPrincipal.getTxA_Persn_ginecologico().getText()),
+                getValidData(vistaPrincipal.getTxA_Persn_traumatologico().getText()),
+                getValidData(vistaPrincipal.getTxA_Persn_quirurgico().getText()),
+                getValidData(vistaPrincipal.getTxA_Persn_farmacologico().getText()),
+                getValidData(vistaPrincipal.getTxA_Persn_enfermedades().getText()),
+                getValidData(vistaPrincipal.getTxA_Persn_cirugias().getText()),
+                getValidData(vistaPrincipal.getTxA_Persn_vacunas().getText())
         );
 
         List<AntecedentesFamiliares> antecedentesFamiliares = this.familiares.stream()
-            .map(fam -> new AntecedentesFamiliares(
+                .map(fam -> new AntecedentesFamiliares(
                 fam.getParentescoFamiliar(),
                 fam.getIdAntecedentes(),
                 getValidData(fam.getAlergias()),
@@ -181,24 +181,28 @@ public class Registro_PacienteDAO {
                 getValidData(fam.getEnfermedades()),
                 getValidData(fam.getCirugias()),
                 getValidData(fam.getVacunas())
-            ))
-            .collect(Collectors.toList());
+        ))
+                .collect(Collectors.toList());
 
         Estudiante estudiante = null;
         if (rol.equals("estudiante")) {
             estudiante = new Estudiante(
-                getValidData(vistaPrincipal.getTxt_Nvl_Academico().getText()),
-                getValidData(vistaPrincipal.getTxt_carrera().getText()),
-                String.valueOf(vistaPrincipal.getSpr_ciclo().getValue()).trim(),
-                true
+                    getValidData(vistaPrincipal.getTxt_Nvl_Academico().getText()),
+                    getValidData(vistaPrincipal.getTxt_carrera().getText()),
+                    String.valueOf(vistaPrincipal.getSpr_ciclo().getValue()).trim(),
+                    true
             );
         }
 
-        int idDoctor = singleton.getId_Doctor(); // Obtener ID del singleton
+        Persona persona = new Persona();
+
+        int idDoctor = singleton.getId_Doctor();
+        System.out.println("Paciente: " + paciente);
+        System.out.println("Persona: " + paciente);
 
         try {
             if (validarDatosPaciente(paciente, antecedentesPersonales, antecedentesFamiliares, estudiante)) {
-                boolean resultado = control.registrar(paciente, antecedentesPersonales, antecedentesFamiliares, idDoctor, rol, estudiante);
+                boolean resultado = control.registrar(persona, paciente, antecedentesPersonales, antecedentesFamiliares, idDoctor, rol, estudiante);
                 if (resultado) {
                     System.out.println("Se guardó el paciente correctamente.");
                 } else {

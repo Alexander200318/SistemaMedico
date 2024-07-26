@@ -9,32 +9,16 @@ import java.sql.Date;
 
 public class Paciente extends Persona {
     private int idPaciente;
-    private Persona persona;
     private boolean pacEstActivo;
 
-// Constructor sin Integer, usa int para evitar problemas con valores nulos
-public Paciente(int idPaciente, Integer idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo, boolean pacEstActivo) {
-    super(idPersona, identificacion, primNombre, segNombre, primApellido, segApellido, email, direccion, barrio, canton, provincia, telefono, fechaNacimiento, lugar, pais, genero, estadoCivil, sexo, foto, etnia, fechaRegistro, carnetConadis, discapacidad, tipoDiscapacidad, porctDiscapacidad, contactoEmergencia, estadoActivo);
-    this.idPaciente = idPaciente;
-    this.pacEstActivo = pacEstActivo;
-}
-
-    public Paciente(boolean pacEstActivo, int idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo) {
+    // Constructor completo
+    public Paciente(int idPaciente, int idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo, boolean pacEstActivo) {
         super(idPersona, identificacion, primNombre, segNombre, primApellido, segApellido, email, direccion, barrio, canton, provincia, telefono, fechaNacimiento, lugar, pais, genero, estadoCivil, sexo, foto, etnia, fechaRegistro, carnetConadis, discapacidad, tipoDiscapacidad, porctDiscapacidad, contactoEmergencia, estadoActivo);
+        this.idPaciente = idPaciente;
         this.pacEstActivo = pacEstActivo;
     }
 
-    
-
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
-
-
+    // Constructor por defecto
     public Paciente() {
         super();
     }
