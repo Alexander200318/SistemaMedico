@@ -165,7 +165,7 @@ public class ControladorFrmPanelDatosPaciente {
             panelDatosPaciente.getLabelVacunasConsuPersonales().setText(rs.getString("Personal_Vacunas"));
 
             // Antecedentes Familiares
-            panelDatosPaciente.getLabelParentescoConsuFamiliar().setText(rs.getString("Parentesco"));
+//            panelDatosPaciente.getLabelParentescoConsuFamiliar().setText(rs.getString("Parentesco"));
             panelDatosPaciente.getLabelAlergiasConsuFamiliar().setText(rs.getString("Familiar_Alergias"));
             panelDatosPaciente.getLabelClinicoConsuFamiliar().setText(rs.getString("Familiar_Clinico"));
             panelDatosPaciente.getLabelTraumatologicoConsuFamiliar().setText(rs.getString("Familiar_Traumatologico"));
@@ -213,7 +213,7 @@ public class ControladorFrmPanelDatosPaciente {
             panelDatosPaciente.getLabelVacunasConsuPersonales().setText("");
 
             // Limpiar antecedentes familiares
-            panelDatosPaciente.getLabelParentescoConsuFamiliar().setText("");
+//            panelDatosPaciente.getLabelParentescoConsuFamiliar().setText("");
             panelDatosPaciente.getLabelAlergiasConsuFamiliar().setText("");
             panelDatosPaciente.getLabelClinicoConsuFamiliar().setText("");
             panelDatosPaciente.getLabelTraumatologicoConsuFamiliar().setText("");

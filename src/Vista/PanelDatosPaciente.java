@@ -5,8 +5,10 @@
 package Vista;
 
 import Controlador.ControladorFrmPanelDatosPaciente;
+import Controlador.ControladorMostrarDatosPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
@@ -18,12 +20,73 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     /**
      * Creates new form DatosPaciente
      */
+    
     ControladorFrmPanelDatosPaciente control;
+    ControladorMostrarDatosPanel panel;
     public PanelDatosPaciente() {
         initComponents();
         control = new ControladorFrmPanelDatosPaciente(this);
+        panel =new ControladorMostrarDatosPanel(this);
     }
 
+    //getters and setters panel
+
+    public JLabel getLabelAñoUltimaCita() {
+        return LabelAñoUltimaCita;
+    }
+
+    public void setLabelAñoUltimaCita(JLabel LabelAñoUltimaCita) {
+        this.LabelAñoUltimaCita = LabelAñoUltimaCita;
+    }
+
+    public JLabel getLabelDiaUltimaCita() {
+        return LabelDiaUltimaCita;
+    }
+
+    public void setLabelDiaUltimaCita(JLabel LabelDiaUltimaCita) {
+        this.LabelDiaUltimaCita = LabelDiaUltimaCita;
+    }
+
+    public JLabel getLabelDocNombreMostrarDatos() {
+        return LabelDocNombreMostrarDatos;
+    }
+
+    public void setLabelDocNombreMostrarDatos(JLabel LabelDocNombreMostrarDatos) {
+        this.LabelDocNombreMostrarDatos = LabelDocNombreMostrarDatos;
+    }
+
+    public JLabel getLabelMesUltimaCita() {
+        return LabelMesUltimaCita;
+    }
+
+    public void setLabelMesUltimaCita(JLabel LabelMesUltimaCita) {
+        this.LabelMesUltimaCita = LabelMesUltimaCita;
+    }
+
+    public JLabel getLabelMotivoCita() {
+        return LabelMotivoCita;
+    }
+
+    public void setLabelMotivoCita(JLabel LabelMotivoCita) {
+        this.LabelMotivoCita = LabelMotivoCita;
+    }
+
+    public JPanel getPanelbtn() {
+        return Panelbtn;
+    }
+
+    public void setPanelbtn(JPanel Panelbtn) {
+        this.Panelbtn = Panelbtn;
+    }
+
+    
+    
+    
+    
+    
+    
+
+    //getters and setters mostrar datos
     public JButton getBtnNuevaConsulta() {
         return BtnNuevaConsulta;
     }
@@ -345,7 +408,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     }
     
     
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -435,6 +497,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jSeparator24 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         LabelAlergiasConsuPersonales = new javax.swing.JLabel();
@@ -482,6 +545,15 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jSeparator31 = new javax.swing.JSeparator();
         jLabel43 = new javax.swing.JLabel();
         ComboBoxParentesco = new javax.swing.JComboBox<>();
+        Panelbtn = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        LabelAñoUltimaCita = new javax.swing.JLabel();
+        LabelDocNombreMostrarDatos = new javax.swing.JLabel();
+        LabelMotivoCita = new javax.swing.JLabel();
+        LabelDiaUltimaCita = new javax.swing.JLabel();
+        LabelMesUltimaCita = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -689,6 +761,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANTECEDENTES PERSONALES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
+        jPanel1.setName("Antecedentes Personales"); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel24.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -739,7 +812,9 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jPanel1.add(jSeparator38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 360, 10));
         jPanel1.add(jSeparator39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 360, 10));
 
-        jTabbedPane1.addTab("Antecedentes Personales", jPanel1);
+        jScrollPane3.setViewportView(jPanel1);
+
+        jTabbedPane1.addTab("Antecedentes Personales", jScrollPane3);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANTECEDENTES FAMILIARES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
@@ -792,7 +867,45 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Antecedentes Familiares", jScrollPane2);
 
-        jPanel4.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 410, 540));
+        jPanel4.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 410, 420));
+
+        Panelbtn.setBackground(new java.awt.Color(255, 255, 255));
+        Panelbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panelbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                PanelbtnMousePressed(evt);
+            }
+        });
+        Panelbtn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel8.setText("|");
+        Panelbtn.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, -10, 20, 50));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel9.setText("|");
+        Panelbtn.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 20, 40));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel11.setText("|");
+        Panelbtn.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 20, 50));
+
+        LabelAñoUltimaCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panelbtn.add(LabelAñoUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 70, 20));
+
+        LabelDocNombreMostrarDatos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panelbtn.add(LabelDocNombreMostrarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 260, 30));
+
+        LabelMotivoCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panelbtn.add(LabelMotivoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 180, 30));
+
+        LabelDiaUltimaCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panelbtn.add(LabelDiaUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 30));
+
+        LabelMesUltimaCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panelbtn.add(LabelMesUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 70, 20));
+
+        jPanel4.add(Panelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 400, 110));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 470, 590));
 
@@ -807,12 +920,17 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
        pa.setVisible(true);
     }//GEN-LAST:event_BtnNuevaConsultaActionPerformed
 
+    private void PanelbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelbtnMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PanelbtnMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnNuevaConsulta;
     private javax.swing.JComboBox<String> ComboBoxParentesco;
     private javax.swing.JLabel LabelAlergiasConsuFamiliar;
     private javax.swing.JLabel LabelAlergiasConsuPersonales;
+    private javax.swing.JLabel LabelAñoUltimaCita;
     private javax.swing.JLabel LabelCedulaConsu;
     private javax.swing.JLabel LabelCelularConsu;
     private javax.swing.JLabel LabelCirugiasConsuFamiliar;
@@ -820,7 +938,9 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel LabelClinicoConsuFamiliar;
     private javax.swing.JLabel LabelClinicoConsuPersonales;
     private javax.swing.JLabel LabelCorreoConsu;
+    private javax.swing.JLabel LabelDiaUltimaCita;
     private javax.swing.JLabel LabelDirecciónConsu;
+    private javax.swing.JLabel LabelDocNombreMostrarDatos;
     private javax.swing.JLabel LabelEdadConsu;
     private javax.swing.JLabel LabelEnfermedadesConsuFamiliar;
     private javax.swing.JLabel LabelEnfermedadesConsuPersonales;
@@ -832,6 +952,8 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel LabelGlasgowConsu;
     private javax.swing.JLabel LabelIndice_Masa_CorporalConsu;
     private javax.swing.JLabel LabelLlenado_CapilarConsu;
+    private javax.swing.JLabel LabelMesUltimaCita;
+    private javax.swing.JLabel LabelMotivoCita;
     private javax.swing.JLabel LabelMotoraConsu;
     private javax.swing.JLabel LabelNacimientoConsu;
     private javax.swing.JLabel LabelNombreConsu;
@@ -849,9 +971,11 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel LabelVacunasConsuPersonales;
     private javax.swing.JLabel LabelVerbalConsu;
     private javax.swing.JLabel LblFotoConsu;
+    private javax.swing.JPanel Panelbtn;
     private javax.swing.JTextArea TxtNotasPacienteConsu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -888,12 +1012,15 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;

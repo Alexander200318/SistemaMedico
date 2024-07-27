@@ -626,7 +626,7 @@ ControladorFrmNuevaConsul controlador;
 
         jTabbedPane.addTab("Diagnóstico y Tratamiento", jPanel6);
 
-        jPanel5.add(jTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 1000, 390));
+        jPanel5.add(jTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 1000, 390));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1040, 440));
 

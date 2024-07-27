@@ -240,64 +240,65 @@ public class ControladorPerfilDoctor {
     }
 
     private void actualizarContrasena() {
-        // Pedir la contraseña actual
-        String contrasenaActual = JOptionPane.showInputDialog(perfilDoctor, "Ingrese la contraseña actual:");
-        if (contrasenaActual == null || contrasenaActual.trim().isEmpty()) {
-            return; // Cancelar si no se ingresa ninguna contraseña
+    // Pedir la contraseña actual
+    String contrasenaActual = JOptionPane.showInputDialog(perfilDoctor, "Ingrese la contraseña actual:");
+    if (contrasenaActual == null || contrasenaActual.trim().isEmpty()) {
+        return; // Cancelar si no se ingresa ninguna contraseña
+    }
+
+    // Verificar la contraseña actual
+    if (!verificarContrasena(contrasenaActual)) {
+        JOptionPane.showMessageDialog(perfilDoctor, "La contraseña actual es incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Pedir la nueva contraseña
+    String nuevaContra = JOptionPane.showInputDialog(perfilDoctor, "Ingrese la nueva contraseña:");
+    if (nuevaContra == null || nuevaContra.trim().isEmpty()) {
+        return; // Cancelar si no se ingresa ninguna contraseña
+    }
+
+    // Validación de la nueva contraseña
+    String passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&\"'.^#()-])[A-Za-z\\d@$!%*?&\"'.^#()-]{8,}$";
+    if (!nuevaContra.matches(passwordRegex)) {
+        JOptionPane.showMessageDialog(perfilDoctor, "La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una minúscula, un número y un carácter especial.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Actualizar la contraseña en la base de datos
+    Conexion cone = new Conexion();
+    PreparedStatement ps = null;
+    java.sql.Connection con = cone.getConexion();
+
+    String sql = "UPDATE Doctor SET Contrasena = ? WHERE Id_Doctor = ?";
+
+    try {
+        ps = con.prepareStatement(sql);
+        ps.setString(1, nuevaContra);
+        ps.setInt(2, singleton.getId_Doctor());
+
+        int updatedRows = ps.executeUpdate();
+
+        if (updatedRows > 0) {
+            JOptionPane.showMessageDialog(perfilDoctor, "Contraseña actualizada correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(perfilDoctor, "Error al actualizar la contraseña.");
         }
 
-        // Verificar la contraseña actual
-        if (!verificarContrasena(contrasenaActual)) {
-            JOptionPane.showMessageDialog(perfilDoctor, "La contraseña actual es incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        // Pedir la nueva contraseña
-        String nuevaContra = JOptionPane.showInputDialog(perfilDoctor, "Ingrese la nueva contraseña:");
-        if (nuevaContra == null || nuevaContra.trim().isEmpty()) {
-            return; // Cancelar si no se ingresa ninguna contraseña
-        }
-
-        // Validación de la nueva contraseña
-        String passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&\"'.^#()-])[A-Za-z\\d@$!%*?&\"'.^#()-]{8,}$";
-        if (!nuevaContra.matches(passwordRegex)) {
-            JOptionPane.showMessageDialog(perfilDoctor, "La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una minúscula, un número y un carácter especial.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        // Actualizar la contraseña en la base de datos
-        Conexion cone = new Conexion();
-        PreparedStatement ps = null;
-        java.sql.Connection con = cone.getConexion();
-
-        String sql = "UPDATE Doctor SET Contrasena = ? WHERE Id_Doctor = ?";
-
+    } catch (SQLException e) {
+        System.err.println(e);
+    } finally {
         try {
-            ps = con.prepareStatement(sql);
-            ps.setString(1, nuevaContra);
-            ps.setInt(2, singleton.getId_Doctor());
-
-            int updatedRows = ps.executeUpdate();
-
-            if (updatedRows > 0) {
-                JOptionPane.showMessageDialog(perfilDoctor, "Contraseña actualizada correctamente.");
-            } else {
-                JOptionPane.showMessageDialog(perfilDoctor, "Error al actualizar la contraseña.");
+            if (ps != null) {
+                ps.close();
             }
-
+            if (con != null) {
+                con.close();
+            }
         } catch (SQLException e) {
             System.err.println(e);
-        } finally {
-            try {
-                if (ps != null) {
-                    ps.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                System.err.println(e);
-            }
         }
     }
+}
+    
 }
