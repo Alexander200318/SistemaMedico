@@ -36,10 +36,12 @@ public class Persona {
     private int porctDiscapacidad;
     private String contactoEmergencia;
     private boolean estadoActivo;
+    private String tipo_sangre;
 
     // Constructor
-    public Persona(int idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo) {
-        this.idPersona = idPersona ; 
+
+    public Persona(int idPersona, String identificacion, String primNombre, String segNombre, String primApellido, String segApellido, String email, String direccion, String barrio, String canton, String provincia, String telefono, Date fechaNacimiento, String lugar, String pais, String genero, String estadoCivil, String sexo, Blob foto, String etnia, Date fechaRegistro, String carnetConadis, boolean discapacidad, String tipoDiscapacidad, int porctDiscapacidad, String contactoEmergencia, boolean estadoActivo, String tipo_sangre) {
+        this.idPersona = idPersona;
         this.identificacion = identificacion;
         this.primNombre = primNombre;
         this.segNombre = segNombre;
@@ -66,13 +68,24 @@ public class Persona {
         this.porctDiscapacidad = porctDiscapacidad;
         this.contactoEmergencia = contactoEmergencia;
         this.estadoActivo = estadoActivo;
+        this.tipo_sangre = tipo_sangre;
     }
+   
 
     public Persona() {
     }
 
     // Getters y Setters
 
+    public String getTipo_sangre() {
+        return tipo_sangre;
+    }
+
+    public void setTipo_sangre(String tipo_sangre) {
+        this.tipo_sangre = tipo_sangre;
+    }
+
+    
     public int getIdPersona() {
         return idPersona;
     }

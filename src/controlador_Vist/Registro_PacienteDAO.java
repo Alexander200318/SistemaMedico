@@ -34,8 +34,8 @@ public class Registro_PacienteDAO {
     private void configurarVista() {
         vistaPrincipal.getSpr_ciclo().setEnabled(false);
         vistaPrincipal.getSpr_ciclo().setValue(0);
-        vistaPrincipal.getTxt_carrera().setEnabled(false);
-        vistaPrincipal.getTxt_Nvl_Academico().setEnabled(false);
+        vistaPrincipal.getCbx_Carreras().setEnabled(false);
+        
         vistaPrincipal.getTxt_tipoDiscapacidad().setText(null);
         vistaPrincipal.getTxt_tipoDiscapacidad().setEnabled(false);
         vistaPrincipal.getSpr_Porcen_Discapasidad().setValue(0);
@@ -54,7 +54,9 @@ public class Registro_PacienteDAO {
     }
 
     public void guardarAntecedFamiliares() {
-        String parentescoFamilia = vistaPrincipal.getTxt_Faml_PARENTESCO().getText().trim();
+        
+        
+        String parentescoFamilia = Seleccion_Parentesco();
         int idAntecedentes_Fm = 0; // Asegúrate de manejar correctamente el ID
         String alergias_Fm = vistaPrincipal.getTxA_Faml_alergia().getText().trim();
         String clinico_Fm = vistaPrincipal.getTxA_Faml_clinico().getText().trim();
@@ -85,7 +87,7 @@ public class Registro_PacienteDAO {
     }
 
     private void limpiarCamposFamiliares() {
-        vistaPrincipal.getTxt_Faml_PARENTESCO().setText("");
+//        vistaPrincipal.getTxt_Faml_PARENTESCO().setText("");
         vistaPrincipal.getTxA_Faml_alergia().setText("");
         vistaPrincipal.getTxA_Faml_clinico().setText("");
         vistaPrincipal.getTxA_Faml_ginecologo().setText("");
@@ -113,8 +115,7 @@ public class Registro_PacienteDAO {
     public void Seleccion_tipo() {
         boolean esEstudiante = vistaPrincipal.getRbn_Alumno().isSelected();
         vistaPrincipal.getSpr_ciclo().setEnabled(esEstudiante);
-        vistaPrincipal.getTxt_carrera().setEnabled(esEstudiante);
-        vistaPrincipal.getTxt_Nvl_Academico().setEnabled(esEstudiante);
+        vistaPrincipal.getCbx_Carreras().setEnabled(esEstudiante);
         rol = esEstudiante ? "estudiante" : "docente";
     }
 
@@ -126,6 +127,133 @@ public class Registro_PacienteDAO {
         }
         return tipoSexo;
     }
+    
+
+
+    public String Seleccion_tipo_sangre(){
+    String valor = "";
+        Object selectedItem = this.vistaPrincipal.getCbx_tipo_sangre().getSelectedItem();
+        if (selectedItem != null) {
+            String selectedItemString = String.valueOf(selectedItem);
+            if (selectedItemString.equalsIgnoreCase("A+")) {
+                valor = "A+";
+            } else if (selectedItemString.equalsIgnoreCase("A-")) {
+                valor = "A-";
+            } else if (selectedItemString.equalsIgnoreCase("B+")) {
+                valor = "B+";
+            }else if (selectedItemString.equalsIgnoreCase("B-")) {
+                valor = "B-";
+            }else if (selectedItemString.equalsIgnoreCase("AB+")) {
+                valor = "AB+";
+            }else if (selectedItemString.equalsIgnoreCase("AB-")) {
+                valor = "AB-";
+            }else if (selectedItemString.equalsIgnoreCase("O+")) {
+                valor = "O+";
+            }else if (selectedItemString.equalsIgnoreCase("O-")) {
+                valor = "O-";
+            }
+        }
+        return valor;
+  
+    }
+    
+
+     public String Seleccion_Estado_civil(){
+    String valor = "";
+        Object selectedItem = this.vistaPrincipal.getCbx_estado_civil().getSelectedItem();
+        if (selectedItem != null) {
+            String selectedItemString = String.valueOf(selectedItem);
+            if (selectedItemString.equalsIgnoreCase("Soltero")) {
+                valor = "Soltero";
+            } else if (selectedItemString.equalsIgnoreCase("Casado")) {
+                valor = "Casado";
+            } else if (selectedItemString.equalsIgnoreCase("Divorciado")) {
+                valor = "Divorciado";
+            }else if (selectedItemString.equalsIgnoreCase("Viudo")) {
+                valor = "Viudo";
+            }else if (selectedItemString.equalsIgnoreCase("Unión Libre")) {
+                valor = "Unión Libre";
+            }else if (selectedItemString.equalsIgnoreCase("Separado")) {
+                valor = "Separado";
+            }
+        }
+        return valor;
+  
+    }
+     
+     
+     
+
+
+
+
+        public String Seleccion_Parentesco(){
+    String valor = "";
+        Object selectedItem = this.vistaPrincipal.getCb_Parentesco().getSelectedItem();
+        if (selectedItem != null) {
+            String selectedItemString = String.valueOf(selectedItem);
+            if (selectedItemString.equalsIgnoreCase("Otro")) {
+                valor = "Otro";
+            } else if (selectedItemString.equalsIgnoreCase("Padres")) {
+                valor = "Padres";
+            } else if (selectedItemString.equalsIgnoreCase("Hijos")) {
+                valor = "Hijos";
+            }else if (selectedItemString.equalsIgnoreCase("Abuelos")) {
+                valor = "Abuelos";
+            }else if (selectedItemString.equalsIgnoreCase("Hermanos")) {
+                valor = "Hermanos";
+            }
+        }
+        return valor;
+  
+    }
+     
+ 
+     public String Seleccion_Carrera(){
+    String valor = "";
+        Object selectedItem = this.vistaPrincipal.getCbx_Carreras().getSelectedItem();
+        if (selectedItem != null) {
+            String selectedItemString = String.valueOf(selectedItem);
+            if (selectedItemString.equalsIgnoreCase("Otros")) {
+                valor = "Otros";
+            } else if (selectedItemString.equalsIgnoreCase("Big Data")) {
+                valor = "Big Data";
+            } else if (selectedItemString.equalsIgnoreCase("Tributación")) {
+                valor = "Tributación";
+            }else if (selectedItemString.equalsIgnoreCase("Ciberseguridad")) {
+                valor = "Ciberseguridad";
+            }else if (selectedItemString.equalsIgnoreCase("Producción y Realización Audiovisual")) {
+                valor = "Producción y Realización Audiovisual";
+            }else if (selectedItemString.equalsIgnoreCase("Seguridad y Prevención de Riesgos Laborales")) {
+                valor = "Seguridad y Prevención de Riesgos Laborales";
+                
+            }else if (selectedItemString.equalsIgnoreCase("Gestión de Patrimonios Histórico-Cultural")) {
+                valor = "Gestión de Patrimonios Histórico-Cultural";
+                
+            }else if (selectedItemString.equalsIgnoreCase("Desarrollo de Software")) {
+                valor = "Desarrollo de Software";
+            }else if (selectedItemString.equalsIgnoreCase("Entrenamiento Deportivo")) {
+                valor = "Entrenamiento Deportivo";
+                
+            }else if (selectedItemString.equalsIgnoreCase("Mecánica")) {
+                valor = "Mecánica";
+                
+            }else if (selectedItemString.equalsIgnoreCase("Mantenimiento Eléctrico y Control Industrial")) {
+                valor = "Mantenimiento Eléctrico y Control Industrial";
+                
+            }else if (selectedItemString.equalsIgnoreCase("Mecatrónica")) {
+                valor = "Mecatrónica";
+                
+            }else if (selectedItemString.equalsIgnoreCase("Administración de Infraestructura y Plataformas Tecnológicas")) {
+                valor = "Administración de Infraestructura y Plataformas Tecnológicas";
+                
+            }
+        }
+        return valor;
+  
+    }
+     
+     
 
     public void IngresoDatos() {
         Paciente paciente = new Paciente();
@@ -144,7 +272,7 @@ public class Registro_PacienteDAO {
         paciente.setLugar(getValidData(vistaPrincipal.getTxt_lugar().getText()));
         paciente.setPais(getValidData(vistaPrincipal.getTxt_pais().getText()));
         paciente.setGenero(getValidData(vistaPrincipal.getTxt_genero().getText()));
-        paciente.setEstadoCivil(getValidData(vistaPrincipal.getTxt_estadoCivil().getText()));
+        paciente.setEstadoCivil(getValidData(Seleccion_Estado_civil()));
         paciente.setSexo(SeleccionSEXO());
         paciente.setEtnia(getValidData(vistaPrincipal.getTxt_etnia().getText()));
         paciente.setFechaRegistro(utilDateToSqlDate(new java.util.Date()));
@@ -154,6 +282,8 @@ public class Registro_PacienteDAO {
         paciente.setPorctDiscapacidad(((Number) vistaPrincipal.getSpr_Porcen_Discapasidad().getValue()).intValue());
         paciente.setContactoEmergencia(getValidData(vistaPrincipal.getTxt_ContactoEmergencias().getText()));
         paciente.setEstadoActivo(true);
+        paciente.setPacEstActivo(true);
+        paciente.setTipo_sangre(Seleccion_tipo_sangre());
 
         AntecedentesPersonales antecedentesPersonales = new AntecedentesPersonales(
                 0, // Asignar ID si es necesario
@@ -187,8 +317,7 @@ public class Registro_PacienteDAO {
         Estudiante estudiante = null;
         if (rol.equals("estudiante")) {
             estudiante = new Estudiante(
-                    getValidData(vistaPrincipal.getTxt_Nvl_Academico().getText()),
-                    getValidData(vistaPrincipal.getTxt_carrera().getText()),
+                    Seleccion_Carrera(),
                     String.valueOf(vistaPrincipal.getSpr_ciclo().getValue()).trim(),
                     true
             );
@@ -275,7 +404,7 @@ public class Registro_PacienteDAO {
         }
 
         // Validar estudiante
-        if (rol.equals("estudiante") && (estudiante == null || estudiante.getNivelAcademico().trim().isEmpty())) {
+        if (rol.equals("estudiante") && (estudiante == null )) {
             System.out.println("Los datos del estudiante son requeridos.");
             return false;
         }

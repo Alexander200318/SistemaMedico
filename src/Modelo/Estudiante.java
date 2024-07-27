@@ -9,27 +9,18 @@ package Modelo;
  * @author alexa
  */
 public class Estudiante{
-    private String nivelAcademico;
+    
     private String carrera;
     private String ciclo;
     private boolean estEstado;
 
-    public Estudiante(String nivelAcademico, String carrera, String ciclo, boolean estEstado) {
-        this.nivelAcademico = nivelAcademico;
+    public Estudiante(String carrera, String ciclo, boolean estEstado) {
         this.carrera = carrera;
         this.ciclo = ciclo;
         this.estEstado = estEstado;
     }
-    
-    
 
-    public String getNivelAcademico() {
-        return nivelAcademico;
-    }
-
-    public void setNivelAcademico(String nivelAcademico) {
-        this.nivelAcademico = nivelAcademico;
-    }
+    
 
     public String getCarrera() {
         return carrera;

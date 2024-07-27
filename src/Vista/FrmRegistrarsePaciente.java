@@ -27,7 +27,58 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     public FrmRegistrarsePaciente() {
         initComponents();
         control=new Registro_PacienteDAO(this);    
+        
+
+        
     }
+
+    public JComboBox<String> getCb_Parentesco() {
+        return Cb_Parentesco;
+    }
+
+    public void setCb_Parentesco(JComboBox<String> Cb_Parentesco) {
+        this.Cb_Parentesco = Cb_Parentesco;
+    }
+    
+    
+    
+    
+    
+    
+
+    public JComboBox<String> getCbx_Carreras() {
+        return Cbx_Carreras;
+    }
+
+    public void setCbx_Carreras(JComboBox<String> Cbx_Carreras) {
+        this.Cbx_Carreras = Cbx_Carreras;
+    }
+
+    public JComboBox<String> getCbx_estado_civil() {
+        return Cbx_estado_civil;
+    }
+
+    public void setCbx_estado_civil(JComboBox<String> Cbx_estado_civil) {
+        this.Cbx_estado_civil = Cbx_estado_civil;
+    }
+
+    public JComboBox<String> getCbx_tipo_sangre() {
+        return Cbx_tipo_sangre;
+    }
+
+    public void setCbx_tipo_sangre(JComboBox<String> Cbx_tipo_sangre) {
+        this.Cbx_tipo_sangre = Cbx_tipo_sangre;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public JRadioButton getRbn_Femenino() {
         return Rbn_Femenino;
@@ -91,14 +142,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.Btn_Subir_Foto = Btn_Subir_Foto;
     }
 
-    public JComboBox<String> getCb_Parent_total() {
-        return Cb_Parent_total;
-    }
-
-    public void setCb_Parent_total(JComboBox<String> Cb_Parent_total) {
-        this.Cb_Parent_total = Cb_Parent_total;
-    }
-
+   
     public JCheckBox getCkx_discapacidad() {
         return Ckx_discapacidad;
     }
@@ -331,15 +375,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.Txt_Email = Txt_Email;
     }
 
-    public JTextField getTxt_Faml_PARENTESCO() {
-        return Txt_Faml_PARENTESCO;
-    }
-
-    public void setTxt_Faml_PARENTESCO(JTextField Txt_Faml_PARENTESCO) {
-        this.Txt_Faml_PARENTESCO = Txt_Faml_PARENTESCO;
-    }
-
-    
+   
     public JTextField getTxt_Nombres() {
         return Txt_Nombres;
     }
@@ -348,13 +384,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.Txt_Nombres = Txt_Nombres;
     }
 
-    public JTextField getTxt_Nvl_Academico() {
-        return Txt_Nvl_Academico;
-    }
-
-    public void setTxt_Nvl_Academico(JTextField Txt_Nvl_Academico) {
-        this.Txt_Nvl_Academico = Txt_Nvl_Academico;
-    }
+    
 
     public JTextField getTxt_barrio() {
         return Txt_barrio;
@@ -372,13 +402,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.Txt_canton = Txt_canton;
     }
 
-    public JTextField getTxt_carrera() {
-        return Txt_carrera;
-    }
-
-    public void setTxt_carrera(JTextField Txt_carrera) {
-        this.Txt_carrera = Txt_carrera;
-    }
+   
 
     public JTextField getTxt_direccion() {
         return Txt_direccion;
@@ -388,13 +412,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.Txt_direccion = Txt_direccion;
     }
 
-    public JTextField getTxt_estadoCivil() {
-        return Txt_estadoCivil;
-    }
-
-    public void setTxt_estadoCivil(JTextField Txt_estadoCivil) {
-        this.Txt_estadoCivil = Txt_estadoCivil;
-    }
+   
 
     public JTextField getTxt_etnia() {
         return Txt_etnia;
@@ -484,7 +502,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Txt_Nombres = new javax.swing.JTextField();
         jSeparator10 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        Txt_carrera = new javax.swing.JTextField();
         jSeparator11 = new javax.swing.JSeparator();
         Txt_genero = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -519,13 +536,10 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         Txt_tipoDiscapacidad = new javax.swing.JTextField();
         jSeparator29 = new javax.swing.JSeparator();
-        Txt_Nvl_Academico = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jSeparator33 = new javax.swing.JSeparator();
         jLabel28 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         Rbn_docente = new javax.swing.JRadioButton();
         Rbn_Alumno = new javax.swing.JRadioButton();
@@ -539,7 +553,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator15 = new javax.swing.JSeparator();
         jSeparator16 = new javax.swing.JSeparator();
         Btn_Subir_Foto = new javax.swing.JButton();
-        Txt_estadoCivil = new javax.swing.JTextField();
         Txt_canton = new javax.swing.JTextField();
         jSeparator26 = new javax.swing.JSeparator();
         jSeparator34 = new javax.swing.JSeparator();
@@ -613,8 +626,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         TxA_Faml_cirugia = new javax.swing.JTextArea();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
-        Txt_Faml_PARENTESCO = new javax.swing.JTextField();
-        Cb_Parent_total = new javax.swing.JComboBox<>();
+        Cb_Parentesco = new javax.swing.JComboBox<>();
         Btn_guardar_Familiar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel48 = new javax.swing.JLabel();
@@ -625,6 +637,10 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator30 = new javax.swing.JSeparator();
         Rbn_Femenino = new javax.swing.JRadioButton();
         Rbn_Masculino = new javax.swing.JRadioButton();
+        Cbx_estado_civil = new javax.swing.JComboBox<>();
+        Cbx_Carreras = new javax.swing.JComboBox<>();
+        Cbx_tipo_sangre = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1280, 680));
 
@@ -634,7 +650,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
-        jLabel1.setText("NÚMERO  IDENTIFICASION : ");
+        jLabel1.setText("NÚMERO  IDENTIFICACION : ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, 20));
 
         Txt_Identificacion_pac.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
@@ -650,13 +666,8 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 170, 10));
 
         jLabel3.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
-        jLabel3.setText("CONTACTO EMERGENCIA : ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 150, -1, -1));
-
-        Txt_carrera.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
-        Txt_carrera.setBorder(null);
-        Txt_carrera.setEnabled(false);
-        jPanel1.add(Txt_carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 170, 20));
+        jLabel3.setText("TIPO SANGRE :");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 90, -1, -1));
 
         jSeparator11.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
@@ -739,7 +750,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 170, 10));
 
         jLabel14.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
-        jLabel14.setText("BARRIO : ");
+        jLabel14.setText("BARRIO (Vecindario): ");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
 
         Txt_barrio.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
@@ -763,7 +774,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(jSeparator23, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 170, 10));
 
         jLabel16.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
-        jLabel16.setText("CANTÓN : ");
+        jLabel16.setText("CANTÓN (Distrito) : ");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
@@ -794,17 +805,9 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator29.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 540, 170, 10));
 
-        Txt_Nvl_Academico.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
-        Txt_Nvl_Academico.setBorder(null);
-        jPanel1.add(Txt_Nvl_Academico, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 610, 170, 20));
-
         jLabel23.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel23.setText("PORCENTAGE DISCAPACIDAD : ");
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, -1, -1));
-
-        jSeparator33.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator33.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator33, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 630, 170, 10));
 
         jLabel28.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel28.setText("TIPO  PACIENTE :");
@@ -817,11 +820,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jLabel32.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel32.setText("CARRERA :");
         jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, -1, -1));
-
-        jLabel33.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
-        jLabel33.setText("Nvl. ACADEMICO :");
-        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 610, -1, -1));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 620, 380, 10));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, 750, 10));
 
         buttonGroup1.add(Rbn_docente);
         Rbn_docente.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
@@ -866,10 +865,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         Btn_Subir_Foto.setText("Subir");
         jPanel1.add(Btn_Subir_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 130, -1));
-
-        Txt_estadoCivil.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
-        Txt_estadoCivil.setBorder(null);
-        jPanel1.add(Txt_estadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 170, 20));
 
         Txt_canton.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
         Txt_canton.setBorder(null);
@@ -922,81 +917,111 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jScrollPane2.setHorizontalScrollBar(null);
 
         Panl_Ant_Personal.setForeground(new java.awt.Color(255, 255, 255));
+        Panl_Ant_Personal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel6.setText("Alergias:");
+        Panl_Ant_Personal.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         jLabel24.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
         jLabel24.setText("Personal:");
+        Panl_Ant_Personal.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         TxA_Persn_alergia.setColumns(20);
         TxA_Persn_alergia.setRows(5);
+        TxA_Persn_alergia.setText("\n");
         TxA_Persn_alergia.setAutoscrolls(false);
         jScrollPane3.setViewportView(TxA_Persn_alergia);
+
+        Panl_Ant_Personal.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 64, 330, 40));
 
         TxA_Persn_clinico.setColumns(20);
         TxA_Persn_clinico.setRows(5);
         TxA_Persn_clinico.setAutoscrolls(false);
         jScrollPane4.setViewportView(TxA_Persn_clinico);
 
+        Panl_Ant_Personal.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 132, 330, 40));
+
         jLabel25.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel25.setText("Clinico");
+        Panl_Ant_Personal.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         TxA_Persn_ginecologico.setColumns(20);
         TxA_Persn_ginecologico.setRows(5);
         TxA_Persn_ginecologico.setAutoscrolls(false);
         jScrollPane5.setViewportView(TxA_Persn_ginecologico);
 
+        Panl_Ant_Personal.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 200, 330, 40));
+
         jLabel26.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel26.setText("Ginecologo:");
+        Panl_Ant_Personal.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
         TxA_Persn_traumatologico.setColumns(20);
         TxA_Persn_traumatologico.setRows(5);
         TxA_Persn_traumatologico.setAutoscrolls(false);
         jScrollPane6.setViewportView(TxA_Persn_traumatologico);
 
+        Panl_Ant_Personal.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 339, 40));
+
         jLabel27.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel27.setText("Traumatologico:");
+        Panl_Ant_Personal.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
         TxA_Persn_quirurgico.setColumns(20);
         TxA_Persn_quirurgico.setRows(5);
         TxA_Persn_quirurgico.setAutoscrolls(false);
         jScrollPane7.setViewportView(TxA_Persn_quirurgico);
 
+        Panl_Ant_Personal.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 339, 40));
+
         jLabel29.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel29.setText("Quirurgico:");
+        Panl_Ant_Personal.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel30.setText("Farmacologico:");
+        Panl_Ant_Personal.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
 
         TxA_Persn_farmacologico.setColumns(20);
         TxA_Persn_farmacologico.setRows(5);
         TxA_Persn_farmacologico.setAutoscrolls(false);
         jScrollPane8.setViewportView(TxA_Persn_farmacologico);
 
+        Panl_Ant_Personal.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 339, 40));
+
         TxA_Persn_enfermedades.setColumns(20);
         TxA_Persn_enfermedades.setRows(5);
         TxA_Persn_enfermedades.setAutoscrolls(false);
         jScrollPane9.setViewportView(TxA_Persn_enfermedades);
 
+        Panl_Ant_Personal.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 339, 40));
+
         jLabel34.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel34.setText("Enfermedades");
+        Panl_Ant_Personal.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
 
         TxA_Persn_cirugias.setColumns(20);
         TxA_Persn_cirugias.setRows(5);
         TxA_Persn_cirugias.setAutoscrolls(false);
         jScrollPane10.setViewportView(TxA_Persn_cirugias);
 
+        Panl_Ant_Personal.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 339, 40));
+
         jLabel36.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel36.setText("Cirugias");
+        Panl_Ant_Personal.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, -1, -1));
 
         jLabel37.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel37.setText("Vacunas:");
+        Panl_Ant_Personal.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, -1, -1));
 
         TxA_Persn_vacunas.setColumns(20);
         TxA_Persn_vacunas.setRows(5);
         TxA_Persn_vacunas.setAutoscrolls(false);
         jScrollPane11.setViewportView(TxA_Persn_vacunas);
+
+        Panl_Ant_Personal.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 630, 340, 40));
 
         jPanel2.setForeground(new java.awt.Color(204, 204, 204));
 
@@ -1011,82 +1036,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
             .addGap(0, 27, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout Panl_Ant_PersonalLayout = new javax.swing.GroupLayout(Panl_Ant_Personal);
-        Panl_Ant_Personal.setLayout(Panl_Ant_PersonalLayout);
-        Panl_Ant_PersonalLayout.setHorizontalGroup(
-            Panl_Ant_PersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panl_Ant_PersonalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Panl_Ant_PersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                    .addGroup(Panl_Ant_PersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(Panl_Ant_PersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel37, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-        Panl_Ant_PersonalLayout.setVerticalGroup(
-            Panl_Ant_PersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panl_Ant_PersonalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel24)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel27)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel29)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel30)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel34)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel36)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel37)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
+        Panl_Ant_Personal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 702, -1, -1));
 
         jScrollPane2.setViewportView(Panl_Ant_Personal);
 
@@ -1094,81 +1044,109 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         jScrollPane1.setHorizontalScrollBar(null);
 
+        Panl_Ant_Familiares.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         TxA_Faml_alergia.setColumns(20);
         TxA_Faml_alergia.setRows(5);
         TxA_Faml_alergia.setAutoscrolls(false);
         jScrollPane12.setViewportView(TxA_Faml_alergia);
 
+        Panl_Ant_Familiares.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 102, 338, 40));
+
         jLabel38.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel38.setText("Alergias:");
+        Panl_Ant_Familiares.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 80, -1, -1));
 
         jLabel39.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel39.setText("Clinico");
+        Panl_Ant_Familiares.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 154, -1, -1));
 
         TxA_Faml_clinico.setColumns(20);
         TxA_Faml_clinico.setRows(5);
         TxA_Faml_clinico.setAutoscrolls(false);
         jScrollPane13.setViewportView(TxA_Faml_clinico);
 
+        Panl_Ant_Familiares.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 176, 338, 40));
+
         jLabel40.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel40.setText("Ginecologo:");
+        Panl_Ant_Familiares.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 228, -1, -1));
 
         TxA_Faml_ginecologo.setColumns(20);
         TxA_Faml_ginecologo.setRows(5);
         TxA_Faml_ginecologo.setAutoscrolls(false);
         jScrollPane14.setViewportView(TxA_Faml_ginecologo);
 
+        Panl_Ant_Familiares.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 250, 338, 40));
+
         jLabel41.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel41.setText("Traumatologico:");
+        Panl_Ant_Familiares.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 302, -1, -1));
 
         TxA_Faml_traumatologico.setColumns(20);
         TxA_Faml_traumatologico.setRows(5);
         TxA_Faml_traumatologico.setAutoscrolls(false);
         jScrollPane15.setViewportView(TxA_Faml_traumatologico);
 
+        Panl_Ant_Familiares.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 324, 338, 40));
+
         jLabel42.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel42.setText("Quirurgico:");
+        Panl_Ant_Familiares.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 376, -1, -1));
 
         TxA_Faml_quirurgico.setColumns(20);
         TxA_Faml_quirurgico.setRows(5);
         TxA_Faml_quirurgico.setAutoscrolls(false);
         jScrollPane16.setViewportView(TxA_Faml_quirurgico);
 
+        Panl_Ant_Familiares.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 398, 338, 40));
+
         jLabel43.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel43.setText("Farmacologico:");
+        Panl_Ant_Familiares.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 450, -1, -1));
 
         TxA_Faml_farmacologico.setColumns(20);
         TxA_Faml_farmacologico.setRows(5);
         TxA_Faml_farmacologico.setAutoscrolls(false);
         jScrollPane17.setViewportView(TxA_Faml_farmacologico);
 
+        Panl_Ant_Familiares.add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 472, 338, 40));
+
         jLabel44.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel44.setText("Enfermedades:");
+        Panl_Ant_Familiares.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 524, -1, -1));
 
         TxA_Faml_enfermedades.setColumns(20);
         TxA_Faml_enfermedades.setRows(5);
         TxA_Faml_enfermedades.setAutoscrolls(false);
         jScrollPane18.setViewportView(TxA_Faml_enfermedades);
 
+        Panl_Ant_Familiares.add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 546, 338, 40));
+
         jLabel45.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel45.setText("Cirugia:");
+        Panl_Ant_Familiares.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 598, -1, -1));
 
         TxA_Faml_cirugia.setColumns(20);
         TxA_Faml_cirugia.setRows(5);
         TxA_Faml_cirugia.setAutoscrolls(false);
         jScrollPane19.setViewportView(TxA_Faml_cirugia);
 
+        Panl_Ant_Familiares.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 620, 338, 40));
+
         jLabel46.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
         jLabel46.setText("Familiares");
+        Panl_Ant_Familiares.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         jLabel47.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel47.setText("PARENTESCO");
+        Panl_Ant_Familiares.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, 30));
 
-        Txt_Faml_PARENTESCO.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        Cb_Parent_total.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno" }));
+        Cb_Parentesco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Otro", "Padres", "Hijos", "Abuelos", "Hermanos" }));
+        Panl_Ant_Familiares.add(Cb_Parentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 42, 140, 30));
 
         Btn_guardar_Familiar.setText("Registrar");
+        Panl_Ant_Familiares.add(Btn_guardar_Familiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 44, -1, 26));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1181,115 +1159,18 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
             .addGap(0, 24, Short.MAX_VALUE)
         );
 
+        Panl_Ant_Familiares.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 716, -1, -1));
+
         jLabel48.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel48.setText("Vacunas:");
+        Panl_Ant_Familiares.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 648, -1, -1));
 
         TxA_Faml_vacunas.setColumns(20);
         TxA_Faml_vacunas.setRows(5);
         TxA_Faml_vacunas.setAutoscrolls(false);
         jScrollPane20.setViewportView(TxA_Faml_vacunas);
 
-        javax.swing.GroupLayout Panl_Ant_FamiliaresLayout = new javax.swing.GroupLayout(Panl_Ant_Familiares);
-        Panl_Ant_Familiares.setLayout(Panl_Ant_FamiliaresLayout);
-        Panl_Ant_FamiliaresLayout.setHorizontalGroup(
-            Panl_Ant_FamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panl_Ant_FamiliaresLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Panl_Ant_FamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Panl_Ant_FamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane20, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(Panl_Ant_FamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Panl_Ant_FamiliaresLayout.createSequentialGroup()
-                                .addComponent(jLabel47)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Txt_Faml_PARENTESCO, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Btn_guardar_Familiar))
-                            .addGroup(Panl_Ant_FamiliaresLayout.createSequentialGroup()
-                                .addComponent(jLabel46)
-                                .addGap(69, 69, 69)
-                                .addComponent(Cb_Parent_total, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(Panl_Ant_FamiliaresLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jLabel48))
-                .addContainerGap(22, Short.MAX_VALUE))
-            .addGroup(Panl_Ant_FamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Panl_Ant_FamiliaresLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(Panl_Ant_FamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
-                        .addComponent(jScrollPane18, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane17, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane16, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane15, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel38, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel39, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel40, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel41, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel43, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel44, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel45, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addContainerGap(18, Short.MAX_VALUE)))
-        );
-        Panl_Ant_FamiliaresLayout.setVerticalGroup(
-            Panl_Ant_FamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panl_Ant_FamiliaresLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Panl_Ant_FamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel46)
-                    .addComponent(Cb_Parent_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(Panl_Ant_FamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel47)
-                    .addComponent(Txt_Faml_PARENTESCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Btn_guardar_Familiar, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
-                .addGap(603, 603, 603)
-                .addComponent(jLabel48)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(Panl_Ant_FamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Panl_Ant_FamiliaresLayout.createSequentialGroup()
-                    .addGap(80, 80, 80)
-                    .addComponent(jLabel38)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel39)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel40)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel41)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel42)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel43)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel44)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel45)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(110, Short.MAX_VALUE)))
-        );
+        Panl_Ant_Familiares.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 670, 334, 40));
 
         jScrollPane1.setViewportView(Panl_Ant_Familiares);
 
@@ -1327,6 +1208,19 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         });
         jPanel1.add(Rbn_Masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, -1, -1));
 
+        Cbx_estado_civil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero", "Casado", "Divorciado", "Viudo", "Unión Libre", "Separado" }));
+        jPanel1.add(Cbx_estado_civil, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 170, -1));
+
+        Cbx_Carreras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Otros", "Big Data", "Tributación", "Ciberseguridad", "Producción y Realización Audiovisual", "Seguridad y Prevención de Riesgos Laborales", "Gestión de Patrimonios Histórico-Cultural", "Desarrollo de Software", "Entrenamiento Deportivo", "Mecánica", "Mantenimiento Eléctrico y Control Industrial", "Mecatrónica", "Administración de Infraestructura y Plataformas Tecnológicas", " " }));
+        jPanel1.add(Cbx_Carreras, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 170, -1));
+
+        Cbx_tipo_sangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
+        jPanel1.add(Cbx_tipo_sangre, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 110, 170, -1));
+
+        jLabel4.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel4.setText("CONTACTO EMERGENCIA : ");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 150, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -1363,7 +1257,10 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JButton Btn_Guardar;
     private javax.swing.JButton Btn_Subir_Foto;
     private javax.swing.JButton Btn_guardar_Familiar;
-    private javax.swing.JComboBox<String> Cb_Parent_total;
+    private javax.swing.JComboBox<String> Cb_Parentesco;
+    private javax.swing.JComboBox<String> Cbx_Carreras;
+    private javax.swing.JComboBox<String> Cbx_estado_civil;
+    private javax.swing.JComboBox<String> Cbx_tipo_sangre;
     private javax.swing.JCheckBox Ckx_discapacidad;
     private javax.swing.ButtonGroup GrupoGroup2;
     private com.toedter.calendar.JDateChooser JCL_FechaNacimiento;
@@ -1397,15 +1294,11 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JTextField Txt_CarnetConadis;
     private javax.swing.JTextField Txt_ContactoEmergencias;
     private javax.swing.JTextField Txt_Email;
-    private javax.swing.JTextField Txt_Faml_PARENTESCO;
     private javax.swing.JTextField Txt_Identificacion_pac;
     private javax.swing.JTextField Txt_Nombres;
-    private javax.swing.JTextField Txt_Nvl_Academico;
     private javax.swing.JTextField Txt_barrio;
     private javax.swing.JTextField Txt_canton;
-    private javax.swing.JTextField Txt_carrera;
     private javax.swing.JTextField Txt_direccion;
-    private javax.swing.JTextField Txt_estadoCivil;
     private javax.swing.JTextField Txt_etnia;
     private javax.swing.JTextField Txt_genero;
     private javax.swing.JTextField Txt_lugar;
@@ -1439,13 +1332,13 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -1504,7 +1397,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator29;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator30;
-    private javax.swing.JSeparator jSeparator33;
     private javax.swing.JSeparator jSeparator34;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lbl_Foto;
