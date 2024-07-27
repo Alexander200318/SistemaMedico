@@ -5,7 +5,7 @@
 package Vista;
 
 import Controlador.ControladorFrmPanelDatosPaciente;
-import Controlador.ControladorMostrarDatosPanel;
+import Controlador.ControladorMostrarDatosPanelbtn;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,11 +22,11 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
      */
     
     ControladorFrmPanelDatosPaciente control;
-    ControladorMostrarDatosPanel panel;
+    ControladorMostrarDatosPanelbtn panel;
     public PanelDatosPaciente() {
         initComponents();
         control = new ControladorFrmPanelDatosPaciente(this);
-        panel =new ControladorMostrarDatosPanel(this);
+        panel =new ControladorMostrarDatosPanelbtn(this);
     }
 
     //getters and setters panel
@@ -759,6 +759,8 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jTabbedPane1.setBackground(new java.awt.Color(64, 172, 159));
         jTabbedPane1.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
 
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANTECEDENTES PERSONALES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
         jPanel1.setName("Antecedentes Personales"); // NOI18N
@@ -870,7 +872,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jPanel4.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 410, 420));
 
         Panelbtn.setBackground(new java.awt.Color(255, 255, 255));
-        Panelbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panelbtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Panelbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 PanelbtnMousePressed(evt);
@@ -879,30 +881,23 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         Panelbtn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("|");
         Panelbtn.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, -10, 20, 50));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
         jLabel9.setText("|");
         Panelbtn.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 20, 40));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(204, 204, 204));
         jLabel11.setText("|");
         Panelbtn.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 20, 50));
-
-        LabelAñoUltimaCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Panelbtn.add(LabelAñoUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 70, 20));
-
-        LabelDocNombreMostrarDatos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Panelbtn.add(LabelDocNombreMostrarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 260, 30));
-
-        LabelMotivoCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Panelbtn.add(LabelMotivoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 180, 30));
-
-        LabelDiaUltimaCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Panelbtn.add(LabelDiaUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 30));
-
-        LabelMesUltimaCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Panelbtn.add(LabelMesUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 70, 20));
 
         jPanel4.add(Panelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 400, 110));
