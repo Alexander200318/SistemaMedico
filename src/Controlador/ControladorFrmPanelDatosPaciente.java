@@ -155,23 +155,9 @@ public class ControladorFrmPanelDatosPaciente {
                 panelDatosPaciente.getLabelR_PupilarConsu().setText(rs.getString("R_Pupilar"));
 
                 // Antecedentes Personales
-                panelDatosPaciente.getLabelAlergiasConsuPersonales().setText(rs.getString("Personal_Alergias"));
-                panelDatosPaciente.getLabelClinicoConsuPersonales().setText(rs.getString("Personal_Clinico"));
-                panelDatosPaciente.getLabelGinecologicoConsuPersonales().setText(rs.getString("Personal_Ginecologico"));
-                panelDatosPaciente.getLabelTraumatologicoConsuPersonales().setText(rs.getString("Personal_Traumatologico"));
-                panelDatosPaciente.getLabelFarmacologicoConsuPersonales().setText(rs.getString("Personal_Farmacologico"));
-                panelDatosPaciente.getLabelEnfermedadesConsuPersonales().setText(rs.getString("Personal_Enfermedades"));
-                panelDatosPaciente.getLabelCirugiasConsuPersonales().setText(rs.getString("Personal_Cirugias"));
-                panelDatosPaciente.getLabelVacunasConsuPersonales().setText(rs.getString("Personal_Vacunas"));
 
                 // Antecedentes Familiares
-//            panelDatosPaciente.getLabelParentescoConsuFamiliar().setText(rs.getString("Parentesco"));
-                panelDatosPaciente.getLabelAlergiasConsuFamiliar().setText(rs.getString("Familiar_Alergias"));
-                panelDatosPaciente.getLabelClinicoConsuFamiliar().setText(rs.getString("Familiar_Clinico"));
-                panelDatosPaciente.getLabelTraumatologicoConsuFamiliar().setText(rs.getString("Familiar_Traumatologico"));
-                panelDatosPaciente.getLabelFarmacologicoConsuFamiliar().setText(rs.getString("Familiar_Farmacologico"));
-                panelDatosPaciente.getLabelEnfermedadesConsuFamiliar().setText(rs.getString("Familiar_Enfermedades"));
-                panelDatosPaciente.getLabelCirugiasConsuFamiliar().setText(rs.getString("Familiar_Cirugias"));
+
             } else {
                 System.out.println("No se encontraron datos para el paciente con ID: " + idPaciente);
                 // Limpiar los campos en el panel si no se encuentran datos
@@ -203,23 +189,9 @@ public class ControladorFrmPanelDatosPaciente {
                 panelDatosPaciente.getLabelR_PupilarConsu().setText("");
 
                 // Limpiar antecedentes personales
-                panelDatosPaciente.getLabelAlergiasConsuPersonales().setText("");
-                panelDatosPaciente.getLabelClinicoConsuPersonales().setText("");
-                panelDatosPaciente.getLabelGinecologicoConsuPersonales().setText("");
-                panelDatosPaciente.getLabelTraumatologicoConsuPersonales().setText("");
-                panelDatosPaciente.getLabelFarmacologicoConsuPersonales().setText("");
-                panelDatosPaciente.getLabelEnfermedadesConsuPersonales().setText("");
-                panelDatosPaciente.getLabelCirugiasConsuPersonales().setText("");
-                panelDatosPaciente.getLabelVacunasConsuPersonales().setText("");
 
                 // Limpiar antecedentes familiares
-//            panelDatosPaciente.getLabelParentescoConsuFamiliar().setText("");
-                panelDatosPaciente.getLabelAlergiasConsuFamiliar().setText("");
-                panelDatosPaciente.getLabelClinicoConsuFamiliar().setText("");
-                panelDatosPaciente.getLabelTraumatologicoConsuFamiliar().setText("");
-                panelDatosPaciente.getLabelFarmacologicoConsuFamiliar().setText("");
-                panelDatosPaciente.getLabelEnfermedadesConsuFamiliar().setText("");
-                panelDatosPaciente.getLabelCirugiasConsuFamiliar().setText("");
+          
             }
         } catch (SQLException | IOException e) {
             System.out.println(e.toString());

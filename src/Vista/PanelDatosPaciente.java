@@ -7,9 +7,11 @@ package Vista;
 import Controlador.ControladorFrmPanelDatosPaciente;
 import Controlador.ControladorMostrarDatosPanelbtn;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -95,22 +97,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         this.BtnNuevaConsulta = BtnNuevaConsulta;
     }
 
-    public JLabel getLabelAlergiasConsuFamiliar() {
-        return LabelAlergiasConsuFamiliar;
-    }
-
-    public void setLabelAlergiasConsuFamiliar(JLabel LabelAlergiasConsuFamiliar) {
-        this.LabelAlergiasConsuFamiliar = LabelAlergiasConsuFamiliar;
-    }
-
-    public JLabel getLabelAlergiasConsuPersonales() {
-        return LabelAlergiasConsuPersonales;
-    }
-
-    public void setLabelAlergiasConsuPersonales(JLabel LabelAlergiasConsuPersonales) {
-        this.LabelAlergiasConsuPersonales = LabelAlergiasConsuPersonales;
-    }
-
     public JLabel getLabelCedulaConsu() {
         return LabelCedulaConsu;
     }
@@ -127,37 +113,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         this.LabelCelularConsu = LabelCelularConsu;
     }
 
-    public JLabel getLabelCirugiasConsuFamiliar() {
-        return LabelCirugiasConsuFamiliar;
-    }
-
-    public void setLabelCirugiasConsuFamiliar(JLabel LabelCirugiasConsuFamiliar) {
-        this.LabelCirugiasConsuFamiliar = LabelCirugiasConsuFamiliar;
-    }
-
-    public JLabel getLabelCirugiasConsuPersonales() {
-        return LabelCirugiasConsuPersonales;
-    }
-
-    public void setLabelCirugiasConsuPersonales(JLabel LabelCirugiasConsuPersonales) {
-        this.LabelCirugiasConsuPersonales = LabelCirugiasConsuPersonales;
-    }
-
-    public JLabel getLabelClinicoConsuFamiliar() {
-        return LabelClinicoConsuFamiliar;
-    }
-
-    public void setLabelClinicoConsuFamiliar(JLabel LabelClinicoConsuFamiliar) {
-        this.LabelClinicoConsuFamiliar = LabelClinicoConsuFamiliar;
-    }
-
-    public JLabel getLabelClinicoConsuPersonales() {
-        return LabelClinicoConsuPersonales;
-    }
-
-    public void setLabelClinicoConsuPersonales(JLabel LabelClinicoConsuPersonales) {
-        this.LabelClinicoConsuPersonales = LabelClinicoConsuPersonales;
-    }
 
     public JLabel getLabelCorreoConsu() {
         return LabelCorreoConsu;
@@ -183,37 +138,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         this.LabelEdadConsu = LabelEdadConsu;
     }
 
-    public JLabel getLabelEnfermedadesConsuFamiliar() {
-        return LabelEnfermedadesConsuFamiliar;
-    }
-
-    public void setLabelEnfermedadesConsuFamiliar(JLabel LabelEnfermedadesConsuFamiliar) {
-        this.LabelEnfermedadesConsuFamiliar = LabelEnfermedadesConsuFamiliar;
-    }
-
-    public JLabel getLabelEnfermedadesConsuPersonales() {
-        return LabelEnfermedadesConsuPersonales;
-    }
-
-    public void setLabelEnfermedadesConsuPersonales(JLabel LabelEnfermedadesConsuPersonales) {
-        this.LabelEnfermedadesConsuPersonales = LabelEnfermedadesConsuPersonales;
-    }
-
-    public JLabel getLabelFarmacologicoConsuFamiliar() {
-        return LabelFarmacologicoConsuFamiliar;
-    }
-
-    public void setLabelFarmacologicoConsuFamiliar(JLabel LabelFarmacologicoConsuFamiliar) {
-        this.LabelFarmacologicoConsuFamiliar = LabelFarmacologicoConsuFamiliar;
-    }
-
-    public JLabel getLabelFarmacologicoConsuPersonales() {
-        return LabelFarmacologicoConsuPersonales;
-    }
-
-    public void setLabelFarmacologicoConsuPersonales(JLabel LabelFarmacologicoConsuPersonales) {
-        this.LabelFarmacologicoConsuPersonales = LabelFarmacologicoConsuPersonales;
-    }
 
     public JLabel getLabelFrecuencia_CardiacaConsu() {
         return LabelFrecuencia_CardiacaConsu;
@@ -229,14 +153,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
     public void setLabelFrecuencia_RespiratoriaConsu(JLabel LabelFrecuencia_RespiratoriaConsu) {
         this.LabelFrecuencia_RespiratoriaConsu = LabelFrecuencia_RespiratoriaConsu;
-    }
-
-    public JLabel getLabelGinecologicoConsuPersonales() {
-        return LabelGinecologicoConsuPersonales;
-    }
-
-    public void setLabelGinecologicoConsuPersonales(JLabel LabelGinecologicoConsuPersonales) {
-        this.LabelGinecologicoConsuPersonales = LabelGinecologicoConsuPersonales;
     }
 
     public JLabel getLabelGlasgowConsu() {
@@ -359,30 +275,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         this.LabelTotalConsu = LabelTotalConsu;
     }
 
-    public JLabel getLabelTraumatologicoConsuFamiliar() {
-        return LabelTraumatologicoConsuFamiliar;
-    }
-
-    public void setLabelTraumatologicoConsuFamiliar(JLabel LabelTraumatologicoConsuFamiliar) {
-        this.LabelTraumatologicoConsuFamiliar = LabelTraumatologicoConsuFamiliar;
-    }
-
-    public JLabel getLabelTraumatologicoConsuPersonales() {
-        return LabelTraumatologicoConsuPersonales;
-    }
-
-    public void setLabelTraumatologicoConsuPersonales(JLabel LabelTraumatologicoConsuPersonales) {
-        this.LabelTraumatologicoConsuPersonales = LabelTraumatologicoConsuPersonales;
-    }
-
-    public JLabel getLabelVacunasConsuPersonales() {
-        return LabelVacunasConsuPersonales;
-    }
-
-    public void setLabelVacunasConsuPersonales(JLabel LabelVacunasConsuPersonales) {
-        this.LabelVacunasConsuPersonales = LabelVacunasConsuPersonales;
-    }
-
     public JLabel getLabelVerbalConsu() {
         return LabelVerbalConsu;
     }
@@ -406,8 +298,128 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     public void setTxtNotasPacienteConsu(JTextArea TxtNotasPacienteConsu) {
         this.TxtNotasPacienteConsu = TxtNotasPacienteConsu;
     }
+    //getteres and setters  antecedenetes  personales 
+    public JTextField getTxtAlergiasPersonales() {
+        return TxtAlergiasPersonales;
+    }
+
+    public void setTxtAlergiasPersonales(JTextField TxtAlergiasPersonales) {
+        this.TxtAlergiasPersonales = TxtAlergiasPersonales;
+    }
+
+    public JTextField getTxtCirugiasPersonales() {
+        return TxtCirugiasPersonales;
+    }
+
+    public void setTxtCirugiasPersonales(JTextField TxtCirugiasPersonales) {
+        this.TxtCirugiasPersonales = TxtCirugiasPersonales;
+    }
+
+    public JTextField getTxtClinicoPersonales() {
+        return TxtClinicoPersonales;
+    }
+
+    public void setTxtClinicoPersonales(JTextField TxtClinicoPersonales) {
+        this.TxtClinicoPersonales = TxtClinicoPersonales;
+    }
+
+    public JTextField getTxtEnfermedadesPersonales() {
+        return TxtEnfermedadesPersonales;
+    }
+
+    public void setTxtEnfermedadesPersonales(JTextField TxtEnfermedadesPersonales) {
+        this.TxtEnfermedadesPersonales = TxtEnfermedadesPersonales;
+    }
+
+    public JTextField getTxtFarmacologicoPersonales() {
+        return TxtFarmacologicoPersonales;
+    }
+
+    public void setTxtFarmacologicoPersonales(JTextField TxtFarmacologicoPersonales) {
+        this.TxtFarmacologicoPersonales = TxtFarmacologicoPersonales;
+    }
+
+    public JTextField getTxtGinecologicoPersonales() {
+        return TxtGinecologicoPersonales;
+    }
+
+    public void setTxtGinecologicoPersonales(JTextField TxtGinecologicoPersonales) {
+        this.TxtGinecologicoPersonales = TxtGinecologicoPersonales;
+    }
+
+    public JTextField getTxtTraumatologicoPersonales() {
+        return TxtTraumatologicoPersonales;
+    }
+
+    public void setTxtTraumatologicoPersonales(JTextField TxtTraumatologicoPersonales) {
+        this.TxtTraumatologicoPersonales = TxtTraumatologicoPersonales;
+    }
+
+    public JTextField getTxtVacunasPersonales() {
+        return TxtVacunasPersonales;
+    }
+
+    public void setTxtVacunasPersonales(JTextField TxtVacunasPersonales) {
+        this.TxtVacunasPersonales = TxtVacunasPersonales;
+    }
     
-    
+    //getteres and setters  antecedenetes  Familiares
+
+    public JComboBox<String> getComboBoxParentesco() {
+        return ComboBoxParentesco;
+    }
+
+    public void setComboBoxParentesco(JComboBox<String> ComboBoxParentesco) {
+        this.ComboBoxParentesco = ComboBoxParentesco;
+    }
+
+    public JTextField getTxFarmacologiaFamiliares() {
+        return TxFarmacologiaFamiliares;
+    }
+
+    public void setTxFarmacologiaFamiliares(JTextField TxFarmacologiaFamiliares) {
+        this.TxFarmacologiaFamiliares = TxFarmacologiaFamiliares;
+    }
+
+    public JTextField getTxtAlergiasFamiliares() {
+        return TxtAlergiasFamiliares;
+    }
+
+    public void setTxtAlergiasFamiliares(JTextField TxtAlergiasFamiliares) {
+        this.TxtAlergiasFamiliares = TxtAlergiasFamiliares;
+    }
+
+    public JTextField getTxtCirugiasFamiliares() {
+        return TxtCirugiasFamiliares;
+    }
+
+    public void setTxtCirugiasFamiliares(JTextField TxtCirugiasFamiliares) {
+        this.TxtCirugiasFamiliares = TxtCirugiasFamiliares;
+    }
+
+    public JTextField getTxtClinicoFamiliares() {
+        return TxtClinicoFamiliares;
+    }
+
+    public void setTxtClinicoFamiliares(JTextField TxtClinicoFamiliares) {
+        this.TxtClinicoFamiliares = TxtClinicoFamiliares;
+    }
+
+    public JTextField getTxtEnfermedadesFamiliares() {
+        return TxtEnfermedadesFamiliares;
+    }
+
+    public void setTxtEnfermedadesFamiliares(JTextField TxtEnfermedadesFamiliares) {
+        this.TxtEnfermedadesFamiliares = TxtEnfermedadesFamiliares;
+    }
+
+    public JTextField getTxtTraumatologiaFamiliares() {
+        return TxtTraumatologiaFamiliares;
+    }
+
+    public void setTxtTraumatologiaFamiliares(JTextField TxtTraumatologiaFamiliares) {
+        this.TxtTraumatologiaFamiliares = TxtTraumatologiaFamiliares;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -496,55 +508,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jSeparator23 = new javax.swing.JSeparator();
         jSeparator24 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
-        LabelAlergiasConsuPersonales = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        LabelClinicoConsuPersonales = new javax.swing.JLabel();
-        LabelGinecologicoConsuPersonales = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        LabelTraumatologicoConsuPersonales = new javax.swing.JLabel();
-        LabelFarmacologicoConsuPersonales = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        LabelEnfermedadesConsuPersonales = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        LabelCirugiasConsuPersonales = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        LabelVacunasConsuPersonales = new javax.swing.JLabel();
-        jSeparator32 = new javax.swing.JSeparator();
-        jSeparator33 = new javax.swing.JSeparator();
-        jSeparator34 = new javax.swing.JSeparator();
-        jSeparator35 = new javax.swing.JSeparator();
-        jSeparator36 = new javax.swing.JSeparator();
-        jSeparator37 = new javax.swing.JSeparator();
-        jSeparator38 = new javax.swing.JSeparator();
-        jSeparator39 = new javax.swing.JSeparator();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel35 = new javax.swing.JLabel();
-        LabelAlergiasConsuFamiliar = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        LabelClinicoConsuFamiliar = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        LabelTraumatologicoConsuFamiliar = new javax.swing.JLabel();
-        LabelFarmacologicoConsuFamiliar = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        LabelEnfermedadesConsuFamiliar = new javax.swing.JLabel();
-        LabelCirugiasConsuFamiliar = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jSeparator25 = new javax.swing.JSeparator();
-        jSeparator26 = new javax.swing.JSeparator();
-        jSeparator27 = new javax.swing.JSeparator();
-        jSeparator29 = new javax.swing.JSeparator();
-        jSeparator30 = new javax.swing.JSeparator();
-        jSeparator31 = new javax.swing.JSeparator();
-        jLabel43 = new javax.swing.JLabel();
-        ComboBoxParentesco = new javax.swing.JComboBox<>();
         Panelbtn = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -554,6 +517,56 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         LabelMotivoCita = new javax.swing.JLabel();
         LabelDiaUltimaCita = new javax.swing.JLabel();
         LabelMesUltimaCita = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jSeparator32 = new javax.swing.JSeparator();
+        jSeparator33 = new javax.swing.JSeparator();
+        jSeparator34 = new javax.swing.JSeparator();
+        jSeparator35 = new javax.swing.JSeparator();
+        jSeparator36 = new javax.swing.JSeparator();
+        jSeparator37 = new javax.swing.JSeparator();
+        jSeparator38 = new javax.swing.JSeparator();
+        jSeparator39 = new javax.swing.JSeparator();
+        TxtAlergiasPersonales = new javax.swing.JTextField();
+        TxtGinecologicoPersonales = new javax.swing.JTextField();
+        TxtTraumatologicoPersonales = new javax.swing.JTextField();
+        TxtVacunasPersonales = new javax.swing.JTextField();
+        TxtClinicoPersonales = new javax.swing.JTextField();
+        TxtFarmacologicoPersonales = new javax.swing.JTextField();
+        TxtEnfermedadesPersonales = new javax.swing.JTextField();
+        TxtCirugiasPersonales = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jSeparator25 = new javax.swing.JSeparator();
+        jSeparator26 = new javax.swing.JSeparator();
+        jSeparator27 = new javax.swing.JSeparator();
+        jSeparator29 = new javax.swing.JSeparator();
+        jSeparator30 = new javax.swing.JSeparator();
+        jSeparator31 = new javax.swing.JSeparator();
+        jLabel43 = new javax.swing.JLabel();
+        ComboBoxParentesco = new javax.swing.JComboBox<>();
+        TxtCirugiasFamiliares = new javax.swing.JTextField();
+        TxtAlergiasFamiliares = new javax.swing.JTextField();
+        TxtClinicoFamiliares = new javax.swing.JTextField();
+        TxtTraumatologiaFamiliares = new javax.swing.JTextField();
+        TxFarmacologiaFamiliares = new javax.swing.JTextField();
+        TxtEnfermedadesFamiliares = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -756,121 +769,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANTECEDENTES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.setBackground(new java.awt.Color(64, 172, 159));
-        jTabbedPane1.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-
-        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANTECEDENTES PERSONALES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
-        jPanel1.setName("Antecedentes Personales"); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel24.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel24.setText("Alergias:");
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, -1));
-        jPanel1.add(LabelAlergiasConsuPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 360, 30));
-
-        jLabel27.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel27.setText("Clinico:");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, -1));
-        jPanel1.add(LabelClinicoConsuPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 360, 30));
-        jPanel1.add(LabelGinecologicoConsuPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 360, 30));
-
-        jLabel28.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel28.setText("Ginecologico:");
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 90, -1));
-
-        jLabel29.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel29.setText("Traumatologico:");
-        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 110, -1));
-        jPanel1.add(LabelTraumatologicoConsuPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 360, 30));
-        jPanel1.add(LabelFarmacologicoConsuPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 360, 30));
-
-        jLabel30.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel30.setText("Farmacologico:");
-        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 100, -1));
-
-        jLabel31.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel31.setText("Enfermedades:");
-        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 99, -1));
-        jPanel1.add(LabelEnfermedadesConsuPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 360, 30));
-
-        jLabel32.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel32.setText("Cirugias:");
-        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 80, -1));
-        jPanel1.add(LabelCirugiasConsuPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 360, 30));
-
-        jLabel33.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel33.setText("Vacunas:");
-        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 60, -1));
-        jPanel1.add(LabelVacunasConsuPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 360, 30));
-        jPanel1.add(jSeparator32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 360, 10));
-        jPanel1.add(jSeparator33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 360, 10));
-        jPanel1.add(jSeparator34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 360, 10));
-        jPanel1.add(jSeparator35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 360, 10));
-        jPanel1.add(jSeparator36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 360, 10));
-        jPanel1.add(jSeparator37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 360, 10));
-        jPanel1.add(jSeparator38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 360, 10));
-        jPanel1.add(jSeparator39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 360, 10));
-
-        jScrollPane3.setViewportView(jPanel1);
-
-        jTabbedPane1.addTab("Antecedentes Personales", jScrollPane3);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANTECEDENTES FAMILIARES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel35.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-        jLabel35.setText("Alergias:");
-        jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 20));
-        jPanel2.add(LabelAlergiasConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 360, 40));
-
-        jLabel36.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-        jLabel36.setText("Clinico:");
-        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 60, 30));
-        jPanel2.add(LabelClinicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 360, 40));
-
-        jLabel37.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-        jLabel37.setText("Traumatologico:");
-        jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 120, -1));
-        jPanel2.add(LabelTraumatologicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 360, 40));
-        jPanel2.add(LabelFarmacologicoConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 360, 40));
-
-        jLabel38.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-        jLabel38.setText("Farmacologico:");
-        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 120, -1));
-
-        jLabel39.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-        jLabel39.setText("Enfermedades:");
-        jPanel2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 110, 30));
-        jPanel2.add(LabelEnfermedadesConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 360, 40));
-        jPanel2.add(LabelCirugiasConsuFamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 360, 40));
-
-        jLabel40.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-        jLabel40.setText("Cirugias:");
-        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 80, 30));
-        jPanel2.add(jSeparator25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 360, 10));
-        jPanel2.add(jSeparator26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 360, 10));
-        jPanel2.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 360, 10));
-        jPanel2.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 360, 10));
-        jPanel2.add(jSeparator30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 360, 10));
-        jPanel2.add(jSeparator31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 360, 10));
-
-        jLabel43.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-        jLabel43.setText("Parentesco");
-        jPanel2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 20));
-
-        ComboBoxParentesco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Padre", "Madre", "Abuelos", "Hermanos", "Otros" }));
-        jPanel2.add(ComboBoxParentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 280, -1));
-
-        jScrollPane2.setViewportView(jPanel2);
-
-        jTabbedPane1.addTab("Antecedentes Familiares", jScrollPane2);
-
-        jPanel4.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 410, 420));
-
         Panelbtn.setBackground(new java.awt.Color(255, 255, 255));
         Panelbtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Panelbtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -900,7 +798,124 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         Panelbtn.add(LabelDiaUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 30));
         Panelbtn.add(LabelMesUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 70, 20));
 
-        jPanel4.add(Panelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 400, 110));
+        jPanel4.add(Panelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 400, 110));
+
+        jTabbedPane1.setBackground(new java.awt.Color(64, 172, 159));
+        jTabbedPane1.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANTECEDENTES PERSONALES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
+        jPanel1.setName("Antecedentes Personales"); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel24.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel24.setText("Alergias:");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, -1));
+
+        jLabel27.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel27.setText("Clinico:");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, -1));
+
+        jLabel28.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel28.setText("Ginecologico:");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 90, -1));
+
+        jLabel29.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel29.setText("Traumatologico:");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 110, -1));
+
+        jLabel30.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel30.setText("Farmacologico:");
+        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 100, -1));
+
+        jLabel31.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel31.setText("Enfermedades:");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 99, -1));
+
+        jLabel32.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel32.setText("Cirugias:");
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 80, -1));
+
+        jLabel33.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel33.setText("Vacunas:");
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 60, -1));
+        jPanel1.add(jSeparator32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 360, 10));
+        jPanel1.add(jSeparator33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 360, 10));
+        jPanel1.add(jSeparator34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 360, 10));
+        jPanel1.add(jSeparator35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 360, 10));
+        jPanel1.add(jSeparator36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 360, 10));
+        jPanel1.add(jSeparator37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 360, 10));
+        jPanel1.add(jSeparator38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 360, 10));
+        jPanel1.add(jSeparator39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 360, 10));
+        jPanel1.add(TxtAlergiasPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 360, 30));
+        jPanel1.add(TxtGinecologicoPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 360, 30));
+        jPanel1.add(TxtTraumatologicoPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 360, 30));
+        jPanel1.add(TxtVacunasPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 360, 30));
+        jPanel1.add(TxtClinicoPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 360, 30));
+        jPanel1.add(TxtFarmacologicoPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 360, 30));
+        jPanel1.add(TxtEnfermedadesPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 360, 30));
+        jPanel1.add(TxtCirugiasPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 360, 30));
+
+        jScrollPane3.setViewportView(jPanel1);
+
+        jScrollPane4.setViewportView(jScrollPane3);
+
+        jTabbedPane1.addTab("Antecedentes Personales", jScrollPane4);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANTECEDENTES FAMILIARES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel35.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+        jLabel35.setText("Alergias:");
+        jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 20));
+
+        jLabel36.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+        jLabel36.setText("Clinico:");
+        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 60, 30));
+
+        jLabel37.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+        jLabel37.setText("Traumatologico:");
+        jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 120, -1));
+
+        jLabel38.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+        jLabel38.setText("Farmacologico:");
+        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 120, -1));
+
+        jLabel39.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+        jLabel39.setText("Enfermedades:");
+        jPanel2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 110, 30));
+
+        jLabel40.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+        jLabel40.setText("Cirugias:");
+        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 80, 30));
+        jPanel2.add(jSeparator25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 360, 10));
+        jPanel2.add(jSeparator26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 360, 10));
+        jPanel2.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 360, 10));
+        jPanel2.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 360, 10));
+        jPanel2.add(jSeparator30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 360, 10));
+        jPanel2.add(jSeparator31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 360, 10));
+
+        jLabel43.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+        jLabel43.setText("Parentesco");
+        jPanel2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 20));
+
+        ComboBoxParentesco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Padre", "Madre", "Abuelos", "Hermanos", "Otros" }));
+        jPanel2.add(ComboBoxParentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 280, -1));
+        jPanel2.add(TxtCirugiasFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 360, 30));
+        jPanel2.add(TxtAlergiasFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 360, 30));
+        jPanel2.add(TxtClinicoFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 360, 30));
+        jPanel2.add(TxtTraumatologiaFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 360, 30));
+        jPanel2.add(TxFarmacologiaFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 360, 30));
+        jPanel2.add(TxtEnfermedadesFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 360, 30));
+
+        jScrollPane2.setViewportView(jPanel2);
+
+        jTabbedPane1.addTab("Antecedentes Familiares", jScrollPane2);
+
+        jPanel4.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 410, 420));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 470, 590));
 
@@ -923,27 +938,16 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnNuevaConsulta;
     private javax.swing.JComboBox<String> ComboBoxParentesco;
-    private javax.swing.JLabel LabelAlergiasConsuFamiliar;
-    private javax.swing.JLabel LabelAlergiasConsuPersonales;
     private javax.swing.JLabel LabelAñoUltimaCita;
     private javax.swing.JLabel LabelCedulaConsu;
     private javax.swing.JLabel LabelCelularConsu;
-    private javax.swing.JLabel LabelCirugiasConsuFamiliar;
-    private javax.swing.JLabel LabelCirugiasConsuPersonales;
-    private javax.swing.JLabel LabelClinicoConsuFamiliar;
-    private javax.swing.JLabel LabelClinicoConsuPersonales;
     private javax.swing.JLabel LabelCorreoConsu;
     private javax.swing.JLabel LabelDiaUltimaCita;
     private javax.swing.JLabel LabelDirecciónConsu;
     private javax.swing.JLabel LabelDocNombreMostrarDatos;
     private javax.swing.JLabel LabelEdadConsu;
-    private javax.swing.JLabel LabelEnfermedadesConsuFamiliar;
-    private javax.swing.JLabel LabelEnfermedadesConsuPersonales;
-    private javax.swing.JLabel LabelFarmacologicoConsuFamiliar;
-    private javax.swing.JLabel LabelFarmacologicoConsuPersonales;
     private javax.swing.JLabel LabelFrecuencia_CardiacaConsu;
     private javax.swing.JLabel LabelFrecuencia_RespiratoriaConsu;
-    private javax.swing.JLabel LabelGinecologicoConsuPersonales;
     private javax.swing.JLabel LabelGlasgowConsu;
     private javax.swing.JLabel LabelIndice_Masa_CorporalConsu;
     private javax.swing.JLabel LabelLlenado_CapilarConsu;
@@ -961,13 +965,24 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel LabelTallaConsu;
     private javax.swing.JLabel LabelTemperaturaConsu;
     private javax.swing.JLabel LabelTotalConsu;
-    private javax.swing.JLabel LabelTraumatologicoConsuFamiliar;
-    private javax.swing.JLabel LabelTraumatologicoConsuPersonales;
-    private javax.swing.JLabel LabelVacunasConsuPersonales;
     private javax.swing.JLabel LabelVerbalConsu;
     private javax.swing.JLabel LblFotoConsu;
     private javax.swing.JPanel Panelbtn;
+    private javax.swing.JTextField TxFarmacologiaFamiliares;
+    private javax.swing.JTextField TxtAlergiasFamiliares;
+    private javax.swing.JTextField TxtAlergiasPersonales;
+    private javax.swing.JTextField TxtCirugiasFamiliares;
+    private javax.swing.JTextField TxtCirugiasPersonales;
+    private javax.swing.JTextField TxtClinicoFamiliares;
+    private javax.swing.JTextField TxtClinicoPersonales;
+    private javax.swing.JTextField TxtEnfermedadesFamiliares;
+    private javax.swing.JTextField TxtEnfermedadesPersonales;
+    private javax.swing.JTextField TxtFarmacologicoPersonales;
+    private javax.swing.JTextField TxtGinecologicoPersonales;
     private javax.swing.JTextArea TxtNotasPacienteConsu;
+    private javax.swing.JTextField TxtTraumatologiaFamiliares;
+    private javax.swing.JTextField TxtTraumatologicoPersonales;
+    private javax.swing.JTextField TxtVacunasPersonales;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1016,6 +1031,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
