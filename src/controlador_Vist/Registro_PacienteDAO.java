@@ -323,15 +323,14 @@ public class Registro_PacienteDAO {
             );
         }
 
-        Persona persona = new Persona();
 
         int idDoctor = singleton.getId_Doctor();
         System.out.println("Paciente: " + paciente);
-        System.out.println("Persona: " + paciente);
+   
 
         try {
-            if (validarDatosPaciente(paciente, antecedentesPersonales, antecedentesFamiliares, estudiante)) {
-                boolean resultado = control.registrar(persona, paciente, antecedentesPersonales, antecedentesFamiliares, idDoctor, rol, estudiante);
+            if (validarDatosPaciente(paciente)) {
+                    boolean resultado = control.registrar(paciente, antecedentesPersonales,antecedentesFamiliares, idDoctor, rol, estudiante);
                 if (resultado) {
                     System.out.println("Se guardó el paciente correctamente.");
                 } else {
@@ -354,7 +353,7 @@ public class Registro_PacienteDAO {
         return new Date(utilDate.getTime());
     }
 
-    private boolean validarDatosPaciente(Paciente paciente, AntecedentesPersonales antecedentesPersonales, List<AntecedentesFamiliares> familiares, Estudiante estudiante) {
+    private boolean validarDatosPaciente(Paciente paciente) {
         // Validar identificación
         if (paciente.getIdentificacion() == null || paciente.getIdentificacion().trim().isEmpty()) {
             System.out.println("La identificación es requerida.");
@@ -391,24 +390,7 @@ public class Registro_PacienteDAO {
             return false;
         }
 
-        // Validar antecedentes personales
-        if (antecedentesPersonales == null) {
-            System.out.println("Los antecedentes personales son requeridos.");
-            return false;
-        }
-
-        // Validar antecedentes familiares
-        if (familiares == null || familiares.isEmpty()) {
-            System.out.println("Se deben agregar antecedentes familiares.");
-            return false;
-        }
-
-        // Validar estudiante
-        if (rol.equals("estudiante") && (estudiante == null )) {
-            System.out.println("Los datos del estudiante son requeridos.");
-            return false;
-        }
-
+       
         // Si todas las validaciones pasan
         return true;
     }

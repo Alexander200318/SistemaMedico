@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 public class ControladorPaciente {
     
      
-    public boolean registrar(Persona persona , Paciente paciente, AntecedentesPersonales antecedentes,
+    public boolean registrar( Paciente paciente, AntecedentesPersonales antecedentes,
             List<AntecedentesFamiliares> familiares, int idDoctor, String rol, Estudiante estudiante) {
         // Verificaciones iniciales para asegurar que los datos no sean nulos
         if (paciente == null || paciente == null) {
