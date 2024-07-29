@@ -15,6 +15,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import rojerusan.RSLabelImage;
 
 /**
  *
@@ -31,6 +32,27 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         
     }
+
+    public RSLabelImage getRSlabel_imagen() {
+        return RSlabel_imagen;
+    }
+
+    public void setRSlabel_imagen(RSLabelImage RSlabel_imagen) {
+        this.RSlabel_imagen = RSlabel_imagen;
+    }
+
+    
+    
+    
+    public JPanel getPanel_contenedor_img() {
+        return panel_contenedor_img;
+    }
+
+    public void setPanel_contenedor_img(JPanel panel_contenedor_img) {
+        this.panel_contenedor_img = panel_contenedor_img;
+    }
+    
+
 
     public JComboBox<String> getCb_Parentesco() {
         return Cb_Parentesco;
@@ -472,13 +494,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.Txt_tipoDiscapacidad = Txt_tipoDiscapacidad;
     }
 
-    public JLabel getLbl_Foto() {
-        return lbl_Foto;
-    }
-
-    public void setLbl_Foto(JLabel lbl_Foto) {
-        this.lbl_Foto = lbl_Foto;
-    }
+  
 
     public JTextField getTxt_Identificacion_pac() {
         return Txt_Identificacion_pac;
@@ -549,7 +565,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator3 = new javax.swing.JSeparator();
         jLabel35 = new javax.swing.JLabel();
         jSeparator25 = new javax.swing.JSeparator();
-        lbl_Foto = new javax.swing.JLabel();
         jSeparator15 = new javax.swing.JSeparator();
         jSeparator16 = new javax.swing.JSeparator();
         Btn_Subir_Foto = new javax.swing.JButton();
@@ -628,7 +643,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jLabel47 = new javax.swing.JLabel();
         Cb_Parentesco = new javax.swing.JComboBox<>();
         Btn_guardar_Familiar = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
         jLabel48 = new javax.swing.JLabel();
         jScrollPane20 = new javax.swing.JScrollPane();
         TxA_Faml_vacunas = new javax.swing.JTextArea();
@@ -641,11 +655,14 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Cbx_Carreras = new javax.swing.JComboBox<>();
         Cbx_tipo_sangre = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        panel_contenedor_img = new javax.swing.JPanel();
+        RSlabel_imagen = new rojerusan.RSLabelImage();
 
         setPreferredSize(new java.awt.Dimension(1280, 680));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DEPARTAMENTO MEDICO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Copperplate Gothic Light", 3, 24), new java.awt.Color(9, 49, 130))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(1290, 760));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -852,9 +869,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator25.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator25, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 170, 10));
 
-        lbl_Foto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 130, 150));
-
         jSeparator15.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator15.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 170, 10));
@@ -864,7 +878,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, 170, 10));
 
         Btn_Subir_Foto.setText("Subir");
-        jPanel1.add(Btn_Subir_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 130, -1));
+        jPanel1.add(Btn_Subir_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 150, -1));
 
         Txt_canton.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
         Txt_canton.setBorder(null);
@@ -1132,7 +1146,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         TxA_Faml_cirugia.setAutoscrolls(false);
         jScrollPane19.setViewportView(TxA_Faml_cirugia);
 
-        Panl_Ant_Familiares.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 620, 338, 40));
+        Panl_Ant_Familiares.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 338, 40));
 
         jLabel46.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
         jLabel46.setText("Familiares");
@@ -1148,29 +1162,16 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Btn_guardar_Familiar.setText("Registrar");
         Panl_Ant_Familiares.add(Btn_guardar_Familiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 44, -1, 26));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 112, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 24, Short.MAX_VALUE)
-        );
-
-        Panl_Ant_Familiares.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 716, -1, -1));
-
         jLabel48.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel48.setText("Vacunas:");
-        Panl_Ant_Familiares.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 648, -1, -1));
+        Panl_Ant_Familiares.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 670, -1, -1));
 
         TxA_Faml_vacunas.setColumns(20);
         TxA_Faml_vacunas.setRows(5);
         TxA_Faml_vacunas.setAutoscrolls(false);
         jScrollPane20.setViewportView(TxA_Faml_vacunas);
 
-        Panl_Ant_Familiares.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 670, 334, 40));
+        Panl_Ant_Familiares.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 690, 334, 40));
 
         jScrollPane1.setViewportView(Panl_Ant_Familiares);
 
@@ -1221,21 +1222,40 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jLabel4.setText("CONTACTO EMERGENCIA : ");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 150, -1, -1));
 
+        panel_contenedor_img.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(51, 51, 51)));
+
+        RSlabel_imagen.setForeground(new java.awt.Color(0, 0, 0));
+        RSlabel_imagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RSlabel_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/usuario.png"))); // NOI18N
+        RSlabel_imagen.setText("Arrastra una imagen");
+        RSlabel_imagen.setToolTipText("");
+        RSlabel_imagen.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+
+        javax.swing.GroupLayout panel_contenedor_imgLayout = new javax.swing.GroupLayout(panel_contenedor_img);
+        panel_contenedor_img.setLayout(panel_contenedor_imgLayout);
+        panel_contenedor_imgLayout.setHorizontalGroup(
+            panel_contenedor_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(RSlabel_imagen, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+        );
+        panel_contenedor_imgLayout.setVerticalGroup(
+            panel_contenedor_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_contenedor_imgLayout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(RSlabel_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+
+        jPanel1.add(panel_contenedor_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 150, 170));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1268, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1266,6 +1286,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser JCL_FechaNacimiento;
     private javax.swing.JPanel Panl_Ant_Familiares;
     private javax.swing.JPanel Panl_Ant_Personal;
+    private rojerusan.RSLabelImage RSlabel_imagen;
     private javax.swing.JRadioButton Rbn_Alumno;
     private javax.swing.JRadioButton Rbn_Femenino;
     private javax.swing.JRadioButton Rbn_Masculino;
@@ -1356,7 +1377,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -1399,6 +1419,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator30;
     private javax.swing.JSeparator jSeparator34;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel lbl_Foto;
+    private javax.swing.JPanel panel_contenedor_img;
     // End of variables declaration//GEN-END:variables
 }

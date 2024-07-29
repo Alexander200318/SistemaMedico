@@ -1,5 +1,12 @@
 package controlador_Vist;
 
+import Controlador.Notificaciones;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import Controlador.ControladorPaciente;
 import Modelo.AntecedentesFamiliares;
 import Modelo.AntecedentesPersonales;
@@ -8,10 +15,22 @@ import Modelo.Paciente;
 import Modelo.Persona;
 import Modelo.Singleton;
 import Vista.FrmRegistrarsePaciente;
+import Vista.PANEL_PRINCIPAL_PACIENTE;
+import com.mysql.cj.jdbc.Blob;
+import java.awt.BorderLayout;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.sql.Date;
+import java.util.regex.Pattern;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import rsdragdropfiles.RSDragDropFiles;
 
 public class Registro_PacienteDAO {
 
@@ -21,6 +40,7 @@ public class Registro_PacienteDAO {
     private String tipoSexo = "";
     private Singleton singleton;
     private List<AntecedentesFamiliares> familiares = new ArrayList<>();
+    boolean identEstado = true;
 
     public Registro_PacienteDAO(FrmRegistrarsePaciente vistaPrincipal) {
 
@@ -29,13 +49,58 @@ public class Registro_PacienteDAO {
         control = new ControladorPaciente();
         initListeners();
         configurarVista();
+        EntradaIdentificacion();
+        ArrastarImagen();
+    }
+
+    public void ArrastarImagen() {
+
+        new rsdragdropfiles.RSDragDropFiles(vistaPrincipal.getPanel_contenedor_img(), new RSDragDropFiles.Listener() {
+            @Override
+            public void filesDropped(File[] files) {
+                try {
+                    if (files.length > 1) {
+                        Notificaciones.error("Error", "IMPOSIBLE IMPORTAR MÁS DE UNA IMAGEN");
+
+                    } else {
+                        vistaPrincipal.getRSlabel_imagen().setText("");
+                        vistaPrincipal.getRSlabel_imagen().setIcon(new ImageIcon(files[0].getCanonicalPath()));
+                        rsdragdropfiles.RSDragDropFiles.setCopiar(files[0].getCanonicalPath(), "src/Recursos/IMAGEN_ARRASTRADO.png");
+                    }
+                } catch (IOException e) {
+                } finally {
+                }
+            }
+
+        });
+
+        vistaPrincipal.getTxt_Identificacion_pac().addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                identEstado = control.verificarIdentificacion(vistaPrincipal.getTxt_Identificacion_pac().getText());
+                System.out.println(" sale");
+            }
+        });
+
+    }
+
+    public void EntradaIdentificacion() {
+
+        vistaPrincipal.getTxt_Identificacion_pac().addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                identEstado = control.verificarIdentificacion(vistaPrincipal.getTxt_Identificacion_pac().getText());
+                System.out.println(" sale");
+            }
+        });
+
     }
 
     private void configurarVista() {
         vistaPrincipal.getSpr_ciclo().setEnabled(false);
         vistaPrincipal.getSpr_ciclo().setValue(0);
         vistaPrincipal.getCbx_Carreras().setEnabled(false);
-        
+
         vistaPrincipal.getTxt_tipoDiscapacidad().setText(null);
         vistaPrincipal.getTxt_tipoDiscapacidad().setEnabled(false);
         vistaPrincipal.getSpr_Porcen_Discapasidad().setValue(0);
@@ -54,8 +119,7 @@ public class Registro_PacienteDAO {
     }
 
     public void guardarAntecedFamiliares() {
-        
-        
+
         String parentescoFamilia = Seleccion_Parentesco();
         int idAntecedentes_Fm = 0; // Asegúrate de manejar correctamente el ID
         String alergias_Fm = vistaPrincipal.getTxA_Faml_alergia().getText().trim();
@@ -127,11 +191,9 @@ public class Registro_PacienteDAO {
         }
         return tipoSexo;
     }
-    
 
-
-    public String Seleccion_tipo_sangre(){
-    String valor = "";
+    public String Seleccion_tipo_sangre() {
+        String valor = "";
         Object selectedItem = this.vistaPrincipal.getCbx_tipo_sangre().getSelectedItem();
         if (selectedItem != null) {
             String selectedItemString = String.valueOf(selectedItem);
@@ -141,25 +203,24 @@ public class Registro_PacienteDAO {
                 valor = "A-";
             } else if (selectedItemString.equalsIgnoreCase("B+")) {
                 valor = "B+";
-            }else if (selectedItemString.equalsIgnoreCase("B-")) {
+            } else if (selectedItemString.equalsIgnoreCase("B-")) {
                 valor = "B-";
-            }else if (selectedItemString.equalsIgnoreCase("AB+")) {
+            } else if (selectedItemString.equalsIgnoreCase("AB+")) {
                 valor = "AB+";
-            }else if (selectedItemString.equalsIgnoreCase("AB-")) {
+            } else if (selectedItemString.equalsIgnoreCase("AB-")) {
                 valor = "AB-";
-            }else if (selectedItemString.equalsIgnoreCase("O+")) {
+            } else if (selectedItemString.equalsIgnoreCase("O+")) {
                 valor = "O+";
-            }else if (selectedItemString.equalsIgnoreCase("O-")) {
+            } else if (selectedItemString.equalsIgnoreCase("O-")) {
                 valor = "O-";
             }
         }
         return valor;
-  
-    }
-    
 
-     public String Seleccion_Estado_civil(){
-    String valor = "";
+    }
+
+    public String Seleccion_Estado_civil() {
+        String valor = "";
         Object selectedItem = this.vistaPrincipal.getCbx_estado_civil().getSelectedItem();
         if (selectedItem != null) {
             String selectedItemString = String.valueOf(selectedItem);
@@ -169,26 +230,20 @@ public class Registro_PacienteDAO {
                 valor = "Casado";
             } else if (selectedItemString.equalsIgnoreCase("Divorciado")) {
                 valor = "Divorciado";
-            }else if (selectedItemString.equalsIgnoreCase("Viudo")) {
+            } else if (selectedItemString.equalsIgnoreCase("Viudo")) {
                 valor = "Viudo";
-            }else if (selectedItemString.equalsIgnoreCase("Unión Libre")) {
+            } else if (selectedItemString.equalsIgnoreCase("Unión Libre")) {
                 valor = "Unión Libre";
-            }else if (selectedItemString.equalsIgnoreCase("Separado")) {
+            } else if (selectedItemString.equalsIgnoreCase("Separado")) {
                 valor = "Separado";
             }
         }
         return valor;
-  
+
     }
-     
-     
-     
 
-
-
-
-        public String Seleccion_Parentesco(){
-    String valor = "";
+    public String Seleccion_Parentesco() {
+        String valor = "";
         Object selectedItem = this.vistaPrincipal.getCb_Parentesco().getSelectedItem();
         if (selectedItem != null) {
             String selectedItemString = String.valueOf(selectedItem);
@@ -198,19 +253,18 @@ public class Registro_PacienteDAO {
                 valor = "Padres";
             } else if (selectedItemString.equalsIgnoreCase("Hijos")) {
                 valor = "Hijos";
-            }else if (selectedItemString.equalsIgnoreCase("Abuelos")) {
+            } else if (selectedItemString.equalsIgnoreCase("Abuelos")) {
                 valor = "Abuelos";
-            }else if (selectedItemString.equalsIgnoreCase("Hermanos")) {
+            } else if (selectedItemString.equalsIgnoreCase("Hermanos")) {
                 valor = "Hermanos";
             }
         }
         return valor;
-  
+
     }
-     
- 
-     public String Seleccion_Carrera(){
-    String valor = "";
+
+    public String Seleccion_Carrera() {
+        String valor = "";
         Object selectedItem = this.vistaPrincipal.getCbx_Carreras().getSelectedItem();
         if (selectedItem != null) {
             String selectedItemString = String.valueOf(selectedItem);
@@ -220,40 +274,38 @@ public class Registro_PacienteDAO {
                 valor = "Big Data";
             } else if (selectedItemString.equalsIgnoreCase("Tributación")) {
                 valor = "Tributación";
-            }else if (selectedItemString.equalsIgnoreCase("Ciberseguridad")) {
+            } else if (selectedItemString.equalsIgnoreCase("Ciberseguridad")) {
                 valor = "Ciberseguridad";
-            }else if (selectedItemString.equalsIgnoreCase("Producción y Realización Audiovisual")) {
+            } else if (selectedItemString.equalsIgnoreCase("Producción y Realización Audiovisual")) {
                 valor = "Producción y Realización Audiovisual";
-            }else if (selectedItemString.equalsIgnoreCase("Seguridad y Prevención de Riesgos Laborales")) {
+            } else if (selectedItemString.equalsIgnoreCase("Seguridad y Prevención de Riesgos Laborales")) {
                 valor = "Seguridad y Prevención de Riesgos Laborales";
-                
-            }else if (selectedItemString.equalsIgnoreCase("Gestión de Patrimonios Histórico-Cultural")) {
+
+            } else if (selectedItemString.equalsIgnoreCase("Gestión de Patrimonios Histórico-Cultural")) {
                 valor = "Gestión de Patrimonios Histórico-Cultural";
-                
-            }else if (selectedItemString.equalsIgnoreCase("Desarrollo de Software")) {
+
+            } else if (selectedItemString.equalsIgnoreCase("Desarrollo de Software")) {
                 valor = "Desarrollo de Software";
-            }else if (selectedItemString.equalsIgnoreCase("Entrenamiento Deportivo")) {
+            } else if (selectedItemString.equalsIgnoreCase("Entrenamiento Deportivo")) {
                 valor = "Entrenamiento Deportivo";
-                
-            }else if (selectedItemString.equalsIgnoreCase("Mecánica")) {
+
+            } else if (selectedItemString.equalsIgnoreCase("Mecánica")) {
                 valor = "Mecánica";
-                
-            }else if (selectedItemString.equalsIgnoreCase("Mantenimiento Eléctrico y Control Industrial")) {
+
+            } else if (selectedItemString.equalsIgnoreCase("Mantenimiento Eléctrico y Control Industrial")) {
                 valor = "Mantenimiento Eléctrico y Control Industrial";
-                
-            }else if (selectedItemString.equalsIgnoreCase("Mecatrónica")) {
+
+            } else if (selectedItemString.equalsIgnoreCase("Mecatrónica")) {
                 valor = "Mecatrónica";
-                
-            }else if (selectedItemString.equalsIgnoreCase("Administración de Infraestructura y Plataformas Tecnológicas")) {
+
+            } else if (selectedItemString.equalsIgnoreCase("Administración de Infraestructura y Plataformas Tecnológicas")) {
                 valor = "Administración de Infraestructura y Plataformas Tecnológicas";
-                
+
             }
         }
         return valor;
-  
+
     }
-     
-     
 
     public void IngresoDatos() {
         Paciente paciente = new Paciente();
@@ -274,6 +326,11 @@ public class Registro_PacienteDAO {
         paciente.setGenero(getValidData(vistaPrincipal.getTxt_genero().getText()));
         paciente.setEstadoCivil(getValidData(Seleccion_Estado_civil()));
         paciente.setSexo(SeleccionSEXO());
+
+//        ImageIcon icon = (ImageIcon) vistaPrincipal.getRSlabel_imagen().getIcon();
+//        Image image = icon.getImage();
+//        paciente.setFoto(convertImageToByteArray(image, "png"));
+//        
         paciente.setEtnia(getValidData(vistaPrincipal.getTxt_etnia().getText()));
         paciente.setFechaRegistro(utilDateToSqlDate(new java.util.Date()));
         paciente.setCarnetConadis(getValidData(vistaPrincipal.getTxt_CarnetConadis().getText()));
@@ -323,16 +380,18 @@ public class Registro_PacienteDAO {
             );
         }
 
-
         int idDoctor = singleton.getId_Doctor();
         System.out.println("Paciente: " + paciente);
-   
 
         try {
             if (validarDatosPaciente(paciente)) {
-                    boolean resultado = control.registrar(paciente, antecedentesPersonales,antecedentesFamiliares, idDoctor, rol, estudiante);
+                boolean resultado = control.registrar(paciente, antecedentesPersonales, antecedentesFamiliares, idDoctor, rol, estudiante, identEstado);
                 if (resultado) {
                     System.out.println("Se guardó el paciente correctamente.");
+                    /////////////////////////////////////////////////////////////////////////////
+                    Notificaciones.success("¡CONFIRMACIÓN!", "Se guardo correctamente al Paciente");
+                    PasarPanel();
+                    /////////////////////////////////////////////////////////////////////////////
                 } else {
                     System.out.println("Error al guardar el paciente.");
                 }
@@ -350,48 +409,120 @@ public class Registro_PacienteDAO {
     }
 
     public Date utilDateToSqlDate(java.util.Date utilDate) {
-        return new Date(utilDate.getTime());
+        if (utilDate != null) {
+            return new Date(utilDate.getTime());
+        }
+        return null;
     }
 
     private boolean validarDatosPaciente(Paciente paciente) {
+        boolean esValido = true;
+        StringBuilder errores = new StringBuilder();
+
         // Validar identificación
         if (paciente.getIdentificacion() == null || paciente.getIdentificacion().trim().isEmpty()) {
-            System.out.println("La identificación es requerida.");
-            return false;
+            errores.append("La identificación es requerida.\n");
+            esValido = false;
+        } else if (!Pattern.matches("\\d{10}", paciente.getIdentificacion())) {
+            errores.append("La identificación debe tener exactamente 10 dígitos.\n");
+            esValido = false;
         }
 
-        // Validar nombres
+        // Validar primer nombre
         if (paciente.getPrimNombre().trim().isEmpty()) {
-            System.out.println("El primer nombre es requerido.");
-            return false;
+            errores.append("El primer nombre es requerido.\n");
+            esValido = false;
+        } else if (!Pattern.matches("^[\\p{L} ]+$", paciente.getPrimNombre())) {
+            errores.append("El primer nombre solo debe contener letras y espacios.\n");
+            esValido = false;
         }
 
-        // Validar apellidos
+        // Validar segundo nombre (puede estar vacío)
+        if (!paciente.getSegNombre().trim().isEmpty() && !Pattern.matches("^[\\p{L} ]*$", paciente.getSegNombre())) {
+            errores.append("El segundo nombre solo debe contener letras y espacios.\n");
+            esValido = false;
+        }
+
+        // Validar primer apellido
         if (paciente.getPrimApellido().trim().isEmpty()) {
-            System.out.println("El primer apellido es requerido.");
-            return false;
+            errores.append("El primer apellido es requerido.\n");
+            esValido = false;
+        } else if (!Pattern.matches("^[\\p{L} ]+$", paciente.getPrimApellido())) {
+            errores.append("El primer apellido solo debe contener letras y espacios.\n");
+            esValido = false;
+        }
+
+        // Validar segundo apellido (puede estar vacío)
+        if (!paciente.getSegApellido().trim().isEmpty() && !Pattern.matches("^[\\p{L} ]*$", paciente.getSegApellido())) {
+            errores.append("El segundo apellido solo debe contener letras y espacios.\n");
+            esValido = false;
         }
 
         // Validar correo electrónico
         if (paciente.getEmail() == null || paciente.getEmail().trim().isEmpty()) {
-            System.out.println("El correo electrónico es requerido.");
-            return false;
+            errores.append("El correo electrónico es requerido.\n");
+            esValido = false;
+        } else if (!Pattern.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$", paciente.getEmail())) {
+            errores.append("El correo electrónico no es válido.\n");
+            esValido = false;
         }
 
         // Validar fecha de nacimiento
         if (paciente.getFechaNacimiento() == null) {
-            System.out.println("La fecha de nacimiento es requerida.");
-            return false;
+            errores.append("La fecha de nacimiento es requerida.\n");
+            esValido = false;
         }
 
         // Validar contacto de emergencia
         if (paciente.getContactoEmergencia() == null || paciente.getContactoEmergencia().trim().isEmpty()) {
-            System.out.println("El contacto de emergencia es requerido.");
-            return false;
+            errores.append("El contacto de emergencia es requerido.\n");
+            esValido = false;
+        } else if (!Pattern.matches("^\\d{10}$", paciente.getContactoEmergencia())) {
+            errores.append("El contacto de emergencia debe tener exactamente 10 dígitos.\n");
+            esValido = false;
         }
 
-       
-        // Si todas las validaciones pasan
-        return true;
+        if (!esValido) {
+            JOptionPane.showMessageDialog(vistaPrincipal, errores.toString(), "Errores de Validación", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return esValido;
     }
+
+    public void PasarPanel() {
+
+        PANEL_PRINCIPAL_PACIENTE PrincPaciente = new PANEL_PRINCIPAL_PACIENTE();
+        PrincPaciente.setSize(1280, 680);
+        PrincPaciente.setLocation(0, 0);
+
+        this.vistaPrincipal.removeAll();
+        this.vistaPrincipal.add(PrincPaciente, BorderLayout.CENTER);
+        this.vistaPrincipal.revalidate();
+        this.vistaPrincipal.repaint();
+
+    }
+
+    public static byte[] convertImageToByteArray(Image image, String format) {
+        BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_RGB);
+        bufferedImage.getGraphics().drawImage(image, 0, 0, null);
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(bufferedImage, format, baos);
+            baos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+            }
+
+        byte[] imageInBytes = baos.toByteArray();
+
+        try {
+            baos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return imageInBytes;
+    }
+
 }

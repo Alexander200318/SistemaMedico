@@ -94,10 +94,10 @@ public class ControladorFrmPanelDatosPaciente {
                 + "LEFT JOIN Familiar f ON pac.Id_Paciente = f.Id_Paciente "
                 + "LEFT JOIN Antecedentes fa ON f.Id_Antecedentes = fa.Id_Antecedentes "
                 + "WHERE pac.Pac_Est_Activo = TRUE "
-                + "AND pac.Id_Paciente = ? "
-                + // Agregado para filtrar por ID de paciente
-                "AND rt.Fecha_Triage = (SELECT MAX(Fecha_Triage) FROM RegistraTriage WHERE Id_Paciente = pac.Id_Paciente) "
-                + "LIMIT 0, 1000";
+                + "AND pac.Id_Paciente = ? ";
+//                + // Agregado para filtrar por ID de paciente
+//                "AND rt.Fecha_Triage = (SELECT MAX(Fecha_Triage) FROM RegistraTriage WHERE Id_Paciente = pac.Id_Paciente) "
+//                + "LIMIT 0, 1000";
 
         try ( PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, idPaciente); // Establece el parámetro del ID del paciente

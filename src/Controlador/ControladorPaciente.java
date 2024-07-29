@@ -12,6 +12,9 @@ import Modelo.Docente;
 import Modelo.Estudiante;
 import Modelo.Paciente;
 import Modelo.Persona;
+import com.mysql.cj.jdbc.PreparedStatementWrapper;
+import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.x.protobuf.MysqlxPrepare;
 
 import java.sql.*;
 import java.sql.Connection;
@@ -22,12 +25,108 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ControladorPaciente {
-    
-     
-    public boolean registrar( Paciente paciente, AntecedentesPersonales antecedentes,
-            List<AntecedentesFamiliares> familiares, int idDoctor, String rol, Estudiante estudiante) {
-        // Verificaciones iniciales para asegurar que los datos no sean nulos
-        if (paciente == null || paciente == null) {
+
+    public boolean verificarIdentificacion(String identificacion) {
+        boolean identConfirmar = true;
+        String resultado = "No encontrado";
+        int idPersona = 0;
+        boolean estadoPersona = true;
+        String nombrePersona = "";
+
+        String consultaPersona = "SELECT Id_Persona, prim_Nombre, seg_Nombre, prim_Apellido, seg_Apellido, Estado_Activo FROM Persona WHERE Identificacion = ?";
+        String consultaDoctor = "SELECT Id_Doctor, Doc_Est_Activo FROM Doctor WHERE Id_Persona = ?";
+        String consultaPaciente = "SELECT Id_Paciente, Pac_Est_Activo FROM Paciente WHERE Id_Persona = ?";
+
+        String actualizarEstadoPersona = "UPDATE Persona SET Estado_Activo = ? WHERE Id_Persona = ?";
+        String actualizarEstadoPaciente = "UPDATE Paciente SET Pac_Est_Activo = ? WHERE Id_Persona = ?";
+        String actualizarEstadoDoctor = "UPDATE Doctor SET Doc_Est_Activo = ? WHERE Id_Persona = ?";
+        Conexion conexion = new Conexion();
+        try (
+                 Connection conn = conexion.getConexion();  PreparedStatement pers = conn.prepareStatement(consultaPersona)) {
+
+            pers.setString(1, identificacion);
+
+            try ( ResultSet rsPersona = pers.executeQuery()) {
+                if (rsPersona.next()) {
+                    identConfirmar = false;
+                    idPersona = rsPersona.getInt("Id_Persona");
+                    estadoPersona = rsPersona.getBoolean("Estado_Activo");
+                    nombrePersona = rsPersona.getString("prim_Nombre") + " " + rsPersona.getString("seg_Nombre") + " " + rsPersona.getString("prim_Apellido") + " " + rsPersona.getString("seg_Apellido");
+
+                    try ( PreparedStatement doct = conn.prepareStatement(consultaDoctor)) {
+                        doct.setInt(1, idPersona);
+
+                        try ( ResultSet rsDoctor = doct.executeQuery()) {
+                            if (rsDoctor.next()) {
+                                resultado = "Doctor";
+                                Notificaciones.information("INFORMACION", "La identificación " + nombrePersona + " está registrada como Doctor");
+                            }
+                        }
+                    }
+
+                    try ( PreparedStatement pacient = conn.prepareStatement(consultaPaciente)) {
+                        pacient.setInt(1, idPersona);
+
+                        try ( ResultSet rsPaciente = pacient.executeQuery()) {
+                            if (rsPaciente.next()) {
+                                boolean estadoPaciente = rsPaciente.getBoolean("Pac_Est_Activo");
+                                resultado = "Paciente";
+
+                                if (!estadoPaciente || !estadoPersona) {
+                                    Notificaciones.information("INFORMACIÓN", "El paciente se encuentra eliminado");
+                                    String[] opciones = {"Cancelar", "Retornar Paciente"};
+                                    int eleccion = JOptionPane.showOptionDialog(
+                                            null,
+                                            "Desea retornar al paciente " + nombrePersona,
+                                            "Importante",
+                                            JOptionPane.YES_NO_OPTION,
+                                            JOptionPane.QUESTION_MESSAGE,
+                                            null,
+                                            opciones,
+                                            opciones[0]
+                                    );
+
+                                    if (eleccion == JOptionPane.NO_OPTION) {
+                                        // Retornar al paciente
+                                        try ( PreparedStatement estadorPersn = conn.prepareStatement(actualizarEstadoPersona)) {
+                                            estadorPersn.setBoolean(1, true);
+                                            estadorPersn.setInt(2, idPersona);
+                                            estadorPersn.executeUpdate();
+                                        }
+
+                                        try ( PreparedStatement estadorPaciente = conn.prepareStatement(actualizarEstadoPaciente)) {
+                                            estadorPaciente.setBoolean(1, true);
+                                            estadorPaciente.setInt(2, idPersona);
+                                            estadorPaciente.executeUpdate();
+                                        }
+
+                                        Notificaciones.success("Éxito", "El paciente " + nombrePersona + " retornó exitosamente");
+                                    }
+                                } else {
+                                    Notificaciones.information("INFORMACIÓN", "El paciente " + nombrePersona + " ya se encuentra registrado");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Ocurrió un error");
+            System.out.println(" " + e.getMessage());
+        } finally {
+            System.out.println("Análisis del id finalizado");
+        }
+
+        return identConfirmar;
+    }
+
+    public boolean registrar(Paciente paciente, AntecedentesPersonales antecedentes,
+            List<AntecedentesFamiliares> familiares, int idDoctor, String rol, Estudiante estudiante,boolean identificacion) {
+       
+        
+
+        if (identificacion) {
+            if (paciente == null || paciente == null) {
             System.out.println("Paciente o Persona es nulo");
             return false;
         }
@@ -88,7 +187,7 @@ public class ControladorPaciente {
             pS.setString(15, paciente.getGenero());
             pS.setString(16, paciente.getEstadoCivil());
             pS.setString(17, paciente.getSexo());
-            pS.setBlob(18, paciente.getFoto());
+            pS.setBytes(18, paciente.getFoto());
             pS.setString(19, paciente.getEtnia());
             pS.setDate(20, paciente.getFechaRegistro());
             pS.setString(21, paciente.getCarnetConadis());
@@ -201,7 +300,7 @@ public class ControladorPaciente {
             }
 
             // Insertar en la tabla Registro del Paciente
-            pS = conectBase.prepareStatement(sqlIngreso,PreparedStatement.RETURN_GENERATED_KEYS);
+            pS = conectBase.prepareStatement(sqlIngreso, PreparedStatement.RETURN_GENERATED_KEYS);
             pS.setInt(1, idPaciente);
             pS.setInt(2, idDoctor);
             pS.setDate(3, new java.sql.Date(System.currentTimeMillis()));
@@ -211,7 +310,7 @@ public class ControladorPaciente {
             if ("estudiante".equals(rol) && estudiante != null) {
                 pS = conectBase.prepareStatement(sqlEstudiante, PreparedStatement.RETURN_GENERATED_KEYS);
                 pS.setInt(1, idPaciente);
-                
+
                 pS.setString(2, estudiante.getCarrera());
                 pS.setBoolean(3, estudiante.isEstEstado());
                 pS.setString(4, estudiante.getCiclo());
@@ -248,6 +347,11 @@ public class ControladorPaciente {
                 System.out.println("Error al cerrar recursos: " + e.getMessage());
             }
         }
+        }else{
+        Notificaciones.error("Error", "REVISAR LA IDENTIFICACION");
+        return false;
+        }
+        
     }
 
 }
