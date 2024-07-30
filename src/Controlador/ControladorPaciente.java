@@ -310,7 +310,6 @@ public class ControladorPaciente {
             if ("estudiante".equals(rol) && estudiante != null) {
                 pS = conectBase.prepareStatement(sqlEstudiante, PreparedStatement.RETURN_GENERATED_KEYS);
                 pS.setInt(1, idPaciente);
-
                 pS.setString(2, estudiante.getCarrera());
                 pS.setBoolean(3, estudiante.isEstEstado());
                 pS.setString(4, estudiante.getCiclo());

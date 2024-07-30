@@ -31,14 +31,24 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         JLbCedulaIngreRepor = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         TxtCedBuscarReport = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        JLbCedulaIngreRepor1 = new javax.swing.JLabel();
         BtnBuscarReport = new javax.swing.JButton();
+        BtnBuscarReport1 = new javax.swing.JButton();
         PNLDatosReport = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TBLDatReport = new javax.swing.JTable();
-        PNLSeleccionReport = new javax.swing.JPanel();
-        CBXSeleccReport = new javax.swing.JComboBox<>();
-        BtnSeleccionarReport = new javax.swing.JButton();
         PNLReportGrafico = new javax.swing.JPanel();
+        rSYearDate1 = new rojerusan.RSYearDate();
+        CBXSeleccReport = new javax.swing.JComboBox<>();
+        PNLSeleccionReport = new javax.swing.JPanel();
+        BtnSeleccionarReport = new javax.swing.JButton();
+        BtnSeleccionarReport1 = new javax.swing.JButton();
+        BtnSeleccionarReport2 = new javax.swing.JButton();
+        JLbCedulaIngreRepor2 = new javax.swing.JLabel();
+        TxtCedBuscarReport1 = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
         Fondo = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 680));
@@ -47,54 +57,71 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PNLReporte.setBackground(new java.awt.Color(255, 255, 255));
-        PNLReporte.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REPORTE HISTORIAL", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Maiandra GD", 1, 48))); // NOI18N
+        PNLReporte.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Historial Paciente                                     ", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Maiandra GD", 1, 24))); // NOI18N
         PNLReporte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PNLIdentifiReport.setBackground(new java.awt.Color(255, 255, 255));
-        PNLIdentifiReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "IDENTIFICACIÓN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
+        PNLIdentifiReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
         PNLIdentifiReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JLbCedulaIngreRepor.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 16)); // NOI18N
         JLbCedulaIngreRepor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLbCedulaIngreRepor.setText("Ingrese la cédula:");
-        PNLIdentifiReport.add(JLbCedulaIngreRepor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 150, -1));
-        PNLIdentifiReport.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 320, 10));
+        JLbCedulaIngreRepor.setText("Motivo:");
+        PNLIdentifiReport.add(JLbCedulaIngreRepor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 70, -1));
+        PNLIdentifiReport.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 290, 10));
 
         TxtCedBuscarReport.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
         TxtCedBuscarReport.setBorder(null);
-        PNLIdentifiReport.add(TxtCedBuscarReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 320, 20));
+        PNLIdentifiReport.add(TxtCedBuscarReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 290, 20));
+        PNLIdentifiReport.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+        PNLIdentifiReport.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 140, -1));
+
+        JLbCedulaIngreRepor1.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 16)); // NOI18N
+        JLbCedulaIngreRepor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLbCedulaIngreRepor1.setText("Ingrese la cédula:");
+        PNLIdentifiReport.add(JLbCedulaIngreRepor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, -1));
 
         BtnBuscarReport.setBackground(new java.awt.Color(64, 172, 159));
         BtnBuscarReport.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
-        BtnBuscarReport.setText("BUSCAR");
+        BtnBuscarReport.setText("Limpiar");
         BtnBuscarReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnBuscarReportActionPerformed(evt);
             }
         });
-        PNLIdentifiReport.add(BtnBuscarReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 110, -1));
+        PNLIdentifiReport.add(BtnBuscarReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 110, -1));
 
-        PNLReporte.add(PNLIdentifiReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 680, 90));
+        BtnBuscarReport1.setBackground(new java.awt.Color(64, 172, 159));
+        BtnBuscarReport1.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+        BtnBuscarReport1.setText("BUSCAR");
+        BtnBuscarReport1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarReport1ActionPerformed(evt);
+            }
+        });
+        PNLIdentifiReport.add(BtnBuscarReport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 110, -1));
+
+        PNLReporte.add(PNLIdentifiReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 400, 170));
 
         PNLDatosReport.setBackground(new java.awt.Color(255, 255, 255));
-        PNLDatosReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS GENERALES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
+        PNLDatosReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
         PNLDatosReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TBLDatReport.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         TBLDatReport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Cedula", "Nombre", "Apellido", "Edad", "Carrera"
+                "FECHA", "MOTIVO", "NIVEL PRIORIDAD"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -103,13 +130,12 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(TBLDatReport);
 
-        PNLDatosReport.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 640, 350));
+        PNLDatosReport.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 420, 360));
 
-        PNLReporte.add(PNLDatosReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 680, 400));
+        PNLReporte.add(PNLDatosReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 450, 410));
 
-        PNLSeleccionReport.setBackground(new java.awt.Color(255, 255, 255));
-        PNLSeleccionReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SELECCIÓN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 15))); // NOI18N
-        PNLSeleccionReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PNLReportGrafico.setBackground(new java.awt.Color(255, 255, 255));
+        PNLReportGrafico.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REPORTE GRAFICO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
 
         CBXSeleccReport.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         CBXSeleccReport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Año" }));
@@ -118,37 +144,81 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
                 CBXSeleccReportActionPerformed(evt);
             }
         });
-        PNLSeleccionReport.add(CBXSeleccReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 260, 30));
 
-        BtnSeleccionarReport.setBackground(new java.awt.Color(64, 172, 159));
-        BtnSeleccionarReport.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 11)); // NOI18N
-        BtnSeleccionarReport.setText("SELECCIONAR");
-        BtnSeleccionarReport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSeleccionarReportActionPerformed(evt);
-            }
-        });
-        PNLSeleccionReport.add(BtnSeleccionarReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 130, 30));
-
-        PNLReporte.add(PNLSeleccionReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 450, 90));
-
-        PNLReportGrafico.setBackground(new java.awt.Color(255, 255, 255));
-        PNLReportGrafico.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REPORTE GRAFICO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
+        PNLSeleccionReport.setBackground(new java.awt.Color(255, 255, 255));
+        PNLSeleccionReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SELECCIÓN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 15))); // NOI18N
+        PNLSeleccionReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout PNLReportGraficoLayout = new javax.swing.GroupLayout(PNLReportGrafico);
         PNLReportGrafico.setLayout(PNLReportGraficoLayout);
         PNLReportGraficoLayout.setHorizontalGroup(
             PNLReportGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(PNLReportGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNLReportGraficoLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(CBXSeleccReport, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(PNLReportGraficoLayout.createSequentialGroup()
+                    .addGap(825, 825, 825)
+                    .addComponent(rSYearDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNLReportGraficoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(PNLSeleccionReport, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(395, 395, 395))
         );
         PNLReportGraficoLayout.setVerticalGroup(
             PNLReportGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 369, Short.MAX_VALUE)
+            .addGroup(PNLReportGraficoLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(PNLSeleccionReport, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(rSYearDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CBXSeleccReport, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(412, Short.MAX_VALUE))
         );
 
-        PNLReporte.add(PNLReportGrafico, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 450, 400));
+        PNLReporte.add(PNLReportGrafico, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 700, 590));
 
-        add(PNLReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 1200, 620));
+        BtnSeleccionarReport.setBackground(new java.awt.Color(64, 172, 159));
+        BtnSeleccionarReport.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 11)); // NOI18N
+        BtnSeleccionarReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSeleccionarReportActionPerformed(evt);
+            }
+        });
+        PNLReporte.add(BtnSeleccionarReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 50, 40));
+
+        BtnSeleccionarReport1.setBackground(new java.awt.Color(64, 172, 159));
+        BtnSeleccionarReport1.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 11)); // NOI18N
+        BtnSeleccionarReport1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSeleccionarReport1ActionPerformed(evt);
+            }
+        });
+        PNLReporte.add(BtnSeleccionarReport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 50, 40));
+
+        BtnSeleccionarReport2.setBackground(new java.awt.Color(64, 172, 159));
+        BtnSeleccionarReport2.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 11)); // NOI18N
+        BtnSeleccionarReport2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSeleccionarReport2ActionPerformed(evt);
+            }
+        });
+        PNLReporte.add(BtnSeleccionarReport2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 50, 40));
+
+        JLbCedulaIngreRepor2.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 14)); // NOI18N
+        JLbCedulaIngreRepor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLbCedulaIngreRepor2.setText("Nombre Paciente:");
+        PNLReporte.add(JLbCedulaIngreRepor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 150, -1));
+
+        TxtCedBuscarReport1.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        TxtCedBuscarReport1.setBorder(null);
+        PNLReporte.add(TxtCedBuscarReport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 350, 20));
+        PNLReporte.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 350, 10));
+
+        add(PNLReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 1200, 650));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo Login.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-7, 0, 1960, -1));
@@ -166,13 +236,30 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_CBXSeleccReportActionPerformed
 
+    private void BtnBuscarReport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarReport1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBuscarReport1ActionPerformed
+
+    private void BtnSeleccionarReport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionarReport1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSeleccionarReport1ActionPerformed
+
+    private void BtnSeleccionarReport2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionarReport2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSeleccionarReport2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnBuscarReport;
+    private javax.swing.JButton BtnBuscarReport1;
     private javax.swing.JButton BtnSeleccionarReport;
+    private javax.swing.JButton BtnSeleccionarReport1;
+    private javax.swing.JButton BtnSeleccionarReport2;
     private javax.swing.JComboBox<String> CBXSeleccReport;
     private javax.swing.JLabel Fondo;
     public javax.swing.JLabel JLbCedulaIngreRepor;
+    public javax.swing.JLabel JLbCedulaIngreRepor1;
+    public javax.swing.JLabel JLbCedulaIngreRepor2;
     private javax.swing.JPanel PNLDatosReport;
     private javax.swing.JPanel PNLIdentifiReport;
     private javax.swing.JPanel PNLReportGrafico;
@@ -180,7 +267,12 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
     private javax.swing.JPanel PNLSeleccionReport;
     private javax.swing.JTable TBLDatReport;
     public javax.swing.JTextField TxtCedBuscarReport;
+    public javax.swing.JTextField TxtCedBuscarReport1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private rojerusan.RSYearDate rSYearDate1;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,8 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Controlador;
+ */package Controlador;
 
 import Modelo.Singleton;
 import Vista.PanelDatosPaciente;
@@ -86,20 +85,19 @@ public class ControladorFrmPanelDatosPaciente {
                 + "fa.Cirugias AS Familiar_Cirugias "
                 + "FROM Paciente pac "
                 + "JOIN Persona p ON pac.Id_Persona = p.Id_Persona "
-                + "JOIN RegistraTriage rt ON pac.Id_Paciente = rt.Id_Paciente "
-                + "JOIN Triage t ON rt.Id_Triage = t.Id_Triage "
-                + "JOIN Signos_Vitales sv ON t.Id_Triage = sv.Id_Triage "
+                + "LEFT JOIN RegistraTriage rt ON pac.Id_Paciente = rt.Id_Paciente "
+                + "LEFT JOIN Triage t ON rt.Id_Triage = t.Id_Triage "
+                + "LEFT JOIN Signos_Vitales sv ON t.Id_Triage = sv.Id_Triage "
                 + "JOIN Personal pe ON pac.Id_Paciente = pe.Id_Paciente "
                 + "JOIN Antecedentes ap ON pe.Id_Antecedentes = ap.Id_Antecedentes "
                 + "LEFT JOIN Familiar f ON pac.Id_Paciente = f.Id_Paciente "
                 + "LEFT JOIN Antecedentes fa ON f.Id_Antecedentes = fa.Id_Antecedentes "
                 + "WHERE pac.Pac_Est_Activo = TRUE "
-                + "AND pac.Id_Paciente = ? ";
-//                + // Agregado para filtrar por ID de paciente
-//                "AND rt.Fecha_Triage = (SELECT MAX(Fecha_Triage) FROM RegistraTriage WHERE Id_Paciente = pac.Id_Paciente) "
-//                + "LIMIT 0, 1000";
+                + "AND pac.Id_Paciente = ? "
+                + // Agregado para filtrar por ID de paciente
+                "AND (rt.Fecha_Triage IS NULL OR rt.Fecha_Triage = (SELECT MAX(Fecha_Triage) FROM RegistraTriage WHERE Id_Paciente = pac.Id_Paciente))";
 
-        try ( PreparedStatement ps = con.prepareStatement(query)) {
+        try (PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, idPaciente); // Establece el parámetro del ID del paciente
             ResultSet rs = ps.executeQuery();
 
@@ -191,12 +189,9 @@ public class ControladorFrmPanelDatosPaciente {
                 // Limpiar antecedentes personales
 
                 // Limpiar antecedentes familiares
-          
             }
         } catch (SQLException | IOException e) {
             System.out.println(e.toString());
         }
     }
-    
-    
 }

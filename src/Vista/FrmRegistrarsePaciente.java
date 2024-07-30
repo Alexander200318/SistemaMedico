@@ -911,8 +911,11 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator28.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator28.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator28, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 170, 10));
+
+        Spr_Porcen_Discapasidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
         jPanel1.add(Spr_Porcen_Discapasidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, -1, -1));
 
+        Spr_ciclo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         Spr_ciclo.setEnabled(false);
         jPanel1.add(Spr_ciclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, -1, -1));
 

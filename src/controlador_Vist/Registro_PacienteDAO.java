@@ -18,6 +18,7 @@ import Vista.FrmRegistrarsePaciente;
 import Vista.PANEL_PRINCIPAL_PACIENTE;
 import com.mysql.cj.jdbc.Blob;
 import java.awt.BorderLayout;
+import java.awt.MediaTracker;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.io.File;
@@ -31,6 +32,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import rsdragdropfiles.RSDragDropFiles;
+import rojerusan.RSLabelImage;
 
 public class Registro_PacienteDAO {
 
@@ -53,35 +55,62 @@ public class Registro_PacienteDAO {
         ArrastarImagen();
     }
 
+    public byte[] IngresoImagen() {
+        RSLabelImage rsLabelImagen = vistaPrincipal.getRSlabel_imagen(); // Asegúrate de obtener correctamente el RslabelImagen
+
+        if (rsLabelImagen != null && rsLabelImagen.getIcon() != null) {
+            ImageIcon icon = (ImageIcon) rsLabelImagen.getIcon();
+            Image image = icon.getImage();
+
+            // Convertir la imagen a bytes en formato "jpg"
+            byte[] imageInBytes = convertImageToByteArray(image, "jpg");
+
+            // Guardar la imagen en la base de datos
+            return imageInBytes;
+        } else {
+            System.out.println("El RslabelImagen no contiene ninguna imagen o no ha sido inicializado.");
+        }
+        return null;
+    }
+
     public void ArrastarImagen() {
+        RSDragDropFiles rsDragDropFiles = new rsdragdropfiles.RSDragDropFiles(vistaPrincipal.getPanel_contenedor_img(), (File[] files) -> {
+            try {
+                if (files.length > 1) {
+                    Notificaciones.error("Error", "IMPOSIBLE IMPORTAR MÁS DE UNA IMAGEN");
+                } else {
+                    // Limpia el texto del label y establece la imagen
+                    vistaPrincipal.getRSlabel_imagen().setText("");
+                    ImageIcon icon = new ImageIcon(files[0].getCanonicalPath());
 
-        new rsdragdropfiles.RSDragDropFiles(vistaPrincipal.getPanel_contenedor_img(), new RSDragDropFiles.Listener() {
-            @Override
-            public void filesDropped(File[] files) {
-                try {
-                    if (files.length > 1) {
-                        Notificaciones.error("Error", "IMPOSIBLE IMPORTAR MÁS DE UNA IMAGEN");
-
+                    // Verificar si la imagen se carga correctamente
+                    if (icon.getImageLoadStatus() == MediaTracker.ERRORED) {
+                        System.out.println("Error al cargar la imagen desde la ruta especificada.");
                     } else {
-                        vistaPrincipal.getRSlabel_imagen().setText("");
-                        vistaPrincipal.getRSlabel_imagen().setIcon(new ImageIcon(files[0].getCanonicalPath()));
+                        vistaPrincipal.getRSlabel_imagen().setIcon(icon);
                         rsdragdropfiles.RSDragDropFiles.setCopiar(files[0].getCanonicalPath(), "src/Recursos/IMAGEN_ARRASTRADO.png");
+                        System.out.println("Imagen establecida correctamente en RslabelImagen.");
                     }
-                } catch (IOException e) {
-                } finally {
-                }
-            }
 
+                    // Verificación adicional
+                    if (vistaPrincipal.getRSlabel_imagen().getIcon() != null) {
+                        System.out.println("Imagen verificada correctamente en RslabelImagen.");
+                    } else {
+                        System.out.println("Fallo al verificar la imagen en RslabelImagen.");
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
         vistaPrincipal.getTxt_Identificacion_pac().addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
                 identEstado = control.verificarIdentificacion(vistaPrincipal.getTxt_Identificacion_pac().getText());
-                System.out.println(" sale");
+                System.out.println("Identificación verificada.");
             }
         });
-
     }
 
     public void EntradaIdentificacion() {
@@ -329,7 +358,12 @@ public class Registro_PacienteDAO {
 
 //        ImageIcon icon = (ImageIcon) vistaPrincipal.getRSlabel_imagen().getIcon();
 //        Image image = icon.getImage();
-//        paciente.setFoto(convertImageToByteArray(image, "png"));
+        byte[] imageInBytes = IngresoImagen();
+        if (imageInBytes != null) {
+            paciente.setFoto(imageInBytes);
+        } else {
+            System.out.println("No se pudo obtener la imagen para el paciente.");
+        }
 //        
         paciente.setEtnia(getValidData(vistaPrincipal.getTxt_etnia().getText()));
         paciente.setFechaRegistro(utilDateToSqlDate(new java.util.Date()));
@@ -512,7 +546,7 @@ public class Registro_PacienteDAO {
             baos.flush();
         } catch (IOException e) {
             e.printStackTrace();
-            }
+        }
 
         byte[] imageInBytes = baos.toByteArray();
 
