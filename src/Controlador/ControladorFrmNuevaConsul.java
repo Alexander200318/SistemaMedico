@@ -30,7 +30,6 @@ public class ControladorFrmNuevaConsul {
     private ConsultaDAO consultaDAO;
 
     // Campos de la ventana
-    private JTextArea txtExamenFisico;
     private JButton btnGuardarHistorial;
     private JButton btnSiguiente;
     private JButton btnTerminarConsulta;
@@ -41,7 +40,6 @@ public class ControladorFrmNuevaConsul {
         this.singleton = Singleton.getInstance();
 
         // Inicialización de componentes
-        this.txtExamenFisico = ventanaNvConsulta.getTxtExamenFisico();
         this.btnSiguiente = ventanaNvConsulta.getBtnSiguiente();
         this.btnTerminarConsulta = ventanaNvConsulta.getBtnTerminarConsulta();
         this.tabbedPane = ventanaNvConsulta.getjTabbedPane();
@@ -131,63 +129,66 @@ public class ControladorFrmNuevaConsul {
     }
 
     // Método para guardar los datos de la consulta
+    
     private void guardarConsulta() throws SQLException {
-        int idPaciente = singleton.getIdPaciente();
-        Consulta consulta = new Consulta(
-            ventanaNvConsulta.getTxtNotasConsulta().getText(),
-            ventanaNvConsulta.getTxtAreaDiagnostico().getText(),
+    int idPaciente = singleton.getIdPaciente();
+    int idDoctor = singleton.getId_Doctor();
+    int CIE10 = (int) ventanaNvConsulta.getSpinnerCIE10().getValue();
+    
+    String triageSeleccionado = (String) ventanaNvConsulta.getCmbBoxTriage().getSelectedItem();
+    int idTriage = obtenerIdTriage(triageSeleccionado);
+    
+    // Determinar los valores de D_Presuntivo y D_Definitivo
+    boolean D_Presuntivo = ventanaNvConsulta.getBtnPresuntivo().isSelected();
+    boolean D_Definitivo = ventanaNvConsulta.getBtnDefinitivo().isSelected();
+
+    Consulta consulta = new Consulta(
+    ventanaNvConsulta.getTxtNotasConsulta().getText(),
             true
-        );
-
-        Historial historial = new Historial(
+    );
+    
+    Historial historial = new Historial(
             Date.valueOf(LocalDate.now()),
-            "Descripción del historial", // Ajustar según corresponda
-            true,
-            null, // Fecha de cierre, puede ser null inicialmente
-            "En proceso", // Estado
-            consulta.getIdConsulta(),
-            idPaciente,
-            1, // Id_Triage (reemplazar con el ID real)
-            1 // Id_Doctor (reemplazar con el ID real)
-        );
-
-        Diagnostico diagnostico = new Diagnostico(
-            ventanaNvConsulta.getTxtAreaDiagnostico().getText(),
-            0, // CIE_10 (reemplazar con el código real)
-            true, // D_Presuntivo (reemplazar según corresponda)
-            false, // D_Definitivo (reemplazar según corresponda)
-            historial.getIdHistorial()
-        );
-
-        Seguimiento seguimiento = new Seguimiento(
-            "Notas de seguimiento", // Ajustar según corresponda
-            Date.valueOf(LocalDate.now()),
-            1, // Num_Seg (reemplazar con el número real)
-            historial.getIdHistorial(),
-            0, // Id_Seguimiento_Anterior (reemplazar con el ID real)
-            1 // Id_Doctor (reemplazar con el ID real)
-        );
-
-        Tratamiento tratamiento = new Tratamiento(
+        ventanaNvConsulta.getTxtNotasConsulta().getText(), 
+        true,
+        Date.valueOf(LocalDate.now()), 
+        "En proceso", // Estado de la consulta
+        consulta.getIdConsulta(),
+        idPaciente,
+        idTriage,
+        idDoctor
+    );
+    
+    Diagnostico diagnostico = new Diagnostico( 
+    ventanaNvConsulta.getTxtAreaDiagnostico().getText(),
+    CIE10,
+    D_Presuntivo,
+    D_Definitivo,
+    historial.getIdHistorial()
+    
+    );
+    
+    Tratamiento tratamiento = new Tratamiento(
             ventanaNvConsulta.getTxtAreaPlanTrat().getText(),
             historial.getIdHistorial()
         );
-
-        Receta receta = new Receta(
-            ventanaNvConsulta.getTxtAreaMedicacion().getText(),
-            "Descripción de la receta", // Ajustar según corresponda
+    
+    Receta receta = new Receta(
+            ventanaNvConsulta.getTxtAreaPlanTrat().getText(),
+            ventanaNvConsulta.getTxtAreaInstrucciones().getText(),
             tratamiento.getIdTratamiento()
         );
-
-        RegistraConsulta registraConsulta = new RegistraConsulta(
+    
+    RegistraConsulta registraConsulta = new RegistraConsulta(
             Date.valueOf(LocalDate.now()),
             consulta.getIdConsulta(),
-            1, // Id_Doctor (reemplazar con el ID real)
+            idDoctor,
             idPaciente
         );
-
-        consultaDAO.guardarConsulta(consulta, historial, diagnostico, seguimiento, tratamiento, receta, registraConsulta);
-    }
+    
+    consultaDAO.guardarConsulta(consulta, historial, diagnostico, tratamiento, receta, registraConsulta);
+}
+    
 
     // Método para cambiar al siguiente panel del JTabbedPane
     private void cambiarAlSiguientePanel() {
@@ -199,6 +200,19 @@ public class ControladorFrmNuevaConsul {
             JOptionPane.showMessageDialog(null, "No hay más paneles disponibles.");
         }
     }
+    
+    private int obtenerIdTriage(String triage) {
+    switch (triage.toLowerCase()) {
+        case "No prioritario":
+            return 1;
+        case "Prioritario":
+            return 2;
+        case "Emergencia":
+            return 3;
+        default:
+            throw new IllegalArgumentException("Triage no válido: " + triage);
+    }
+}
 
     private int calcularEdad(String fechaNacimiento) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

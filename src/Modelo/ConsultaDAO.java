@@ -20,16 +20,15 @@ public class ConsultaDAO {
         this.connection = connection;
     }
 
-    public void guardarConsulta(Consulta consulta, Historial historial, Diagnostico diagnostico, Seguimiento seguimiento, Tratamiento tratamiento, Receta receta, RegistraConsulta registraConsulta) throws SQLException {
+    public void guardarConsulta(Consulta consulta, Historial historial, Diagnostico diagnostico, Tratamiento tratamiento, Receta receta, RegistraConsulta registraConsulta) throws SQLException {
         try {
             connection.setAutoCommit(false);
 
             // Guardar Consulta
-            String consultaSQL = "INSERT INTO Consulta (Enfermedad_Actual, Motivo, Cons_Est_Activo) VALUES (?, ?, ?)";
+            String consultaSQL = "INSERT INTO Consulta (Motivo, Cons_Est_Activo) VALUES (?, ?)";
             try (PreparedStatement consultaStmt = connection.prepareStatement(consultaSQL, PreparedStatement.RETURN_GENERATED_KEYS)) {
-                consultaStmt.setString(1, consulta.getEnfermedadActual());
-                consultaStmt.setString(2, consulta.getMotivo());
-                consultaStmt.setBoolean(3, consulta.isConsEstActivo());
+                consultaStmt.setString(1, consulta.getMotivo());
+                consultaStmt.setBoolean(2, consulta.isConsEstActivo());
                 consultaStmt.executeUpdate();
                 var rs = consultaStmt.getGeneratedKeys();
                 if (rs.next()) {
@@ -67,17 +66,6 @@ public class ConsultaDAO {
                 diagnosticoStmt.executeUpdate();
             }
 
-            // Guardar Seguimiento
-            String seguimientoSQL = "INSERT INTO Seguimiento (Notas, Fecha_Seg, Num_Seg, Id_Historial, Id_Seguimiento_Anterior, Id_Doctor) VALUES (?, ?, ?, ?, ?, ?)";
-            try (PreparedStatement seguimientoStmt = connection.prepareStatement(seguimientoSQL)) {
-                seguimientoStmt.setString(1, seguimiento.getNotas());
-                seguimientoStmt.setDate(2, seguimiento.getFechaSeg());
-                seguimientoStmt.setInt(3, seguimiento.getNumSeg());
-                seguimientoStmt.setInt(4, seguimiento.getIdHistorial());
-                seguimientoStmt.setInt(5, seguimiento.getIdSeguimientoAnterior());
-                seguimientoStmt.setInt(6, seguimiento.getIdDoctor());
-                seguimientoStmt.executeUpdate();
-            }
 
             // Guardar Tratamiento
             String tratamientoSQL = "INSERT INTO Tratamiento (Descripcion, Id_Historial) VALUES (?, ?)";

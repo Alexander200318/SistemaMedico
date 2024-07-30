@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PacienteDAO {
-    
+
     private Connection connection;
 
     public PacienteDAO(Connection connection) {
@@ -21,39 +21,40 @@ public class PacienteDAO {
     public Paciente obtenerPacientePorId(int idPaciente) {
         Paciente paciente = null;
         String query = "SELECT * FROM Paciente pa JOIN Persona pe ON pa.Id_Persona = pe.Id_Persona WHERE pa.Id_Paciente = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+        try ( PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, idPaciente);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 paciente = new Paciente(
-                    rs.getInt("Id_Paciente"),
-                    rs.getInt("Id_Persona"),
-                    rs.getString("Identificacion"),
-                    rs.getString("prim_Nombre"),
-                    rs.getString("seg_Nombre"),
-                    rs.getString("prim_Apellido"),
-                    rs.getString("seg_Apellido"),
-                    rs.getString("Email"),
-                    rs.getString("Direccion"),
-                    rs.getString("Barrio"),
-                    rs.getString("Canton"),
-                    rs.getString("Provincia"),
-                    rs.getString("Telefono"),
-                    rs.getDate("Fecha_Nacimiento"),
-                    rs.getString("Lugar"),
-                    rs.getString("Pais"),
-                    rs.getString("Genero"),
-                    rs.getString("Estado_Civil"),
-                    rs.getString("Sexo"),
-                    rs.getBlob("Foto"),
-                    rs.getString("Etnia"),
-                    rs.getDate("Fecha_Registro"),
-                    rs.getString("Carnet_Conadis"),
-                    rs.getBoolean("Discapacidad"),
-                    rs.getString("Tipo_Discapacidad"),
-                    rs.getInt("Porct_Discapacidad"),
-                    rs.getString("Contacto_Emergencia"),
-                    rs.getBoolean("Estado_Activo")
+                        rs.getInt("Id_Paciente"),
+                        rs.getInt("Id_Persona"),
+                        rs.getString("Identificacion"),
+                        rs.getString("prim_Nombre"),
+                        rs.getString("seg_Nombre"),
+                        rs.getString("prim_Apellido"),
+                        rs.getString("seg_Apellido"),
+                        rs.getString("Email"),
+                        rs.getString("Direccion"),
+                        rs.getString("Barrio"),
+                        rs.getString("Canton"),
+                        rs.getString("Provincia"),
+                        rs.getString("Telefono"),
+                        rs.getDate("Fecha_Nacimiento"),
+                        rs.getString("Lugar"),
+                        rs.getString("Pais"),
+                        rs.getString("Genero"),
+                        rs.getString("Estado_Civil"),
+                        rs.getString("Sexo"),
+                        rs.getBytes("Foto"),
+                        rs.getString("Etnia"),
+                        rs.getDate("Fecha_Registro"),
+                        rs.getString("Carnet_Conadis"),
+                        rs.getBoolean("Discapacidad"),
+                        rs.getString("Tipo_Discapacidad"),
+                        rs.getInt("Porct_Discapacidad"),
+                        rs.getString("Contacto_Emergencia"),
+                        rs.getBoolean("Estado_Activo"),
+                        rs.getString("Tipo_Sangre") // este campo estaba faltando
                 );
             }
         } catch (SQLException e) {
@@ -63,41 +64,41 @@ public class PacienteDAO {
     }
 
     public Personal obtenerAntecedentesPersonalesPorIdPaciente(int idPaciente) {
-    Personal personal = null;
-    String query = "SELECT * FROM AntecedentePersonal WHERE Id_Paciente = ?";
-    try (PreparedStatement stmt = connection.prepareStatement(query)) {
-        stmt.setInt(1, idPaciente);
-        ResultSet rs = stmt.executeQuery();
-        if (rs.next()) {
-            Antecedentes antecedentes = new Antecedentes(
-                rs.getInt("Id_Antecedentes"),
-                rs.getString("Alergias"),
-                rs.getString("Clinico"),
-                rs.getString("Ginecologico"),
-                rs.getString("Traumatologico"),
-                rs.getString("Quirurgico"),
-                rs.getString("Farmacologico"),
-                rs.getString("Enfermedades"),
-                rs.getString("Cirugias"),
-                rs.getString("Vacunas")
-            );
-            Paciente paciente = obtenerPacientePorId(idPaciente);
-            personal = new Personal(
-                rs.getInt("Id_AnPersonales"),
-                antecedentes,
-                paciente
-            );
+        Personal personal = null;
+        String query = "SELECT * FROM AntecedentePersonal WHERE Id_Paciente = ?";
+        try ( PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, idPaciente);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Antecedentes antecedentes = new Antecedentes(
+                        rs.getInt("Id_Antecedentes"),
+                        rs.getString("Alergias"),
+                        rs.getString("Clinico"),
+                        rs.getString("Ginecologico"),
+                        rs.getString("Traumatologico"),
+                        rs.getString("Quirurgico"),
+                        rs.getString("Farmacologico"),
+                        rs.getString("Enfermedades"),
+                        rs.getString("Cirugias"),
+                        rs.getString("Vacunas")
+                );
+                Paciente paciente = obtenerPacientePorId(idPaciente);
+                personal = new Personal(
+                        rs.getInt("Id_AnPersonales"),
+                        antecedentes,
+                        paciente
+                );
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener antecedentes personales: " + e.getMessage());
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        System.err.println("Error al obtener antecedentes personales: " + e.getMessage());
-        e.printStackTrace();
+        return personal;
     }
-    return personal;
-}
 
     public void actualizarHistorial(Historial historial) {
         String query = "UPDATE Historial SET Descripcion_Hist = ?, His_Est_Activo = ? WHERE Id_Historial = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+        try ( PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, historial.getDescripcionHist());
             stmt.setBoolean(2, historial.isHisEstActivo());
             stmt.setInt(3, historial.getIdHistorial());
@@ -110,13 +111,13 @@ public class PacienteDAO {
     // Método para guardar consulta
     public void guardarConsulta(Consulta consulta, SignosVitales signosVitales, ExamenFisico examenFisico, Triage triage) {
         Connection con = null;
-        PreparedStatement psTriage=null;
+        PreparedStatement psTriage = null;
         PreparedStatement psConsulta = null;
         PreparedStatement psSignosVitales = null;
         PreparedStatement psExamenFisico = null;
 
         try {
-            con.setAutoCommit(false);  
+            con.setAutoCommit(false);
             //insertar triage 
             String sqlTriage = "INSERT INTO Triage (Nivel_Prioridad, Tri_Est_Activo) VALUES (?,?)";
             psTriage = con.prepareStatement(sqlTriage);
@@ -127,7 +128,7 @@ public class PacienteDAO {
             // Insertar en la tabla Consulta
             String sqlConsulta = "INSERT INTO Consulta (Enfermedad_Actual, Motivo, Cons_Est_Activo) VALUES (?, ?, ?)";
             psConsulta = con.prepareStatement(sqlConsulta);
-            psConsulta.setString(1, consulta.getEnfermedadActual());
+            psConsulta.setString(1, consulta.getMotivo());
             psConsulta.setString(2, consulta.getMotivo());
             psConsulta.setBoolean(3, consulta.isConsEstActivo());
             psConsulta.executeUpdate();
@@ -171,11 +172,11 @@ public class PacienteDAO {
             psExamenFisico.setInt(10, examenFisico.getIdTriage());
             psExamenFisico.executeUpdate();
 
-            con.commit();  
+            con.commit();
         } catch (SQLException e) {
             try {
                 if (con != null) {
-                    con.rollback();  
+                    con.rollback();
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
@@ -183,10 +184,18 @@ public class PacienteDAO {
             e.printStackTrace();
         } finally {
             try {
-                if (psConsulta != null) psConsulta.close();
-                if (psSignosVitales != null) psSignosVitales.close();
-                if (psExamenFisico != null) psExamenFisico.close();
-                if (con != null) con.close();
+                if (psConsulta != null) {
+                    psConsulta.close();
+                }
+                if (psSignosVitales != null) {
+                    psSignosVitales.close();
+                }
+                if (psExamenFisico != null) {
+                    psExamenFisico.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -196,8 +205,8 @@ public class PacienteDAO {
     // Método para obtener el último ID insertado en la base de datos
     private int obtenerUltimoId(Connection con) throws SQLException {
         String sqlUltimoId = "SELECT LAST_INSERT_ID()";
-        try (PreparedStatement ps = con.prepareStatement(sqlUltimoId)) {
-            try (ResultSet rs = ps.executeQuery()) {
+        try ( PreparedStatement ps = con.prepareStatement(sqlUltimoId)) {
+            try ( ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return rs.getInt(1);
                 }
@@ -205,5 +214,5 @@ public class PacienteDAO {
         }
         return 0;
     }
-    
+
 }

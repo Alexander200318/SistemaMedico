@@ -8,17 +8,16 @@ package Modelo;
  *
  * @author Joel
  */
+
 public class Consulta {
     private int idConsulta;
-    private String enfermedadActual;
     private String motivo;
     private boolean consEstActivo;
 
     public Consulta() {
     }
-    
-    public Consulta(String enfermedadActual, String motivo, boolean consEstActivo) {
-        this.enfermedadActual = enfermedadActual;
+
+    public Consulta( String motivo, boolean consEstActivo) {
         this.motivo = motivo;
         this.consEstActivo = consEstActivo;
     }
@@ -29,14 +28,6 @@ public class Consulta {
 
     public void setIdConsulta(int idConsulta) {
         this.idConsulta = idConsulta;
-    }
-
-    public String getEnfermedadActual() {
-        return enfermedadActual;
-    }
-
-    public void setEnfermedadActual(String enfermedadActual) {
-        this.enfermedadActual = enfermedadActual;
     }
 
     public String getMotivo() {
@@ -55,12 +46,10 @@ public class Consulta {
         this.consEstActivo = consEstActivo;
     }
 
-    
     @Override
     public String toString() {
-        return "Consulta{" + "idConsulta=" + idConsulta + ", enfermedadActual=" + enfermedadActual + ", motivo=" + motivo + ", consEstActivo=" + consEstActivo + '}';
+        return "Consulta{" + "idConsulta=" + idConsulta + ", motivo=" + motivo + ", consEstActivo=" + consEstActivo + '}';
     }
     
     
-
 }
