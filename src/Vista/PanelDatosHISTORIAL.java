@@ -4,17 +4,46 @@
  */
 package Vista;
 
+import controlador_Vist.Panel_DatosHistorial;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 /**
  *
  * @author mauca
  */
 public class PanelDatosHISTORIAL extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PanelReportes
-     */
+    Panel_DatosHistorial contro;
     public PanelDatosHISTORIAL() {
         initComponents();
+        contro=new Panel_DatosHistorial(this);
+    }
+
+    public JButton getBtnSeleccionarConsulta() {
+        return BtnSeleccionarConsulta;
+    }
+
+    public void setBtnSeleccionarConsulta(JButton BtnSeleccionarConsulta) {
+        this.BtnSeleccionarConsulta = BtnSeleccionarConsulta;
+    }
+
+    public JButton getBtnSeleccionarTriage() {
+        return BtnSeleccionarTriage;
+    }
+
+    public void setBtnSeleccionarTriage(JButton BtnSeleccionarTriage) {
+        this.BtnSeleccionarTriage = BtnSeleccionarTriage;
+    }
+    
+    
+
+    public JPanel getPnl_Cambio_Datos_Hist() {
+        return Pnl_Cambio_Datos_Hist;
+    }
+
+    public void setPnl_Cambio_Datos_Hist(JPanel Pnl_Cambio_Datos_Hist) {
+        this.Pnl_Cambio_Datos_Hist = Pnl_Cambio_Datos_Hist;
     }
 
     /**
@@ -39,13 +68,9 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         PNLDatosReport = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TBLDatReport = new javax.swing.JTable();
-        PNLReportGrafico = new javax.swing.JPanel();
-        rSYearDate1 = new rojerusan.RSYearDate();
-        CBXSeleccReport = new javax.swing.JComboBox<>();
-        PNLSeleccionReport = new javax.swing.JPanel();
-        BtnSeleccionarReport = new javax.swing.JButton();
-        BtnSeleccionarReport1 = new javax.swing.JButton();
-        BtnSeleccionarReport2 = new javax.swing.JButton();
+        Pnl_Cambio_Datos_Hist = new javax.swing.JPanel();
+        BtnSeleccionarConsulta = new javax.swing.JButton();
+        BtnSeleccionarTriage = new javax.swing.JButton();
         JLbCedulaIngreRepor2 = new javax.swing.JLabel();
         TxtCedBuscarReport1 = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
@@ -134,79 +159,39 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
 
         PNLReporte.add(PNLDatosReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 450, 410));
 
-        PNLReportGrafico.setBackground(new java.awt.Color(255, 255, 255));
-        PNLReportGrafico.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REPORTE GRAFICO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
+        Pnl_Cambio_Datos_Hist.setBackground(new java.awt.Color(255, 255, 255));
+        Pnl_Cambio_Datos_Hist.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
 
-        CBXSeleccReport.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
-        CBXSeleccReport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Año" }));
-        CBXSeleccReport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CBXSeleccReportActionPerformed(evt);
-            }
-        });
-
-        PNLSeleccionReport.setBackground(new java.awt.Color(255, 255, 255));
-        PNLSeleccionReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SELECCIÓN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 15))); // NOI18N
-        PNLSeleccionReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout PNLReportGraficoLayout = new javax.swing.GroupLayout(PNLReportGrafico);
-        PNLReportGrafico.setLayout(PNLReportGraficoLayout);
-        PNLReportGraficoLayout.setHorizontalGroup(
-            PNLReportGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PNLReportGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNLReportGraficoLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(CBXSeleccReport, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(PNLReportGraficoLayout.createSequentialGroup()
-                    .addGap(825, 825, 825)
-                    .addComponent(rSYearDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNLReportGraficoLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(PNLSeleccionReport, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(395, 395, 395))
+        javax.swing.GroupLayout Pnl_Cambio_Datos_HistLayout = new javax.swing.GroupLayout(Pnl_Cambio_Datos_Hist);
+        Pnl_Cambio_Datos_Hist.setLayout(Pnl_Cambio_Datos_HistLayout);
+        Pnl_Cambio_Datos_HistLayout.setHorizontalGroup(
+            Pnl_Cambio_Datos_HistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 698, Short.MAX_VALUE)
         );
-        PNLReportGraficoLayout.setVerticalGroup(
-            PNLReportGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PNLReportGraficoLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(PNLSeleccionReport, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(rSYearDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CBXSeleccReport, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(412, Short.MAX_VALUE))
+        Pnl_Cambio_Datos_HistLayout.setVerticalGroup(
+            Pnl_Cambio_Datos_HistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 588, Short.MAX_VALUE)
         );
 
-        PNLReporte.add(PNLReportGrafico, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 700, 590));
+        PNLReporte.add(Pnl_Cambio_Datos_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 700, 590));
 
-        BtnSeleccionarReport.setBackground(new java.awt.Color(64, 172, 159));
-        BtnSeleccionarReport.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 11)); // NOI18N
-        BtnSeleccionarReport.addActionListener(new java.awt.event.ActionListener() {
+        BtnSeleccionarConsulta.setBackground(new java.awt.Color(64, 172, 159));
+        BtnSeleccionarConsulta.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 11)); // NOI18N
+        BtnSeleccionarConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSeleccionarReportActionPerformed(evt);
+                BtnSeleccionarConsultaActionPerformed(evt);
             }
         });
-        PNLReporte.add(BtnSeleccionarReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 50, 40));
+        PNLReporte.add(BtnSeleccionarConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 50, 40));
 
-        BtnSeleccionarReport1.setBackground(new java.awt.Color(64, 172, 159));
-        BtnSeleccionarReport1.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 11)); // NOI18N
-        BtnSeleccionarReport1.addActionListener(new java.awt.event.ActionListener() {
+        BtnSeleccionarTriage.setBackground(new java.awt.Color(64, 172, 159));
+        BtnSeleccionarTriage.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 11)); // NOI18N
+        BtnSeleccionarTriage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSeleccionarReport1ActionPerformed(evt);
+                BtnSeleccionarTriageActionPerformed(evt);
             }
         });
-        PNLReporte.add(BtnSeleccionarReport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 50, 40));
-
-        BtnSeleccionarReport2.setBackground(new java.awt.Color(64, 172, 159));
-        BtnSeleccionarReport2.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 11)); // NOI18N
-        BtnSeleccionarReport2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSeleccionarReport2ActionPerformed(evt);
-            }
-        });
-        PNLReporte.add(BtnSeleccionarReport2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 50, 40));
+        PNLReporte.add(BtnSeleccionarTriage, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 50, 40));
 
         JLbCedulaIngreRepor2.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 14)); // NOI18N
         JLbCedulaIngreRepor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -228,43 +213,32 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnBuscarReportActionPerformed
 
-    private void BtnSeleccionarReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionarReportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnSeleccionarReportActionPerformed
-
-    private void CBXSeleccReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBXSeleccReportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CBXSeleccReportActionPerformed
-
     private void BtnBuscarReport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarReport1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnBuscarReport1ActionPerformed
 
-    private void BtnSeleccionarReport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionarReport1ActionPerformed
+    private void BtnSeleccionarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionarConsultaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnSeleccionarReport1ActionPerformed
+    }//GEN-LAST:event_BtnSeleccionarConsultaActionPerformed
 
-    private void BtnSeleccionarReport2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionarReport2ActionPerformed
+    private void BtnSeleccionarTriageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionarTriageActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnSeleccionarReport2ActionPerformed
+    }//GEN-LAST:event_BtnSeleccionarTriageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnBuscarReport;
     private javax.swing.JButton BtnBuscarReport1;
-    private javax.swing.JButton BtnSeleccionarReport;
-    private javax.swing.JButton BtnSeleccionarReport1;
-    private javax.swing.JButton BtnSeleccionarReport2;
-    private javax.swing.JComboBox<String> CBXSeleccReport;
+    private javax.swing.JButton BtnSeleccionarConsulta;
+    private javax.swing.JButton BtnSeleccionarTriage;
     private javax.swing.JLabel Fondo;
     public javax.swing.JLabel JLbCedulaIngreRepor;
     public javax.swing.JLabel JLbCedulaIngreRepor1;
     public javax.swing.JLabel JLbCedulaIngreRepor2;
     private javax.swing.JPanel PNLDatosReport;
     private javax.swing.JPanel PNLIdentifiReport;
-    private javax.swing.JPanel PNLReportGrafico;
     private javax.swing.JPanel PNLReporte;
-    private javax.swing.JPanel PNLSeleccionReport;
+    private javax.swing.JPanel Pnl_Cambio_Datos_Hist;
     private javax.swing.JTable TBLDatReport;
     public javax.swing.JTextField TxtCedBuscarReport;
     public javax.swing.JTextField TxtCedBuscarReport1;
@@ -273,6 +247,5 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private rojerusan.RSYearDate rSYearDate1;
     // End of variables declaration//GEN-END:variables
 }

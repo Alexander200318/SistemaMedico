@@ -646,7 +646,8 @@ ControladorFrmNuevaConsul controlador;
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtImprimirRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImprimirRecetaActionPerformed
-        // TODO add your handling code here:
+    FrmInterfazImprimir co = new FrmInterfazImprimir();
+    co.setVisible(true);
     }//GEN-LAST:event_txtImprimirRecetaActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
