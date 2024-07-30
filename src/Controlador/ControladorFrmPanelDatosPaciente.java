@@ -43,7 +43,6 @@ public class ControladorFrmPanelDatosPaciente {
         Conexion conexion = new Conexion();
         Connection con = conexion.getConexion();
 
-        // Ajusta la consulta SQL para filtrar por el ID del paciente
         String query = "SELECT "
                 + "p.Identificacion AS Cedula, "
                 + "CONCAT(p.prim_Nombre, ' ', p.seg_Nombre, ' ', p.prim_Apellido, ' ', p.seg_Apellido) AS Nombre, "
@@ -94,15 +93,13 @@ public class ControladorFrmPanelDatosPaciente {
                 + "LEFT JOIN Antecedentes fa ON f.Id_Antecedentes = fa.Id_Antecedentes "
                 + "WHERE pac.Pac_Est_Activo = TRUE "
                 + "AND pac.Id_Paciente = ? "
-                + // Agregado para filtrar por ID de paciente
-                "AND (rt.Fecha_Triage IS NULL OR rt.Fecha_Triage = (SELECT MAX(Fecha_Triage) FROM RegistraTriage WHERE Id_Paciente = pac.Id_Paciente))";
+                + "AND (rt.Fecha_Triage IS NULL OR rt.Fecha_Triage = (SELECT MAX(Fecha_Triage) FROM RegistraTriage WHERE Id_Paciente = pac.Id_Paciente))";
 
         try (PreparedStatement ps = con.prepareStatement(query)) {
-            ps.setInt(1, idPaciente); // Establece el parámetro del ID del paciente
+            ps.setInt(1, idPaciente);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                // Resto del código para procesar los datos
                 System.out.println("Datos del paciente obtenidos:");
                 System.out.println("Cedula: " + rs.getString("Cedula"));
                 System.out.println("Nombre: " + rs.getString("Nombre"));
@@ -112,7 +109,6 @@ public class ControladorFrmPanelDatosPaciente {
                 System.out.println("Telefono: " + rs.getString("Telefono"));
                 System.out.println("Direccion: " + rs.getString("Direccion"));
 
-                // Cargar la foto del paciente
                 InputStream fotoStream = rs.getBinaryStream("Foto");
                 if (fotoStream != null) {
                     Image foto = new ImageIcon(fotoStream.readAllBytes()).getImage();
@@ -122,7 +118,7 @@ public class ControladorFrmPanelDatosPaciente {
                             Image.SCALE_SMOOTH));
                     panelDatosPaciente.getLblFotoConsu().setIcon(fotoIcon);
                 } else {
-                    panelDatosPaciente.getLblFotoConsu().setIcon(null); // No hay foto disponible
+                    panelDatosPaciente.getLblFotoConsu().setIcon(null);
                 }
 
                 panelDatosPaciente.getLabelCedulaConsu().setText(rs.getString("Cedula"));
@@ -153,45 +149,148 @@ public class ControladorFrmPanelDatosPaciente {
                 panelDatosPaciente.getLabelR_PupilarConsu().setText(rs.getString("R_Pupilar"));
 
                 // Antecedentes Personales
+                panelDatosPaciente.getTxtAlergiasPersonales().setText(rs.getString("Personal_Alergias"));
+                panelDatosPaciente.getTxtClinicoPersonales().setText(rs.getString("Personal_Clinico"));
+                panelDatosPaciente.getTxtGinecologicoPersonales().setText(rs.getString("Personal_Ginecologico"));
+                panelDatosPaciente.getTxtTraumatologicoPersonales().setText(rs.getString("Personal_Traumatologico"));
+                panelDatosPaciente.getTxtFarmacologicoPersonales().setText(rs.getString("Personal_Farmacologico"));
+                panelDatosPaciente.getTxtEnfermedadesPersonales().setText(rs.getString("Personal_Enfermedades"));
+                panelDatosPaciente.getTxtCirugiasPersonales().setText(rs.getString("Personal_Cirugias"));
+                panelDatosPaciente.getTxtVacunasPersonales().setText(rs.getString("Personal_Vacunas"));
 
                 // Antecedentes Familiares
-
+                panelDatosPaciente.getComboBoxParentesco().setSelectedItem(rs.getString("Parentesco"));
+                panelDatosPaciente.getTxtAlergiasFamiliares().setText(rs.getString("Familiar_Alergias"));
+                panelDatosPaciente.getTxtCirugiasFamiliares().setText(rs.getString("Familiar_Cirugias"));
+                panelDatosPaciente.getTxtClinicoFamiliares().setText(rs.getString("Familiar_Clinico"));
+                panelDatosPaciente.getTxtEnfermedadesFamiliares().setText(rs.getString("Familiar_Enfermedades"));
+                panelDatosPaciente.getTxFarmacologiaFamiliares().setText(rs.getString("Familiar_Farmacologico"));
+                panelDatosPaciente.getTxtTraumatologiaFamiliares().setText(rs.getString("Familiar_Traumatologico"));
             } else {
                 System.out.println("No se encontraron datos para el paciente con ID: " + idPaciente);
-                // Limpiar los campos en el panel si no se encuentran datos
-                panelDatosPaciente.getLblFotoConsu().setIcon(null);
-                panelDatosPaciente.getLabelCedulaConsu().setText("");
-                panelDatosPaciente.getLabelNombreConsu().setText("");
-                panelDatosPaciente.getLabelNacimientoConsu().setText("");
-                panelDatosPaciente.getLabelEdadConsu().setText("");
-                panelDatosPaciente.getLabelSexoConsu().setText("");
-                panelDatosPaciente.getLabelCorreoConsu().setText("");
-                panelDatosPaciente.getLabelCelularConsu().setText("");
-                panelDatosPaciente.getLabelDirecciónConsu().setText("");
-
-                // Limpiar los signos vitales
-                panelDatosPaciente.getLabelPresion_ArterialConsu().setText("");
-                panelDatosPaciente.getLabelPesoConsu().setText("");
-                panelDatosPaciente.getLabelTallaConsu().setText("");
-                panelDatosPaciente.getLabelIndice_Masa_CorporalConsu().setText("");
-                panelDatosPaciente.getLabelFrecuencia_CardiacaConsu().setText("");
-                panelDatosPaciente.getLabelFrecuencia_RespiratoriaConsu().setText("");
-                panelDatosPaciente.getLabelTemperaturaConsu().setText("");
-                panelDatosPaciente.getLabelSaturacion_OxigenoConsu().setText("");
-                panelDatosPaciente.getLabelGlasgowConsu().setText("");
-                panelDatosPaciente.getLabelOcularConsu().setText("");
-                panelDatosPaciente.getLabelVerbalConsu().setText("");
-                panelDatosPaciente.getLabelMotoraConsu().setText("");
-                panelDatosPaciente.getLabelTotalConsu().setText("");
-                panelDatosPaciente.getLabelLlenado_CapilarConsu().setText("");
-                panelDatosPaciente.getLabelR_PupilarConsu().setText("");
-
-                // Limpiar antecedentes personales
-
-                // Limpiar antecedentes familiares
+                limpiarCampos();
             }
         } catch (SQLException | IOException e) {
             System.out.println(e.toString());
+        }
+    }
+
+    private void limpiarCampos() {
+        panelDatosPaciente.getLabelCedulaConsu().setText("");
+        panelDatosPaciente.getLabelNombreConsu().setText("");
+        panelDatosPaciente.getLabelNacimientoConsu().setText("");
+        panelDatosPaciente.getLabelEdadConsu().setText("");
+        panelDatosPaciente.getLabelSexoConsu().setText("");
+        panelDatosPaciente.getLabelCorreoConsu().setText("");
+        panelDatosPaciente.getLabelCelularConsu().setText("");
+        panelDatosPaciente.getLabelDirecciónConsu().setText("");
+        panelDatosPaciente.getLblFotoConsu().setIcon(null);
+
+        panelDatosPaciente.getLabelPresion_ArterialConsu().setText("");
+        panelDatosPaciente.getLabelPesoConsu().setText("");
+        panelDatosPaciente.getLabelTallaConsu().setText("");
+        panelDatosPaciente.getLabelIndice_Masa_CorporalConsu().setText("");
+        panelDatosPaciente.getLabelFrecuencia_CardiacaConsu().setText("");
+        panelDatosPaciente.getLabelFrecuencia_RespiratoriaConsu().setText("");
+        panelDatosPaciente.getLabelTemperaturaConsu().setText("");
+        panelDatosPaciente.getLabelSaturacion_OxigenoConsu().setText("");
+        panelDatosPaciente.getLabelGlasgowConsu().setText("");
+        panelDatosPaciente.getLabelOcularConsu().setText("");
+        panelDatosPaciente.getLabelVerbalConsu().setText("");
+        panelDatosPaciente.getLabelMotoraConsu().setText("");
+        panelDatosPaciente.getLabelTotalConsu().setText("");
+        panelDatosPaciente.getLabelLlenado_CapilarConsu().setText("");
+        panelDatosPaciente.getLabelR_PupilarConsu().setText("");
+
+        panelDatosPaciente.getTxtAlergiasPersonales().setText("");
+        panelDatosPaciente.getTxtClinicoPersonales().setText("");
+        panelDatosPaciente.getTxtGinecologicoPersonales().setText("");
+        panelDatosPaciente.getTxtTraumatologicoPersonales().setText("");
+        panelDatosPaciente.getTxtFarmacologicoPersonales().setText("");
+        panelDatosPaciente.getTxtEnfermedadesPersonales().setText("");
+        panelDatosPaciente.getTxtCirugiasPersonales().setText("");
+        panelDatosPaciente.getTxtVacunasPersonales().setText("");
+
+        panelDatosPaciente.getComboBoxParentesco().setSelectedItem("");
+        panelDatosPaciente.getTxtAlergiasFamiliares().setText("");
+        panelDatosPaciente.getTxtCirugiasFamiliares().setText("");
+        panelDatosPaciente.getTxtClinicoFamiliares().setText("");
+        panelDatosPaciente.getTxtEnfermedadesFamiliares().setText("");
+        panelDatosPaciente.getTxFarmacologiaFamiliares().setText("");
+        panelDatosPaciente.getTxtTraumatologiaFamiliares().setText("");
+    }
+
+    public void guardarAntecedentes() {
+        int idPaciente = singleton.getIdPaciente();
+        Conexion conexion = new Conexion();
+        Connection con = conexion.getConexion();
+
+        try {
+            con.setAutoCommit(false);
+
+            String sqlAntecedentes = "INSERT INTO Antecedentes (Alergias, Clinico, Ginecologico, Traumatologico, Farmacologico, Enfermedades, Cirugias, Vacunas) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sqlFamiliar = "INSERT INTO Familiar (Id_Paciente, Parentesco, Id_Antecedentes) VALUES (?, ?, ?)";
+            String sqlPersonal = "INSERT INTO Personal (Id_Paciente, Id_Antecedentes) VALUES (?, ?)";
+
+            // Guardar antecedentes personales
+            try (PreparedStatement psAntecedentes = con.prepareStatement(sqlAntecedentes, PreparedStatement.RETURN_GENERATED_KEYS)) {
+                psAntecedentes.setString(1, panelDatosPaciente.getTxtAlergiasPersonales().getText());
+                psAntecedentes.setString(2, panelDatosPaciente.getTxtClinicoPersonales().getText());
+                psAntecedentes.setString(3, panelDatosPaciente.getTxtGinecologicoPersonales().getText());
+                psAntecedentes.setString(4, panelDatosPaciente.getTxtTraumatologicoPersonales().getText());
+                psAntecedentes.setString(5, panelDatosPaciente.getTxtFarmacologicoPersonales().getText());
+                psAntecedentes.setString(6, panelDatosPaciente.getTxtEnfermedadesPersonales().getText());
+                psAntecedentes.setString(7, panelDatosPaciente.getTxtCirugiasPersonales().getText());
+                psAntecedentes.setString(8, panelDatosPaciente.getTxtVacunasPersonales().getText());
+
+                psAntecedentes.executeUpdate();
+                ResultSet rs = psAntecedentes.getGeneratedKeys();
+                if (rs.next()) {
+                    int idAntecedentesPersonales = rs.getInt(1);
+
+                    // Guardar en la tabla Personal
+                    try (PreparedStatement psPersonal = con.prepareStatement(sqlPersonal)) {
+                        psPersonal.setInt(1, idPaciente);
+                        psPersonal.setInt(2, idAntecedentesPersonales);
+                        psPersonal.executeUpdate();
+                    }
+                }
+            }
+
+            // Guardar antecedentes familiares
+            try (PreparedStatement psAntecedentes = con.prepareStatement(sqlAntecedentes, PreparedStatement.RETURN_GENERATED_KEYS)) {
+                psAntecedentes.setString(1, panelDatosPaciente.getTxtAlergiasFamiliares().getText());
+                psAntecedentes.setString(2, panelDatosPaciente.getTxtClinicoFamiliares().getText());
+                psAntecedentes.setString(3, null);  // No se usa en familiares
+                psAntecedentes.setString(4, panelDatosPaciente.getTxtTraumatologiaFamiliares().getText());
+                psAntecedentes.setString(5, panelDatosPaciente.getTxFarmacologiaFamiliares().getText());
+                psAntecedentes.setString(6, panelDatosPaciente.getTxtEnfermedadesFamiliares().getText());
+                psAntecedentes.setString(7, panelDatosPaciente.getTxtCirugiasFamiliares().getText());
+                psAntecedentes.setString(8, null);  // No se usa en familiares
+
+                psAntecedentes.executeUpdate();
+                ResultSet rs = psAntecedentes.getGeneratedKeys();
+                if (rs.next()) {
+                    int idAntecedentesFamiliares = rs.getInt(1);
+
+                    // Guardar en la tabla Familiar
+                    try (PreparedStatement psFamiliar = con.prepareStatement(sqlFamiliar)) {
+                        psFamiliar.setInt(1, idPaciente);
+                        psFamiliar.setString(2, panelDatosPaciente.getComboBoxParentesco().getSelectedItem().toString());
+                        psFamiliar.setInt(3, idAntecedentesFamiliares);
+                        psFamiliar.executeUpdate();
+                    }
+                }
+            }
+
+            con.commit();
+        } catch (SQLException e) {
+            try {
+                con.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            e.printStackTrace();
         }
     }
 }
