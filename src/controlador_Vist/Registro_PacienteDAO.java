@@ -30,12 +30,14 @@ import java.sql.Date;
 import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import rsdragdropfiles.RSDragDropFiles;
 import rojerusan.RSLabelImage;
+import javax.swing.JLabel;
 
 public class Registro_PacienteDAO {
-
+    JLabel lbl= new JLabel();
     private ControladorPaciente control;
     private FrmRegistrarsePaciente vistaPrincipal;
     private String rol = " ";
@@ -53,13 +55,76 @@ public class Registro_PacienteDAO {
         configurarVista();
         EntradaIdentificacion();
         ArrastarImagen();
+        vistaPrincipal.getBtn_Subir_Foto().addActionListener(e -> subirImagen());
+
+    }
+    
+    
+    public void subirImagen() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Seleccionar Imagen");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        fileChooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
+            @Override
+            public boolean accept(File f) {
+                if (f.isDirectory()) {
+                    return true;
+                } else {
+                    String filename = f.getName().toLowerCase();
+                    return filename.endsWith(".jpg") || filename.endsWith(".jpeg") || filename.endsWith(".png") || filename.endsWith(".gif");
+                }
+            }
+
+            @Override
+            public String getDescription() {
+                return "Archivos de Imagen (*.jpg, *.jpeg, *.png, *.gif)";
+            }
+        });
+
+        int result = fileChooser.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            try {
+                ImageIcon icon = new ImageIcon(selectedFile.getCanonicalPath());
+
+                if (icon.getImageLoadStatus() == MediaTracker.ERRORED) {
+                    System.out.println("Error al cargar la imagen desde la ruta especificada.");
+                } else {
+                    vistaPrincipal.getRSlabel_imagen().setText("");
+                    vistaPrincipal.getRSlabel_imagen().setIcon(icon);
+                    lbl.setIcon(icon);
+                    rsdragdropfiles.RSDragDropFiles.setCopiar(selectedFile.getCanonicalPath(),"src/Recursos/IMAGEN_ARRASTRADO.png");
+                    System.out.println("Imagen establecida correctamente en RslabelImagen.");
+                }
+
+                
+                if (lbl.getIcon() != null) {
+                    System.out.println("Imagen verificada correctamente en RslabelImagen.");
+                } else {
+                    System.out.println("Fallo al verificar la imagen en RslabelImagen.");
+                }
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
-    public byte[] IngresoImagen() {
-        RSLabelImage rsLabelImagen = vistaPrincipal.getRSlabel_imagen(); // Asegúrate de obtener correctamente el RslabelImagen
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-        if (rsLabelImagen != null && rsLabelImagen.getIcon() != null) {
-            ImageIcon icon = (ImageIcon) rsLabelImagen.getIcon();
+    public byte[] IngresoImagen() {
+
+        if ( lbl.getIcon()  != null) {
+            ImageIcon icon = (ImageIcon) lbl.getIcon();
             Image image = icon.getImage();
 
             // Convertir la imagen a bytes en formato "jpg"
@@ -74,6 +139,7 @@ public class Registro_PacienteDAO {
     }
 
     public void ArrastarImagen() {
+        
         RSDragDropFiles rsDragDropFiles = new rsdragdropfiles.RSDragDropFiles(vistaPrincipal.getPanel_contenedor_img(), (File[] files) -> {
             try {
                 if (files.length > 1) {
@@ -88,12 +154,14 @@ public class Registro_PacienteDAO {
                         System.out.println("Error al cargar la imagen desde la ruta especificada.");
                     } else {
                         vistaPrincipal.getRSlabel_imagen().setIcon(icon);
+                         
+                        lbl.setIcon(icon);
                         rsdragdropfiles.RSDragDropFiles.setCopiar(files[0].getCanonicalPath(), "src/Recursos/IMAGEN_ARRASTRADO.png");
                         System.out.println("Imagen establecida correctamente en RslabelImagen.");
                     }
 
                     // Verificación adicional
-                    if (vistaPrincipal.getRSlabel_imagen().getIcon() != null) {
+                    if (lbl.getIcon()!= null) {
                         System.out.println("Imagen verificada correctamente en RslabelImagen.");
                     } else {
                         System.out.println("Fallo al verificar la imagen en RslabelImagen.");

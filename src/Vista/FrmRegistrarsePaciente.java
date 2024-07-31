@@ -91,16 +91,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     public void setCbx_tipo_sangre(JComboBox<String> Cbx_tipo_sangre) {
         this.Cbx_tipo_sangre = Cbx_tipo_sangre;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     public JRadioButton getRbn_Femenino() {
         return Rbn_Femenino;
@@ -117,8 +107,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     public void setRbn_Masculino(JRadioButton Rbn_Masculino) {
         this.Rbn_Masculino = Rbn_Masculino;
     }
-    
-
 
     public JTextField getTxt_CarnetConadis() {
         return Txt_CarnetConadis;
@@ -127,9 +115,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     public void setTxt_CarnetConadis(JTextField Txt_CarnetConadis) {
         this.Txt_CarnetConadis = Txt_CarnetConadis;
     }
-    
-    
-    
 
     public JButton getBtn_guardar_Familiar() {
         return Btn_guardar_Familiar;
