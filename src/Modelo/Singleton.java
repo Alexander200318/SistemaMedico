@@ -13,6 +13,7 @@ public class Singleton {
  
  private  int IdPaciente;
  private int Id_Doctor;
+ private String Identificacion_Historial;
  
 
  
@@ -24,6 +25,16 @@ public class Singleton {
         return instance;
     }
 
+    public String getIdentificacion_Historial() {
+        return Identificacion_Historial;
+    }
+
+    public void setIdentificacion_Historial(String Identificacion_Historial) {
+        this.Identificacion_Historial = Identificacion_Historial;
+    }
+
+    
+    
     public int getId_Doctor() {
         return Id_Doctor;
     }

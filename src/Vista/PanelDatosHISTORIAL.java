@@ -7,6 +7,7 @@ package Vista;
 import controlador_Vist.Panel_DatosHistorial;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 /**
  *
@@ -18,6 +19,14 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
     public PanelDatosHISTORIAL() {
         initComponents();
         contro=new Panel_DatosHistorial(this);
+    }
+
+    public JTable getTBLDatReport() {
+        return TBLDatReport;
+    }
+
+    public void setTBLDatReport(JTable TBLDatReport) {
+        this.TBLDatReport = TBLDatReport;
     }
 
     public JButton getBtnSeleccionarConsulta() {

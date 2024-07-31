@@ -11,12 +11,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.Image;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.swing.ImageIcon;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 public class ControladorFrmPanelDatosPaciente {
 
@@ -34,6 +37,31 @@ public class ControladorFrmPanelDatosPaciente {
         LocalDate birthDate = LocalDate.parse(fechaNacimiento, formatter);
         LocalDate currentDate = LocalDate.now();
         return Period.between(birthDate, currentDate).getYears();
+    }
+
+    private void mostrarImagenEnLabel(byte[] fotoBytes, javax.swing.JLabel label) {
+        if (label.getWidth() <= 0 || label.getHeight() <= 0) {
+
+            label.addComponentListener(new ComponentAdapter() {
+                @Override
+                public void componentResized(ComponentEvent e) {
+                    mostrarImagenEnLabel(fotoBytes, label);
+                }
+            });
+            return;
+        }
+
+        if (fotoBytes != null) {
+            ImageIcon fotoIcon = new ImageIcon(fotoBytes);
+            Image foto = fotoIcon.getImage().getScaledInstance(
+                    label.getWidth(),
+                    label.getHeight(),
+                    Image.SCALE_SMOOTH
+            );
+            label.setIcon(new ImageIcon(foto));
+        } else {
+            label.setIcon(null);
+        }
     }
 
     public void obtenerDatosPaciente() {
@@ -95,7 +123,7 @@ public class ControladorFrmPanelDatosPaciente {
                 + "AND pac.Id_Paciente = ? "
                 + "AND (rt.Fecha_Triage IS NULL OR rt.Fecha_Triage = (SELECT MAX(Fecha_Triage) FROM RegistraTriage WHERE Id_Paciente = pac.Id_Paciente))";
 
-        try (PreparedStatement ps = con.prepareStatement(query)) {
+        try ( PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, idPaciente);
             ResultSet rs = ps.executeQuery();
 
@@ -111,16 +139,18 @@ public class ControladorFrmPanelDatosPaciente {
 
                 InputStream fotoStream = rs.getBinaryStream("Foto");
                 if (fotoStream != null) {
-                    Image foto = new ImageIcon(fotoStream.readAllBytes()).getImage();
-                    ImageIcon fotoIcon = new ImageIcon(foto.getScaledInstance(
-                            panelDatosPaciente.getLblFotoConsu().getWidth(),
-                            panelDatosPaciente.getLblFotoConsu().getHeight(),
-                            Image.SCALE_SMOOTH));
-                    panelDatosPaciente.getLblFotoConsu().setIcon(fotoIcon);
+                    try {
+                        byte[] fotoBytes = fotoStream.readAllBytes();
+                        mostrarImagenEnLabel(fotoBytes, panelDatosPaciente.getLblFotoConsu());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        // Manejo de la excepción, como mostrar un mensaje de error
+                        JOptionPane.showMessageDialog(null, "Error al cargar la imagen", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 } else {
                     panelDatosPaciente.getLblFotoConsu().setIcon(null);
                 }
-
+                singleton.setIdentificacion_Historial(rs.getString("Cedula"));
                 panelDatosPaciente.getTxtIdentificacionPaciente().setText(rs.getString("Cedula"));
                 panelDatosPaciente.getTxtNombrePaciente().setText(rs.getString("Nombre"));
                 String fechaNacimiento = rs.getString("Fecha_Nacimiento");
@@ -159,19 +189,17 @@ public class ControladorFrmPanelDatosPaciente {
                 panelDatosPaciente.getTxtVacunasPersonales().setText(rs.getString("Personal_Vacunas"));
 
                 // Antecedentes Familiares
-                panelDatosPaciente.getComboBoxParentesco().setSelectedItem(rs.getString("Parentesco"));
                 panelDatosPaciente.getTxtAlergiasFamiliares().setText(rs.getString("Familiar_Alergias"));
-                panelDatosPaciente.getTxtCirugiasFamiliares().setText(rs.getString("Familiar_Cirugias"));
                 panelDatosPaciente.getTxtClinicoFamiliares().setText(rs.getString("Familiar_Clinico"));
-                panelDatosPaciente.getTxtEnfermedadesFamiliares().setText(rs.getString("Familiar_Enfermedades"));
-                panelDatosPaciente.getTxFarmacologiaFamiliares().setText(rs.getString("Familiar_Farmacologico"));
                 panelDatosPaciente.getTxtTraumatologiaFamiliares().setText(rs.getString("Familiar_Traumatologico"));
-            } else {
-                System.out.println("No se encontraron datos para el paciente con ID: " + idPaciente);
-                limpiarCampos();
+                panelDatosPaciente.getTxFarmacologiaFamiliares().setText(rs.getString("Familiar_Farmacologico"));
+                panelDatosPaciente.getTxtEnfermedadesFamiliares().setText(rs.getString("Familiar_Enfermedades"));
+                panelDatosPaciente.getTxtCirugiasFamiliares().setText(rs.getString("Familiar_Cirugias"));
             }
-        } catch (SQLException | IOException e) {
-            System.out.println(e.toString());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Manejo de la excepción SQL
+            JOptionPane.showMessageDialog(null, "Error al obtener los datos del paciente", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -233,7 +261,7 @@ public class ControladorFrmPanelDatosPaciente {
             String sqlPersonal = "INSERT INTO Personal (Id_Paciente, Id_Antecedentes) VALUES (?, ?)";
 
             // Guardar antecedentes personales
-            try (PreparedStatement psAntecedentes = con.prepareStatement(sqlAntecedentes, PreparedStatement.RETURN_GENERATED_KEYS)) {
+            try ( PreparedStatement psAntecedentes = con.prepareStatement(sqlAntecedentes, PreparedStatement.RETURN_GENERATED_KEYS)) {
                 psAntecedentes.setString(1, panelDatosPaciente.getTxtAlergiasPersonales().getText());
                 psAntecedentes.setString(2, panelDatosPaciente.getTxtClinicoPersonales().getText());
                 psAntecedentes.setString(3, panelDatosPaciente.getTxtGinecologicoPersonales().getText());
@@ -249,7 +277,7 @@ public class ControladorFrmPanelDatosPaciente {
                     int idAntecedentesPersonales = rs.getInt(1);
 
                     // Guardar en la tabla Personal
-                    try (PreparedStatement psPersonal = con.prepareStatement(sqlPersonal)) {
+                    try ( PreparedStatement psPersonal = con.prepareStatement(sqlPersonal)) {
                         psPersonal.setInt(1, idPaciente);
                         psPersonal.setInt(2, idAntecedentesPersonales);
                         psPersonal.executeUpdate();
@@ -258,7 +286,7 @@ public class ControladorFrmPanelDatosPaciente {
             }
 
             // Guardar antecedentes familiares
-            try (PreparedStatement psAntecedentes = con.prepareStatement(sqlAntecedentes, PreparedStatement.RETURN_GENERATED_KEYS)) {
+            try ( PreparedStatement psAntecedentes = con.prepareStatement(sqlAntecedentes, PreparedStatement.RETURN_GENERATED_KEYS)) {
                 psAntecedentes.setString(1, panelDatosPaciente.getTxtAlergiasFamiliares().getText());
                 psAntecedentes.setString(2, panelDatosPaciente.getTxtClinicoFamiliares().getText());
                 psAntecedentes.setString(3, null);  // No se usa en familiares
@@ -274,7 +302,7 @@ public class ControladorFrmPanelDatosPaciente {
                     int idAntecedentesFamiliares = rs.getInt(1);
 
                     // Guardar en la tabla Familiar
-                    try (PreparedStatement psFamiliar = con.prepareStatement(sqlFamiliar)) {
+                    try ( PreparedStatement psFamiliar = con.prepareStatement(sqlFamiliar)) {
                         psFamiliar.setInt(1, idPaciente);
                         psFamiliar.setString(2, panelDatosPaciente.getComboBoxParentesco().getSelectedItem().toString());
                         psFamiliar.setInt(3, idAntecedentesFamiliares);

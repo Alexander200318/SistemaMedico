@@ -589,7 +589,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         LblFotoConsu.setToolTipText("");
         LblFotoConsu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelRound1.add(LblFotoConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 119, 130));
+        panelRound1.add(LblFotoConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 170));
         panelRound1.add(LabelEdadConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 60, 20));
 
         jLabel2.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N

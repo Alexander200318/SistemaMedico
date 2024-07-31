@@ -4,10 +4,21 @@
  */
 package controlador_Vist;
 
+
+
+
+import Controlador.ControladorHistorialPaciente;
+import Modelo.ConsultaHistorialPaciente;
+import Modelo.Encabezado_HistorialPaciente;
+import Modelo.Singleton;
 import Vista.DatosConsulta;
 import Vista.DatosTriage;
 import Vista.PanelDatosHISTORIAL;
 import java.awt.BorderLayout;
+import java.util.List;
+import javax.swing.ImageIcon;
+import javax.swing.JTable;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -15,6 +26,8 @@ import java.awt.BorderLayout;
  */
 public class Panel_DatosHistorial {
     PanelDatosHISTORIAL vistaPanel;
+    ControladorHistorialPaciente controlHistorial;
+    Singleton singleton= Singleton.getInstance();
 
     public Panel_DatosHistorial(PanelDatosHISTORIAL vistaPanel) {
         this.vistaPanel = vistaPanel;
@@ -29,7 +42,7 @@ public class Panel_DatosHistorial {
             PanelTriage();
         });
         
-        
+        IngresarDatorTabla(vistaPanel.getTBLDatReport(),singleton.getIdentificacion_Historial() , null, null, null, null, null, null, null, null);
     }
 
     public void Panelconsulta(){
@@ -60,6 +73,68 @@ public class Panel_DatosHistorial {
                 
     
     
+    }
+     
+      public void IngresarDatorTabla(JTable tabla,
+            String identificacion,
+            String fecha,
+            String nombreParte,
+            String apellidoParte,
+            String sexoPaciente,
+            String nombreDoctor,
+            String triage,
+            String fechaInicio,
+            String fechaFin) {
+        
+        controlHistorial = new ControladorHistorialPaciente();
+        List<Encabezado_HistorialPaciente> consultas = controlHistorial.obtenerHistoriaPaciente(identificacion, fecha, nombreParte, apellidoParte, sexoPaciente, nombreDoctor, fechaInicio, fechaInicio, fechaFin);
+                
+
+        // Imprimir tamaño de la lista
+        System.out.println("Número de consultas: " + consultas.size());
+
+        ConsultaHistorialPaciente model = new ConsultaHistorialPaciente(consultas);
+        tabla.setModel(model);
+        /////////////////////////////////////////////////////////////////////////////
+//        ImageIcon icon = new ImageIcon("src/Iconos/historial-de-pedidos.png");
+//        ButtonRenderer buttonRenderer = new ButtonRenderer();
+//        buttonRenderer.setIcon(icon);
+//        tabla.getColumnModel().getColumn(8).setCellRenderer(buttonRenderer);
+//
+//        tabla.getColumnModel().getColumn(8).setCellEditor(new ButtonEditor(tabla));
+
+        /////////////////////////////////////////////////////////////////////////////
+        tabla.setRowHeight(30); // Altura en píxeles
+        TableColumn column;
+
+//        column = tabla.getColumnModel().getColumn(0);
+//        column.setPreferredWidth(55);
+//
+//        column = tabla.getColumnModel().getColumn(1);
+//        column.setPreferredWidth(160);
+//
+//        column = tabla.getColumnModel().getColumn(2);
+//        column.setPreferredWidth(18);
+//
+//        column = tabla.getColumnModel().getColumn(3);
+//        column.setPreferredWidth(50);
+//
+//        column = tabla.getColumnModel().getColumn(4);
+//        column.setPreferredWidth(80);
+//
+//        column = tabla.getColumnModel().getColumn(5);
+//        column.setPreferredWidth(155);
+//
+//        column = tabla.getColumnModel().getColumn(6);
+//        column.setPreferredWidth(250);
+//
+//        column = tabla.getColumnModel().getColumn(7);
+//        column.setPreferredWidth(30);
+//
+//        column = tabla.getColumnModel().getColumn(8);
+//        column.setPreferredWidth(10);
+
+        tabla.revalidate(); // Actualiza el JTable
     }
     
     

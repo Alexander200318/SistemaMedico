@@ -172,7 +172,7 @@ public class Panel_Prin_HistorialDAO {
             String nombreDoctor,
             String triage,
             String fechaInicio,
-            String fechaFin) {
+            String fechaFin) {       
         controlHistorial = new ControladorPrincHistorial();
         List<Encabezado_tabla_Histrl> consultas = controlHistorial.obtenerConsultasHistorila(
                 identificacion,
