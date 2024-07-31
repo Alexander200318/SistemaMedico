@@ -80,12 +80,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     public void setPanelbtn(JPanel Panelbtn) {
         this.Panelbtn = Panelbtn;
     }
-
-    
-    
-    
-    
-    
     
 
     //getters and setters mostrar datos
@@ -97,38 +91,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         this.BtnNuevaConsulta = BtnNuevaConsulta;
     }
 
-    public JLabel getLabelCedulaConsu() {
-        return LabelCedulaConsu;
-    }
-
-    public void setLabelCedulaConsu(JLabel LabelCedulaConsu) {
-        this.LabelCedulaConsu = LabelCedulaConsu;
-    }
-
-    public JLabel getLabelCelularConsu() {
-        return LabelCelularConsu;
-    }
-
-    public void setLabelCelularConsu(JLabel LabelCelularConsu) {
-        this.LabelCelularConsu = LabelCelularConsu;
-    }
-
-
-    public JLabel getLabelCorreoConsu() {
-        return LabelCorreoConsu;
-    }
-
-    public void setLabelCorreoConsu(JLabel LabelCorreoConsu) {
-        this.LabelCorreoConsu = LabelCorreoConsu;
-    }
-
-    public JLabel getLabelDirecciónConsu() {
-        return LabelDirecciónConsu;
-    }
-
-    public void setLabelDirecciónConsu(JLabel LabelDirecciónConsu) {
-        this.LabelDirecciónConsu = LabelDirecciónConsu;
-    }
 
     public JLabel getLabelEdadConsu() {
         return LabelEdadConsu;
@@ -187,21 +149,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         this.LabelMotoraConsu = LabelMotoraConsu;
     }
 
-    public JLabel getLabelNacimientoConsu() {
-        return LabelNacimientoConsu;
-    }
-
-    public void setLabelNacimientoConsu(JLabel LabelNacimientoConsu) {
-        this.LabelNacimientoConsu = LabelNacimientoConsu;
-    }
-
-    public JLabel getLabelNombreConsu() {
-        return LabelNombreConsu;
-    }
-
-    public void setLabelNombreConsu(JLabel LabelNombreConsu) {
-        this.LabelNombreConsu = LabelNombreConsu;
-    }
 
     public JLabel getLabelOcularConsu() {
         return LabelOcularConsu;
@@ -243,13 +190,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         this.LabelSaturacion_OxigenoConsu = LabelSaturacion_OxigenoConsu;
     }
 
-    public JLabel getLabelSexoConsu() {
-        return LabelSexoConsu;
-    }
-
-    public void setLabelSexoConsu(JLabel LabelSexoConsu) {
-        this.LabelSexoConsu = LabelSexoConsu;
-    }
 
     public JLabel getLabelTallaConsu() {
         return LabelTallaConsu;
@@ -291,13 +231,78 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         this.LblFotoConsu = LblFotoConsu;
     }
 
-    public JTextArea getTxtNotasPacienteConsu() {
-        return TxtNotasPacienteConsu;
+    public JTextField getTxtCelularPaciente() {
+        return TxtCelularPaciente;
     }
 
-    public void setTxtNotasPacienteConsu(JTextArea TxtNotasPacienteConsu) {
-        this.TxtNotasPacienteConsu = TxtNotasPacienteConsu;
+    public void setTxtCelularPaciente(JTextField TxtCelularPaciente) {
+        this.TxtCelularPaciente = TxtCelularPaciente;
     }
+
+    public JTextField getTxtCorreoPaciente() {
+        return TxtCorreoPaciente;
+    }
+
+    public void setTxtCorreoPaciente(JTextField TxtCorreoPaciente) {
+        this.TxtCorreoPaciente = TxtCorreoPaciente;
+    }
+
+    public JTextField getTxtDireccionPaciente() {
+        return TxtDireccionPaciente;
+    }
+
+    public void setTxtDireccionPaciente(JTextField TxtDireccionPaciente) {
+        this.TxtDireccionPaciente = TxtDireccionPaciente;
+    }
+
+    public JTextField getTxtIdentificacionPaciente() {
+        return TxtIdentificacionPaciente;
+    }
+
+    public void setTxtIdentificacionPaciente(JTextField TxtIdentificacionPaciente) {
+        this.TxtIdentificacionPaciente = TxtIdentificacionPaciente;
+    }
+
+    public JTextField getTxtNombrePaciente() {
+        return TxtNombrePaciente;
+    }
+
+    public void setTxtNombrePaciente(JTextField TxtNombrePaciente) {
+        this.TxtNombrePaciente = TxtNombrePaciente;
+    }
+
+    public JTextField getTxtSexoPaciente() {
+        return TxtSexoPaciente;
+    }
+
+    public void setTxtSexoPaciente(JTextField TxtSexoPaciente) {
+        this.TxtSexoPaciente = TxtSexoPaciente;
+    }
+
+    public JTextField getTxtFechaNacimientoPaciente() {
+        return TxtFechaNacimientoPaciente;
+    }
+
+    public void setTxtFechaNacimientoPaciente(JTextField TxtFechaNacimientoPaciente) {
+        this.TxtFechaNacimientoPaciente = TxtFechaNacimientoPaciente;
+    }
+
+    public JButton getBtnEditarDatos() {
+        return BtnEditarDatos;
+    }
+
+    public void setBtnEditarDatos(JButton BtnEditarDatos) {
+        this.BtnEditarDatos = BtnEditarDatos;
+    }
+
+    public JButton getBtnGuardarCambiosDatos() {
+        return BtnGuardarCambiosDatos;
+    }
+
+    public void setBtnGuardarCambiosDatos(JButton BtnGuardarCambiosDatos) {
+        this.BtnGuardarCambiosDatos = BtnGuardarCambiosDatos;
+    }
+
     //getteres and setters  antecedenetes  personales 
     public JTextField getTxtAlergiasPersonales() {
         return TxtAlergiasPersonales;
@@ -433,24 +438,13 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         panelRound1 = new Modelo.PanelRound();
         LblFotoConsu = new javax.swing.JLabel();
-        LabelNombreConsu = new javax.swing.JLabel();
-        LabelNacimientoConsu = new javax.swing.JLabel();
         LabelEdadConsu = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel10 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TxtNotasPacienteConsu = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
-        LabelSexoConsu = new javax.swing.JLabel();
-        LabelCedulaConsu = new javax.swing.JLabel();
-        LabelCorreoConsu = new javax.swing.JLabel();
-        LabelCelularConsu = new javax.swing.JLabel();
-        LabelDirecciónConsu = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -459,8 +453,17 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
+        TxtFechaNacimientoPaciente = new javax.swing.JTextField();
+        TxtNombrePaciente = new javax.swing.JTextField();
+        TxtIdentificacionPaciente = new javax.swing.JTextField();
+        TxtCelularPaciente = new javax.swing.JTextField();
+        TxtSexoPaciente = new javax.swing.JTextField();
+        TxtCorreoPaciente = new javax.swing.JTextField();
+        TxtDireccionPaciente = new javax.swing.JTextField();
         panelRound4 = new Modelo.PanelRound();
         BtnNuevaConsulta = new javax.swing.JButton();
+        BtnGuardarCambiosDatos = new javax.swing.JButton();
+        BtnEditarDatos = new javax.swing.JButton();
         panelRound3 = new Modelo.PanelRound();
         LabelPresion_ArterialConsu = new javax.swing.JLabel();
         LabelPesoConsu = new javax.swing.JLabel();
@@ -586,61 +589,58 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         LblFotoConsu.setToolTipText("");
         LblFotoConsu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelRound1.add(LblFotoConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 119, 130));
-
-        LabelNombreConsu.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        LabelNombreConsu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        panelRound1.add(LabelNombreConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 331, 20));
-        panelRound1.add(LabelNacimientoConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 125, 20));
-        panelRound1.add(LabelEdadConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 60, 20));
+        panelRound1.add(LblFotoConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 119, 130));
+        panelRound1.add(LabelEdadConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 60, 20));
 
         jLabel2.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel2.setText("Sexo:");
-        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel3.setText("Cedula:");
-        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel4.setText("Correo:");
-        panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, -1));
+        panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel5.setText("Celular:");
-        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, 20));
+        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, 20));
 
         jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel7.setText("Dirección:");
-        panelRound1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, -1, -1));
-
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        panelRound1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 650, 10));
-
-        jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
-        jLabel10.setText("Notas:");
-        panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
-
-        TxtNotasPacienteConsu.setColumns(20);
-        TxtNotasPacienteConsu.setRows(5);
-        TxtNotasPacienteConsu.setBorder(null);
-        jScrollPane1.setViewportView(TxtNotasPacienteConsu);
-
-        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 660, 60));
+        panelRound1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, -1, -1));
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 81, 96, -1));
-        panelRound1.add(LabelSexoConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 173, 20));
-        panelRound1.add(LabelCedulaConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 173, 20));
-        panelRound1.add(LabelCorreoConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 173, 20));
-        panelRound1.add(LabelCelularConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 173, 20));
-        panelRound1.add(LabelDirecciónConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 173, 20));
-        panelRound1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 60, 10));
-        panelRound1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 330, 10));
-        panelRound1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 170, 10));
-        panelRound1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 170, 10));
-        panelRound1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 170, 10));
-        panelRound1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 170, 10));
-        panelRound1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 130, 10));
-        panelRound1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 170, 10));
+        panelRound1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 200, 60, 10));
+        panelRound1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 330, 10));
+        panelRound1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 170, 10));
+        panelRound1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 170, 10));
+        panelRound1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 170, 10));
+        panelRound1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 170, 10));
+        panelRound1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 130, 10));
+        panelRound1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 170, 10));
+
+        TxtFechaNacimientoPaciente.setBorder(null);
+        panelRound1.add(TxtFechaNacimientoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 130, 20));
+
+        TxtNombrePaciente.setBorder(null);
+        panelRound1.add(TxtNombrePaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 330, 20));
+
+        TxtIdentificacionPaciente.setBorder(null);
+        panelRound1.add(TxtIdentificacionPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 170, 20));
+
+        TxtCelularPaciente.setBorder(null);
+        panelRound1.add(TxtCelularPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 170, 20));
+
+        TxtSexoPaciente.setBorder(null);
+        panelRound1.add(TxtSexoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 170, 20));
+
+        TxtCorreoPaciente.setBorder(null);
+        panelRound1.add(TxtCorreoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 170, 20));
+
+        TxtDireccionPaciente.setBorder(null);
+        panelRound1.add(TxtDireccionPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 170, 20));
 
         jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 710, 280));
 
@@ -661,7 +661,18 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
                 BtnNuevaConsultaActionPerformed(evt);
             }
         });
-        panelRound4.add(BtnNuevaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 320, 40));
+        panelRound4.add(BtnNuevaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 320, 40));
+
+        BtnGuardarCambiosDatos.setText("Guardar Cambios");
+        BtnGuardarCambiosDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarCambiosDatosActionPerformed(evt);
+            }
+        });
+        panelRound4.add(BtnGuardarCambiosDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 140, 40));
+
+        BtnEditarDatos.setText("Editar");
+        panelRound4.add(BtnEditarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 22, 100, 40));
 
         jPanel3.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 710, 80));
 
@@ -934,16 +945,18 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_PanelbtnMousePressed
 
+    private void BtnGuardarCambiosDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarCambiosDatosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnGuardarCambiosDatosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnEditarDatos;
+    private javax.swing.JButton BtnGuardarCambiosDatos;
     private javax.swing.JButton BtnNuevaConsulta;
     private javax.swing.JComboBox<String> ComboBoxParentesco;
     private javax.swing.JLabel LabelAñoUltimaCita;
-    private javax.swing.JLabel LabelCedulaConsu;
-    private javax.swing.JLabel LabelCelularConsu;
-    private javax.swing.JLabel LabelCorreoConsu;
     private javax.swing.JLabel LabelDiaUltimaCita;
-    private javax.swing.JLabel LabelDirecciónConsu;
     private javax.swing.JLabel LabelDocNombreMostrarDatos;
     private javax.swing.JLabel LabelEdadConsu;
     private javax.swing.JLabel LabelFrecuencia_CardiacaConsu;
@@ -954,14 +967,11 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel LabelMesUltimaCita;
     private javax.swing.JLabel LabelMotivoCita;
     private javax.swing.JLabel LabelMotoraConsu;
-    private javax.swing.JLabel LabelNacimientoConsu;
-    private javax.swing.JLabel LabelNombreConsu;
     private javax.swing.JLabel LabelOcularConsu;
     private javax.swing.JLabel LabelPesoConsu;
     private javax.swing.JLabel LabelPresion_ArterialConsu;
     private javax.swing.JLabel LabelR_PupilarConsu;
     private javax.swing.JLabel LabelSaturacion_OxigenoConsu;
-    private javax.swing.JLabel LabelSexoConsu;
     private javax.swing.JLabel LabelTallaConsu;
     private javax.swing.JLabel LabelTemperaturaConsu;
     private javax.swing.JLabel LabelTotalConsu;
@@ -971,20 +981,25 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JTextField TxFarmacologiaFamiliares;
     private javax.swing.JTextField TxtAlergiasFamiliares;
     private javax.swing.JTextField TxtAlergiasPersonales;
+    private javax.swing.JTextField TxtCelularPaciente;
     private javax.swing.JTextField TxtCirugiasFamiliares;
     private javax.swing.JTextField TxtCirugiasPersonales;
     private javax.swing.JTextField TxtClinicoFamiliares;
     private javax.swing.JTextField TxtClinicoPersonales;
+    private javax.swing.JTextField TxtCorreoPaciente;
+    private javax.swing.JTextField TxtDireccionPaciente;
     private javax.swing.JTextField TxtEnfermedadesFamiliares;
     private javax.swing.JTextField TxtEnfermedadesPersonales;
     private javax.swing.JTextField TxtFarmacologicoPersonales;
+    private javax.swing.JTextField TxtFechaNacimientoPaciente;
     private javax.swing.JTextField TxtGinecologicoPersonales;
-    private javax.swing.JTextArea TxtNotasPacienteConsu;
+    private javax.swing.JTextField TxtIdentificacionPaciente;
+    private javax.swing.JTextField TxtNombrePaciente;
+    private javax.swing.JTextField TxtSexoPaciente;
     private javax.swing.JTextField TxtTraumatologiaFamiliares;
     private javax.swing.JTextField TxtTraumatologicoPersonales;
     private javax.swing.JTextField TxtVacunasPersonales;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1028,11 +1043,9 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;

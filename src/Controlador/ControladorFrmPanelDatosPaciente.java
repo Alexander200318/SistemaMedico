@@ -121,15 +121,15 @@ public class ControladorFrmPanelDatosPaciente {
                     panelDatosPaciente.getLblFotoConsu().setIcon(null);
                 }
 
-                panelDatosPaciente.getLabelCedulaConsu().setText(rs.getString("Cedula"));
-                panelDatosPaciente.getLabelNombreConsu().setText(rs.getString("Nombre"));
+                panelDatosPaciente.getTxtIdentificacionPaciente().setText(rs.getString("Cedula"));
+                panelDatosPaciente.getTxtNombrePaciente().setText(rs.getString("Nombre"));
                 String fechaNacimiento = rs.getString("Fecha_Nacimiento");
-                panelDatosPaciente.getLabelNacimientoConsu().setText(fechaNacimiento);
+                panelDatosPaciente.getTxtFechaNacimientoPaciente().setText(fechaNacimiento);
                 panelDatosPaciente.getLabelEdadConsu().setText(String.valueOf(calcularEdad(fechaNacimiento)));
-                panelDatosPaciente.getLabelSexoConsu().setText(rs.getString("Sexo"));
-                panelDatosPaciente.getLabelCorreoConsu().setText(rs.getString("Email"));
-                panelDatosPaciente.getLabelCelularConsu().setText(rs.getString("Telefono"));
-                panelDatosPaciente.getLabelDirecciónConsu().setText(rs.getString("Direccion"));
+                panelDatosPaciente.getTxtSexoPaciente().setText(rs.getString("Sexo"));
+                panelDatosPaciente.getTxtCorreoPaciente().setText(rs.getString("Email"));
+                panelDatosPaciente.getTxtCelularPaciente().setText(rs.getString("Telefono"));
+                panelDatosPaciente.getTxtDireccionPaciente().setText(rs.getString("Direccion"));
 
                 // Signos Vitales
                 panelDatosPaciente.getLabelPresion_ArterialConsu().setText(rs.getString("Presion_Arterial"));
@@ -176,14 +176,14 @@ public class ControladorFrmPanelDatosPaciente {
     }
 
     private void limpiarCampos() {
-        panelDatosPaciente.getLabelCedulaConsu().setText("");
-        panelDatosPaciente.getLabelNombreConsu().setText("");
-        panelDatosPaciente.getLabelNacimientoConsu().setText("");
+        panelDatosPaciente.getTxtIdentificacionPaciente().setText("");
+        panelDatosPaciente.getTxtNombrePaciente().setText("");
+        panelDatosPaciente.getTxtFechaNacimientoPaciente().setText("");
         panelDatosPaciente.getLabelEdadConsu().setText("");
-        panelDatosPaciente.getLabelSexoConsu().setText("");
-        panelDatosPaciente.getLabelCorreoConsu().setText("");
-        panelDatosPaciente.getLabelCelularConsu().setText("");
-        panelDatosPaciente.getLabelDirecciónConsu().setText("");
+        panelDatosPaciente.getTxtSexoPaciente().setText("");
+        panelDatosPaciente.getTxtCorreoPaciente().setText("");
+        panelDatosPaciente.getTxtCelularPaciente().setText("");
+        panelDatosPaciente.getTxtDireccionPaciente().setText("");
         panelDatosPaciente.getLblFotoConsu().setIcon(null);
 
         panelDatosPaciente.getLabelPresion_ArterialConsu().setText("");
