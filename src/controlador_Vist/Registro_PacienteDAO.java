@@ -94,7 +94,7 @@ public class Registro_PacienteDAO {
                     vistaPrincipal.getRSlabel_imagen().setText("");
                     vistaPrincipal.getRSlabel_imagen().setIcon(icon);
                     lbl.setIcon(icon);
-                    rsdragdropfiles.RSDragDropFiles.setCopiar(selectedFile.getCanonicalPath(),"src/Recursos/IMAGEN_ARRASTRADO.png");
+                    rsdragdropfiles.RSDragDropFiles.setCopiar(selectedFile.getCanonicalPath(),"src/Recursos/IMAGEN_ARRASTRADOBoton.png");
                     System.out.println("Imagen establecida correctamente en RslabelImagen.");
                 }
 
