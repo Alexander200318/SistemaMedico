@@ -31,7 +31,14 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         panel =new ControladorMostrarDatosPanelbtn(this);
     }
 
+    public JTextField getTxtApellidoPaciente() {
+        return TxtApellidoPaciente;
+    }
+
     //getters and setters panel
+    public void setTxtApellidoPaciente(JTextField TxtApellidoPaciente) {
+        this.TxtApellidoPaciente = TxtApellidoPaciente;
+    }
 
     public JLabel getLabelAñoUltimaCita() {
         return LabelAñoUltimaCita;
@@ -460,6 +467,10 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         TxtSexoPaciente = new javax.swing.JTextField();
         TxtCorreoPaciente = new javax.swing.JTextField();
         TxtDireccionPaciente = new javax.swing.JTextField();
+        jSeparator28 = new javax.swing.JSeparator();
+        TxtApellidoPaciente = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         panelRound4 = new Modelo.PanelRound();
         BtnNuevaConsulta = new javax.swing.JButton();
         BtnGuardarCambiosDatos = new javax.swing.JButton();
@@ -593,8 +604,8 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         panelRound1.add(LabelEdadConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 60, 20));
 
         jLabel2.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel2.setText("Sexo:");
-        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
+        jLabel2.setText("Apellidos:");
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel3.setText("Cedula:");
@@ -613,7 +624,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         panelRound1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, -1, -1));
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 81, 96, -1));
         panelRound1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 200, 60, 10));
-        panelRound1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 330, 10));
+        panelRound1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 150, 10));
         panelRound1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 170, 10));
         panelRound1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 170, 10));
         panelRound1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 170, 10));
@@ -625,7 +636,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         panelRound1.add(TxtFechaNacimientoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 130, 20));
 
         TxtNombrePaciente.setBorder(null);
-        panelRound1.add(TxtNombrePaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 330, 20));
+        panelRound1.add(TxtNombrePaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 150, 20));
 
         TxtIdentificacionPaciente.setBorder(null);
         panelRound1.add(TxtIdentificacionPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 170, 20));
@@ -641,6 +652,18 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         TxtDireccionPaciente.setBorder(null);
         panelRound1.add(TxtDireccionPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 170, 20));
+        panelRound1.add(jSeparator28, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 160, 10));
+
+        TxtApellidoPaciente.setBorder(null);
+        panelRound1.add(TxtApellidoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 160, 20));
+
+        jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel10.setText("Sexo:");
+        panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel12.setText("Nombres:");
+        panelRound1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
 
         jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 710, 280));
 
@@ -913,7 +936,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jLabel43.setText("Parentesco");
         jPanel2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 20));
 
-        ComboBoxParentesco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Padre", "Madre", "Abuelos", "Hermanos", "Otros" }));
+        ComboBoxParentesco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Otro", "Padres", "Hijos", "Abuelos", "Hermanos" }));
         jPanel2.add(ComboBoxParentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 280, -1));
         jPanel2.add(TxtCirugiasFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 360, 30));
         jPanel2.add(TxtAlergiasFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 360, 30));
@@ -981,6 +1004,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JTextField TxFarmacologiaFamiliares;
     private javax.swing.JTextField TxtAlergiasFamiliares;
     private javax.swing.JTextField TxtAlergiasPersonales;
+    private javax.swing.JTextField TxtApellidoPaciente;
     private javax.swing.JTextField TxtCelularPaciente;
     private javax.swing.JTextField TxtCirugiasFamiliares;
     private javax.swing.JTextField TxtCirugiasPersonales;
@@ -1000,7 +1024,9 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JTextField TxtTraumatologicoPersonales;
     private javax.swing.JTextField TxtVacunasPersonales;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1065,6 +1091,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator25;
     private javax.swing.JSeparator jSeparator26;
     private javax.swing.JSeparator jSeparator27;
+    private javax.swing.JSeparator jSeparator28;
     private javax.swing.JSeparator jSeparator29;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator30;

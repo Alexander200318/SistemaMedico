@@ -52,12 +52,12 @@ public class ControladorPrincHistorial {
             "    t.Nivel_Prioridad, " +
             "    c.Motivo " +
             "FROM historial h " +
-            "JOIN paciente pc ON pc.Id_Paciente = h.Id_Paciente " +
-            "JOIN persona pac ON pac.Id_Persona = pc.Id_Persona " +
-            "JOIN doctor d ON h.Id_Doctor = d.Id_Doctor " +
-            "JOIN persona doc ON doc.Id_Persona = d.Id_Persona " +
-            "JOIN consulta c ON h.Id_Consulta = c.Id_Consulta " +
-            "JOIN triage t ON h.Id_Triage = t.Id_Triage " +
+            "LEFT JOIN paciente pc ON pc.Id_Paciente = h.Id_Paciente " +
+            "LEFT JOIN persona pac ON pac.Id_Persona = pc.Id_Persona " +
+            "LEFT JOIN doctor d ON h.Id_Doctor = d.Id_Doctor " +
+            "LEFT JOIN persona doc ON doc.Id_Persona = d.Id_Persona " +
+            "LEFT JOIN consulta c ON h.Id_Consulta = c.Id_Consulta " +
+            "LEFT JOIN triage t ON h.Id_Triage = t.Id_Triage " +
             "WHERE h.His_Est_Activo = '1'";
 
         StringBuilder queryBuilder = new StringBuilder(baseQuery);

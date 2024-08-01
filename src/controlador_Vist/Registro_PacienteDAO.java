@@ -1,4 +1,4 @@
-package controlador_Vist;
+ package controlador_Vist;
 
 import Controlador.Notificaciones;
 import java.awt.Image;
@@ -407,10 +407,12 @@ public class Registro_PacienteDAO {
     public void IngresoDatos() {
         Paciente paciente = new Paciente();
         paciente.setIdentificacion(getValidData(vistaPrincipal.getTxt_Identificacion_pac().getText()));
+        
         paciente.setPrimNombre(getValidData(vistaPrincipal.getTxt_Nombres().getText().split(" ")[0]));
         paciente.setSegNombre(getValidData(vistaPrincipal.getTxt_Nombres().getText().split(" ").length > 1 ? vistaPrincipal.getTxt_Nombres().getText().split(" ")[1] : ""));
         paciente.setPrimApellido(getValidData(vistaPrincipal.getTxt_Apellidos().getText().split(" ")[0]));
         paciente.setSegApellido(getValidData(vistaPrincipal.getTxt_Apellidos().getText().split(" ").length > 1 ? vistaPrincipal.getTxt_Apellidos().getText().split(" ")[1] : ""));
+        
         paciente.setEmail(getValidData(vistaPrincipal.getTxt_Email().getText()));
         paciente.setDireccion(getValidData(vistaPrincipal.getTxt_direccion().getText()));
         paciente.setBarrio(getValidData(vistaPrincipal.getTxt_barrio().getText()));
