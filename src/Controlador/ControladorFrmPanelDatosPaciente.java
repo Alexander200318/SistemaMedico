@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -151,6 +152,7 @@ public class ControladorFrmPanelDatosPaciente {
                     panelDatosPaciente.getLblFotoConsu().setIcon(null);
                 }
                 singleton.setIdentificacion_Historial(rs.getString("Cedula"));
+                 
                 panelDatosPaciente.getTxtIdentificacionPaciente().setText(rs.getString("Cedula"));
                 panelDatosPaciente.getTxtNombrePaciente().setText(rs.getString("Nombre"));
                 String fechaNacimiento = rs.getString("Fecha_Nacimiento");

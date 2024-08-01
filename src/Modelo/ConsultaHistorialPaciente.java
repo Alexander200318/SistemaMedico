@@ -14,7 +14,7 @@ import javax.swing.table.AbstractTableModel;
 public class ConsultaHistorialPaciente extends AbstractTableModel {
 
     private String[] columnNames = {
-        "FECHA CONSULTA", "MEDICO", "DIAGNÓSTICO", "PRIORIDAD",};
+        "FECHA CONSULTA", "MEDICO", "MOTIVO", "PRIORIDAD",};
 
     private List< Encabezado_HistorialPaciente> consultas;
 

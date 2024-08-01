@@ -11,17 +11,29 @@ package Modelo;
 public class Encabezado_HistorialPaciente {
     private int id_historial;
     private String fecha_consulta;
+    private String identificacion;
     private String nombre_doctor;
     private String diagnostico;
     private String trige;
 
-    public Encabezado_HistorialPaciente(int id_historial, String fecha_consulta, String nombre_doctor, String diagnostico, String trige) {
+    public Encabezado_HistorialPaciente(int id_historial, String fecha_consulta, String identificacion, String nombre_doctor, String diagnostico, String trige) {
         this.id_historial = id_historial;
         this.fecha_consulta = fecha_consulta;
+        this.identificacion = identificacion;
         this.nombre_doctor = nombre_doctor;
         this.diagnostico = diagnostico;
         this.trige = trige;
     }
+
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
+
+   
 
     public int getId_historial() {
         return id_historial;

@@ -4,10 +4,12 @@
  */
 package Vista;
 
+import com.toedter.calendar.JDateChooser;
 import controlador_Vist.Panel_DatosHistorial;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -21,6 +23,50 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         contro=new Panel_DatosHistorial(this);
     }
 
+    public JTextField getTxt_motivo() {
+        return Txt_motivo;
+    }
+
+    public void setTxt_motivo(JTextField Txt_motivo) {
+        this.Txt_motivo = Txt_motivo;
+    }
+
+    public JButton getBtn_Limpiar_historial() {
+        return Btn_Limpiar_historial;
+    }
+
+    public void setBtn_Limpiar_historial(JButton Btn_Limpiar_historial) {
+        this.Btn_Limpiar_historial = Btn_Limpiar_historial;
+    }
+
+    public JDateChooser getDtc_Fech_Fin() {
+        return Dtc_Fech_Fin;
+    }
+
+    public void setDtc_Fech_Fin(JDateChooser Dtc_Fech_Fin) {
+        this.Dtc_Fech_Fin = Dtc_Fech_Fin;
+    }
+
+    public JDateChooser getDtc_Fech_Inicio() {
+        return Dtc_Fech_Inicio;
+    }
+
+    public void setDtc_Fech_Inicio(JDateChooser Dtc_Fech_Inicio) {
+        this.Dtc_Fech_Inicio = Dtc_Fech_Inicio;
+    }
+    
+    
+    
+
+    public JButton getBtn_Buscar_historial() {
+        return Btn_Buscar_historial;
+    }
+
+    public void setBtn_Buscar_historial(JButton Btn_Buscar_historial) {
+        this.Btn_Buscar_historial = Btn_Buscar_historial;
+    }
+
+    
     public JTable getTBLDatReport() {
         return TBLDatReport;
     }
@@ -68,12 +114,13 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         PNLIdentifiReport = new javax.swing.JPanel();
         JLbCedulaIngreRepor = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        TxtCedBuscarReport = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        Txt_motivo = new javax.swing.JTextField();
+        Dtc_Fech_Inicio = new com.toedter.calendar.JDateChooser();
+        Dtc_Fech_Fin = new com.toedter.calendar.JDateChooser();
         JLbCedulaIngreRepor1 = new javax.swing.JLabel();
-        BtnBuscarReport = new javax.swing.JButton();
-        BtnBuscarReport1 = new javax.swing.JButton();
+        Btn_Limpiar_historial = new javax.swing.JButton();
+        Btn_Buscar_historial = new javax.swing.JButton();
+        JLbCedulaIngreRepor3 = new javax.swing.JLabel();
         PNLDatosReport = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TBLDatReport = new javax.swing.JTable();
@@ -104,36 +151,41 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         PNLIdentifiReport.add(JLbCedulaIngreRepor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 70, -1));
         PNLIdentifiReport.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 290, 10));
 
-        TxtCedBuscarReport.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
-        TxtCedBuscarReport.setBorder(null);
-        PNLIdentifiReport.add(TxtCedBuscarReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 290, 20));
-        PNLIdentifiReport.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
-        PNLIdentifiReport.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 140, -1));
+        Txt_motivo.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        Txt_motivo.setBorder(null);
+        PNLIdentifiReport.add(Txt_motivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 290, 20));
+        PNLIdentifiReport.add(Dtc_Fech_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+        PNLIdentifiReport.add(Dtc_Fech_Fin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 150, -1));
 
-        JLbCedulaIngreRepor1.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 16)); // NOI18N
+        JLbCedulaIngreRepor1.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 0, 14)); // NOI18N
         JLbCedulaIngreRepor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLbCedulaIngreRepor1.setText("Ingrese la cédula:");
-        PNLIdentifiReport.add(JLbCedulaIngreRepor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, -1));
+        JLbCedulaIngreRepor1.setText("Fecha fin:");
+        PNLIdentifiReport.add(JLbCedulaIngreRepor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 110, 30));
 
-        BtnBuscarReport.setBackground(new java.awt.Color(64, 172, 159));
-        BtnBuscarReport.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
-        BtnBuscarReport.setText("Limpiar");
-        BtnBuscarReport.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Limpiar_historial.setBackground(new java.awt.Color(64, 172, 159));
+        Btn_Limpiar_historial.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+        Btn_Limpiar_historial.setText("Limpiar");
+        Btn_Limpiar_historial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBuscarReportActionPerformed(evt);
+                Btn_Limpiar_historialActionPerformed(evt);
             }
         });
-        PNLIdentifiReport.add(BtnBuscarReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 110, -1));
+        PNLIdentifiReport.add(Btn_Limpiar_historial, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 110, -1));
 
-        BtnBuscarReport1.setBackground(new java.awt.Color(64, 172, 159));
-        BtnBuscarReport1.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
-        BtnBuscarReport1.setText("BUSCAR");
-        BtnBuscarReport1.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Buscar_historial.setBackground(new java.awt.Color(64, 172, 159));
+        Btn_Buscar_historial.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+        Btn_Buscar_historial.setText("BUSCAR");
+        Btn_Buscar_historial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBuscarReport1ActionPerformed(evt);
+                Btn_Buscar_historialActionPerformed(evt);
             }
         });
-        PNLIdentifiReport.add(BtnBuscarReport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 110, -1));
+        PNLIdentifiReport.add(Btn_Buscar_historial, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 110, -1));
+
+        JLbCedulaIngreRepor3.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 0, 14)); // NOI18N
+        JLbCedulaIngreRepor3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLbCedulaIngreRepor3.setText("Fecha Inicio:");
+        PNLIdentifiReport.add(JLbCedulaIngreRepor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 110, 30));
 
         PNLReporte.add(PNLIdentifiReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 400, 170));
 
@@ -218,13 +270,13 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-7, 0, 1960, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnBuscarReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarReportActionPerformed
+    private void Btn_Limpiar_historialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Limpiar_historialActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnBuscarReportActionPerformed
+    }//GEN-LAST:event_Btn_Limpiar_historialActionPerformed
 
-    private void BtnBuscarReport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarReport1ActionPerformed
+    private void Btn_Buscar_historialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Buscar_historialActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnBuscarReport1ActionPerformed
+    }//GEN-LAST:event_Btn_Buscar_historialActionPerformed
 
     private void BtnSeleccionarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionarConsultaActionPerformed
         // TODO add your handling code here:
@@ -236,23 +288,24 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnBuscarReport;
-    private javax.swing.JButton BtnBuscarReport1;
     private javax.swing.JButton BtnSeleccionarConsulta;
     private javax.swing.JButton BtnSeleccionarTriage;
+    private javax.swing.JButton Btn_Buscar_historial;
+    private javax.swing.JButton Btn_Limpiar_historial;
+    private com.toedter.calendar.JDateChooser Dtc_Fech_Fin;
+    private com.toedter.calendar.JDateChooser Dtc_Fech_Inicio;
     private javax.swing.JLabel Fondo;
     public javax.swing.JLabel JLbCedulaIngreRepor;
     public javax.swing.JLabel JLbCedulaIngreRepor1;
     public javax.swing.JLabel JLbCedulaIngreRepor2;
+    public javax.swing.JLabel JLbCedulaIngreRepor3;
     private javax.swing.JPanel PNLDatosReport;
     private javax.swing.JPanel PNLIdentifiReport;
     private javax.swing.JPanel PNLReporte;
     private javax.swing.JPanel Pnl_Cambio_Datos_Hist;
     private javax.swing.JTable TBLDatReport;
-    public javax.swing.JTextField TxtCedBuscarReport;
     public javax.swing.JTextField TxtCedBuscarReport1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    public javax.swing.JTextField Txt_motivo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;

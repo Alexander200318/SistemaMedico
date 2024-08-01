@@ -14,7 +14,10 @@ import Modelo.Singleton;
 import Vista.DatosConsulta;
 import Vista.DatosTriage;
 import Vista.PanelDatosHISTORIAL;
+import com.toedter.calendar.JDateChooser;
 import java.awt.BorderLayout;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
@@ -42,7 +45,43 @@ public class Panel_DatosHistorial {
             PanelTriage();
         });
         
-        IngresarDatorTabla(vistaPanel.getTBLDatReport(),singleton.getIdentificacion_Historial() , null, null, null, null, null, null, null, null);
+        IngresarDatorTabla(vistaPanel.getTBLDatReport(),singleton.getIdentificacion_Historial(), null , null, null, null, null, null, null, null);
+        
+        
+        this.vistaPanel.getBtn_Buscar_historial().addActionListener((e) -> {
+        IngresarDatorTabla(vistaPanel.getTBLDatReport(),singleton.getIdentificacion_Historial(), null , null, null, null, null, null, getFormattedDate(vistaPanel.getDtc_Fech_Inicio()), getFormattedDate(vistaPanel.getDtc_Fech_Fin()));
+
+        });
+        
+        this.vistaPanel.getBtn_Limpiar_historial().addActionListener((e) -> {
+            RecetearDatos();
+        });
+        
+        
+        
+    }
+    
+      public void RecetearDatos() {
+
+        this.vistaPanel.getTxt_motivo().setText(null);
+        this.vistaPanel.getDtc_Fech_Inicio().setDate(null);
+        this.vistaPanel.getDtc_Fech_Fin().setDate(null);
+
+
+    }
+
+    
+    
+    public static String getFormattedDate(JDateChooser dateChooser) {
+        // Obtener la fecha seleccionada
+        Date date = dateChooser.getDate();
+        if (date != null) {
+            // Formatear la fecha al formato yyyy-MM-dd
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            return dateFormat.format(date);
+        } else {
+            return "";
+        }
     }
 
     public void Panelconsulta(){
@@ -87,7 +126,7 @@ public class Panel_DatosHistorial {
             String fechaFin) {
         
         controlHistorial = new ControladorHistorialPaciente();
-        List<Encabezado_HistorialPaciente> consultas = controlHistorial.obtenerHistoriaPaciente(identificacion, fecha, nombreParte, apellidoParte, sexoPaciente, nombreDoctor, fechaInicio, fechaInicio, fechaFin);
+        List<Encabezado_HistorialPaciente> consultas = controlHistorial.obtenerHistoriaPaciente(identificacion, fecha, nombreParte, apellidoParte, sexoPaciente, nombreDoctor, triage, fechaInicio, fechaFin);
                 
 
         // Imprimir tamaño de la lista

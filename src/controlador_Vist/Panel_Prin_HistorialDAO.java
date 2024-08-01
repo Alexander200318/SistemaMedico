@@ -44,6 +44,7 @@ public class Panel_Prin_HistorialDAO {
     Singleton singleton = Singleton.getInstance();
     String fechaInicio = "";
     String fechaFin = "";
+    
 
     public Panel_Prin_HistorialDAO(PANEL_PRINCIPAL_HISTORIAL panelHistorial) {
         this.panelHistorial = panelHistorial;
@@ -80,34 +81,34 @@ public class Panel_Prin_HistorialDAO {
                 int column = table.columnAtPoint(e.getPoint());
 
                 if (column == 8) {
+
                     if (row >= 0) {
-                        Object cellValue = table.getValueAt(row, column);
-                       CambiarPanel();
+                         Object cellValueColumn1 = table.getValueAt(row, 0);
+                    String extractedValue = cellValueColumn1.toString();
+
+                    // Puedes utilizar la cadena 'extractedValue' según sea necesario
+                    System.out.println("Valor extraído de la columna 1: " + extractedValue);
+                    
+                        singleton.setIdentificacion_Historial(extractedValue);
+                        CambiarPanel();
                     }
                 }
             }
         });
     }
 //
-    public void CambiarPanel(){
-        PanelDatosHISTORIAL Hist=new PanelDatosHISTORIAL();
+
+    public void CambiarPanel() {
+        PanelDatosHISTORIAL Hist = new PanelDatosHISTORIAL();
         Hist.setSize(1280, 680);
         Hist.setLocation(0, 0);
-        
+
         this.panelHistorial.removeAll();
-        this.panelHistorial.add(Hist,BorderLayout.CENTER);
+        this.panelHistorial.add(Hist, BorderLayout.CENTER);
         this.panelHistorial.revalidate();
         this.panelHistorial.repaint();
-        
-        
-        
-     
-    
+
     }
-    
-    
-    
-    
 
     public void RecetearDatos() {
         this.panelHistorial.getTxt_Cedula_Hist().setText(null);
@@ -172,7 +173,7 @@ public class Panel_Prin_HistorialDAO {
             String nombreDoctor,
             String triage,
             String fechaInicio,
-            String fechaFin) {       
+            String fechaFin) {
         controlHistorial = new ControladorPrincHistorial();
         List<Encabezado_tabla_Histrl> consultas = controlHistorial.obtenerConsultasHistorila(
                 identificacion,

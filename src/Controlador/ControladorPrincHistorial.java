@@ -24,25 +24,24 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter; // Asegúrate de importar esta clase
 
-
-
 public class ControladorPrincHistorial {
-  public List<Encabezado_tabla_Histrl> obtenerConsultasHistorila(
-        String identificacion, 
-        String fecha,
-        String nombreParte,
-        String apellidoParte,
-        String sexoPaciente,
-        String nombreDoctor,
-        String nivelPrioridad,
-        String fechaInicio,
-        String fechaFin) {
 
-    Conexion cnxt = new Conexion();
-    List<Encabezado_tabla_Histrl> consultas = new ArrayList<>();
+    public List<Encabezado_tabla_Histrl> obtenerConsultasHistorila(
+            String identificacion,
+            String fecha,
+            String nombreParte,
+            String apellidoParte,
+            String sexoPaciente,
+            String nombreDoctor,
+            String nivelPrioridad,
+            String fechaInicio,
+            String fechaFin) {
 
-    // Consulta base con la condición siempre aplicable
-    String baseQuery = "SELECT " +
+        Conexion cnxt = new Conexion();
+        List<Encabezado_tabla_Histrl> consultas = new ArrayList<>();
+
+        // Consulta base con la condición siempre aplicable
+       String baseQuery = "SELECT " +
             "    h.Id_Historial, " +
             "    pac.Identificacion, " +
             "    CONCAT(pac.prim_Nombre, ' ', IFNULL(pac.seg_Nombre, ''), ' ', pac.prim_Apellido, ' ', IFNULL(pac.seg_Apellido, '')) AS nombrePaciente, " +
@@ -51,7 +50,7 @@ public class ControladorPrincHistorial {
             "    h.Fecha, " +
             "    CONCAT(doc.prim_Nombre, ' ', IFNULL(doc.seg_Nombre, ''), ' ', doc.prim_Apellido, ' ', IFNULL(doc.seg_Apellido, '')) AS nombreDoctor, " +
             "    t.Nivel_Prioridad, " +
-            "    h.Descripcion_Hist " +
+            "    c.Motivo " +
             "FROM historial h " +
             "JOIN paciente pc ON pc.Id_Paciente = h.Id_Paciente " +
             "JOIN persona pac ON pac.Id_Persona = pc.Id_Persona " +
@@ -59,116 +58,114 @@ public class ControladorPrincHistorial {
             "JOIN persona doc ON doc.Id_Persona = d.Id_Persona " +
             "JOIN consulta c ON h.Id_Consulta = c.Id_Consulta " +
             "JOIN triage t ON h.Id_Triage = t.Id_Triage " +
-            "WHERE h.His_Est_Activo = '1'"; // Asegúrate de que haya un espacio al final de esta línea
+            "WHERE h.His_Est_Activo = '1'";
 
-    StringBuilder queryBuilder = new StringBuilder(baseQuery);
-    List<String> parameters = new ArrayList<>();
-    List<String> appliedFilters = new ArrayList<>();
+        StringBuilder queryBuilder = new StringBuilder(baseQuery);
+        List<String> parameters = new ArrayList<>();
+        List<String> appliedFilters = new ArrayList<>();
 
-    // Añadir filtros adicionales
-    if (identificacion != null && !identificacion.isEmpty()) {
-        queryBuilder.append(" AND pac.Identificacion = ?");
-        parameters.add(identificacion);
-        appliedFilters.add("Identificación: " + identificacion);
-    }
-
-    if (fecha != null && !fecha.isEmpty()) {
-        queryBuilder.append(" AND h.Fecha = ?");
-        parameters.add(fecha);
-        appliedFilters.add("Fecha: " + fecha);
-    }
-
-    if (nombreParte != null && !nombreParte.isEmpty()) {
-        queryBuilder.append(" AND (pac.prim_Nombre LIKE ? OR pac.seg_Nombre LIKE ?)");
-        parameters.add("%" + nombreParte + "%");
-        parameters.add("%" + nombreParte + "%");
-        appliedFilters.add("Parte del nombre: " + nombreParte);
-    }
-
-    if (apellidoParte != null && !apellidoParte.isEmpty()) {
-        queryBuilder.append(" AND (pac.prim_Apellido LIKE ? OR pac.seg_Apellido LIKE ?)");
-        parameters.add("%" + apellidoParte + "%");
-        parameters.add("%" + apellidoParte + "%");
-        appliedFilters.add("Parte del apellido: " + apellidoParte);
-    }
-
-    if (sexoPaciente != null && !sexoPaciente.isEmpty()) {
-        queryBuilder.append(" AND pac.Sexo = ?");
-        parameters.add(sexoPaciente);
-        appliedFilters.add("Sexo: " + sexoPaciente);
-    }
-
-    if (nombreDoctor != null && !nombreDoctor.isEmpty()) {
-        queryBuilder.append(" AND (doc.prim_Nombre LIKE ? OR doc.seg_Nombre LIKE ? OR doc.prim_Apellido LIKE ? OR doc.seg_Apellido LIKE ?)");
-        parameters.add("%" + nombreDoctor + "%");
-        parameters.add("%" + nombreDoctor + "%");
-        parameters.add("%" + nombreDoctor + "%");
-        parameters.add("%" + nombreDoctor + "%");
-        appliedFilters.add("Nombre del doctor: " + nombreDoctor);
-    }
-
-    if (nivelPrioridad != null && !nivelPrioridad.isEmpty()) {
-        queryBuilder.append(" AND t.Nivel_Prioridad LIKE ?");
-        parameters.add("%" + nivelPrioridad + "%");
-        appliedFilters.add("Nivel de prioridad: " + nivelPrioridad);
-    }
-
-    if (fechaInicio != null && !fechaInicio.isEmpty() && fechaFin != null && !fechaFin.isEmpty()) {
-        queryBuilder.append(" AND h.Fecha BETWEEN ? AND ?");
-        parameters.add(fechaInicio);
-        parameters.add(fechaFin);
-        appliedFilters.add("Rango de fechas: " + fechaInicio + " a " + fechaFin);
-    }
-
-    try (Connection connection = cnxt.getConexion();
-         PreparedStatement pstmt = connection.prepareStatement(queryBuilder.toString())) {
-
-        // Establecer los parámetros en el PreparedStatement
-        for (int i = 0; i < parameters.size(); i++) {
-            pstmt.setString(i + 1, parameters.get(i));
+        // Añadir filtros adicionales
+        if (identificacion != null && !identificacion.isEmpty()) {
+            queryBuilder.append(" AND pac.Identificacion = ?");
+            parameters.add(identificacion);
+            appliedFilters.add("Identificación: " + identificacion);
         }
 
-        try (ResultSet resultSet = pstmt.executeQuery()) {
-            boolean found = false;
-            while (resultSet.next()) {
-                found = true;
-                int id_historial = resultSet.getInt("Id_Historial");
-                String identificacionPaciente = resultSet.getString("Identificacion");
-                String nombre_paciente = resultSet.getString("nombrePaciente");
-                String fecha_nacimiento_str = resultSet.getString("Fecha_Nacimiento");
-                
-                // Convertir la fecha de nacimiento a LocalDate
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                LocalDate fecha_nacimiento = LocalDate.parse(fecha_nacimiento_str, formatter);
-                
-                // Calcular la edad
-                LocalDate fecha_actual = LocalDate.now();
-                Period periodo = Period.between(fecha_nacimiento, fecha_actual);
-                int edad = periodo.getYears();
-                String Edad=String.valueOf(edad);
-                
-                String sexo = resultSet.getString("Sexo");
-                String fecha_consulta = resultSet.getString("Fecha");
-                String nombre_doctor = resultSet.getString("nombreDoctor");
-                String nivel_prioridad = resultSet.getString("Nivel_Prioridad");
-                String diagnostico = resultSet.getString("Descripcion_Hist");
-
-                consultas.add(new Encabezado_tabla_Histrl(id_historial, identificacionPaciente, nombre_paciente, Edad, sexo, fecha_consulta, nombre_doctor, diagnostico, nivel_prioridad));
-            }
-            if (found) {
-                System.out.println("Se encontraron registros para la consulta realizada con los siguientes filtros: " + String.join(", ", appliedFilters));
-            } else {
-                System.out.println("No se encontraron registros para la consulta realizada con los siguientes filtros: " + String.join(", ", appliedFilters));
-            }
+        if (fecha != null && !fecha.isEmpty()) {
+            queryBuilder.append(" AND h.Fecha = ?");
+            parameters.add(fecha);
+            appliedFilters.add("Fecha: " + fecha);
         }
 
-    } catch (SQLException e) {
-        e.printStackTrace();
-        System.out.println("Ocurrió un error al realizar la consulta.");
+        if (nombreParte != null && !nombreParte.isEmpty()) {
+            queryBuilder.append(" AND (pac.prim_Nombre LIKE ? OR pac.seg_Nombre LIKE ?)");
+            parameters.add("%" + nombreParte + "%");
+            parameters.add("%" + nombreParte + "%");
+            appliedFilters.add("Parte del nombre: " + nombreParte);
+        }
+
+        if (apellidoParte != null && !apellidoParte.isEmpty()) {
+            queryBuilder.append(" AND (pac.prim_Apellido LIKE ? OR pac.seg_Apellido LIKE ?)");
+            parameters.add("%" + apellidoParte + "%");
+            parameters.add("%" + apellidoParte + "%");
+            appliedFilters.add("Parte del apellido: " + apellidoParte);
+        }
+
+        if (sexoPaciente != null && !sexoPaciente.isEmpty()) {
+            queryBuilder.append(" AND pac.Sexo = ?");
+            parameters.add(sexoPaciente);
+            appliedFilters.add("Sexo: " + sexoPaciente);
+        }
+
+        if (nombreDoctor != null && !nombreDoctor.isEmpty()) {
+            queryBuilder.append(" AND (doc.prim_Nombre LIKE ? OR doc.seg_Nombre LIKE ? OR doc.prim_Apellido LIKE ? OR doc.seg_Apellido LIKE ?)");
+            parameters.add("%" + nombreDoctor + "%");
+            parameters.add("%" + nombreDoctor + "%");
+            parameters.add("%" + nombreDoctor + "%");
+            parameters.add("%" + nombreDoctor + "%");
+            appliedFilters.add("Nombre del doctor: " + nombreDoctor);
+        }
+
+        if (nivelPrioridad != null && !nivelPrioridad.isEmpty()) {
+            queryBuilder.append(" AND t.Nivel_Prioridad LIKE ?");
+            parameters.add("%" + nivelPrioridad + "%");
+            appliedFilters.add("Nivel de prioridad: " + nivelPrioridad);
+        }
+
+        if (fechaInicio != null && !fechaInicio.isEmpty() && fechaFin != null && !fechaFin.isEmpty()) {
+            queryBuilder.append(" AND h.Fecha BETWEEN ? AND ?");
+            parameters.add(fechaInicio);
+            parameters.add(fechaFin);
+            appliedFilters.add("Rango de fechas: " + fechaInicio + " a " + fechaFin);
+        }
+
+        try ( Connection connection = cnxt.getConexion();  PreparedStatement pstmt = connection.prepareStatement(queryBuilder.toString())) {
+
+            // Establecer los parámetros en el PreparedStatement
+            for (int i = 0; i < parameters.size(); i++) {
+                pstmt.setString(i + 1, parameters.get(i));
+            }
+
+            try ( ResultSet resultSet = pstmt.executeQuery()) {
+                boolean found = false;
+                while (resultSet.next()) {
+                    found = true;
+                    int id_historial = resultSet.getInt("Id_Historial");
+                    String identificacionPaciente = resultSet.getString("Identificacion");
+                    String nombre_paciente = resultSet.getString("nombrePaciente");
+                    String fecha_nacimiento_str = resultSet.getString("Fecha_Nacimiento");
+
+                    // Convertir la fecha de nacimiento a LocalDate
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate fecha_nacimiento = LocalDate.parse(fecha_nacimiento_str, formatter);
+
+                    // Calcular la edad
+                    LocalDate fecha_actual = LocalDate.now();
+                    Period periodo = Period.between(fecha_nacimiento, fecha_actual);
+                    int edad = periodo.getYears();
+                    String Edad = String.valueOf(edad);
+
+                    String sexo = resultSet.getString("Sexo");
+                    String fecha_consulta = resultSet.getString("Fecha");
+                    String nombre_doctor = resultSet.getString("nombreDoctor");
+                    String nivel_prioridad = resultSet.getString("Nivel_Prioridad");
+                    String motivo = resultSet.getString("Motivo");
+
+                    consultas.add(new Encabezado_tabla_Histrl(id_historial, identificacionPaciente, nombre_paciente, Edad, sexo, fecha_consulta, nombre_doctor, motivo, nivel_prioridad));
+                }
+                if (found) {
+                    System.out.println("Se encontraron registros para la consulta realizada con los siguientes filtros: " + String.join(", ", appliedFilters));
+                } else {
+                    System.out.println("No se encontraron registros para la consulta realizada con los siguientes filtros: " + String.join(", ", appliedFilters));
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Ocurrió un error al realizar la consulta.");
+        }
+        return consultas;
     }
-    return consultas;
-}
-    
 
 //    public List<Encabezado_tabla_Histrl> obtenerConsultasHistorila() {
 //        Conexion cnxt = new Conexion();
@@ -219,5 +216,4 @@ public class ControladorPrincHistorial {
 //        }
 //        return consultas; // Devuelve la lista de consultas
 //    }
-
 }
