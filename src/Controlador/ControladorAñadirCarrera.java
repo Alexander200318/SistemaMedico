@@ -9,6 +9,8 @@ import Modelo.Conexion;
 import Vista.CrudCarrera;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -53,11 +55,6 @@ public class ControladorAñadirCarrera {
     }
 
     public void modificarCarrera(Carrera carrera) {
-        if (existeOtraCarreraConNombre(carrera.getNombreCarrera(), carrera.getIdCarrera())) {
-            JOptionPane.showMessageDialog(vista, "Ya existe una carrera con el mismo nombre.");
-            return;
-        }
-
         String sql = "UPDATE Carrera SET Nombre_Carrera = ? WHERE Id_Carrera = ?";
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -125,26 +122,6 @@ public class ControladorAñadirCarrera {
         return false; // No existe carrera con el nombre dado
     }
 
-    public boolean existeOtraCarreraConNombre(String nombreCarrera, int idCarrera) {
-        String sql = "SELECT COUNT(*) FROM Carrera WHERE LOWER(Nombre_Carrera) = LOWER(?) AND Id_Carrera != ?";
-        
-        try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, nombreCarrera.toLowerCase());
-            pstmt.setInt(2, idCarrera);
-            
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    int count = rs.getInt(1);
-                    return count > 0; // Retorna true si existe otra carrera con el mismo nombre diferente al id dado
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false; // No existe otra carrera con el nombre dado
-    }
-
     public List<Carrera> obtenerCarreras() {
         List<Carrera> carreras = new ArrayList<>();
         String sql = "SELECT Id_Carrera, Nombre_Carrera FROM Carrera";
@@ -185,11 +162,6 @@ public class ControladorAñadirCarrera {
                     return;
                 }
 
-                if (existeCarrera(nombreCarrera)) {
-                    JOptionPane.showMessageDialog(vista, "Ya existe una carrera con el mismo nombre.");
-                    return;
-                }
-
                 Carrera nuevaCarrera = new Carrera();
                 nuevaCarrera.setNombreCarrera(nombreCarrera);
                 agregarCarrera(nuevaCarrera);
@@ -214,11 +186,6 @@ public class ControladorAñadirCarrera {
                         // Validar nuevo nombre de la carrera
                         if (!Pattern.matches("^[a-zA-Z]+(?: [a-zA-Z]+)*$", nuevoNombre)) {
                             JOptionPane.showMessageDialog(vista, "El nombre de la carrera solo puede contener letras y un único espacio entre palabras.");
-                            return;
-                        }
-
-                        if (existeOtraCarreraConNombre(nuevoNombre, idCarreraSeleccionada)) {
-                            JOptionPane.showMessageDialog(vista, "Ya existe una carrera con el mismo nombre.");
                             return;
                         }
 
@@ -288,8 +255,18 @@ public class ControladorAñadirCarrera {
         DefaultTableModel model = (DefaultTableModel) vista.getTablaCarreras().getModel();
         model.setRowCount(0); // Limpiar la tabla antes de actualizar
 
+        // Agregar filas al modelo de tabla
         for (Carrera carrera : obtenerCarreras()) {
             model.addRow(new Object[]{carrera.getIdCarrera(), carrera.getNombreCarrera()});
         }
+
+        // Ocultar la columna con índice 0 (Id_Carrera)
+        JTable table = vista.getTablaCarreras();
+        TableColumnModel columnModel = table.getColumnModel();
+        TableColumn columnToHide = columnModel.getColumn(0); // Índice 0 para Id_Carrera
+        columnToHide.setMinWidth(0);
+        columnToHide.setMaxWidth(0);
+        columnToHide.setWidth(0);
+        columnToHide.setPreferredWidth(0);
     }
 }
