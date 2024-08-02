@@ -10,24 +10,16 @@ package Modelo;
  */
 public class Estudiante{
     
-    private String carrera;
+    private int idcarrera;
     private String ciclo;
     private boolean estEstado;
 
-    public Estudiante(String carrera, String ciclo, boolean estEstado) {
-        this.carrera = carrera;
-        this.ciclo = ciclo;
-        this.estEstado = estEstado;
+    public int getIdcarrera() {
+        return idcarrera;
     }
 
-    
-
-    public String getCarrera() {
-        return carrera;
-    }
-
-    public void setCarrera(String carrera) {
-        this.carrera = carrera;
+    public void setIdcarrera(int idcarrera) {
+        this.idcarrera = idcarrera;
     }
 
     public String getCiclo() {
@@ -45,5 +37,13 @@ public class Estudiante{
     public void setEstEstado(boolean estEstado) {
         this.estEstado = estEstado;
     }
-    
+
+    public Estudiante(int idcarrera, String ciclo, boolean estEstado) {
+        this.idcarrera = idcarrera;
+        this.ciclo = ciclo;
+        this.estEstado = estEstado;
+    }
+
+    public Estudiante() {
+    }
 }

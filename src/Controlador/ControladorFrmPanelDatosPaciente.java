@@ -29,8 +29,8 @@ public class ControladorFrmPanelDatosPaciente {
 
     Singleton singleton;
     PanelDatosPaciente panelDatosPaciente;
-    boolean primeraSeleccion = true; // Indica si es la primera selección en el combo box
-    boolean editarHabilitado = false; // Indica si la edición está habilitada
+    boolean primeraSeleccion = true;
+    boolean editarHabilitado = false; 
 
     public ControladorFrmPanelDatosPaciente(PanelDatosPaciente panelDatosPaciente) {
         singleton = Singleton.getInstance();
@@ -377,18 +377,6 @@ public class ControladorFrmPanelDatosPaciente {
         panelDatosPaciente.getTxtEnfermedadesFamiliares().setEnabled(habilitar);
         panelDatosPaciente.getTxtCirugiasFamiliares().setEnabled(habilitar);
         panelDatosPaciente.getBtnGuardarCambiosDatos().setEnabled(habilitar);
-
-        // Cambiar el color del texto en los campos deshabilitados
-        Color colorTextoDeshabilitado = Color.BLACK; // O el color que desees
-
-        for (java.awt.Component component : panelDatosPaciente.getComponents()) {
-            if (component instanceof javax.swing.JTextField) {
-                javax.swing.JTextField textField = (javax.swing.JTextField) component;
-                if (!textField.isEnabled()) {
-                    textField.setDisabledTextColor(colorTextoDeshabilitado);
-                }
-            }
-        }
     }
 
 private void guardarCambios() {
