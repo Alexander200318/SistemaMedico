@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.*;
+import Vista.FrmInterfazImprimir;
 import Vista.FrmNuevaConsulta;
 import com.toedter.calendar.JDateChooser;
 import controlador_Vist.PacienteDAO;
@@ -44,6 +45,7 @@ public class ControladorFrmNuevaConsul {
     private JSpinner spinnerNumControles;
     private JRadioButton btnActivaInmunizacion;
     private JRadioButton btnPasivaInmunizacion;
+    private JButton btnimprimir;
 
     public ControladorFrmNuevaConsul(FrmNuevaConsulta ventanaNvConsulta) {
         this.ventanaNvConsulta = ventanaNvConsulta;
@@ -61,6 +63,7 @@ public class ControladorFrmNuevaConsul {
         this.btnActivaInmunizacion = ventanaNvConsulta.getBtnActivaInmunizacion();
         this.btnPasivaInmunizacion = ventanaNvConsulta.getBtnPasivaInmunizacion();
         this.btnSiAplica = ventanaNvConsulta.getBtnSiAplica();
+        this.btnimprimir = ventanaNvConsulta.getBtnImprimirReceta();
 
         // Inicializar el DAO
         Conexion conexion = new Conexion();
@@ -139,6 +142,18 @@ public class ControladorFrmNuevaConsul {
                 }
             }
         });
+        // Suponiendo que tienes un botón BtnImprimirReceta
+        btnimprimir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear una nueva instancia de FrmInterfazImprimir
+                FrmInterfazImprimir interfazImprimir = new FrmInterfazImprimir();
+
+                // Hacer visible el formulario
+                interfazImprimir.setVisible(true);
+            }
+        });
+
     }
 
     public void veridpaciente() {

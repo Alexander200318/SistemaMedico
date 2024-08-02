@@ -41,6 +41,7 @@ ControladorFrmNuevaConsul controlador;
         btnSiguiente = new JButton("Siguiente");
         btnTerminarConsulta = new JButton("Terminar Consulta");
         jTabbedPane = new JTabbedPane();
+        
     }
 
    
@@ -221,7 +222,7 @@ ControladorFrmNuevaConsul controlador;
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtAreaInstrucciones = new javax.swing.JTextArea();
-        txtImprimirReceta = new javax.swing.JButton();
+        BtnImprimirReceta = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtAreaPlanTrat = new javax.swing.JTextArea();
@@ -843,15 +844,15 @@ ControladorFrmNuevaConsul controlador;
 
         jPanel6.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 330, 130));
 
-        txtImprimirReceta.setBackground(new java.awt.Color(64, 172, 159));
-        txtImprimirReceta.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        txtImprimirReceta.setText("IMPRIMIR RECETA");
-        txtImprimirReceta.addActionListener(new java.awt.event.ActionListener() {
+        BtnImprimirReceta.setBackground(new java.awt.Color(64, 172, 159));
+        BtnImprimirReceta.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        BtnImprimirReceta.setText("IMPRIMIR RECETA");
+        BtnImprimirReceta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtImprimirRecetaActionPerformed(evt);
+                BtnImprimirRecetaActionPerformed(evt);
             }
         });
-        jPanel6.add(txtImprimirReceta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, 30));
+        jPanel6.add(BtnImprimirReceta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, 30));
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PLAN DE TRATAMIENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
@@ -969,9 +970,9 @@ ControladorFrmNuevaConsul controlador;
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIrregularActionPerformed
 
-    private void txtImprimirRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImprimirRecetaActionPerformed
+    private void BtnImprimirRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirRecetaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtImprimirRecetaActionPerformed
+    }//GEN-LAST:event_BtnImprimirRecetaActionPerformed
 
 //-------------------------------------------------------------------------------------------------------------------------------------
     
@@ -1146,13 +1147,14 @@ ControladorFrmNuevaConsul controlador;
         this.txtFrecRespiratoria = txtFrecRespiratoria;
     }
 
-    public JButton getTxtImprimirReceta() {
-        return txtImprimirReceta;
+    public JButton getBtnImprimirReceta() {
+        return BtnImprimirReceta;
     }
 
-    public void setTxtImprimirReceta(JButton txtImprimirReceta) {
-        this.txtImprimirReceta = txtImprimirReceta;
+    public void setBtnImprimirReceta(JButton BtnImprimirReceta) {
+        this.BtnImprimirReceta = BtnImprimirReceta;
     }
+
 
     public JTextField getTxtLlenadoCapilar() {
         return txtLlenadoCapilar;
@@ -1681,6 +1683,7 @@ ControladorFrmNuevaConsul controlador;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnImprimirReceta;
     private javax.swing.JComboBox<String> CmbBoxTriage;
     private com.toedter.calendar.JDateChooser JChFechaProbableParto;
     private com.toedter.calendar.JDateChooser JChFechaUltMenstruacion;
@@ -1862,7 +1865,6 @@ ControladorFrmNuevaConsul controlador;
     private javax.swing.JTextField txtEstatura;
     private javax.swing.JTextField txtFreCardiaca;
     private javax.swing.JTextField txtFrecRespiratoria;
-    private javax.swing.JButton txtImprimirReceta;
     private javax.swing.JTextField txtLlenadoCapilar;
     private javax.swing.JTextField txtMasaCorporal;
     private javax.swing.JTextField txtMotora;
