@@ -35,36 +35,22 @@ public class ControladorMostrarDatosPanelbtn {
         panelDatosPaciente.getPanelbtn().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                cambiarAPanelHistorial();
+                // Verificar si hay registros previos antes de cambiar de panel
+                if (!panelDatosPaciente.getLabelDocNombreMostrarDatos().getText().equals("No existen registros previos")) {
+                    cambiarAPanelHistorial();
+                }
             }
         });
     }
 
     private void mostrarDatos() {
         int idPaciente = Singleton.getInstance().getIdPaciente();
-        int idDoctor = Singleton.getInstance().getId_Doctor();
 
-        try ( Connection con = conexion.getConexion()) {
-            // Obtener nombre del doctor
-            String sqlDoctor = "SELECT CONCAT(p.prim_Nombre, ' ', IFNULL(p.seg_Nombre, ''), ' ', p.prim_Apellido, ' ', IFNULL(p.seg_Apellido, '')) AS nombreCompleto "
-                    + "FROM Doctor d "
-                    + "JOIN Persona p ON d.Id_Persona = p.Id_Persona "
-                    + "WHERE d.Id_Doctor = ?";
-
-            try ( PreparedStatement statementDoctor = con.prepareStatement(sqlDoctor)) {
-                statementDoctor.setInt(1, idDoctor);
-
-                try ( ResultSet resultSetDoctor = statementDoctor.executeQuery()) {
-                    if (resultSetDoctor.next()) {
-                        panelDatosPaciente.getLabelDocNombreMostrarDatos().setText(resultSetDoctor.getString("nombreCompleto"));
-                    }
-                }
-            }
-
+        try (Connection con = conexion.getConexion()) {
             // Obtener detalles de la última cita del paciente
             String sqlCita = "SELECT "
-                    + "DAY(Fecha_Ultima_Cita) AS Dia_Ultima_Cita, "
-                    + "CASE MONTH(Fecha_Ultima_Cita) "
+                    + "DAY(rc.Fecha_Consult) AS Dia_Ultima_Cita, "
+                    + "CASE MONTH(rc.Fecha_Consult) "
                     + "    WHEN 1 THEN 'Enero' "
                     + "    WHEN 2 THEN 'Febrero' "
                     + "    WHEN 3 THEN 'Marzo' "
@@ -78,32 +64,33 @@ public class ControladorMostrarDatosPanelbtn {
                     + "    WHEN 11 THEN 'Noviembre' "
                     + "    WHEN 12 THEN 'Diciembre' "
                     + "END AS Mes_Ultima_Cita, "
-                    + "YEAR(Fecha_Ultima_Cita) AS Anio_Ultima_Cita, "
-                    + "Nombre_Doctor, "
-                    + "Motivo_Consulta "
-                    + "FROM ("
-                    + "    SELECT "
-                    + "        rc.Fecha_Consult AS Fecha_Ultima_Cita, "
-                    + "        CONCAT(p.prim_Nombre, ' ', IFNULL(p.seg_Nombre, ''), ' ', p.prim_Apellido, ' ', IFNULL(p.seg_Apellido, '')) AS Nombre_Doctor, "
-                    + "        c.Motivo AS Motivo_Consulta "
-                    + "    FROM RegistraConsulta rc "
-                    + "    JOIN Doctor d ON rc.Id_Doctor = d.Id_Doctor "
-                    + "    JOIN Persona p ON d.Id_Persona = p.Id_Persona "
-                    + "    JOIN Consulta c ON rc.Id_Consulta = c.Id_Consulta "
-                    + "    WHERE rc.Id_Paciente = ? "
-                    + "    ORDER BY rc.Fecha_Consult DESC "
-                    + "    LIMIT 1 "
-                    + ") AS Subconsulta";
+                    + "YEAR(rc.Fecha_Consult) AS Anio_Ultima_Cita, "
+                    + "CONCAT(p.prim_Nombre, ' ', IFNULL(p.seg_Nombre, ''), ' ', p.prim_Apellido, ' ', IFNULL(p.seg_Apellido, '')) AS Nombre_Doctor, "
+                    + "c.Motivo AS Motivo_Consulta "
+                    + "FROM RegistraConsulta rc "
+                    + "JOIN Doctor d ON rc.Id_Doctor = d.Id_Doctor "
+                    + "JOIN Persona p ON d.Id_Persona = p.Id_Persona "
+                    + "JOIN Consulta c ON rc.Id_Consulta = c.Id_Consulta "
+                    + "WHERE rc.Id_Paciente = ? "
+                    + "ORDER BY rc.Fecha_Consult DESC "
+                    + "LIMIT 1";
 
-            try ( PreparedStatement statementCita = con.prepareStatement(sqlCita)) {
+            try (PreparedStatement statementCita = con.prepareStatement(sqlCita)) {
                 statementCita.setInt(1, idPaciente);
 
-                try ( ResultSet resultSetCita = statementCita.executeQuery()) {
+                try (ResultSet resultSetCita = statementCita.executeQuery()) {
                     if (resultSetCita.next()) {
                         panelDatosPaciente.getLabelAñoUltimaCita().setText(String.valueOf(resultSetCita.getInt("Anio_Ultima_Cita")));
                         panelDatosPaciente.getLabelDiaUltimaCita().setText(String.valueOf(resultSetCita.getInt("Dia_Ultima_Cita")));
                         panelDatosPaciente.getLabelMesUltimaCita().setText(resultSetCita.getString("Mes_Ultima_Cita"));
                         panelDatosPaciente.getLabelMotivoCita().setText(resultSetCita.getString("Motivo_Consulta"));
+                        panelDatosPaciente.getLabelDocNombreMostrarDatos().setText(resultSetCita.getString("Nombre_Doctor"));
+                    } else {
+                        panelDatosPaciente.getLabelDocNombreMostrarDatos().setText("No existen registros previos");
+                        panelDatosPaciente.getLabelAñoUltimaCita().setText("");
+                        panelDatosPaciente.getLabelDiaUltimaCita().setText("");
+                        panelDatosPaciente.getLabelMesUltimaCita().setText("");
+                        panelDatosPaciente.getLabelMotivoCita().setText("");
                     }
                 }
             }

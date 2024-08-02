@@ -22,22 +22,22 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     /**
      * Creates new form DatosPaciente
      */
-    
     ControladorFrmPanelDatosPaciente control;
     ControladorMostrarDatosPanelbtn panel;
+
     public PanelDatosPaciente() {
         initComponents();
         control = new ControladorFrmPanelDatosPaciente(this);
-        panel =new ControladorMostrarDatosPanelbtn(this);
-    }
-
-    public JTextField getTxtApellidoPaciente() {
-        return TxtApellidoPaciente;
+        panel = new ControladorMostrarDatosPanelbtn(this);
     }
 
     //getters and setters panel
     public void setTxtApellidoPaciente(JTextField TxtApellidoPaciente) {
         this.TxtApellidoPaciente = TxtApellidoPaciente;
+    }
+
+    public JTextField getTxtApellidoPaciente() {
+        return TxtApellidoPaciente;
     }
 
     public JLabel getLabelAñoUltimaCita() {
@@ -87,7 +87,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     public void setPanelbtn(JPanel Panelbtn) {
         this.Panelbtn = Panelbtn;
     }
-    
 
     //getters and setters mostrar datos
     public JButton getBtnNuevaConsulta() {
@@ -98,7 +97,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         this.BtnNuevaConsulta = BtnNuevaConsulta;
     }
 
-
     public JLabel getLabelEdadConsu() {
         return LabelEdadConsu;
     }
@@ -106,7 +104,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     public void setLabelEdadConsu(JLabel LabelEdadConsu) {
         this.LabelEdadConsu = LabelEdadConsu;
     }
-
 
     public JLabel getLabelFrecuencia_CardiacaConsu() {
         return LabelFrecuencia_CardiacaConsu;
@@ -122,14 +119,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
     public void setLabelFrecuencia_RespiratoriaConsu(JLabel LabelFrecuencia_RespiratoriaConsu) {
         this.LabelFrecuencia_RespiratoriaConsu = LabelFrecuencia_RespiratoriaConsu;
-    }
-
-    public JLabel getLabelGlasgowConsu() {
-        return LabelGlasgowConsu;
-    }
-
-    public void setLabelGlasgowConsu(JLabel LabelGlasgowConsu) {
-        this.LabelGlasgowConsu = LabelGlasgowConsu;
     }
 
     public JLabel getLabelIndice_Masa_CorporalConsu() {
@@ -155,7 +144,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     public void setLabelMotoraConsu(JLabel LabelMotoraConsu) {
         this.LabelMotoraConsu = LabelMotoraConsu;
     }
-
 
     public JLabel getLabelOcularConsu() {
         return LabelOcularConsu;
@@ -196,7 +184,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     public void setLabelSaturacion_OxigenoConsu(JLabel LabelSaturacion_OxigenoConsu) {
         this.LabelSaturacion_OxigenoConsu = LabelSaturacion_OxigenoConsu;
     }
-
 
     public JLabel getLabelTallaConsu() {
         return LabelTallaConsu;
@@ -374,9 +361,8 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     public void setTxtVacunasPersonales(JTextField TxtVacunasPersonales) {
         this.TxtVacunasPersonales = TxtVacunasPersonales;
     }
-    
-    //getteres and setters  antecedenetes  Familiares
 
+    //getteres and setters  antecedenetes  Familiares
     public JComboBox<String> getComboBoxParentesco() {
         return ComboBoxParentesco;
     }
@@ -483,7 +469,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         LabelFrecuencia_CardiacaConsu = new javax.swing.JLabel();
         LabelFrecuencia_RespiratoriaConsu = new javax.swing.JLabel();
         LabelSaturacion_OxigenoConsu = new javax.swing.JLabel();
-        LabelGlasgowConsu = new javax.swing.JLabel();
         LabelTemperaturaConsu = new javax.swing.JLabel();
         LabelVerbalConsu = new javax.swing.JLabel();
         LabelOcularConsu = new javax.swing.JLabel();
@@ -495,7 +480,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
@@ -506,7 +490,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         LabelLlenado_CapilarConsu = new javax.swing.JLabel();
         LabelR_PupilarConsu = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
-        jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
         jSeparator12 = new javax.swing.JSeparator();
         jSeparator13 = new javax.swing.JSeparator();
@@ -633,28 +616,36 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         panelRound1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 170, 10));
 
         TxtFechaNacimientoPaciente.setBorder(null);
+        TxtFechaNacimientoPaciente.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         panelRound1.add(TxtFechaNacimientoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 130, 20));
 
         TxtNombrePaciente.setBorder(null);
+        TxtNombrePaciente.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         panelRound1.add(TxtNombrePaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 150, 20));
 
         TxtIdentificacionPaciente.setBorder(null);
+        TxtIdentificacionPaciente.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         panelRound1.add(TxtIdentificacionPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 170, 20));
 
         TxtCelularPaciente.setBorder(null);
+        TxtCelularPaciente.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         panelRound1.add(TxtCelularPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 170, 20));
 
         TxtSexoPaciente.setBorder(null);
+        TxtSexoPaciente.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         panelRound1.add(TxtSexoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 170, 20));
 
         TxtCorreoPaciente.setBorder(null);
+        TxtCorreoPaciente.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         panelRound1.add(TxtCorreoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 170, 20));
 
         TxtDireccionPaciente.setBorder(null);
+        TxtDireccionPaciente.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         panelRound1.add(TxtDireccionPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 170, 20));
         panelRound1.add(jSeparator28, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 160, 10));
 
         TxtApellidoPaciente.setBorder(null);
+        TxtApellidoPaciente.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         panelRound1.add(TxtApellidoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 160, 20));
 
         jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -709,14 +700,13 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         panelRound3.add(LabelPresion_ArterialConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 80, 22));
         panelRound3.add(LabelPesoConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, 80, 22));
         panelRound3.add(LabelTallaConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 80, 22));
-        panelRound3.add(LabelIndice_Masa_CorporalConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 80, 22));
+        panelRound3.add(LabelIndice_Masa_CorporalConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 80, 22));
         panelRound3.add(LabelFrecuencia_CardiacaConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 80, 22));
         panelRound3.add(LabelFrecuencia_RespiratoriaConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 80, 22));
         panelRound3.add(LabelSaturacion_OxigenoConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 80, 22));
-        panelRound3.add(LabelGlasgowConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 80, 22));
-        panelRound3.add(LabelTemperaturaConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 80, 22));
-        panelRound3.add(LabelVerbalConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 80, 22));
-        panelRound3.add(LabelOcularConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 80, 22));
+        panelRound3.add(LabelTemperaturaConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 80, 22));
+        panelRound3.add(LabelVerbalConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 80, 22));
+        panelRound3.add(LabelOcularConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 80, 22));
 
         jLabel15.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel15.setText("Presion Arterial:");
@@ -732,7 +722,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         jLabel18.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel18.setText("Masa Corporal:");
-        panelRound3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        panelRound3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel19.setText("Frecuencia Cardiaca:");
@@ -744,23 +734,19 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         jLabel21.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel21.setText("Temperatura:");
-        panelRound3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
+        panelRound3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Maiandra GD", 1, 13)); // NOI18N
         jLabel22.setText("Saturacion de Oxigeno:");
         panelRound3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
-        jLabel23.setFont(new java.awt.Font("Maiandra GD", 1, 15)); // NOI18N
-        jLabel23.setText("Glasgow:");
-        panelRound3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
-
         jLabel41.setFont(new java.awt.Font("Maiandra GD", 1, 15)); // NOI18N
         jLabel41.setText("Ocular:");
-        panelRound3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
+        panelRound3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
 
         jLabel42.setFont(new java.awt.Font("Maiandra GD", 1, 15)); // NOI18N
         jLabel42.setText("Verbal:");
-        panelRound3.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
+        panelRound3.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
 
         jLabel55.setFont(new java.awt.Font("Maiandra GD", 1, 13)); // NOI18N
         jLabel55.setText("Llenado Capilar:");
@@ -772,28 +758,27 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         jLabel57.setFont(new java.awt.Font("Maiandra GD", 1, 15)); // NOI18N
         jLabel57.setText("Motora:");
-        panelRound3.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, -1, -1));
-        panelRound3.add(LabelMotoraConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 80, 22));
+        panelRound3.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
+        panelRound3.add(LabelMotoraConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 80, 22));
         panelRound3.add(LabelTotalConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 80, 22));
         panelRound3.add(LabelLlenado_CapilarConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 80, 22));
-        panelRound3.add(LabelR_PupilarConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 80, 22));
+        panelRound3.add(LabelR_PupilarConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 80, 22));
 
         jLabel58.setFont(new java.awt.Font("Maiandra GD", 1, 13)); // NOI18N
         jLabel58.setText("Reacción Pupilar:");
-        panelRound3.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, -1));
-        panelRound3.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 80, 10));
+        panelRound3.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
         panelRound3.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 80, 10));
-        panelRound3.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 80, 10));
+        panelRound3.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 80, 10));
         panelRound3.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 80, 10));
         panelRound3.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 80, 10));
         panelRound3.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 80, 10));
         panelRound3.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 80, 10));
         panelRound3.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 80, 10));
-        panelRound3.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 80, 10));
-        panelRound3.add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 80, 10));
-        panelRound3.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 80, 10));
-        panelRound3.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 80, 10));
-        panelRound3.add(jSeparator22, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 80, 10));
+        panelRound3.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 80, 10));
+        panelRound3.add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 80, 10));
+        panelRound3.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 80, 10));
+        panelRound3.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 80, 10));
+        panelRound3.add(jSeparator22, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 80, 10));
         panelRound3.add(jSeparator23, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 80, 10));
         panelRound3.add(jSeparator24, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 80, 10));
 
@@ -827,6 +812,8 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jLabel11.setText("|");
         Panelbtn.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 20, 50));
         Panelbtn.add(LabelAñoUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 70, 20));
+
+        LabelDocNombreMostrarDatos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Panelbtn.add(LabelDocNombreMostrarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 260, 30));
         Panelbtn.add(LabelMotivoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 180, 30));
         Panelbtn.add(LabelDiaUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 30));
@@ -883,13 +870,29 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jPanel1.add(jSeparator37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 360, 10));
         jPanel1.add(jSeparator38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 360, 10));
         jPanel1.add(jSeparator39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 360, 10));
+
+        TxtAlergiasPersonales.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel1.add(TxtAlergiasPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 360, 30));
+
+        TxtGinecologicoPersonales.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel1.add(TxtGinecologicoPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 360, 30));
+
+        TxtTraumatologicoPersonales.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel1.add(TxtTraumatologicoPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 360, 30));
+
+        TxtVacunasPersonales.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel1.add(TxtVacunasPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 360, 30));
+
+        TxtClinicoPersonales.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel1.add(TxtClinicoPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 360, 30));
+
+        TxtFarmacologicoPersonales.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel1.add(TxtFarmacologicoPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 360, 30));
+
+        TxtEnfermedadesPersonales.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel1.add(TxtEnfermedadesPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 360, 30));
+
+        TxtCirugiasPersonales.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel1.add(TxtCirugiasPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 360, 30));
 
         jScrollPane3.setViewportView(jPanel1);
@@ -938,11 +941,23 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         ComboBoxParentesco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Otro", "Padres", "Hijos", "Abuelos", "Hermanos" }));
         jPanel2.add(ComboBoxParentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 280, -1));
+
+        TxtCirugiasFamiliares.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel2.add(TxtCirugiasFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 360, 30));
+
+        TxtAlergiasFamiliares.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel2.add(TxtAlergiasFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 360, 30));
+
+        TxtClinicoFamiliares.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel2.add(TxtClinicoFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 360, 30));
+
+        TxtTraumatologiaFamiliares.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel2.add(TxtTraumatologiaFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 360, 30));
+
+        TxFarmacologiaFamiliares.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel2.add(TxFarmacologiaFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 360, 30));
+
+        TxtEnfermedadesFamiliares.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jPanel2.add(TxtEnfermedadesFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 360, 30));
 
         jScrollPane2.setViewportView(jPanel2);
@@ -960,8 +975,8 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnNuevaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNuevaConsultaActionPerformed
-       FrmNuevaConsulta pa=new FrmNuevaConsulta();
-       pa.setVisible(true);
+        FrmNuevaConsulta pa = new FrmNuevaConsulta();
+        pa.setVisible(true);
     }//GEN-LAST:event_BtnNuevaConsultaActionPerformed
 
     private void PanelbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelbtnMousePressed
@@ -984,7 +999,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel LabelEdadConsu;
     private javax.swing.JLabel LabelFrecuencia_CardiacaConsu;
     private javax.swing.JLabel LabelFrecuencia_RespiratoriaConsu;
-    private javax.swing.JLabel LabelGlasgowConsu;
     private javax.swing.JLabel LabelIndice_Masa_CorporalConsu;
     private javax.swing.JLabel LabelLlenado_CapilarConsu;
     private javax.swing.JLabel LabelMesUltimaCita;
@@ -1036,7 +1050,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -1072,7 +1085,6 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
