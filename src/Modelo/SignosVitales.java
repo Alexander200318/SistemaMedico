@@ -19,7 +19,6 @@ public class SignosVitales {
     private int frecuenciaRespiratoria;
     private float temperatura;
     private float saturacionOxigeno;
-    private int glasgow;
     private int ocular;
     private int verbal;
     private int motora;
@@ -28,7 +27,7 @@ public class SignosVitales {
     private String rPupilar;
     private int idTriage;
 
-    public SignosVitales(int idSigVitales, String presionArterial, float peso, float talla, float indiceMasaCorporal, int frecuenciaCardiaca, int frecuenciaRespiratoria, float temperatura, float saturacionOxigeno, int glasgow, int ocular, int verbal, int motora, int total, String llenadoCapilar, String rPupilar, int idTriage) {
+    public SignosVitales(int idSigVitales, String presionArterial, float peso, float talla, float indiceMasaCorporal, int frecuenciaCardiaca, int frecuenciaRespiratoria, float temperatura, float saturacionOxigeno, int ocular, int verbal, int motora, int total, String llenadoCapilar, String rPupilar, int idTriage) {
         this.idSigVitales = idSigVitales;
         this.presionArterial = presionArterial;
         this.peso = peso;
@@ -38,7 +37,6 @@ public class SignosVitales {
         this.frecuenciaRespiratoria = frecuenciaRespiratoria;
         this.temperatura = temperatura;
         this.saturacionOxigeno = saturacionOxigeno;
-        this.glasgow = glasgow;
         this.ocular = ocular;
         this.verbal = verbal;
         this.motora = motora;
@@ -48,6 +46,27 @@ public class SignosVitales {
         this.idTriage = idTriage;
     }
 
+    public SignosVitales(String presionArterial, float peso, float talla, float indiceMasaCorporal, int frecuenciaCardiaca, int frecuenciaRespiratoria, float temperatura, float saturacionOxigeno, int ocular, int verbal, int motora, int total, String llenadoCapilar, String rPupilar, int idTriage) {
+        this.presionArterial = presionArterial;
+        this.peso = peso;
+        this.talla = talla;
+        this.indiceMasaCorporal = indiceMasaCorporal;
+        this.frecuenciaCardiaca = frecuenciaCardiaca;
+        this.frecuenciaRespiratoria = frecuenciaRespiratoria;
+        this.temperatura = temperatura;
+        this.saturacionOxigeno = saturacionOxigeno;
+        this.ocular = ocular;
+        this.verbal = verbal;
+        this.motora = motora;
+        this.total = total;
+        this.llenadoCapilar = llenadoCapilar;
+        this.rPupilar = rPupilar;
+        this.idTriage = idTriage;
+    }
+
+    
+    
+   
     public int getIdSigVitales() {
         return idSigVitales;
     }
@@ -120,14 +139,6 @@ public class SignosVitales {
         this.saturacionOxigeno = saturacionOxigeno;
     }
 
-    public int getGlasgow() {
-        return glasgow;
-    }
-
-    public void setGlasgow(int glasgow) {
-        this.glasgow = glasgow;
-    }
-
     public int getOcular() {
         return ocular;
     }
@@ -186,7 +197,7 @@ public class SignosVitales {
 
     @Override
     public String toString() {
-        return "SignosVitales{" + "idSigVitales=" + idSigVitales + ", presionArterial=" + presionArterial + ", peso=" + peso + ", talla=" + talla + ", indiceMasaCorporal=" + indiceMasaCorporal + ", frecuenciaCardiaca=" + frecuenciaCardiaca + ", frecuenciaRespiratoria=" + frecuenciaRespiratoria + ", temperatura=" + temperatura + ", saturacionOxigeno=" + saturacionOxigeno + ", glasgow=" + glasgow + ", ocular=" + ocular + ", verbal=" + verbal + ", motora=" + motora + ", total=" + total + ", llenadoCapilar=" + llenadoCapilar + ", rPupilar=" + rPupilar + ", idTriage=" + idTriage + '}';
+        return "SignosVitales{" + "idSigVitales=" + idSigVitales + ", presionArterial=" + presionArterial + ", peso=" + peso + ", talla=" + talla + ", indiceMasaCorporal=" + indiceMasaCorporal + ", frecuenciaCardiaca=" + frecuenciaCardiaca + ", frecuenciaRespiratoria=" + frecuenciaRespiratoria + ", temperatura=" + temperatura + ", saturacionOxigeno=" + saturacionOxigeno + ", ocular=" + ocular + ", verbal=" + verbal + ", motora=" + motora + ", total=" + total + ", llenadoCapilar=" + llenadoCapilar + ", rPupilar=" + rPupilar + ", idTriage=" + idTriage + '}';
     }
     
 }

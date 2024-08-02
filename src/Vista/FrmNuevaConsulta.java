@@ -31,6 +31,16 @@ ControladorFrmNuevaConsul controlador;
     public FrmNuevaConsulta() {
         initComponents();
         controlador = new ControladorFrmNuevaConsul(this);
+        // Inicialización de componentes
+        btnSiEmbarazo = new JRadioButton("Si");
+        JChFechaProbableParto = new JDateChooser();
+        SpinnerDiasGestacion = new JSpinner();
+        SpinnerNumControles = new JSpinner();
+        btnActivaInmunizacion = new JRadioButton("Activa");
+        btnPasivaInmunizacion = new JRadioButton("Pasiva");
+        btnSiguiente = new JButton("Siguiente");
+        btnTerminarConsulta = new JButton("Terminar Consulta");
+        jTabbedPane = new JTabbedPane();
     }
 
    
@@ -39,9 +49,7 @@ ControladorFrmNuevaConsul controlador;
     private void initComponents() {
 
         btnGrpRegularidad = new javax.swing.ButtonGroup();
-        btnGrpEmbarazo = new javax.swing.ButtonGroup();
         btnGrpInmunizaciones = new javax.swing.ButtonGroup();
-        btnGrpExComplementario = new javax.swing.ButtonGroup();
         btnGrpTipoDiagnostico = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         panelRound2 = new Modelo.PanelRound();
@@ -149,11 +157,10 @@ ControladorFrmNuevaConsul controlador;
         CmbBoxTriage = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
-        jTextArea9 = new javax.swing.JTextArea();
+        txtAreaPielYFaneras = new javax.swing.JTextArea();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jSeparator22 = new javax.swing.JSeparator();
-        txtMenarca = new javax.swing.JTextField();
         lblFrecRespiratoria2 = new javax.swing.JLabel();
         lblFrecRespiratoria3 = new javax.swing.JLabel();
         lblFrecRespiratoria4 = new javax.swing.JLabel();
@@ -170,18 +177,16 @@ ControladorFrmNuevaConsul controlador;
         btnRegular = new javax.swing.JRadioButton();
         SpinnerNumParejasSexuales = new javax.swing.JSpinner();
         SpIniVidSexualActiva = new javax.swing.JSpinner();
+        SpinnerMenarca = new javax.swing.JSpinner();
         jPanel15 = new javax.swing.JPanel();
         lblFrecRespiratoria9 = new javax.swing.JLabel();
         lblFrecRespiratoria10 = new javax.swing.JLabel();
         lblFrecRespiratoria11 = new javax.swing.JLabel();
         lblFrecRespiratoria12 = new javax.swing.JLabel();
-        lblFrecRespiratoria13 = new javax.swing.JLabel();
         jSeparator35 = new javax.swing.JSeparator();
         jSeparator36 = new javax.swing.JSeparator();
         jSeparator37 = new javax.swing.JSeparator();
         jSeparator38 = new javax.swing.JSeparator();
-        jSeparator39 = new javax.swing.JSeparator();
-        txtCampo = new javax.swing.JTextField();
         SpinnerMastodinia = new javax.swing.JSpinner();
         SpinnerAbortos = new javax.swing.JSpinner();
         SpinnerPartos = new javax.swing.JSpinner();
@@ -190,8 +195,8 @@ ControladorFrmNuevaConsul controlador;
         lblFrecRespiratoria20 = new javax.swing.JLabel();
         jSeparator46 = new javax.swing.JSeparator();
         lblFrecRespiratoria8 = new javax.swing.JLabel();
-        txtGravides = new javax.swing.JTextField();
         jSeparator40 = new javax.swing.JSeparator();
+        SpinnerGravides = new javax.swing.JSpinner();
         jPanel16 = new javax.swing.JPanel();
         lblFrecRespiratoria1 = new javax.swing.JLabel();
         lblFrecRespiratoria14 = new javax.swing.JLabel();
@@ -204,7 +209,6 @@ ControladorFrmNuevaConsul controlador;
         jSeparator44 = new javax.swing.JSeparator();
         jSeparator45 = new javax.swing.JSeparator();
         btnSiEmbarazo = new javax.swing.JRadioButton();
-        btnNoEmbarazo = new javax.swing.JRadioButton();
         lblFrecRespiratoria19 = new javax.swing.JLabel();
         JChFechaProbableParto = new com.toedter.calendar.JDateChooser();
         SpinnerSemGestacion = new javax.swing.JSpinner();
@@ -225,8 +229,6 @@ ControladorFrmNuevaConsul controlador;
         jScrollPane23 = new javax.swing.JScrollPane();
         txtAreaExComplemetario = new javax.swing.JTextArea();
         btnSiAplica = new javax.swing.JRadioButton();
-        btnNoAplica = new javax.swing.JRadioButton();
-        jSeparator47 = new javax.swing.JSeparator();
         jSeparator48 = new javax.swing.JSeparator();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane24 = new javax.swing.JScrollPane();
@@ -600,9 +602,9 @@ ControladorFrmNuevaConsul controlador;
         jLabel12.setText("Piel y faneras");
         jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, -1));
 
-        jTextArea9.setColumns(20);
-        jTextArea9.setRows(5);
-        jScrollPane13.setViewportView(jTextArea9);
+        txtAreaPielYFaneras.setColumns(20);
+        txtAreaPielYFaneras.setRows(5);
+        jScrollPane13.setViewportView(txtAreaPielYFaneras);
 
         jPanel8.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 250, 40));
 
@@ -621,16 +623,6 @@ ControladorFrmNuevaConsul controlador;
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 12))); // NOI18N
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel14.add(jSeparator22, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 200, 10));
-
-        txtMenarca.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
-        txtMenarca.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtMenarca.setBorder(null);
-        txtMenarca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMenarcaActionPerformed(evt);
-            }
-        });
-        jPanel14.add(txtMenarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 200, 20));
 
         lblFrecRespiratoria2.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         lblFrecRespiratoria2.setText("Menarca:");
@@ -691,6 +683,10 @@ ControladorFrmNuevaConsul controlador;
         SpIniVidSexualActiva.setBorder(null);
         jPanel14.add(SpIniVidSexualActiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 100, -1));
 
+        SpinnerMenarca.setModel(new javax.swing.SpinnerNumberModel(0, 0, 70, 1));
+        SpinnerMenarca.setBorder(null);
+        jPanel14.add(SpinnerMenarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 20, 100, -1));
+
         jPanel13.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 320, 300));
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
@@ -712,25 +708,15 @@ ControladorFrmNuevaConsul controlador;
         lblFrecRespiratoria12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         lblFrecRespiratoria12.setText("Mastodinia:");
         jPanel15.add(lblFrecRespiratoria12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 80, 20));
-
-        lblFrecRespiratoria13.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        lblFrecRespiratoria13.setText("Campo:");
-        jPanel15.add(lblFrecRespiratoria13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 80, 20));
         jPanel15.add(jSeparator35, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 210, 10));
         jPanel15.add(jSeparator36, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 170, 10));
         jPanel15.add(jSeparator37, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 150, 10));
-        jPanel15.add(jSeparator38, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 60, 10));
-        jPanel15.add(jSeparator39, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 210, 10));
-
-        txtCampo.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
-        txtCampo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCampo.setBorder(null);
-        jPanel15.add(txtCampo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 210, 20));
+        jPanel15.add(jSeparator38, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 210, 10));
 
         SpinnerMastodinia.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
         SpinnerMastodinia.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         SpinnerMastodinia.setBorder(null);
-        jPanel15.add(SpinnerMastodinia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 60, -1));
+        jPanel15.add(SpinnerMastodinia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 210, -1));
 
         SpinnerAbortos.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
         SpinnerAbortos.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
@@ -750,22 +736,21 @@ ControladorFrmNuevaConsul controlador;
         SpinnerDismenorrea.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
         SpinnerDismenorrea.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         SpinnerDismenorrea.setBorder(null);
-        jPanel15.add(SpinnerDismenorrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 60, -1));
+        jPanel15.add(SpinnerDismenorrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 200, -1));
 
         lblFrecRespiratoria20.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         lblFrecRespiratoria20.setText("Dismenorrea:");
-        jPanel15.add(lblFrecRespiratoria20, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 90, 20));
-        jPanel15.add(jSeparator46, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 60, 10));
+        jPanel15.add(lblFrecRespiratoria20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 90, 20));
+        jPanel15.add(jSeparator46, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 200, 10));
 
         lblFrecRespiratoria8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         lblFrecRespiratoria8.setText("Gravides:");
         jPanel15.add(lblFrecRespiratoria8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 20));
-
-        txtGravides.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
-        txtGravides.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtGravides.setBorder(null);
-        jPanel15.add(txtGravides, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 200, 20));
         jPanel15.add(jSeparator40, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 200, 10));
+
+        SpinnerGravides.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        SpinnerGravides.setBorder(null);
+        jPanel15.add(SpinnerGravides, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 70, -1));
 
         jPanel13.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 330, 300));
 
@@ -798,15 +783,9 @@ ControladorFrmNuevaConsul controlador;
         jPanel16.add(jSeparator44, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 150, 10));
         jPanel16.add(jSeparator45, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 180, 10));
 
-        btnGrpEmbarazo.add(btnSiEmbarazo);
         btnSiEmbarazo.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         btnSiEmbarazo.setText("Si");
         jPanel16.add(btnSiEmbarazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, 20));
-
-        btnGrpEmbarazo.add(btnNoEmbarazo);
-        btnNoEmbarazo.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        btnNoEmbarazo.setText("No");
-        jPanel16.add(btnNoEmbarazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
         lblFrecRespiratoria19.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         lblFrecRespiratoria19.setText("¿Se encuentra actualmente embarazada?");
@@ -902,17 +881,10 @@ ControladorFrmNuevaConsul controlador;
 
         jPanel11.add(jScrollPane23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 290, 180));
 
-        btnGrpExComplementario.add(btnSiAplica);
         btnSiAplica.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         btnSiAplica.setText("Aplica");
-        jPanel11.add(btnSiAplica, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
-
-        btnGrpExComplementario.add(btnNoAplica);
-        btnNoAplica.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        btnNoAplica.setText("No Aplica");
-        jPanel11.add(btnNoAplica, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
-        jPanel11.add(jSeparator47, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 90, 10));
-        jPanel11.add(jSeparator48, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 90, 10));
+        jPanel11.add(btnSiAplica, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+        jPanel11.add(jSeparator48, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 90, 10));
 
         jPanel6.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 310, 270));
 
@@ -992,10 +964,6 @@ ControladorFrmNuevaConsul controlador;
     private void TxtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtTotalActionPerformed
-
-    private void txtMenarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMenarcaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMenarcaActionPerformed
 
     private void btnIrregularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIrregularActionPerformed
         // TODO add your handling code here:
@@ -1394,22 +1362,6 @@ ControladorFrmNuevaConsul controlador;
         this.btnDefinitivo = btnDefinitivo;
     }
 
-    public ButtonGroup getBtnGrpEmbarazo() {
-        return btnGrpEmbarazo;
-    }
-
-    public void setBtnGrpEmbarazo(ButtonGroup btnGrpEmbarazo) {
-        this.btnGrpEmbarazo = btnGrpEmbarazo;
-    }
-
-    public ButtonGroup getBtnGrpExComplementario() {
-        return btnGrpExComplementario;
-    }
-
-    public void setBtnGrpExComplementario(ButtonGroup btnGrpExComplementario) {
-        this.btnGrpExComplementario = btnGrpExComplementario;
-    }
-
     public ButtonGroup getBtnGrpInmunizaciones() {
         return btnGrpInmunizaciones;
     }
@@ -1440,22 +1392,6 @@ ControladorFrmNuevaConsul controlador;
 
     public void setBtnIrregular(JRadioButton btnIrregular) {
         this.btnIrregular = btnIrregular;
-    }
-
-    public JRadioButton getBtnNoAplica() {
-        return btnNoAplica;
-    }
-
-    public void setBtnNoAplica(JRadioButton btnNoAplica) {
-        this.btnNoAplica = btnNoAplica;
-    }
-
-    public JRadioButton getBtnNoEmbarazo() {
-        return btnNoEmbarazo;
-    }
-
-    public void setBtnNoEmbarazo(JRadioButton btnNoEmbarazo) {
-        this.btnNoEmbarazo = btnNoEmbarazo;
     }
 
     public JRadioButton getBtnPasivaInmunizacion() {
@@ -1514,14 +1450,6 @@ ControladorFrmNuevaConsul controlador;
         this.txtAreaExComplemetario = txtAreaExComplemetario;
     }
 
-    public JTextField getTxtCampo() {
-        return txtCampo;
-    }
-
-    public void setTxtCampo(JTextField txtCampo) {
-        this.txtCampo = txtCampo;
-    }
-
     public JTextField getTxtCiclo() {
         return txtCiclo;
     }
@@ -1530,21 +1458,23 @@ ControladorFrmNuevaConsul controlador;
         this.txtCiclo = txtCiclo;
     }
 
-    public JTextField getTxtGravides() {
-        return txtGravides;
+    public JSpinner getSpinnerGravides() {
+        return SpinnerGravides;
     }
 
-    public void setTxtGravides(JTextField txtGravides) {
-        this.txtGravides = txtGravides;
+    public void setSpinnerGravides(JSpinner SpinnerGravides) {
+        this.SpinnerGravides = SpinnerGravides;
     }
 
-    public JTextField getTxtMenarca() {
-        return txtMenarca;
+    public JSpinner getSpinnerMenarca() {
+        return SpinnerMenarca;
     }
 
-    public void setTxtMenarca(JTextField txtMenarca) {
-        this.txtMenarca = txtMenarca;
+    public void setSpinnerMenarca(JSpinner SpinnerMenarca) {
+        this.SpinnerMenarca = SpinnerMenarca;
     }
+
+    
 
     public JComboBox<String> getCmbBoxTriage() {
         return CmbBoxTriage;
@@ -1552,6 +1482,14 @@ ControladorFrmNuevaConsul controlador;
 
     public void setCmbBoxTriage(JComboBox<String> CmbBoxTriage) {
         this.CmbBoxTriage = CmbBoxTriage;
+    }
+
+    public JTextArea getTxtAreaPielYFaneras() {
+        return txtAreaPielYFaneras;
+    }
+
+    public void setTxtAreaPielYFaneras(JTextArea txtAreaPielYFaneras) {
+        this.txtAreaPielYFaneras = txtAreaPielYFaneras;
     }
     
     
@@ -1701,6 +1639,38 @@ ControladorFrmNuevaConsul controlador;
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1720,7 +1690,9 @@ ControladorFrmNuevaConsul controlador;
     private javax.swing.JSpinner SpinnerCesarias;
     private javax.swing.JSpinner SpinnerDiasGestacion;
     private javax.swing.JSpinner SpinnerDismenorrea;
+    public javax.swing.JSpinner SpinnerGravides;
     private javax.swing.JSpinner SpinnerMastodinia;
+    public javax.swing.JSpinner SpinnerMenarca;
     private javax.swing.JSpinner SpinnerNumControles;
     private javax.swing.JSpinner SpinnerNumParejasSexuales;
     private javax.swing.JSpinner SpinnerPartos;
@@ -1728,14 +1700,10 @@ ControladorFrmNuevaConsul controlador;
     private javax.swing.JTextField TxtTotal;
     private javax.swing.JRadioButton btnActivaInmunizacion;
     private javax.swing.JRadioButton btnDefinitivo;
-    private javax.swing.ButtonGroup btnGrpEmbarazo;
-    private javax.swing.ButtonGroup btnGrpExComplementario;
     private javax.swing.ButtonGroup btnGrpInmunizaciones;
     private javax.swing.ButtonGroup btnGrpRegularidad;
     private javax.swing.ButtonGroup btnGrpTipoDiagnostico;
     private javax.swing.JRadioButton btnIrregular;
-    private javax.swing.JRadioButton btnNoAplica;
-    private javax.swing.JRadioButton btnNoEmbarazo;
     private javax.swing.JRadioButton btnPasivaInmunizacion;
     private javax.swing.JRadioButton btnPresuntivo;
     private javax.swing.JRadioButton btnRegular;
@@ -1827,7 +1795,6 @@ ControladorFrmNuevaConsul controlador;
     private javax.swing.JSeparator jSeparator36;
     private javax.swing.JSeparator jSeparator37;
     private javax.swing.JSeparator jSeparator38;
-    private javax.swing.JSeparator jSeparator39;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator40;
     private javax.swing.JSeparator jSeparator41;
@@ -1836,7 +1803,6 @@ ControladorFrmNuevaConsul controlador;
     private javax.swing.JSeparator jSeparator44;
     private javax.swing.JSeparator jSeparator45;
     private javax.swing.JSeparator jSeparator46;
-    private javax.swing.JSeparator jSeparator47;
     private javax.swing.JSeparator jSeparator48;
     private javax.swing.JSeparator jSeparator49;
     private javax.swing.JSeparator jSeparator5;
@@ -1846,7 +1812,6 @@ ControladorFrmNuevaConsul controlador;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane;
-    private javax.swing.JTextArea jTextArea9;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEstatura;
@@ -1858,7 +1823,6 @@ ControladorFrmNuevaConsul controlador;
     private javax.swing.JLabel lblFrecRespiratoria10;
     private javax.swing.JLabel lblFrecRespiratoria11;
     private javax.swing.JLabel lblFrecRespiratoria12;
-    private javax.swing.JLabel lblFrecRespiratoria13;
     private javax.swing.JLabel lblFrecRespiratoria14;
     private javax.swing.JLabel lblFrecRespiratoria15;
     private javax.swing.JLabel lblFrecRespiratoria16;
@@ -1890,19 +1854,17 @@ ControladorFrmNuevaConsul controlador;
     private javax.swing.JTextArea txtAreaInstrucciones;
     private javax.swing.JTextArea txtAreaM_Inferior;
     private javax.swing.JTextArea txtAreaM_Superior;
+    private javax.swing.JTextArea txtAreaPielYFaneras;
     private javax.swing.JTextArea txtAreaPlanTrat;
     private javax.swing.JTextArea txtAreaR_Inguinal;
     private javax.swing.JTextArea txtAreaTorax;
-    private javax.swing.JTextField txtCampo;
     private javax.swing.JTextField txtCiclo;
     private javax.swing.JTextField txtEstatura;
     private javax.swing.JTextField txtFreCardiaca;
     private javax.swing.JTextField txtFrecRespiratoria;
-    private javax.swing.JTextField txtGravides;
     private javax.swing.JButton txtImprimirReceta;
     private javax.swing.JTextField txtLlenadoCapilar;
     private javax.swing.JTextField txtMasaCorporal;
-    private javax.swing.JTextField txtMenarca;
     private javax.swing.JTextField txtMotora;
     private javax.swing.JTextArea txtNotasConsulta;
     private javax.swing.JTextField txtOcular;

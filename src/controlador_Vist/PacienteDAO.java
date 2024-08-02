@@ -147,14 +147,13 @@ public class PacienteDAO {
             psSignosVitales.setInt(6, signosVitales.getFrecuenciaRespiratoria());
             psSignosVitales.setFloat(7, signosVitales.getTemperatura());
             psSignosVitales.setFloat(8, signosVitales.getSaturacionOxigeno());
-            psSignosVitales.setInt(9, signosVitales.getGlasgow());
-            psSignosVitales.setInt(10, signosVitales.getOcular());
-            psSignosVitales.setInt(11, signosVitales.getVerbal());
-            psSignosVitales.setInt(12, signosVitales.getMotora());
-            psSignosVitales.setInt(13, signosVitales.getTotal());
-            psSignosVitales.setString(14, signosVitales.getLlenadoCapilar());
-            psSignosVitales.setString(15, signosVitales.getrPupilar());
-            psSignosVitales.setInt(16, signosVitales.getIdTriage());
+            psSignosVitales.setInt(9, signosVitales.getOcular());
+            psSignosVitales.setInt(10, signosVitales.getVerbal());
+            psSignosVitales.setInt(11, signosVitales.getMotora());
+            psSignosVitales.setInt(12, signosVitales.getTotal());
+            psSignosVitales.setString(13, signosVitales.getLlenadoCapilar());
+            psSignosVitales.setString(14, signosVitales.getrPupilar());
+            psSignosVitales.setInt(15, signosVitales.getIdTriage());
             psSignosVitales.executeUpdate();
 
             // Insertar en la tabla Examen_Fisico

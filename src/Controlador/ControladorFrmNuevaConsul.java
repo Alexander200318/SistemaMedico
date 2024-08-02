@@ -4,9 +4,9 @@
  */
 package Controlador;
 
-
 import Modelo.*;
 import Vista.FrmNuevaConsulta;
+import com.toedter.calendar.JDateChooser;
 import controlador_Vist.PacienteDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,22 +18,32 @@ import java.sql.Date;
 import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
 import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
 import javax.swing.SwingUtilities;
 
 public class ControladorFrmNuevaConsul {
+
     private FrmNuevaConsulta ventanaNvConsulta;
     private Singleton singleton;
     private PacienteDAO pacienteDao;
     private ConsultaDAO consultaDAO;
 
     // Campos de la ventana
-    private JButton btnGuardarHistorial;
     private JButton btnSiguiente;
     private JButton btnTerminarConsulta;
     private JTabbedPane tabbedPane;
+    private JRadioButton btnSiEmbarazo;
+    private JRadioButton btnSiAplica;
+    private JDateChooser jChFechaProbableParto;
+    private JSpinner SpinnerSemGestacion;
+    private JSpinner SpinnerDiasGestacion;
+    private JSpinner spinnerNumControles;
+    private JRadioButton btnActivaInmunizacion;
+    private JRadioButton btnPasivaInmunizacion;
 
     public ControladorFrmNuevaConsul(FrmNuevaConsulta ventanaNvConsulta) {
         this.ventanaNvConsulta = ventanaNvConsulta;
@@ -43,6 +53,14 @@ public class ControladorFrmNuevaConsul {
         this.btnSiguiente = ventanaNvConsulta.getBtnSiguiente();
         this.btnTerminarConsulta = ventanaNvConsulta.getBtnTerminarConsulta();
         this.tabbedPane = ventanaNvConsulta.getjTabbedPane();
+        this.btnSiEmbarazo = ventanaNvConsulta.getBtnSiEmbarazo();
+        this.jChFechaProbableParto = ventanaNvConsulta.getJChFechaProbableParto();
+        this.SpinnerSemGestacion = ventanaNvConsulta.getSpinnerSemGestacion();
+        this.SpinnerDiasGestacion = ventanaNvConsulta.getSpinnerDiasGestacion();
+        this.spinnerNumControles = ventanaNvConsulta.getSpinnerNumControles();
+        this.btnActivaInmunizacion = ventanaNvConsulta.getBtnActivaInmunizacion();
+        this.btnPasivaInmunizacion = ventanaNvConsulta.getBtnPasivaInmunizacion();
+        this.btnSiAplica = ventanaNvConsulta.getBtnSiAplica();
 
         // Inicializar el DAO
         Conexion conexion = new Conexion();
@@ -71,6 +89,53 @@ public class ControladorFrmNuevaConsul {
                     JOptionPane.showMessageDialog(null, "Consulta guardada con éxito");
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Error al guardar la consulta: " + ex.getMessage());
+                }
+            }
+        });
+
+        ventanaNvConsulta.getTxtAreaExComplemetario().setEnabled(false);
+
+        btnSiAplica.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                boolean isSelected = false;
+                isSelected = btnSiAplica.isSelected();
+
+                if (!isSelected) {
+                    ventanaNvConsulta.getTxtAreaExComplemetario().setEnabled(false);
+                } else {
+                    ventanaNvConsulta.getTxtAreaExComplemetario().setEnabled(true);
+
+                }
+            }
+        });
+        jChFechaProbableParto.setEnabled(false);
+        SpinnerSemGestacion.setEnabled(false);
+        SpinnerDiasGestacion.setEnabled(false);
+        spinnerNumControles.setEnabled(false);
+        btnActivaInmunizacion.setEnabled(false);
+        btnPasivaInmunizacion.setEnabled(false);
+        btnSiEmbarazo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                boolean isSelected = false;
+                isSelected = btnSiEmbarazo.isSelected();
+
+                if (!isSelected) {
+                    jChFechaProbableParto.setEnabled(false);
+                    SpinnerSemGestacion.setEnabled(false);
+                    SpinnerDiasGestacion.setEnabled(false);
+                    spinnerNumControles.setEnabled(false);
+                    btnActivaInmunizacion.setEnabled(false);
+                    btnPasivaInmunizacion.setEnabled(false);
+                } else {
+                    jChFechaProbableParto.setEnabled(true);
+                    SpinnerSemGestacion.setEnabled(true);
+                    SpinnerDiasGestacion.setEnabled(true);
+                    spinnerNumControles.setEnabled(true);
+                    btnActivaInmunizacion.setEnabled(true);
+                    btnPasivaInmunizacion.setEnabled(true);
                 }
             }
         });
@@ -128,69 +193,170 @@ public class ControladorFrmNuevaConsul {
         }
     }
 
-    // Método para guardar los datos de la consulta
-    
     private void guardarConsulta() throws SQLException {
-    int idPaciente = singleton.getIdPaciente();
-    int idDoctor = singleton.getId_Doctor();
-    int CIE10 = (int) ventanaNvConsulta.getSpinnerCIE10().getValue();
-    
-    String triageSeleccionado = (String) ventanaNvConsulta.getCmbBoxTriage().getSelectedItem();
-    int idTriage = obtenerIdTriage(triageSeleccionado);
-    
-    // Determinar los valores de D_Presuntivo y D_Definitivo
-    boolean D_Presuntivo = ventanaNvConsulta.getBtnPresuntivo().isSelected();
-    boolean D_Definitivo = ventanaNvConsulta.getBtnDefinitivo().isSelected();
+        try {
+            int idPaciente = singleton.getIdPaciente();
+            int idDoctor = singleton.getId_Doctor();
+            int CIE10 = (int) ventanaNvConsulta.getSpinnerCIE10().getValue();
 
-    Consulta consulta = new Consulta(
-    ventanaNvConsulta.getTxtNotasConsulta().getText(),
-            true
-    );
-    
-    Historial historial = new Historial(
-            Date.valueOf(LocalDate.now()),
-        ventanaNvConsulta.getTxtNotasConsulta().getText(), 
-        true,
-        Date.valueOf(LocalDate.now()), 
-        "En proceso", // Estado de la consulta
-        consulta.getIdConsulta(),
-        idPaciente,
-        idTriage,
-        idDoctor
-    );
-    
-    Diagnostico diagnostico = new Diagnostico( 
-    ventanaNvConsulta.getTxtAreaDiagnostico().getText(),
-    CIE10,
-    D_Presuntivo,
-    D_Definitivo,
-    historial.getIdHistorial()
-    
-    );
-    
-    Tratamiento tratamiento = new Tratamiento(
-            ventanaNvConsulta.getTxtAreaPlanTrat().getText(),
-            historial.getIdHistorial()
-        );
-    
-    Receta receta = new Receta(
-            ventanaNvConsulta.getTxtAreaPlanTrat().getText(),
-            ventanaNvConsulta.getTxtAreaInstrucciones().getText(),
-            tratamiento.getIdTratamiento()
-        );
-    
-    RegistraConsulta registraConsulta = new RegistraConsulta(
-            Date.valueOf(LocalDate.now()),
-            consulta.getIdConsulta(),
-            idDoctor,
-            idPaciente
-        );
-    
-    consultaDAO.guardarConsulta(consulta, historial, diagnostico, tratamiento, receta, registraConsulta);
-}
-    
+            String triageSeleccionado = (String) ventanaNvConsulta.getCmbBoxTriage().getSelectedItem();
+            int idTriage = obtenerIdTriage(triageSeleccionado);
 
-    // Método para cambiar al siguiente panel del JTabbedPane
+            boolean D_Presuntivo = ventanaNvConsulta.getBtnPresuntivo().isSelected();
+            boolean D_Definitivo = ventanaNvConsulta.getBtnDefinitivo().isSelected();
+
+            // Validar que los campos de texto no estén vacíos antes de convertirlos
+            if (ventanaNvConsulta.getTxtPeso().getText().isEmpty()
+                    || ventanaNvConsulta.getTxtEstatura().getText().isEmpty()
+                    || ventanaNvConsulta.getTxtFreCardiaca().getText().isEmpty()
+                    || ventanaNvConsulta.getTxtFrecRespiratoria().getText().isEmpty()
+                    || ventanaNvConsulta.getTxtTemperatura().getText().isEmpty()
+                    || ventanaNvConsulta.getTxtSaturacion().getText().isEmpty()
+                    || ventanaNvConsulta.getTxtOcular().getText().isEmpty()
+                    || ventanaNvConsulta.getTxtVerbal().getText().isEmpty()
+                    || ventanaNvConsulta.getTxtMotora().getText().isEmpty()
+                    || ventanaNvConsulta.getTxtTotal().getText().isEmpty()
+                    || ventanaNvConsulta.getTxtCiclo().getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos requeridos.");
+                return;
+            }
+
+            // Manejo de conversiones con validación
+            float peso = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtPeso());
+            float estatura = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtEstatura());
+            float imc = peso / (estatura * estatura);
+            ventanaNvConsulta.getTxtMasaCorporal().setText(String.format("%.2f", imc));
+
+            int cardiaca = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtFreCardiaca());
+            int respiratoria = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtFrecRespiratoria());
+            float temperatura = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtTemperatura());
+            float saturacion = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtSaturacion());
+
+            int ocular = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtOcular());
+            int verbal = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtVerbal());
+            int motora = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtMotora());
+            int total = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtTotal());
+
+            Consulta consulta = new Consulta(ventanaNvConsulta.getTxtNotasConsulta().getText(), true);
+
+            SignosVitales signos = new SignosVitales(
+                    ventanaNvConsulta.getTxtPresionArterial().getText(),
+                    peso,
+                    estatura,
+                    imc,
+                    cardiaca,
+                    respiratoria,
+                    temperatura,
+                    saturacion,
+                    ocular,
+                    verbal,
+                    motora,
+                    total,
+                    ventanaNvConsulta.getTxtLlenadoCapilar().getText(),
+                    ventanaNvConsulta.getTxtReaccionPupilar().getText(),
+                    idTriage
+            );
+
+            String regularidad = ventanaNvConsulta.getBtnRegular().isSelected() ? "Regular" : "Irregular";
+            String inmunizaciones = ventanaNvConsulta.getBtnActivaInmunizacion().isSelected() ? "Activa" : "Pasiva";
+
+            EmergenciaObstetrica obstetrica = new EmergenciaObstetrica(
+                    (int) ventanaNvConsulta.getSpinnerMenarca().getValue(),
+                    Integer.parseInt(ventanaNvConsulta.getTxtCiclo().getText()),
+                    new Date(ventanaNvConsulta.getJChFechaUltMenstruacion().getDate().getTime()),
+                    regularidad,
+                    (int) ventanaNvConsulta.getSpIniVidSexualActiva().getValue(),
+                    (int) ventanaNvConsulta.getSpinnerNumParejasSexuales().getValue(),
+                    (int) ventanaNvConsulta.getSpinnerGravides().getValue(),
+                    (int) ventanaNvConsulta.getSpinnerAbortos().getValue(),
+                    (int) ventanaNvConsulta.getSpinnerPartos().getValue(),
+                    (int) ventanaNvConsulta.getSpinnerCesarias().getValue(),
+                    (int) ventanaNvConsulta.getSpinnerMastodinia().getValue(),
+                    (int) ventanaNvConsulta.getSpinnerDismenorrea().getValue(),
+                    new Date(ventanaNvConsulta.getJChFechaProbableParto().getDate().getTime()),
+                    (int) ventanaNvConsulta.getSpinnerSemGestacion().getValue(),
+                    (int) ventanaNvConsulta.getSpinnerDiasGestacion().getValue(),
+                    (int) ventanaNvConsulta.getSpinnerNumControles().getValue(),
+                    inmunizaciones,
+                    idTriage,
+                    ventanaNvConsulta.getBtnSiEmbarazo().isSelected()
+            );
+
+            ExamenFisico exFisico = new ExamenFisico(
+                    ventanaNvConsulta.getTxtAreaPielYFaneras().getText(),
+                    ventanaNvConsulta.getTxtAreaCabeza().getText(),
+                    ventanaNvConsulta.getTxtAreaCuello().getText(),
+                    ventanaNvConsulta.getTxtAreaTorax().getText(),
+                    ventanaNvConsulta.getTxtAreaCorazon().getText(),
+                    ventanaNvConsulta.getTxtAreaAbdomen().getText(),
+                    ventanaNvConsulta.getTxtAreaR_Inguinal().getText(),
+                    ventanaNvConsulta.getTxtAreaM_Superior().getText(),
+                    ventanaNvConsulta.getTxtAreaM_Inferior().getText(),
+                    idTriage
+            );
+
+            ExamenComplementario exComplementario = new ExamenComplementario(
+                    ventanaNvConsulta.getTxtAreaExComplemetario().getText(),
+                    ventanaNvConsulta.getBtnSiAplica().isSelected(),
+                    consulta.getIdConsulta()
+            );
+
+            Historial historial = new Historial(
+                    Date.valueOf(LocalDate.now()),
+                    ventanaNvConsulta.getTxtNotasConsulta().getText(),
+                    true,
+                    Date.valueOf(LocalDate.now()),
+                    "En proceso",
+                    consulta.getIdConsulta(),
+                    idPaciente,
+                    idTriage,
+                    idDoctor
+            );
+
+            Diagnostico diagnostico = new Diagnostico(
+                    ventanaNvConsulta.getTxtAreaDiagnostico().getText(),
+                    CIE10,
+                    D_Presuntivo,
+                    D_Definitivo,
+                    historial.getIdHistorial()
+            );
+
+            Tratamiento tratamiento = new Tratamiento(
+                    ventanaNvConsulta.getTxtAreaPlanTrat().getText(),
+                    historial.getIdHistorial()
+            );
+
+            Receta receta = new Receta(
+                    ventanaNvConsulta.getTxtAreaPlanTrat().getText(),
+                    ventanaNvConsulta.getTxtAreaInstrucciones().getText(),
+                    tratamiento.getIdTratamiento()
+            );
+
+            RegistraConsulta registraConsulta = new RegistraConsulta(
+                    Date.valueOf(LocalDate.now()),
+                    consulta.getIdConsulta(),
+                    idDoctor,
+                    idPaciente
+            );
+
+            consultaDAO.guardarConsulta(consulta, historial, diagnostico, tratamiento, receta, registraConsulta, signos, exFisico, obstetrica, exComplementario);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error en la conversión de datos: " + e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al guardar la consulta: " + e.getMessage());
+        }
+    }
+
+    private float obtenerFloatDesdeCampo(JTextField campo) throws NumberFormatException {
+        return Float.parseFloat(campo.getText().trim());
+    }
+
+    private int obtenerIntDesdeCampo(JTextField campo) throws NumberFormatException {
+        return Integer.parseInt(campo.getText().trim());
+    }
+
+// Método para cambiar al siguiente panel del JTabbedPane
     private void cambiarAlSiguientePanel() {
         int currentIndex = tabbedPane.getSelectedIndex();
         int nextIndex = currentIndex + 1;
@@ -200,19 +366,20 @@ public class ControladorFrmNuevaConsul {
             JOptionPane.showMessageDialog(null, "No hay más paneles disponibles.");
         }
     }
-    
+
     private int obtenerIdTriage(String triage) {
-    switch (triage.toLowerCase()) {
-        case "No prioritario":
-            return 1;
-        case "Prioritario":
-            return 2;
-        case "Emergencia":
-            return 3;
-        default:
-            throw new IllegalArgumentException("Triage no válido: " + triage);
+        System.out.println("Valor de triage: " + triage);
+        switch (triage.toLowerCase()) {
+            case "no prioritario":
+                return 1;
+            case "prioritario":
+                return 2;
+            case "emergencia":
+                return 3;
+            default:
+                throw new IllegalArgumentException("Triage no válido: " + triage);
+        }
     }
-}
 
     private int calcularEdad(String fechaNacimiento) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

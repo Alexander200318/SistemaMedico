@@ -23,16 +23,10 @@ public class ExamenFisico {
     private String mInferiores;
     private int idTriage;
 
-    // Constructor vacío
-    public ExamenFisico() {
-    
-    }
 
+    
     // Constructor con todos los atributos
-    public ExamenFisico(int idExFisico, String pielYFaneras, String cabeza, String cuello, String torax, 
-                        String corazon, String abdomen, String rInguinal, String mSuperiores, 
-                        String mInferiores, int idTriage) {
-        this.idExFisico = idExFisico;
+    public ExamenFisico(String pielYFaneras, String cabeza, String cuello, String torax, String corazon, String abdomen, String rInguinal, String mSuperiores, String mInferiores, int idTriage) {
         this.pielYFaneras = pielYFaneras;
         this.cabeza = cabeza;
         this.cuello = cuello;
@@ -44,6 +38,8 @@ public class ExamenFisico {
         this.mInferiores = mInferiores;
         this.idTriage = idTriage;
     }
+
+    
 
     // Getters y setters
     public int getIdExFisico() {
