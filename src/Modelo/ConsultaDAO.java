@@ -166,10 +166,10 @@ public void guardarConsulta(Consulta consulta, Historial historial, Diagnostico 
         }
 
         // Guardar ExamenComplementario
-        String examenComplementarioSQL = "INSERT INTO Examen_Complementario (Examen, Resultado, Id_Historial) VALUES (?, ?, ?)";
+        String examenComplementarioSQL = "INSERT INTO Examen_Complementario (Resultados, Aplica, Id_Consulta) VALUES (?, ?, ?)";
         try (PreparedStatement examenComplementarioStmt = connection.prepareStatement(examenComplementarioSQL)) {
             examenComplementarioStmt.setString(1, examenComplementario.getResultados());
-            examenComplementarioStmt.setInt(2, examenComplementario.getIdConsulta());
+            examenComplementarioStmt.setBoolean(2, true);
             examenComplementarioStmt.setInt(3, historial.getIdHistorial());
             examenComplementarioStmt.executeUpdate();
         }

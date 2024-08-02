@@ -260,26 +260,28 @@ public class ControladorFrmNuevaConsul {
             String regularidad = ventanaNvConsulta.getBtnRegular().isSelected() ? "Regular" : "Irregular";
             String inmunizaciones = ventanaNvConsulta.getBtnActivaInmunizacion().isSelected() ? "Activa" : "Pasiva";
 
+            boolean estaEmbarazada = ventanaNvConsulta.getBtnSiEmbarazo().isSelected();
+
             EmergenciaObstetrica obstetrica = new EmergenciaObstetrica(
-                    (int) ventanaNvConsulta.getSpinnerMenarca().getValue(),
-                    Integer.parseInt(ventanaNvConsulta.getTxtCiclo().getText()),
-                    new Date(ventanaNvConsulta.getJChFechaUltMenstruacion().getDate().getTime()),
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerMenarca().getValue() : 0,
+                    estaEmbarazada ? Integer.parseInt(ventanaNvConsulta.getTxtCiclo().getText()) : 0,
+                    estaEmbarazada ? (ventanaNvConsulta.getJChFechaUltMenstruacion().getDate() != null ? new Date(ventanaNvConsulta.getJChFechaUltMenstruacion().getDate().getTime()) : null) : null,
                     regularidad,
-                    (int) ventanaNvConsulta.getSpIniVidSexualActiva().getValue(),
-                    (int) ventanaNvConsulta.getSpinnerNumParejasSexuales().getValue(),
-                    (int) ventanaNvConsulta.getSpinnerGravides().getValue(),
-                    (int) ventanaNvConsulta.getSpinnerAbortos().getValue(),
-                    (int) ventanaNvConsulta.getSpinnerPartos().getValue(),
-                    (int) ventanaNvConsulta.getSpinnerCesarias().getValue(),
-                    (int) ventanaNvConsulta.getSpinnerMastodinia().getValue(),
-                    (int) ventanaNvConsulta.getSpinnerDismenorrea().getValue(),
-                    new Date(ventanaNvConsulta.getJChFechaProbableParto().getDate().getTime()),
-                    (int) ventanaNvConsulta.getSpinnerSemGestacion().getValue(),
-                    (int) ventanaNvConsulta.getSpinnerDiasGestacion().getValue(),
-                    (int) ventanaNvConsulta.getSpinnerNumControles().getValue(),
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpIniVidSexualActiva().getValue() : 0,
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerNumParejasSexuales().getValue() : 0,
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerGravides().getValue() : 0,
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerAbortos().getValue() : 0,
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerPartos().getValue() : 0,
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerCesarias().getValue() : 0,
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerMastodinia().getValue() : 0,
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerDismenorrea().getValue() : 0,
+                    estaEmbarazada ? (ventanaNvConsulta.getJChFechaProbableParto().getDate() != null ? new Date(ventanaNvConsulta.getJChFechaProbableParto().getDate().getTime()) : null) : null,
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerSemGestacion().getValue() : 0,
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerDiasGestacion().getValue() : 0,
+                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerNumControles().getValue() : 0,
                     inmunizaciones,
                     idTriage,
-                    ventanaNvConsulta.getBtnSiEmbarazo().isSelected()
+                    estaEmbarazada
             );
 
             ExamenFisico exFisico = new ExamenFisico(
@@ -341,19 +343,27 @@ public class ControladorFrmNuevaConsul {
 
             consultaDAO.guardarConsulta(consulta, historial, diagnostico, tratamiento, receta, registraConsulta, signos, exFisico, obstetrica, exComplementario);
 
+            JOptionPane.showMessageDialog(null, "Consulta guardada con éxito");
+
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Error en la conversión de datos: " + e.getMessage());
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al guardar la consulta: " + e.getMessage());
+            e.printStackTrace(); // Imprimir traza para depuración
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error inesperado: " + e.getMessage());
+            e.printStackTrace(); // Imprimir traza para depuración
         }
     }
 
+// Método auxiliar para convertir el texto del campo a float
     private float obtenerFloatDesdeCampo(JTextField campo) throws NumberFormatException {
-        return Float.parseFloat(campo.getText().trim());
+        return Float.parseFloat(campo.getText());
     }
 
+// Método auxiliar para convertir el texto del campo a int
     private int obtenerIntDesdeCampo(JTextField campo) throws NumberFormatException {
-        return Integer.parseInt(campo.getText().trim());
+        return Integer.parseInt(campo.getText());
     }
 
 // Método para cambiar al siguiente panel del JTabbedPane
