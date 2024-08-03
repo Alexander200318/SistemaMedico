@@ -72,15 +72,6 @@ public class Panel_Prin_PacienteDAO {
         PanelPaciente.getTablaDatosPaciente().revalidate();
     }
 
-//    public void pasarPanel() {
-////        REGISTRO_PACIENTE RegistrarPaciente = new REGISTRO_PACIENTE();
-//        RegistrarPaciente.setSize(980, 660);
-//        RegistrarPaciente.setLocation(0, 0);
-//        PanelPaciente.getPanel_camb_Registro().removeAll();
-//        PanelPaciente.getPanel_camb_Registro().add(RegistrarPaciente, BorderLayout.CENTER);
-//        PanelPaciente.getPanel_camb_Registro().revalidate();
-//        PanelPaciente.getPanel_camb_Registro().repaint();
-//    }
 
     public void pasarDatos() {
         PanelDatosPaciente RegistrarPaciente = new PanelDatosPaciente();

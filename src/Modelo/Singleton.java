@@ -14,7 +14,8 @@ public class Singleton {
  private  int IdPaciente;
  private int Id_Doctor;
  private String Identificacion_Historial;
- 
+ private int IdDiagnostico;
+ private int idtratamiento;
 
  
  
@@ -52,4 +53,21 @@ public class Singleton {
         this.IdPaciente = IdPaciente;
     }
 
+    public int getIdDiagnostico() {
+        return IdDiagnostico;
+    }
+
+    public void setIdDiagnostico(int IdDiagnostico) {
+        this.IdDiagnostico = IdDiagnostico;
+    }
+
+    public int getIdtratamiento() {
+        return idtratamiento;
+    }
+
+    public void setIdtratamiento(int idtratamiento) {
+        this.idtratamiento = idtratamiento;
+    }
+
+    
 }

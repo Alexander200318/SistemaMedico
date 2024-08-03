@@ -8,6 +8,6 @@ package Modelo;
  *
  * @author alexa
  */
-public class Docente extends Paciente {
+public class Docente {
    
 }

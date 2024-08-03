@@ -48,10 +48,6 @@ public class PacienteDAO {
                         rs.getBytes("Foto"),
                         rs.getString("Etnia"),
                         rs.getDate("Fecha_Registro"),
-                        rs.getString("Carnet_Conadis"),
-                        rs.getBoolean("Discapacidad"),
-                        rs.getString("Tipo_Discapacidad"),
-                        rs.getInt("Porct_Discapacidad"),
                         rs.getString("Contacto_Emergencia"),
                         rs.getBoolean("Estado_Activo"),
                         rs.getString("Tipo_Sangre") // este campo estaba faltando

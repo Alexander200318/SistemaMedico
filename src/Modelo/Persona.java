@@ -257,38 +257,6 @@ public class Persona {
         this.fechaRegistro = fechaRegistro;
     }
 
-//    public String getCarnetConadis() {
-//        return carnetConadis;
-//    }
-//
-//    public void setCarnetConadis(String carnetConadis) {
-//        this.carnetConadis = carnetConadis;
-//    }
-//
-//    public boolean isDiscapacidad() {
-//        return discapacidad;
-//    }
-//
-//    public void setDiscapacidad(boolean discapacidad) {
-//        this.discapacidad = discapacidad;
-//    }
-//
-//    public String getTipoDiscapacidad() {
-//        return tipoDiscapacidad;
-//    }
-//
-//    public void setTipoDiscapacidad(String tipoDiscapacidad) {
-//        this.tipoDiscapacidad = tipoDiscapacidad;
-//    }
-//
-//    public int getPorctDiscapacidad() {
-//        return porctDiscapacidad;
-//    }
-//
-//    public void setPorctDiscapacidad(int porctDiscapacidad) {
-//        this.porctDiscapacidad = porctDiscapacidad;
-//    }
-
     public String getContactoEmergencia() {
         return contactoEmergencia;
     }
@@ -310,5 +278,4 @@ public class Persona {
         return "Persona{" + "idPersona=" + idPersona + ", identificacion=" + identificacion + ", primNombre=" + primNombre + ", segNombre=" + segNombre + ", primApellido=" + primApellido + ", segApellido=" + segApellido + ", email=" + email + ", direccion=" + direccion + ", barrio=" + barrio + ", canton=" + canton + ", provincia=" + provincia + ", telefono=" + telefono + ", fechaNacimiento=" + fechaNacimiento + ", lugar=" + lugar + ", pais=" + pais + ", genero=" + genero + ", estadoCivil=" + estadoCivil + ", sexo=" + sexo + ", foto=" + foto + ", etnia=" + etnia + ", fechaRegistro=" + fechaRegistro + ", contactoEmergencia=" + contactoEmergencia + ", estadoActivo=" + estadoActivo + ", tipo_sangre=" + tipo_sangre + '}';
     }
 
-   
 }

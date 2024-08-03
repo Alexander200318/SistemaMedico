@@ -4,11 +4,14 @@
  */
 package Vista;
 
+import Controlador.ControladorPanelImpresion;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -19,9 +22,61 @@ public class FrmImpresion extends javax.swing.JPanel implements Printable  {
     /**
      * Creates new form FrmImpresion
      */
+    ControladorPanelImpresion datos;
     public FrmImpresion() {
         initComponents();
+        datos = new ControladorPanelImpresion(this);
     }
+
+    public JLabel getLblCedulaDocImprimir() {
+        return LblCedulaDocImprimir;
+    }
+
+    public void setLblCedulaDocImprimir(JLabel LblCedulaDocImprimir) {
+        this.LblCedulaDocImprimir = LblCedulaDocImprimir;
+    }
+
+    public JLabel getLblEdadPacienteImprimir() {
+        return LblEdadPacienteImprimir;
+    }
+
+    public void setLblEdadPacienteImprimir(JLabel LblEdadPacienteImprimir) {
+        this.LblEdadPacienteImprimir = LblEdadPacienteImprimir;
+    }
+
+    public JLabel getLblFechaPacienteImprimir() {
+        return LblFechaPacienteImprimir;
+    }
+
+    public void setLblFechaPacienteImprimir(JLabel LblFechaPacienteImprimir) {
+        this.LblFechaPacienteImprimir = LblFechaPacienteImprimir;
+    }
+
+    public JLabel getLblNombreDocImprimir() {
+        return LblNombreDocImprimir;
+    }
+
+    public void setLblNombreDocImprimir(JLabel LblNombreDocImprimir) {
+        this.LblNombreDocImprimir = LblNombreDocImprimir;
+    }
+
+    public JLabel getLblPacienteNombreImprimir() {
+        return LblPacienteNombreImprimir;
+    }
+
+    public void setLblPacienteNombreImprimir(JLabel LblPacienteNombreImprimir) {
+        this.LblPacienteNombreImprimir = LblPacienteNombreImprimir;
+    }
+
+    public JTextArea getTxtAreaDiagnosticoPacienteImprimir() {
+        return TxtAreaDiagnosticoPacienteImprimir;
+    }
+
+    public void setTxtAreaDiagnosticoPacienteImprimir(JTextArea TxtAreaDiagnosticoPacienteImprimir) {
+        this.TxtAreaDiagnosticoPacienteImprimir = TxtAreaDiagnosticoPacienteImprimir;
+    }
+    
+    
     
 
     /**
@@ -102,7 +157,7 @@ public class FrmImpresion extends javax.swing.JPanel implements Printable  {
 
         jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel10.setText("Fecha:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel7.setText("Diagnóstico: ");
@@ -169,10 +224,11 @@ public class FrmImpresion extends javax.swing.JPanel implements Printable  {
         add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 330, 10));
 
         LblFechaPacienteImprimir.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
-        add(LblFechaPacienteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 100, 20));
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 100, 10));
+        add(LblFechaPacienteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 190, 20));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 200, 10));
         add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 290, 10));
 
+        TxtAreaDiagnosticoPacienteImprimir.setEditable(false);
         TxtAreaDiagnosticoPacienteImprimir.setColumns(20);
         TxtAreaDiagnosticoPacienteImprimir.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
         TxtAreaDiagnosticoPacienteImprimir.setLineWrap(true);
