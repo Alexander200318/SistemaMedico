@@ -16,6 +16,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import rojerusan.RSLabelImage;
+import Modelo.Carrera;
 
 /**
  *
@@ -32,6 +33,70 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         
     }
+
+    public JComboBox<Carrera> getCbx_Carreras() {
+        return Cbx_Carreras;
+    }
+
+    public void setCbx_Carreras(JComboBox<Carrera> Cbx_Carreras) {
+        this.Cbx_Carreras = Cbx_Carreras;
+    }
+
+    
+    
+    
+    public JComboBox<String> getCBX_tipoDiscapacidad() {
+        return CBX_tipoDiscapacidad;
+    }
+
+    public void setCBX_tipoDiscapacidad(JComboBox<String> CBX_tipoDiscapacidad) {
+        this.CBX_tipoDiscapacidad = CBX_tipoDiscapacidad;
+    }
+
+    public JRadioButton getRB_No_carnet() {
+        return RB_No_carnet;
+    }
+
+    public void setRB_No_carnet(JRadioButton RB_No_carnet) {
+        this.RB_No_carnet = RB_No_carnet;
+    }
+
+    public JRadioButton getRB_Si_carnet() {
+        return RB_Si_carnet;
+    }
+
+    public void setRB_Si_carnet(JRadioButton RB_Si_carnet) {
+        this.RB_Si_carnet = RB_Si_carnet;
+    }
+
+    public JRadioButton getRbn_Administrativo() {
+        return Rbn_Administrativo;
+    }
+
+    public void setRbn_Administrativo(JRadioButton Rbn_Administrativo) {
+        this.Rbn_Administrativo = Rbn_Administrativo;
+    }
+
+    public JRadioButton getRbn_Servicios() {
+        return Rbn_Servicios;
+    }
+
+    public void setRbn_Servicios(JRadioButton Rbn_Servicios) {
+        this.Rbn_Servicios = Rbn_Servicios;
+    }
+
+    public JTextField getTxt_Observacion() {
+        return Txt_Observacion;
+    }
+
+    public void setTxt_Observacion(JTextField Txt_Observacion) {
+        this.Txt_Observacion = Txt_Observacion;
+    }
+    
+    
+    
+    
+    
 
     public RSLabelImage getRSlabel_imagen() {
         return RSlabel_imagen;
@@ -62,20 +127,10 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.Cb_Parentesco = Cb_Parentesco;
     }
     
-    
-    
-    
-    
-    
 
-    public JComboBox<String> getCbx_Carreras() {
-        return Cbx_Carreras;
-    }
 
-    public void setCbx_Carreras(JComboBox<String> Cbx_Carreras) {
-        this.Cbx_Carreras = Cbx_Carreras;
-    }
-
+   
+   
     public JComboBox<String> getCbx_estado_civil() {
         return Cbx_estado_civil;
     }
@@ -108,13 +163,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.Rbn_Masculino = Rbn_Masculino;
     }
 
-    public JTextField getTxt_CarnetConadis() {
-        return Txt_CarnetConadis;
-    }
-
-    public void setTxt_CarnetConadis(JTextField Txt_CarnetConadis) {
-        this.Txt_CarnetConadis = Txt_CarnetConadis;
-    }
+   
 
     public JButton getBtn_guardar_Familiar() {
         return Btn_guardar_Familiar;
@@ -471,14 +520,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.Txt_telefono = Txt_telefono;
     }
 
-    public JTextField getTxt_tipoDiscapacidad() {
-        return Txt_tipoDiscapacidad;
-    }
-
-    public void setTxt_tipoDiscapacidad(JTextField Txt_tipoDiscapacidad) {
-        this.Txt_tipoDiscapacidad = Txt_tipoDiscapacidad;
-    }
-
+    
   
 
     public JTextField getTxt_Identificacion_pac() {
@@ -497,6 +539,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         GrupoGroup2 = new javax.swing.ButtonGroup();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        Grupo3 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Txt_Identificacion_pac = new javax.swing.JTextField();
@@ -535,7 +578,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        Txt_tipoDiscapacidad = new javax.swing.JTextField();
         jSeparator29 = new javax.swing.JSeparator();
         jLabel23 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -632,7 +674,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jScrollPane20 = new javax.swing.JScrollPane();
         TxA_Faml_vacunas = new javax.swing.JTextArea();
         jLabel49 = new javax.swing.JLabel();
-        Txt_CarnetConadis = new javax.swing.JTextField();
+        Txt_Observacion = new javax.swing.JTextField();
         jSeparator30 = new javax.swing.JSeparator();
         Rbn_Femenino = new javax.swing.JRadioButton();
         Rbn_Masculino = new javax.swing.JRadioButton();
@@ -642,6 +684,12 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         panel_contenedor_img = new javax.swing.JPanel();
         RSlabel_imagen = new rojerusan.RSLabelImage();
+        CBX_tipoDiscapacidad = new javax.swing.JComboBox<>();
+        jLabel50 = new javax.swing.JLabel();
+        RB_No_carnet = new javax.swing.JRadioButton();
+        RB_Si_carnet = new javax.swing.JRadioButton();
+        Rbn_Servicios = new javax.swing.JRadioButton();
+        Rbn_Administrativo = new javax.swing.JRadioButton();
 
         setPreferredSize(new java.awt.Dimension(1280, 680));
 
@@ -673,7 +721,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         jSeparator11.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 590, 170, 10));
+        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 170, 10));
 
         Txt_genero.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
         Txt_genero.setBorder(null);
@@ -799,10 +847,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jLabel21.setText("TIPO DISCAPACIDAD : ");
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, -1, -1));
 
-        Txt_tipoDiscapacidad.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
-        Txt_tipoDiscapacidad.setBorder(null);
-        jPanel1.add(Txt_tipoDiscapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 520, 170, 20));
-
         jSeparator29.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator29.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 540, 170, 10));
@@ -813,16 +857,16 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         jLabel28.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel28.setText("TIPO  PACIENTE :");
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, 20));
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, -1, 20));
 
         jLabel31.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel31.setText("CICLO : ");
-        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 530, -1, 20));
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 580, -1, 20));
 
         jLabel32.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         jLabel32.setText("CARRERA :");
-        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, -1, -1));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, 750, 10));
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 620, -1, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 660, 750, 10));
 
         buttonGroup1.add(Rbn_docente);
         Rbn_docente.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
@@ -832,12 +876,12 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
                 Rbn_docenteActionPerformed(evt);
             }
         });
-        jPanel1.add(Rbn_docente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, 80, -1));
+        jPanel1.add(Rbn_docente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 80, 20));
 
         buttonGroup1.add(Rbn_Alumno);
         Rbn_Alumno.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
         Rbn_Alumno.setText("ALUMNO");
-        jPanel1.add(Rbn_Alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, -1, -1));
+        jPanel1.add(Rbn_Alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 550, -1, -1));
         jPanel1.add(JCL_FechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, 170, -1));
 
         Ckx_discapacidad.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
@@ -902,7 +946,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         Spr_ciclo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         Spr_ciclo.setEnabled(false);
-        jPanel1.add(Spr_ciclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, -1, -1));
+        jPanel1.add(Spr_ciclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, -1, -1));
 
         Btn_Cancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Btn_Cancelar.setText("CANCELAR");
@@ -1168,16 +1212,16 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 260, 360, 340));
 
         jLabel49.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
-        jLabel49.setText("CARNET DEL CONADIS : ");
-        jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 580, -1, -1));
+        jLabel49.setText("OBSERVACIÓN:");
+        jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 170, 20));
 
-        Txt_CarnetConadis.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
-        Txt_CarnetConadis.setBorder(null);
-        jPanel1.add(Txt_CarnetConadis, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 580, 170, 20));
+        Txt_Observacion.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_Observacion.setBorder(null);
+        jPanel1.add(Txt_Observacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, 170, 20));
 
         jSeparator30.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator30.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator30, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 600, 170, 10));
+        jPanel1.add(jSeparator30, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 630, 170, 10));
 
         GrupoGroup2.add(Rbn_Femenino);
         Rbn_Femenino.setText("FEMENINO");
@@ -1200,8 +1244,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Cbx_estado_civil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero", "Casado", "Divorciado", "Viudo", "Unión Libre", "Separado" }));
         jPanel1.add(Cbx_estado_civil, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 170, -1));
 
-        Cbx_Carreras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Otros", "Big Data", "Tributación", "Ciberseguridad", "Producción y Realización Audiovisual", "Seguridad y Prevención de Riesgos Laborales", "Gestión de Patrimonios Histórico-Cultural", "Desarrollo de Software", "Entrenamiento Deportivo", "Mecánica", "Mantenimiento Eléctrico y Control Industrial", "Mecatrónica", "Administración de Infraestructura y Plataformas Tecnológicas", " " }));
-        jPanel1.add(Cbx_Carreras, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 170, -1));
+        jPanel1.add(Cbx_Carreras, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 170, -1));
 
         Cbx_tipo_sangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
         jPanel1.add(Cbx_tipo_sangre, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 110, 170, -1));
@@ -1235,6 +1278,36 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         jPanel1.add(panel_contenedor_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 150, 170));
 
+        CBX_tipoDiscapacidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Físicas", "Sensoriales", "Intelectuales", "Psicosociales", "Aprendizaje", "Habla y Lenguaje", "Invisibles" }));
+        jPanel1.add(CBX_tipoDiscapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 520, 180, -1));
+
+        jLabel50.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel50.setText("POSEE CARNET DEL CONADIS : ");
+        jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 580, -1, 20));
+
+        Grupo3.add(RB_No_carnet);
+        RB_No_carnet.setText("No");
+        jPanel1.add(RB_No_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, -1, -1));
+
+        Grupo3.add(RB_Si_carnet);
+        RB_Si_carnet.setText("Si");
+        jPanel1.add(RB_Si_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 580, -1, -1));
+
+        buttonGroup1.add(Rbn_Servicios);
+        Rbn_Servicios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Rbn_Servicios.setText("SERVICIO");
+        jPanel1.add(Rbn_Servicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, -1, 30));
+
+        buttonGroup1.add(Rbn_Administrativo);
+        Rbn_Administrativo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Rbn_Administrativo.setText("PERS. ADMINISTRATIVO");
+        Rbn_Administrativo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Rbn_AdministrativoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Rbn_Administrativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -1259,25 +1332,35 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Rbn_MasculinoActionPerformed
 
+    private void Rbn_AdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rbn_AdministrativoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Rbn_AdministrativoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Cancelar;
     private javax.swing.JButton Btn_Guardar;
     private javax.swing.JButton Btn_Subir_Foto;
     private javax.swing.JButton Btn_guardar_Familiar;
+    private javax.swing.JComboBox<String> CBX_tipoDiscapacidad;
     private javax.swing.JComboBox<String> Cb_Parentesco;
-    private javax.swing.JComboBox<String> Cbx_Carreras;
+    private javax.swing.JComboBox<Carrera> Cbx_Carreras;
     private javax.swing.JComboBox<String> Cbx_estado_civil;
     private javax.swing.JComboBox<String> Cbx_tipo_sangre;
     private javax.swing.JCheckBox Ckx_discapacidad;
+    private javax.swing.ButtonGroup Grupo3;
     private javax.swing.ButtonGroup GrupoGroup2;
     private com.toedter.calendar.JDateChooser JCL_FechaNacimiento;
     private javax.swing.JPanel Panl_Ant_Familiares;
     private javax.swing.JPanel Panl_Ant_Personal;
+    private javax.swing.JRadioButton RB_No_carnet;
+    private javax.swing.JRadioButton RB_Si_carnet;
     private rojerusan.RSLabelImage RSlabel_imagen;
+    private javax.swing.JRadioButton Rbn_Administrativo;
     private javax.swing.JRadioButton Rbn_Alumno;
     private javax.swing.JRadioButton Rbn_Femenino;
     private javax.swing.JRadioButton Rbn_Masculino;
+    private javax.swing.JRadioButton Rbn_Servicios;
     private javax.swing.JRadioButton Rbn_docente;
     private javax.swing.JSpinner Spr_Porcen_Discapasidad;
     private javax.swing.JSpinner Spr_ciclo;
@@ -1300,11 +1383,11 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JTextArea TxA_Persn_traumatologico;
     private javax.swing.JTextArea TxA_Persn_vacunas;
     private javax.swing.JTextField Txt_Apellidos;
-    private javax.swing.JTextField Txt_CarnetConadis;
     private javax.swing.JTextField Txt_ContactoEmergencias;
     private javax.swing.JTextField Txt_Email;
     private javax.swing.JTextField Txt_Identificacion_pac;
     private javax.swing.JTextField Txt_Nombres;
+    private javax.swing.JTextField Txt_Observacion;
     private javax.swing.JTextField Txt_barrio;
     private javax.swing.JTextField Txt_canton;
     private javax.swing.JTextField Txt_direccion;
@@ -1314,7 +1397,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JTextField Txt_pais;
     private javax.swing.JTextField Txt_provincia;
     private javax.swing.JTextField Txt_telefono;
-    private javax.swing.JTextField Txt_tipoDiscapacidad;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1359,6 +1441,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

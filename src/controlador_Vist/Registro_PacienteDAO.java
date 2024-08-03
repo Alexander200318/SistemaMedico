@@ -1,4 +1,4 @@
- package controlador_Vist;
+package controlador_Vist;
 
 import Controlador.Notificaciones;
 import java.awt.Image;
@@ -10,6 +10,9 @@ import javax.swing.ImageIcon;
 import Controlador.ControladorPaciente;
 import Modelo.AntecedentesFamiliares;
 import Modelo.AntecedentesPersonales;
+import Modelo.Carrera;
+import Modelo.Conexion;
+import Modelo.Discapacidad;
 import Modelo.Estudiante;
 import Modelo.Paciente;
 import Modelo.Persona;
@@ -17,16 +20,22 @@ import Modelo.Singleton;
 import Vista.FrmRegistrarsePaciente;
 import Vista.PANEL_PRINCIPAL_PACIENTE;
 import com.mysql.cj.jdbc.Blob;
+import com.sun.jdi.connect.spi.Connection;
 import java.awt.BorderLayout;
 import java.awt.MediaTracker;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -35,9 +44,11 @@ import javax.swing.JOptionPane;
 import rsdragdropfiles.RSDragDropFiles;
 import rojerusan.RSLabelImage;
 import javax.swing.JLabel;
+import java.sql.*;
 
 public class Registro_PacienteDAO {
-    JLabel lbl= new JLabel();
+
+    JLabel lbl = new JLabel();
     private ControladorPaciente control;
     private FrmRegistrarsePaciente vistaPrincipal;
     private String rol = " ";
@@ -45,6 +56,8 @@ public class Registro_PacienteDAO {
     private Singleton singleton;
     private List<AntecedentesFamiliares> familiares = new ArrayList<>();
     boolean identEstado = true;
+    String selectedItem = "";
+    int idCarrera = 0;
 
     public Registro_PacienteDAO(FrmRegistrarsePaciente vistaPrincipal) {
 
@@ -55,11 +68,33 @@ public class Registro_PacienteDAO {
         configurarVista();
         EntradaIdentificacion();
         ArrastarImagen();
+
         vistaPrincipal.getBtn_Subir_Foto().addActionListener(e -> subirImagen());
 
+        vistaPrincipal.getCBX_tipoDiscapacidad().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Obtener el elemento seleccionado del JComboBox
+                selectedItem = (String) vistaPrincipal.getCBX_tipoDiscapacidad().getSelectedItem();
+
+            }
+        });
+
+        vistaPrincipal.getCbx_Carreras().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Carrera carreraSeleccionada = (Carrera) vistaPrincipal.getCbx_Carreras().getSelectedItem();
+                if (carreraSeleccionada != null) {
+                    idCarrera = carreraSeleccionada.getIdCarrera();
+                    System.out.println("Id Carrera = "+idCarrera);
+
+                }
+            }
+        });
+        cargarCarreras();
     }
-    
-    
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public void subirImagen() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Seleccionar Imagen");
@@ -86,44 +121,79 @@ public class Registro_PacienteDAO {
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             try {
-                ImageIcon icon = new ImageIcon(selectedFile.getCanonicalPath());
-
-                if (icon.getImageLoadStatus() == MediaTracker.ERRORED) {
-                    System.out.println("Error al cargar la imagen desde la ruta especificada.");
-                } else {
-                    vistaPrincipal.getRSlabel_imagen().setText("");
-                    vistaPrincipal.getRSlabel_imagen().setIcon(icon);
-                    lbl.setIcon(icon);
-                    rsdragdropfiles.RSDragDropFiles.setCopiar(selectedFile.getCanonicalPath(),"src/Recursos/IMAGEN_ARRASTRADOBoton.png");
-                    System.out.println("Imagen establecida correctamente en RslabelImagen.");
+                // Crear directorio si no existe
+                File directory = new File("src/Recursos");
+                if (!directory.exists()) {
+                    directory.mkdirs();
                 }
 
-                
-                if (lbl.getIcon() != null) {
+                // Obtener la extensión del archivo original
+                String originalFileName = selectedFile.getName();
+                String fileExtension = originalFileName.substring(originalFileName.lastIndexOf('.'));
+
+                // Construir la ruta de destino con la misma extensión
+                String destinationPath = "src/Recursos/IMAGEN_ARRASTRADOBoton" + fileExtension;
+
+                // Mostrar un gráfico de carga temporal
+                vistaPrincipal.getRSlabel_imagen().setText("Cargando...");
+                vistaPrincipal.getRSlabel_imagen().setIcon(null);
+
+                boolean imageLoaded = false;
+                int attempts = 0;
+                int maxAttempts = 5; // Número máximo de intentos
+
+                while (!imageLoaded && attempts < maxAttempts) {
+                    attempts++;
+                    ImageIcon icon = new ImageIcon(selectedFile.getCanonicalPath());
+
+                    // Verificar si la imagen se carga correctamente
+                    if (icon.getImageLoadStatus() == MediaTracker.ERRORED) {
+                        System.out.println("Intento " + attempts + ": Error al cargar la imagen desde la ruta especificada.");
+                    } else {
+                        vistaPrincipal.getRSlabel_imagen().setText("");
+                        vistaPrincipal.getRSlabel_imagen().setIcon(icon);
+                        lbl.setIcon(icon);
+
+                        try {
+                            // Copiar el archivo a la ubicación destino
+                            Files.copy(selectedFile.toPath(), new File(destinationPath).toPath(), StandardCopyOption.REPLACE_EXISTING);
+                            System.out.println("Imagen copiada a la ubicación destino.");
+                            imageLoaded = true;
+                        } catch (IOException e) {
+                            System.out.println("Error al copiar la imagen: " + e.getMessage());
+                            e.printStackTrace();
+                        }
+                    }
+
+                    // Espera breve antes del próximo intento
+                    if (!imageLoaded) {
+                        try {
+                            Thread.sleep(500); // Esperar 500 milisegundos antes de intentar nuevamente
+                        } catch (InterruptedException e) {
+                            System.out.println("Error al esperar entre intentos: " + e.getMessage());
+                        }
+                    }
+                }
+
+                // Mensaje final dependiendo del resultado del bucle
+                if (imageLoaded) {
                     System.out.println("Imagen verificada correctamente en RslabelImagen.");
                 } else {
-                    System.out.println("Fallo al verificar la imagen en RslabelImagen.");
+                    System.out.println("Fallo al verificar la imagen en RslabelImagen después de " + attempts + " intentos.");
+                    vistaPrincipal.getRSlabel_imagen().setText("Imagen no disponible");
+                    vistaPrincipal.getRSlabel_imagen().setIcon(null); // Se asegura que no haya icono si no se cargó
                 }
 
             } catch (IOException ex) {
+                System.out.println("Error al acceder al archivo de imagen: " + ex.getMessage());
                 ex.printStackTrace();
             }
         }
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     public byte[] IngresoImagen() {
 
-        if ( lbl.getIcon()  != null) {
+        if (lbl.getIcon() != null) {
             ImageIcon icon = (ImageIcon) lbl.getIcon();
             Image image = icon.getImage();
 
@@ -139,43 +209,69 @@ public class Registro_PacienteDAO {
     }
 
     public void ArrastarImagen() {
-        
-        RSDragDropFiles rsDragDropFiles = new rsdragdropfiles.RSDragDropFiles(vistaPrincipal.getPanel_contenedor_img(), (File[] files) -> {
-            try {
-                if (files.length > 1) {
-                    Notificaciones.error("Error", "IMPOSIBLE IMPORTAR MÁS DE UNA IMAGEN");
-                } else {
-                    // Limpia el texto del label y establece la imagen
-                    vistaPrincipal.getRSlabel_imagen().setText("");
-                    ImageIcon icon = new ImageIcon(files[0].getCanonicalPath());
+        RSDragDropFiles rsDragDropFiles = new rsdragdropfiles.RSDragDropFiles(
+                vistaPrincipal.getPanel_contenedor_img(),
+                (File[] files) -> {
+                    try {
+                        if (files.length > 1) {
+                            Notificaciones.error("Error", "IMPOSIBLE IMPORTAR MÁS DE UNA IMAGEN");
+                        } else {
+                            // Limpia el texto del label
+                            vistaPrincipal.getRSlabel_imagen().setText("");
 
-                    // Verificar si la imagen se carga correctamente
-                    if (icon.getImageLoadStatus() == MediaTracker.ERRORED) {
-                        System.out.println("Error al cargar la imagen desde la ruta especificada.");
-                    } else {
-                        vistaPrincipal.getRSlabel_imagen().setIcon(icon);
-                         
-                        lbl.setIcon(icon);
-                        rsdragdropfiles.RSDragDropFiles.setCopiar(files[0].getCanonicalPath(), "src/Recursos/IMAGEN_ARRASTRADO.png");
-                        System.out.println("Imagen establecida correctamente en RslabelImagen.");
-                    }
+                            boolean imageLoaded = false;
+                            int attempts = 0;
+                            int maxAttempts = 5; // Número máximo de intentos
 
-                    // Verificación adicional
-                    if (lbl.getIcon()!= null) {
-                        System.out.println("Imagen verificada correctamente en RslabelImagen.");
-                    } else {
-                        System.out.println("Fallo al verificar la imagen en RslabelImagen.");
+                            while (!imageLoaded && attempts < maxAttempts) {
+                                attempts++;
+                                ImageIcon icon = new ImageIcon(files[0].getCanonicalPath());
+
+                                // Verificar si la imagen se carga correctamente
+                                if (icon.getImageLoadStatus() == MediaTracker.ERRORED) {
+                                    System.out.println("Intento " + attempts + ": Error al cargar la imagen desde la ruta especificada.");
+                                } else {
+                                    vistaPrincipal.getRSlabel_imagen().setIcon(icon);
+                                    lbl.setIcon(icon);
+                                    rsdragdropfiles.RSDragDropFiles.setCopiar(
+                                            files[0].getCanonicalPath(),
+                                            "src/Recursos/IMAGEN_ARRASTRADO.png"
+                                    );
+                                    System.out.println("Imagen establecida correctamente en RslabelImagen.");
+                                    imageLoaded = true;
+                                }
+
+                                // Espera breve antes del próximo intento
+                                if (!imageLoaded) {
+                                    try {
+                                        Thread.sleep(500); // Esperar 500 milisegundos antes de intentar nuevamente
+                                    } catch (InterruptedException e) {
+                                        System.out.println("Error al esperar entre intentos: " + e.getMessage());
+                                    }
+                                }
+                            }
+
+                            // Mensaje final dependiendo del resultado del bucle
+                            if (imageLoaded) {
+                                System.out.println("Imagen verificada correctamente en RslabelImagen.");
+                            } else {
+                                System.out.println("Fallo al verificar la imagen en RslabelImagen después de " + attempts + " intentos.");
+                                vistaPrincipal.getRSlabel_imagen().setText("Imagen no disponible");
+                                vistaPrincipal.getRSlabel_imagen().setIcon(null); // Se asegura que no haya icono si no se cargó
+                            }
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+        );
 
         vistaPrincipal.getTxt_Identificacion_pac().addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
-                identEstado = control.verificarIdentificacion(vistaPrincipal.getTxt_Identificacion_pac().getText());
+                identEstado = control.verificarIdentificacion(
+                        vistaPrincipal.getTxt_Identificacion_pac().getText()
+                );
                 System.out.println("Identificación verificada.");
             }
         });
@@ -198,12 +294,13 @@ public class Registro_PacienteDAO {
         vistaPrincipal.getSpr_ciclo().setValue(0);
         vistaPrincipal.getCbx_Carreras().setEnabled(false);
 
-        vistaPrincipal.getTxt_tipoDiscapacidad().setText(null);
-        vistaPrincipal.getTxt_tipoDiscapacidad().setEnabled(false);
+        vistaPrincipal.getTxt_Observacion().setText(null);
+        vistaPrincipal.getRB_Si_carnet().setText(null);
+        vistaPrincipal.getRB_No_carnet().setEnabled(false);
         vistaPrincipal.getSpr_Porcen_Discapasidad().setValue(0);
         vistaPrincipal.getSpr_Porcen_Discapasidad().setEnabled(false);
-        vistaPrincipal.getTxt_CarnetConadis().setText(null);
-        vistaPrincipal.getTxt_CarnetConadis().setEnabled(false);
+        vistaPrincipal.getCBX_tipoDiscapacidad().setEnabled(false);
+        vistaPrincipal.getSpr_Porcen_Discapasidad().setEnabled(false);
     }
 
     private void initListeners() {
@@ -213,6 +310,8 @@ public class Registro_PacienteDAO {
         vistaPrincipal.getCkx_discapacidad().addActionListener(e -> ClickDiscapacidad());
         vistaPrincipal.getRbn_Alumno().addActionListener(e -> Seleccion_tipo());
         vistaPrincipal.getRbn_docente().addActionListener(e -> Seleccion_tipo());
+        vistaPrincipal.getRbn_Administrativo().addActionListener(e -> Seleccion_tipo());
+        vistaPrincipal.getRbn_Servicios().addActionListener(e -> Seleccion_tipo());
     }
 
     public void guardarAntecedFamiliares() {
@@ -262,22 +361,43 @@ public class Registro_PacienteDAO {
 
     public void ClickDiscapacidad() {
         boolean seleccionado = vistaPrincipal.getCkx_discapacidad().isSelected();
-        vistaPrincipal.getTxt_tipoDiscapacidad().setEnabled(seleccionado);
+        vistaPrincipal.getCBX_tipoDiscapacidad().setEnabled(seleccionado);
         vistaPrincipal.getSpr_Porcen_Discapasidad().setEnabled(seleccionado);
-        vistaPrincipal.getTxt_CarnetConadis().setEnabled(seleccionado);
+        vistaPrincipal.getTxt_Observacion().setEnabled(seleccionado);
+        vistaPrincipal.getRB_Si_carnet().setEnabled(seleccionado);
+        vistaPrincipal.getRB_No_carnet().setEnabled(seleccionado);
 
         if (!seleccionado) {
-            vistaPrincipal.getTxt_tipoDiscapacidad().setText(null);
+            vistaPrincipal.getCBX_tipoDiscapacidad().setEnabled(false);
+            vistaPrincipal.getSpr_Porcen_Discapasidad().setEnabled(false);
+            vistaPrincipal.getTxt_Observacion().setEnabled(false);
+            vistaPrincipal.getRB_Si_carnet().setEnabled(false);
+            vistaPrincipal.getRB_No_carnet().setEnabled(false);
             vistaPrincipal.getSpr_Porcen_Discapasidad().setValue(0);
-            vistaPrincipal.getTxt_CarnetConadis().setText(null);
+            vistaPrincipal.getTxt_Observacion().setText(null);
         }
     }
 
     public void Seleccion_tipo() {
+        boolean esAdministrativo = vistaPrincipal.getRbn_Administrativo().isSelected();
+        boolean esServicios = vistaPrincipal.getRbn_Servicios().isSelected();
+        boolean esDocente = vistaPrincipal.getRbn_docente().isSelected();
+
         boolean esEstudiante = vistaPrincipal.getRbn_Alumno().isSelected();
         vistaPrincipal.getSpr_ciclo().setEnabled(esEstudiante);
         vistaPrincipal.getCbx_Carreras().setEnabled(esEstudiante);
-        rol = esEstudiante ? "estudiante" : "docente";
+
+        if (esAdministrativo) {
+            rol = "administrativo";
+        } else if (esEstudiante) {
+            rol = "estudiante";
+        } else if (esServicios) {
+            rol = "servicios";
+        } else if (esDocente) {
+            rol = "docente";
+        } else {
+            rol = "";
+        }
     }
 
     public String SeleccionSEXO() {
@@ -359,6 +479,7 @@ public class Registro_PacienteDAO {
         return valor;
 
     }
+//////////////////////////////////////////////////popiugytf
 
     public String Seleccion_Carrera() {
         String valor = "";
@@ -403,17 +524,34 @@ public class Registro_PacienteDAO {
         return valor;
 
     }
+/////////////////////////////////////////////////////////////////
+
+    public boolean SeleccionConadis() {
+        boolean conadis;
+        if (vistaPrincipal.getRB_Si_carnet().isSelected()) {
+            conadis = true;
+        } else if (vistaPrincipal.getRB_No_carnet().isSelected()) {
+            conadis = false;
+        }
+        return false;
+
+    }
 
     public void IngresoDatos() {
         Paciente paciente = new Paciente();
-        paciente.setIdentificacion(getValidData(vistaPrincipal.getTxt_Identificacion_pac().getText()));
-        
-        paciente.setPrimNombre(getValidData(vistaPrincipal.getTxt_Nombres().getText().split(" ")[0]));
-        paciente.setSegNombre(getValidData(vistaPrincipal.getTxt_Nombres().getText().split(" ").length > 1 ? vistaPrincipal.getTxt_Nombres().getText().split(" ")[1] : ""));
-        paciente.setPrimApellido(getValidData(vistaPrincipal.getTxt_Apellidos().getText().split(" ")[0]));
-        paciente.setSegApellido(getValidData(vistaPrincipal.getTxt_Apellidos().getText().split(" ").length > 1 ? vistaPrincipal.getTxt_Apellidos().getText().split(" ")[1] : ""));
-        
-        paciente.setEmail(getValidData(vistaPrincipal.getTxt_Email().getText()));
+        paciente.setIdentificacion((vistaPrincipal.getTxt_Identificacion_pac().getText()));
+
+        // Obtener y validar nombres
+        String[] nombres = vistaPrincipal.getTxt_Nombres().getText().trim().replaceAll("\\s+", " ").split(" ");
+        paciente.setPrimNombre(getValidNameOrEmpty(nombres, 0));
+        paciente.setSegNombre(getValidNameOrEmpty(nombres, 1));
+
+        // Obtener y validar apellidos
+        String[] apellidos = vistaPrincipal.getTxt_Apellidos().getText().trim().replaceAll("\\s+", " ").split(" ");
+        paciente.setPrimApellido(getValidNameOrEmpty(apellidos, 0));
+        paciente.setSegApellido(getValidNameOrEmpty(apellidos, 1));
+
+        paciente.setEmail((vistaPrincipal.getTxt_Email().getText()));
         paciente.setDireccion(getValidData(vistaPrincipal.getTxt_direccion().getText()));
         paciente.setBarrio(getValidData(vistaPrincipal.getTxt_barrio().getText()));
         paciente.setCanton(getValidData(vistaPrincipal.getTxt_canton().getText()));
@@ -423,7 +561,7 @@ public class Registro_PacienteDAO {
         paciente.setLugar(getValidData(vistaPrincipal.getTxt_lugar().getText()));
         paciente.setPais(getValidData(vistaPrincipal.getTxt_pais().getText()));
         paciente.setGenero(getValidData(vistaPrincipal.getTxt_genero().getText()));
-        paciente.setEstadoCivil(getValidData(Seleccion_Estado_civil()));
+        paciente.setEstadoCivil((Seleccion_Estado_civil()));
         paciente.setSexo(SeleccionSEXO());
 
 //        ImageIcon icon = (ImageIcon) vistaPrincipal.getRSlabel_imagen().getIcon();
@@ -437,15 +575,28 @@ public class Registro_PacienteDAO {
 //        
         paciente.setEtnia(getValidData(vistaPrincipal.getTxt_etnia().getText()));
         paciente.setFechaRegistro(utilDateToSqlDate(new java.util.Date()));
-        paciente.setCarnetConadis(getValidData(vistaPrincipal.getTxt_CarnetConadis().getText()));
-        paciente.setDiscapacidad(vistaPrincipal.getCkx_discapacidad().isSelected());
-        paciente.setTipoDiscapacidad(getValidData(vistaPrincipal.getTxt_tipoDiscapacidad().getText()));
-        paciente.setPorctDiscapacidad(((Number) vistaPrincipal.getSpr_Porcen_Discapasidad().getValue()).intValue());
         paciente.setContactoEmergencia(getValidData(vistaPrincipal.getTxt_ContactoEmergencias().getText()));
         paciente.setEstadoActivo(true);
         paciente.setPacEstActivo(true);
         paciente.setTipo_sangre(Seleccion_tipo_sangre());
 
+        Discapacidad discapacidad = new Discapacidad();
+        boolean select = vistaPrincipal.getCkx_discapacidad().isSelected();
+        if (select) {
+            discapacidad.setCarnet_Conadis(SeleccionConadis());
+            discapacidad.setObservacion(getValidData(vistaPrincipal.getTxt_Observacion().getText()));
+            discapacidad.setPorct_Discapacidad((int) vistaPrincipal.getSpr_ciclo().getValue());
+            discapacidad.setTipo_Discapacidad(getValidData((String) vistaPrincipal.getCBX_tipoDiscapacidad().getSelectedItem()));
+
+        } else {
+            System.out.println("No tiene discapacidad");
+        }
+
+//          paciente.setCarnetConadis(getValidData(vistaPrincipal.getTxt_CarnetConadis().getText()));
+//        paciente.setDiscapacidad(vistaPrincipal.getCkx_discapacidad().isSelected());
+//        paciente.setTipoDiscapacidad(getValidData(vistaPrincipal.getTxt_tipoDiscapacidad().getText()));
+//        paciente.setPorctDiscapacidad(((Number) vistaPrincipal.getSpr_Porcen_Discapasidad().getValue()).intValue());
+//        
         AntecedentesPersonales antecedentesPersonales = new AntecedentesPersonales(
                 0, // Asignar ID si es necesario
                 getValidData(vistaPrincipal.getTxA_Persn_alergia().getText()),
@@ -478,7 +629,7 @@ public class Registro_PacienteDAO {
         Estudiante estudiante = null;
         if (rol.equals("estudiante")) {
             estudiante = new Estudiante(
-                    Seleccion_Carrera(),
+                    idCarrera,
                     String.valueOf(vistaPrincipal.getSpr_ciclo().getValue()).trim(),
                     true
             );
@@ -489,16 +640,23 @@ public class Registro_PacienteDAO {
 
         try {
             if (validarDatosPaciente(paciente)) {
-                boolean resultado = control.registrar(paciente, antecedentesPersonales, antecedentesFamiliares, idDoctor, rol, estudiante, identEstado);
-                if (resultado) {
-                    System.out.println("Se guardó el paciente correctamente.");
-                    /////////////////////////////////////////////////////////////////////////////
-                    Notificaciones.success("¡CONFIRMACIÓN!", "Se guardo correctamente al Paciente");
-                    PasarPanel();
-                    /////////////////////////////////////////////////////////////////////////////
+                if (validarDatosAlumno(estudiante, rol)) {
+                    boolean resultado = control.registrar(discapacidad, paciente, antecedentesPersonales, antecedentesFamiliares, idDoctor, rol, estudiante, identEstado);
+                    if (resultado) {
+                        System.out.println("Se guardó el paciente correctamente.");
+                        /////////////////////////////////////////////////////////////////////////////
+                        Notificaciones.success("¡CONFIRMACIÓN!", "Se guardo correctamente al Paciente");
+                        PasarPanel();
+                        /////////////////////////////////////////////////////////////////////////////
+                    } else {
+                        System.out.println("Error al guardar el paciente.");
+                    }
                 } else {
-                    System.out.println("Error al guardar el paciente.");
+
+                    System.out.println("Error en la tabla estudiante");
+
                 }
+
             } else {
                 System.out.println("Datos del paciente no válidos.");
             }
@@ -509,7 +667,11 @@ public class Registro_PacienteDAO {
     }
 
     private String getValidData(String data) {
-        return data == null || data.trim().isEmpty() ? "Ninguno" : data.trim();
+        return data == null || data.trim().isEmpty() ? " " : data.trim();
+    }
+
+    private String getValidNameOrEmpty(String[] names, int index) {
+        return index < names.length ? names[index] : "";
     }
 
     public Date utilDateToSqlDate(java.util.Date utilDate) {
@@ -519,9 +681,40 @@ public class Registro_PacienteDAO {
         return null;
     }
 
+    private boolean validarDatosAlumno(Estudiante estudiante, String rol) {
+
+        if (rol.equalsIgnoreCase("estudiante")) {
+            boolean esValido = true;
+            StringBuilder errores = new StringBuilder();
+
+            if (estudiante.getCiclo() == null || estudiante.getCiclo().equalsIgnoreCase("0")) {
+                errores.append("El paciente requiere el ciclo que estudia");
+            }
+
+        }
+
+        return true;
+    }
+
     private boolean validarDatosPaciente(Paciente paciente) {
         boolean esValido = true;
         StringBuilder errores = new StringBuilder();
+
+        if (rol == null || rol.trim().isEmpty()) {
+            errores.append("Asigne un rol al Paciente.\n");
+            esValido = false;
+        } else if (!Pattern.matches("\\d{10}", paciente.getIdentificacion())) {
+            errores.append("El rol tiene que ser letras.\n");
+            esValido = false;
+        }
+
+        if (paciente.getSexo() == null || paciente.getSexo().trim().isEmpty()) {
+            errores.append("El sexo de Paciente es requerida.\n");
+            esValido = false;
+        } else if (!Pattern.matches("\\d{10}", paciente.getIdentificacion())) {
+            errores.append("El sexo tiene que ser letras.\n");
+            esValido = false;
+        }
 
         // Validar identificación
         if (paciente.getIdentificacion() == null || paciente.getIdentificacion().trim().isEmpty()) {
@@ -627,6 +820,40 @@ public class Registro_PacienteDAO {
         }
 
         return imageInBytes;
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void cargarCarreras() {
+
+        Conexion cnxt = new Conexion();
+        PreparedStatement pS = null;
+        java.sql.Connection conectBase = cnxt.getConexion();
+        try {
+
+            String query = "SELECT Id_Carrera, Nombre_Carrera FROM carrera";
+
+            pS = conectBase.prepareStatement(query);
+            // Procesar el resultado
+
+            vistaPrincipal.getCbx_Carreras().addItem(new Carrera());
+            try ( ResultSet resultSet = pS.executeQuery(query)) {
+                // Procesar el resultado
+                while (resultSet.next()) {
+                    int idCarrera = resultSet.getInt("Id_Carrera");
+                    String nombreCarrera = resultSet.getString("Nombre_Carrera");
+
+                    // Agregar cada carrera al JComboBox
+                    vistaPrincipal.getCbx_Carreras().addItem(new Carrera(idCarrera, nombreCarrera));
+                }
+
+            }
+//            statement.close();
+//            conectBase.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
