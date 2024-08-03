@@ -95,6 +95,23 @@ public class ControladorFrmNuevaConsul {
                 }
             }
         });
+        // Configurar el ActionListener del botón "Terminar Consulta"
+        this.btnTerminarConsulta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    guardarConsulta();
+                    JOptionPane.showMessageDialog(null, "Consulta guardada con éxito");
+                    // Habilitar el botón de imprimir después de guardar la consulta
+                    btnimprimir.setEnabled(true);
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error al guardar la consulta: " + ex.getMessage());
+                }
+            }
+        });
+
+        // Inicialmente, el botón de imprimir debe estar deshabilitado
+        btnimprimir.setEnabled(false);
 
         ventanaNvConsulta.getTxtAreaExComplemetario().setEnabled(false);
 
