@@ -4,9 +4,7 @@ import Controlador.Notificaciones;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import Controlador.ControladorPaciente;
 import Modelo.AntecedentesFamiliares;
 import Modelo.AntecedentesPersonales;
@@ -15,12 +13,9 @@ import Modelo.Conexion;
 import Modelo.Discapacidad;
 import Modelo.Estudiante;
 import Modelo.Paciente;
-import Modelo.Persona;
 import Modelo.Singleton;
 import Vista.FrmRegistrarsePaciente;
 import Vista.PANEL_PRINCIPAL_PACIENTE;
-import com.mysql.cj.jdbc.Blob;
-import com.sun.jdi.connect.spi.Connection;
 import java.awt.BorderLayout;
 import java.awt.MediaTracker;
 import java.awt.event.ActionEvent;
@@ -36,15 +31,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.util.regex.Pattern;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import rsdragdropfiles.RSDragDropFiles;
-import rojerusan.RSLabelImage;
 import javax.swing.JLabel;
 import java.sql.*;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class Registro_PacienteDAO {
 
@@ -54,7 +48,7 @@ public class Registro_PacienteDAO {
     private String rol = " ";
     private String tipoSexo = "";
     private Singleton singleton;
-    private List<AntecedentesFamiliares> familiares = new ArrayList<>();
+    private List<AntecedentesFamiliares> Listafamiliares = new ArrayList<>();
     boolean identEstado = true;
     String selectedItem = "";
     int idCarrera = 0;
@@ -86,7 +80,7 @@ public class Registro_PacienteDAO {
                 Carrera carreraSeleccionada = (Carrera) vistaPrincipal.getCbx_Carreras().getSelectedItem();
                 if (carreraSeleccionada != null) {
                     idCarrera = carreraSeleccionada.getIdCarrera();
-                    System.out.println("Id Carrera = "+idCarrera);
+                    System.out.println("Id Carrera = " + idCarrera);
 
                 }
             }
@@ -341,9 +335,10 @@ public class Registro_PacienteDAO {
                 cirugias_Fm,
                 vacunas_Fm
         );
+        manejarAntecedenteFamiliar(familia, Listafamiliares);
 
-        familiares.add(familia);
-        limpiarCamposFamiliares();
+        Listafamiliares.add(familia);
+
     }
 
     private void limpiarCamposFamiliares() {
@@ -389,14 +384,19 @@ public class Registro_PacienteDAO {
 
         if (esAdministrativo) {
             rol = "administrativo";
+            System.out.println("Rol :" + rol);
         } else if (esEstudiante) {
             rol = "estudiante";
+            System.out.println("Rol :" + rol);
         } else if (esServicios) {
             rol = "servicios";
+            System.out.println("Rol :" + rol);
         } else if (esDocente) {
             rol = "docente";
+            System.out.println("Rol :" + rol);
         } else {
             rol = "";
+            System.out.println("Rol _:" + rol);
         }
     }
 
@@ -543,14 +543,13 @@ public class Registro_PacienteDAO {
 
         // Obtener y validar nombres
         String[] nombres = vistaPrincipal.getTxt_Nombres().getText().trim().replaceAll("\\s+", " ").split(" ");
-        paciente.setPrimNombre(getValidNameOrEmpty(nombres, 0));
-        paciente.setSegNombre(getValidNameOrEmpty(nombres, 1));
+        paciente.setPrimNombre(getValidNameOrEmpty(nombres, 0));  // Valida y asigna primer nombre
+        paciente.setSegNombre(getValidNameOrEmpty(nombres, 1));  // Valida y asigna segundo nombre
 
-        // Obtener y validar apellidos
+// Obtener y validar apellidos
         String[] apellidos = vistaPrincipal.getTxt_Apellidos().getText().trim().replaceAll("\\s+", " ").split(" ");
-        paciente.setPrimApellido(getValidNameOrEmpty(apellidos, 0));
+        paciente.setPrimApellido(getValidNameOrEmpty(apellidos, 0));  // Valida y asigna primer apellido
         paciente.setSegApellido(getValidNameOrEmpty(apellidos, 1));
-
         paciente.setEmail((vistaPrincipal.getTxt_Email().getText()));
         paciente.setDireccion(getValidData(vistaPrincipal.getTxt_direccion().getText()));
         paciente.setBarrio(getValidData(vistaPrincipal.getTxt_barrio().getText()));
@@ -610,7 +609,7 @@ public class Registro_PacienteDAO {
                 getValidData(vistaPrincipal.getTxA_Persn_vacunas().getText())
         );
 
-        List<AntecedentesFamiliares> antecedentesFamiliares = this.familiares.stream()
+        List<AntecedentesFamiliares> antecedentesFamiliares = this.Listafamiliares.stream()
                 .map(fam -> new AntecedentesFamiliares(
                 fam.getParentescoFamiliar(),
                 fam.getIdAntecedentes(),
@@ -641,16 +640,29 @@ public class Registro_PacienteDAO {
         try {
             if (validarDatosPaciente(paciente)) {
                 if (validarDatosAlumno(estudiante, rol)) {
-                    boolean resultado = control.registrar(discapacidad, paciente, antecedentesPersonales, antecedentesFamiliares, idDoctor, rol, estudiante, identEstado);
-                    if (resultado) {
-                        System.out.println("Se guardó el paciente correctamente.");
-                        /////////////////////////////////////////////////////////////////////////////
-                        Notificaciones.success("¡CONFIRMACIÓN!", "Se guardo correctamente al Paciente");
-                        PasarPanel();
-                        /////////////////////////////////////////////////////////////////////////////
+                    if (rol != null) {
+
+                        if (validarDatosDiscapacidad(discapacidad, vistaPrincipal.getCkx_discapacidad().isSelected())) {
+                            boolean resultado = control.registrar(discapacidad, paciente, antecedentesPersonales, antecedentesFamiliares, idDoctor, rol, estudiante, identEstado);
+                            if (resultado) {
+                                System.out.println("Se guardó el paciente correctamente.");
+                                /////////////////////////////////////////////////////////////////////////////
+                                Notificaciones.success("¡CONFIRMACIÓN!", "Se guardo correctamente al Paciente");
+                                PasarPanel();
+                                /////////////////////////////////////////////////////////////////////////////
+                            } else {
+                                System.out.println("Error al guardar el paciente.");
+                            }
+
+                        } else {
+                            System.out.println("Error al guardar la discapacidad");
+                        }
+
                     } else {
-                        System.out.println("Error al guardar el paciente.");
+                        Notificaciones.error("ERROR", "El paciente no tiene un rol asignado");
+
                     }
+
                 } else {
 
                     System.out.println("Error en la tabla estudiante");
@@ -671,7 +683,20 @@ public class Registro_PacienteDAO {
     }
 
     private String getValidNameOrEmpty(String[] names, int index) {
-        return index < names.length ? names[index] : "";
+        if (index < names.length) {
+            String name = names[index];
+            if (isValidName(name)) {
+                return name;
+            } else {
+                // Mostrar mensaje de error si el nombre tiene espacios internos
+                System.out.println("Error: '" + name + "' no es un nombre válido. Por favor ingresa los nombres correctamente, por ejemplo, 'Juan Carlos'.");
+            }
+        }
+        return "";
+    }
+
+    private boolean isValidName(String name) {
+        return name.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$");
     }
 
     public Date utilDateToSqlDate(java.util.Date utilDate) {
@@ -681,109 +706,165 @@ public class Registro_PacienteDAO {
         return null;
     }
 
-    private boolean validarDatosAlumno(Estudiante estudiante, String rol) {
+    private boolean validarDatosDiscapacidad(Discapacidad discapacidad, boolean seleccion) {
+        if (seleccion) {
+            boolean esValido = true;
+            StringBuilder errores = new StringBuilder();
 
+
+            if (discapacidad.getTipo_Discapacidad() == null || discapacidad.getTipo_Discapacidad().trim().isEmpty()) {
+                errores.append("El tipo de discapacidad es obligatorio.\n");
+                esValido = false;
+            }
+
+            if (discapacidad.getPorct_Discapacidad() < 0 || discapacidad.getPorct_Discapacidad() > 100) {
+                errores.append("El porcentaje de discapacidad debe estar entre 0 y 100.\n");
+                esValido = false;
+            }
+
+            if (discapacidad.getObservacion() != null && discapacidad.getObservacion().length() > 150) {
+                errores.append("La observación es demasiado larga (máximo 150 caracteres).\n");
+                esValido = false;
+            }
+
+            if (!esValido) {
+                JOptionPane.showMessageDialog(vistaPrincipal, errores.toString(), "Errores de Validación", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+            return esValido;
+        }
+
+        // Si no hay selección, retorna true por defecto
+        return true;
+    }
+
+    private boolean validarDatosAlumno(Estudiante estudiante, String rol) {
         if (rol.equalsIgnoreCase("estudiante")) {
             boolean esValido = true;
             StringBuilder errores = new StringBuilder();
 
-            if (estudiante.getCiclo() == null || estudiante.getCiclo().equalsIgnoreCase("0")) {
-                errores.append("El paciente requiere el ciclo que estudia");
+            if (estudiante.getIdcarrera() <= 0) {
+                errores.append("El ID de carrera es obligatorio y debe ser un valor positivo.\n");
+                esValido = false;
             }
 
+            if (estudiante.getCiclo() == null || estudiante.getCiclo().trim().isEmpty() || estudiante.getCiclo().equalsIgnoreCase("0")) {
+                errores.append("El ciclo que estudia es obligatorio y no puede ser '0'.\n");
+                esValido = false;
+            }
+
+            if (!esValido) {
+                JOptionPane.showMessageDialog(vistaPrincipal, errores.toString(), "Errores de Validación", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+            return esValido;
         }
 
         return true;
     }
 
     private boolean validarDatosPaciente(Paciente paciente) {
-        boolean esValido = true;
+        boolean datosValidos = true;
         StringBuilder errores = new StringBuilder();
-
-        if (rol == null || rol.trim().isEmpty()) {
-            errores.append("Asigne un rol al Paciente.\n");
-            esValido = false;
-        } else if (!Pattern.matches("\\d{10}", paciente.getIdentificacion())) {
-            errores.append("El rol tiene que ser letras.\n");
-            esValido = false;
+        // Validar identificación: debe tener exactamente 10 dígitos
+        if (paciente.getIdentificacion() == null || paciente.getIdentificacion().isEmpty()) {
+            errores.append("La identificación no puede estar vacía.\n");
+            datosValidos = false;
+        } else if (!paciente.getIdentificacion().matches("\\d{10}")) {
+            errores.append("El formato de la identificación es incorrecto. Debe tener exactamente 10 dígitos.\n");
+            datosValidos = false;
         }
 
-        if (paciente.getSexo() == null || paciente.getSexo().trim().isEmpty()) {
-            errores.append("El sexo de Paciente es requerida.\n");
-            esValido = false;
-        } else if (!Pattern.matches("\\d{10}", paciente.getIdentificacion())) {
-            errores.append("El sexo tiene que ser letras.\n");
-            esValido = false;
+        if (paciente.getPrimNombre() == null || paciente.getPrimNombre().isEmpty()) {
+            errores.append("El primer nombre no puede estar vacío.\n");
+            datosValidos = false;
+        } else if (!paciente.getPrimNombre().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
+            errores.append("El formato del primer nombre es incorrecto. Debe contener solo letras.\n");
+            datosValidos = false;
         }
 
-        // Validar identificación
-        if (paciente.getIdentificacion() == null || paciente.getIdentificacion().trim().isEmpty()) {
-            errores.append("La identificación es requerida.\n");
-            esValido = false;
-        } else if (!Pattern.matches("\\d{10}", paciente.getIdentificacion())) {
-            errores.append("La identificación debe tener exactamente 10 dígitos.\n");
-            esValido = false;
+        // Validar segundo nombre: debe contener solo letras o estar vacío
+        if (paciente.getSegNombre() != null && !paciente.getSegNombre().isEmpty() && !paciente.getSegNombre().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]*")) {
+            errores.append("El formato del segundo nombre es incorrecto. Debe contener solo letras.\n");
+            datosValidos = false;
         }
 
-        // Validar primer nombre
-        if (paciente.getPrimNombre().trim().isEmpty()) {
-            errores.append("El primer nombre es requerido.\n");
-            esValido = false;
-        } else if (!Pattern.matches("^[\\p{L} ]+$", paciente.getPrimNombre())) {
-            errores.append("El primer nombre solo debe contener letras y espacios.\n");
-            esValido = false;
+        if (paciente.getPrimApellido() == null || paciente.getPrimApellido().isEmpty()) {
+            errores.append("El primer apellido no puede estar vacío.\n");
+            datosValidos = false;
+        } else if (!paciente.getPrimApellido().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
+            errores.append("El formato del primer apellido es incorrecto. Debe contener solo letras.\n");
+            datosValidos = false;
         }
 
-        // Validar segundo nombre (puede estar vacío)
-        if (!paciente.getSegNombre().trim().isEmpty() && !Pattern.matches("^[\\p{L} ]*$", paciente.getSegNombre())) {
-            errores.append("El segundo nombre solo debe contener letras y espacios.\n");
-            esValido = false;
+        if (paciente.getSegApellido() != null && !paciente.getSegApellido().isEmpty() && !paciente.getSegApellido().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]*")) {
+            errores.append("El formato del segundo apellido es incorrecto. Debe contener solo letras.\n");
+            datosValidos = false;
         }
 
-        // Validar primer apellido
-        if (paciente.getPrimApellido().trim().isEmpty()) {
-            errores.append("El primer apellido es requerido.\n");
-            esValido = false;
-        } else if (!Pattern.matches("^[\\p{L} ]+$", paciente.getPrimApellido())) {
-            errores.append("El primer apellido solo debe contener letras y espacios.\n");
-            esValido = false;
+        if (paciente.getEmail() == null || paciente.getEmail().isEmpty()) {
+            errores.append("El email no puede estar vacío.\n");
+            datosValidos = false;
+        } else {
+            String emailRegex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+            if (!paciente.getEmail().matches(emailRegex)) {
+                errores.append("El formato del email no es válido.\n");
+                datosValidos = false;
+            }
         }
 
-        // Validar segundo apellido (puede estar vacío)
-        if (!paciente.getSegApellido().trim().isEmpty() && !Pattern.matches("^[\\p{L} ]*$", paciente.getSegApellido())) {
-            errores.append("El segundo apellido solo debe contener letras y espacios.\n");
-            esValido = false;
+        if (paciente.getTelefono() == null || paciente.getTelefono().isEmpty()) {
+            errores.append("El teléfono no puede estar vacío.\n");
+            datosValidos = false;
+        } else if (!paciente.getTelefono().matches("\\d{10}")) {
+            errores.append("El formato del teléfono es incorrecto. Debe contener exactamente 10 dígitos.\n");
+            datosValidos = false;
         }
 
-        // Validar correo electrónico
-        if (paciente.getEmail() == null || paciente.getEmail().trim().isEmpty()) {
-            errores.append("El correo electrónico es requerido.\n");
-            esValido = false;
-        } else if (!Pattern.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$", paciente.getEmail())) {
-            errores.append("El correo electrónico no es válido.\n");
-            esValido = false;
+        if (paciente.getProvincia() == null || paciente.getProvincia().isEmpty()) {
+            errores.append("La provincia es obligatoria.\n");
+            datosValidos = false;
         }
 
-        // Validar fecha de nacimiento
+        if (paciente.getPais() == null || paciente.getPais().isEmpty()) {
+            errores.append("El país es obligatorio.\n");
+            datosValidos = false;
+        }
+
+        if (paciente.getSexo() == null || paciente.getSexo().isEmpty()) {
+            errores.append("El sexo es obligatorio.\n");
+            datosValidos = false;
+        }
+
+        if (paciente.getTipo_sangre() == null || paciente.getTipo_sangre().isEmpty()) {
+            errores.append("El tipo de sangre es obligatorio.\n");
+            datosValidos = false;
+        }
+
+        if (paciente.getEstadoCivil() == null || paciente.getEstadoCivil().isEmpty()) {
+            errores.append("El estado civil es obligatorio.\n");
+            datosValidos = false;
+        }
+
         if (paciente.getFechaNacimiento() == null) {
-            errores.append("La fecha de nacimiento es requerida.\n");
-            esValido = false;
+            errores.append("La fecha de nacimiento no puede estar vacía.\n");
+            datosValidos = false;
+        } else {
+            Calendar fechaActual = Calendar.getInstance();
+            fechaActual.add(Calendar.YEAR, -15); // Restar 15 años de la fecha actual
+            if (!paciente.getFechaNacimiento().before(fechaActual.getTime())) {
+                errores.append("La fecha de nacimiento no es válida. El paciente debe tener al menos 15 años.\n");
+                datosValidos = false;
+            }
         }
-
-        // Validar contacto de emergencia
-        if (paciente.getContactoEmergencia() == null || paciente.getContactoEmergencia().trim().isEmpty()) {
-            errores.append("El contacto de emergencia es requerido.\n");
-            esValido = false;
-        } else if (!Pattern.matches("^\\d{10}$", paciente.getContactoEmergencia())) {
-            errores.append("El contacto de emergencia debe tener exactamente 10 dígitos.\n");
-            esValido = false;
-        }
-
-        if (!esValido) {
+        if (!datosValidos) {
             JOptionPane.showMessageDialog(vistaPrincipal, errores.toString(), "Errores de Validación", JOptionPane.ERROR_MESSAGE);
+
         }
 
-        return esValido;
+        return datosValidos;
     }
 
     public void PasarPanel() {
@@ -854,6 +935,55 @@ public class Registro_PacienteDAO {
             e.printStackTrace();
         }
 
+    }
+///////////////////////////////////////////////////////////////////////////////////////////
+
+    private void manejarAntecedenteFamiliar(AntecedentesFamiliares nuevoAntecedente, List<AntecedentesFamiliares> listaFamiliares) {
+        Optional<AntecedentesFamiliares> antecedenteExistente = buscarAntecedenteFamiliarPorParentesco(nuevoAntecedente.getParentescoFamiliar(), listaFamiliares);
+
+        if (antecedenteExistente.isPresent()) {
+    
+            // Si se encuentra el antecedente, actualizar sus datos
+            AntecedentesFamiliares antecedente = antecedenteExistente.get();
+            antecedente.setAlergias(nuevoAntecedente.getAlergias());
+            antecedente.setClinico(nuevoAntecedente.getClinico());
+            antecedente.setGinecologico(nuevoAntecedente.getGinecologico());
+            antecedente.setTraumatologico(nuevoAntecedente.getTraumatologico());
+            antecedente.setQuirurgico(nuevoAntecedente.getQuirurgico());
+            antecedente.setFarmacologico(nuevoAntecedente.getFarmacologico());
+            antecedente.setEnfermedades(nuevoAntecedente.getEnfermedades());
+            antecedente.setCirugias(nuevoAntecedente.getCirugias());
+            antecedente.setVacunas(nuevoAntecedente.getVacunas());
+
+            // Cargar los datos del antecedente en los campos de texto
+            cargarDatosAntecedenteEnCampos(antecedente);
+             limpiarCamposFamiliares();
+        } else {
+            // Si no se encuentra, añadir el nuevo antecedente a la lista
+            listaFamiliares.add(nuevoAntecedente);
+            // Opcionalmente, puedes limpiar los campos si se añade un nuevo antecedente
+            limpiarCamposFamiliares();
+        }
+    }
+
+    private Optional<AntecedentesFamiliares> buscarAntecedenteFamiliarPorParentesco(String parentescoFamiliar, List<AntecedentesFamiliares> lista) {
+        // Buscar antecedente por parentesco
+        return lista.stream()
+                .filter(af -> af.getParentescoFamiliar().equalsIgnoreCase(parentescoFamiliar))
+                .findFirst();
+    }
+    // Método para cargar los datos del antecedente en los campos de texto
+
+    private void cargarDatosAntecedenteEnCampos(AntecedentesFamiliares antecedente) {
+        vistaPrincipal.getTxA_Faml_alergia().setText(antecedente.getAlergias());
+        vistaPrincipal.getTxA_Faml_clinico().setText(antecedente.getClinico());
+        vistaPrincipal.getTxA_Faml_ginecologo().setText(antecedente.getGinecologico());
+        vistaPrincipal.getTxA_Faml_traumatologico().setText(antecedente.getTraumatologico());
+        vistaPrincipal.getTxA_Faml_quirurgico().setText(antecedente.getQuirurgico());
+        vistaPrincipal.getTxA_Faml_farmacologico().setText(antecedente.getFarmacologico());
+        vistaPrincipal.getTxA_Faml_enfermedades().setText(antecedente.getEnfermedades());
+        vistaPrincipal.getTxA_Faml_cirugia().setText(antecedente.getCirugias());
+        vistaPrincipal.getTxA_Faml_vacunas().setText(antecedente.getVacunas());
     }
 
 }

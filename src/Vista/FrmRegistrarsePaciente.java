@@ -34,6 +34,18 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         
     }
 
+    public JRadioButton getRB_Si_carnet() {
+        return RB_Si_carnet;
+    }
+
+    public void setRB_Si_carnet(JRadioButton RB_Si_carnet) {
+        this.RB_Si_carnet = RB_Si_carnet;
+    }
+    
+    
+    
+    
+
     public JComboBox<Carrera> getCbx_Carreras() {
         return Cbx_Carreras;
     }
@@ -61,13 +73,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         this.RB_No_carnet = RB_No_carnet;
     }
 
-    public JRadioButton getRB_Si_carnet() {
-        return RB_Si_carnet;
-    }
-
-    public void setRB_Si_carnet(JRadioButton RB_Si_carnet) {
-        this.RB_Si_carnet = RB_Si_carnet;
-    }
 
     public JRadioButton getRbn_Administrativo() {
         return Rbn_Administrativo;
@@ -687,9 +692,10 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         CBX_tipoDiscapacidad = new javax.swing.JComboBox<>();
         jLabel50 = new javax.swing.JLabel();
         RB_No_carnet = new javax.swing.JRadioButton();
-        RB_Si_carnet = new javax.swing.JRadioButton();
         Rbn_Servicios = new javax.swing.JRadioButton();
         Rbn_Administrativo = new javax.swing.JRadioButton();
+        RB_Si_carnet = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1280, 680));
 
@@ -942,11 +948,13 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(jSeparator28, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 170, 10));
 
         Spr_Porcen_Discapasidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+        Spr_Porcen_Discapasidad.setEditor(new javax.swing.JSpinner.NumberEditor(Spr_Porcen_Discapasidad, ""));
         jPanel1.add(Spr_Porcen_Discapasidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, -1, -1));
 
         Spr_ciclo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        Spr_ciclo.setEditor(new javax.swing.JSpinner.NumberEditor(Spr_ciclo, ""));
         Spr_ciclo.setEnabled(false);
-        jPanel1.add(Spr_ciclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, -1, -1));
+        jPanel1.add(Spr_ciclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 580, -1, -1));
 
         Btn_Cancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Btn_Cancelar.setText("CANCELAR");
@@ -1286,12 +1294,9 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 580, -1, 20));
 
         Grupo3.add(RB_No_carnet);
+        RB_No_carnet.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         RB_No_carnet.setText("No");
         jPanel1.add(RB_No_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, -1, -1));
-
-        Grupo3.add(RB_Si_carnet);
-        RB_Si_carnet.setText("Si");
-        jPanel1.add(RB_Si_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 580, -1, -1));
 
         buttonGroup1.add(Rbn_Servicios);
         Rbn_Servicios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1307,6 +1312,15 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
             }
         });
         jPanel1.add(Rbn_Administrativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, 30));
+
+        Grupo3.add(RB_Si_carnet);
+        RB_Si_carnet.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        RB_Si_carnet.setText("Si");
+        jPanel1.add(RB_Si_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 580, 40, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Si");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 580, 20, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -1329,7 +1343,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     }//GEN-LAST:event_Rbn_FemeninoActionPerformed
 
     private void Rbn_MasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rbn_MasculinoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_Rbn_MasculinoActionPerformed
 
     private void Rbn_AdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rbn_AdministrativoActionPerformed
@@ -1409,6 +1423,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
