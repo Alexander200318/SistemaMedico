@@ -36,6 +36,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         this.TxtApellidoPaciente = TxtApellidoPaciente;
     }
 
+    
     public JTextField getTxtApellidoPaciente() {
         return TxtApellidoPaciente;
     }
@@ -148,6 +149,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     public JLabel getLabelOcularConsu() {
         return LabelOcularConsu;
     }
+    
 
     public void setLabelOcularConsu(JLabel LabelOcularConsu) {
         this.LabelOcularConsu = LabelOcularConsu;
@@ -1015,7 +1017,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     private javax.swing.JLabel LabelVerbalConsu;
     private javax.swing.JLabel LblFotoConsu;
     private javax.swing.JPanel Panelbtn;
-    private javax.swing.JTextField TxFarmacologiaFamiliares;
+    public javax.swing.JTextField TxFarmacologiaFamiliares;
     private javax.swing.JTextField TxtAlergiasFamiliares;
     private javax.swing.JTextField TxtAlergiasPersonales;
     private javax.swing.JTextField TxtApellidoPaciente;
