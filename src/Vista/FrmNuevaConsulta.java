@@ -6,11 +6,15 @@ package Vista;
 
 import Controlador.ControladorFrmNuevaConsul;
 import com.toedter.calendar.JDateChooser;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Date;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTabbedPane;
@@ -42,8 +46,39 @@ ControladorFrmNuevaConsul controlador;
         btnTerminarConsulta = new JButton("Terminar Consulta");
         jTabbedPane = new JTabbedPane();
         
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        
+                addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                manejarCierreVentana();
+            }
+        });
+        
     }
 
+private void manejarCierreVentana() {
+        // Opciones personalizadas
+        String[] opciones = {"Salir", "Continuar"};
+        
+        // Mostrar cuadro de diálogo de confirmación con opciones personalizadas
+        int opcion = JOptionPane.showOptionDialog(
+            this,
+            "¿Está seguro que desea salir?",
+            "Confirmar salida",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            opciones,
+            opciones[1] // opción predeterminada es "Continuar"
+        );
+
+        // Si el usuario selecciona "Salir", cerrar la ventana
+        if (opcion == JOptionPane.YES_OPTION) {
+            System.out.println("Cerrando FrmNuevaConsulta...");
+            dispose();
+        }
+    }
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -96,7 +131,6 @@ ControladorFrmNuevaConsul controlador;
         txtTemperatura = new javax.swing.JTextField();
         txtEstatura = new javax.swing.JTextField();
         txtPeso = new javax.swing.JTextField();
-        txtMasaCorporal = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator12 = new javax.swing.JSeparator();
@@ -120,12 +154,13 @@ ControladorFrmNuevaConsul controlador;
         jSeparator24 = new javax.swing.JSeparator();
         jSeparator25 = new javax.swing.JSeparator();
         txtVerbal = new javax.swing.JTextField();
-        TxtTotal = new javax.swing.JTextField();
         jSeparator27 = new javax.swing.JSeparator();
         jSeparator49 = new javax.swing.JSeparator();
         jSeparator50 = new javax.swing.JSeparator();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        lblMasaCorporal = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane16 = new javax.swing.JScrollPane();
         jPanel8 = new javax.swing.JPanel();
@@ -345,7 +380,7 @@ ControladorFrmNuevaConsul controlador;
         lblFreCardiaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/monitor-de-pulso-cardiaco.png"))); // NOI18N
         lblFreCardiaca.setText("Frecuencia Cardiaca:");
         jPanel22.add(lblFreCardiaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 180, -1));
-        jPanel22.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 600, 20));
+        jPanel22.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 600, 10));
 
         jLabel15.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/presion-arterial.png"))); // NOI18N
@@ -412,11 +447,6 @@ ControladorFrmNuevaConsul controlador;
         txtPeso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPeso.setBorder(null);
         jPanel22.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 70, 20));
-
-        txtMasaCorporal.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
-        txtMasaCorporal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtMasaCorporal.setBorder(null);
-        jPanel22.add(txtMasaCorporal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 70, 20));
         jPanel22.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 70, 10));
         jPanel22.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 70, 10));
         jPanel22.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 70, 10));
@@ -486,16 +516,6 @@ ControladorFrmNuevaConsul controlador;
         txtVerbal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtVerbal.setBorder(null);
         jPanel22.add(txtVerbal, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 70, 20));
-
-        TxtTotal.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
-        TxtTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtTotal.setBorder(null);
-        TxtTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtTotalActionPerformed(evt);
-            }
-        });
-        jPanel22.add(TxtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 70, 20));
         jPanel22.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 600, 10));
         jPanel22.add(jSeparator49, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 600, 10));
         jPanel22.add(jSeparator50, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 600, 10));
@@ -509,6 +529,8 @@ ControladorFrmNuevaConsul controlador;
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/salud-mental.png"))); // NOI18N
         jPanel22.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 40, 30));
+        jPanel22.add(lblMasaCorporal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 70, 20));
+        jPanel22.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 70, 20));
 
         jPanel3.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 600, 310));
 
@@ -962,10 +984,6 @@ ControladorFrmNuevaConsul controlador;
         // TODO add your handling code here:
     }//GEN-LAST:event_txtOcularActionPerformed
 
-    private void TxtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtTotalActionPerformed
-
     private void btnIrregularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIrregularActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIrregularActionPerformed
@@ -974,17 +992,19 @@ ControladorFrmNuevaConsul controlador;
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnImprimirRecetaActionPerformed
 
+    public JLabel getLblTotal() {
+        return lblTotal;
+    }
+
+    public void setLblTotal(JLabel lblTotal) {
+        this.lblTotal = lblTotal;
+    }
+
 //-------------------------------------------------------------------------------------------------------------------------------------
     
     //Getter y setter de nota de padecimiento y diagnostico
     
-    public JTextField getTxtTotal() {
-        return TxtTotal;
-    }
 
-    public void setTxtTotal(JTextField TxtTotal) {
-        this.TxtTotal = TxtTotal;
-    }
 
     public JComboBox<String> getjComboBox1() {
         return CmbBoxTriage;
@@ -1164,12 +1184,12 @@ ControladorFrmNuevaConsul controlador;
         this.txtLlenadoCapilar = txtLlenadoCapilar;
     }
 
-    public JTextField getTxtMasaCorporal() {
-        return txtMasaCorporal;
+    public JLabel getLblMasaCorporal() {
+        return lblMasaCorporal;
     }
 
-    public void setTxtMasaCorporal(JTextField txtMasaCorporal) {
-        this.txtMasaCorporal = txtMasaCorporal;
+    public void setLblMasaCorporal(JLabel lblMasaCorporal) {
+        this.lblMasaCorporal = lblMasaCorporal;
     }
 
     public JTextField getTxtMotora() {
@@ -1700,7 +1720,6 @@ ControladorFrmNuevaConsul controlador;
     private javax.swing.JSpinner SpinnerNumParejasSexuales;
     private javax.swing.JSpinner SpinnerPartos;
     private javax.swing.JSpinner SpinnerSemGestacion;
-    private javax.swing.JTextField TxtTotal;
     private javax.swing.JRadioButton btnActivaInmunizacion;
     private javax.swing.JRadioButton btnDefinitivo;
     private javax.swing.ButtonGroup btnGrpInmunizaciones;
@@ -1841,12 +1860,14 @@ ControladorFrmNuevaConsul controlador;
     private javax.swing.JLabel lblFrecRespiratoria7;
     private javax.swing.JLabel lblFrecRespiratoria8;
     private javax.swing.JLabel lblFrecRespiratoria9;
+    private javax.swing.JLabel lblMasaCorporal;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNumeroCel;
     private javax.swing.JLabel lblPeso;
     private javax.swing.JLabel lblSatOxigeno;
     private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblTemperatura;
+    private javax.swing.JLabel lblTotal;
     private Modelo.PanelRound panelRound2;
     private javax.swing.JTextArea txtAreaAbdomen;
     private javax.swing.JTextArea txtAreaCabeza;
@@ -1866,7 +1887,6 @@ ControladorFrmNuevaConsul controlador;
     private javax.swing.JTextField txtFreCardiaca;
     private javax.swing.JTextField txtFrecRespiratoria;
     private javax.swing.JTextField txtLlenadoCapilar;
-    private javax.swing.JTextField txtMasaCorporal;
     private javax.swing.JTextField txtMotora;
     private javax.swing.JTextArea txtNotasConsulta;
     private javax.swing.JTextField txtOcular;

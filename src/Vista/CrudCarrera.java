@@ -79,26 +79,52 @@ public class CrudCarrera extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         TxtNuevaCarrera = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TablaCarreras = new javax.swing.JTable();
         BtnAñadirCarrera = new javax.swing.JButton();
         BtnEliminarCarrera = new javax.swing.JButton();
         BtnModificarCarrera = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaCarreras = new javax.swing.JTable();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "AÑADIR CARRERAS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Maiandra GD", 1, 36))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
         jLabel1.setText("Carrera:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 50, 20));
-        jPanel1.add(TxtNuevaCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 220, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 80, 20));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel2.setText("AÑADIR CARRERAS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 370, -1));
+        TxtNuevaCarrera.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        TxtNuevaCarrera.setBorder(null);
+        jPanel1.add(TxtNuevaCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 220, 30));
 
+        BtnAñadirCarrera.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+        BtnAñadirCarrera.setText("Añadir ");
+        jPanel1.add(BtnAñadirCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 90, 30));
+
+        BtnEliminarCarrera.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+        BtnEliminarCarrera.setText("Eliminar");
+        jPanel1.add(BtnEliminarCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 100, 30));
+
+        BtnModificarCarrera.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
+        BtnModificarCarrera.setText("Modificar");
+        BtnModificarCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModificarCarreraActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnModificarCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 160, 30));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 220, 10));
+
+        jPanel2.setBackground(new java.awt.Color(64, 172, 159));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS EXISTENTES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TablaCarreras.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         TablaCarreras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -107,7 +133,7 @@ public class CrudCarrera extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Id", "Nombre Carrera"
+                "ID", "Nombre Carrera"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -120,21 +146,10 @@ public class CrudCarrera extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TablaCarreras);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 710, 250));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 640, 200));
 
-        BtnAñadirCarrera.setText("Añadir ");
-        jPanel1.add(BtnAñadirCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 90, 30));
-
-        BtnEliminarCarrera.setText("Eliminar");
-        jPanel1.add(BtnEliminarCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 100, 30));
-
-        BtnModificarCarrera.setText("Modificar");
-        BtnModificarCarrera.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnModificarCarreraActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnModificarCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 160, 30));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 680, 260));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 720, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,8 +211,10 @@ public class CrudCarrera extends javax.swing.JFrame {
     private javax.swing.JTable TablaCarreras;
     private javax.swing.JTextField TxtNuevaCarrera;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }

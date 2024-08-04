@@ -216,6 +216,8 @@ public class ControladorFrmNuevaConsul {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     String fechaActual = LocalDate.now().format(formatter);
                     ventanaNvConsulta.getLblFecha_Actual().setText(fechaActual);
+                    
+                    validarSexoYDeshabilitarPagina();
                 });
             } else {
                 System.out.println("ventanaNvConsulta es null");
@@ -227,47 +229,47 @@ public class ControladorFrmNuevaConsul {
 
     private void guardarConsulta() throws SQLException {
         try {
-            int idPaciente = singleton.getIdPaciente();
-            int idDoctor = singleton.getId_Doctor();
-            int CIE10 = (int) ventanaNvConsulta.getSpinnerCIE10().getValue();
+        int idPaciente = singleton.getIdPaciente();
+        int idDoctor = singleton.getId_Doctor();
+        int CIE10 = (int) ventanaNvConsulta.getSpinnerCIE10().getValue();
 
-            String triageSeleccionado = (String) ventanaNvConsulta.getCmbBoxTriage().getSelectedItem();
-            int idTriage = obtenerIdTriage(triageSeleccionado);
+        String triageSeleccionado = (String) ventanaNvConsulta.getCmbBoxTriage().getSelectedItem();
+        int idTriage = obtenerIdTriage(triageSeleccionado);
 
-            boolean D_Presuntivo = ventanaNvConsulta.getBtnPresuntivo().isSelected();
-            boolean D_Definitivo = ventanaNvConsulta.getBtnDefinitivo().isSelected();
+        boolean D_Presuntivo = ventanaNvConsulta.getBtnPresuntivo().isSelected();
+        boolean D_Definitivo = ventanaNvConsulta.getBtnDefinitivo().isSelected();
 
-            // Validar que los campos de texto no estén vacíos antes de convertirlos
-            if (ventanaNvConsulta.getTxtPeso().getText().isEmpty()
-                    || ventanaNvConsulta.getTxtEstatura().getText().isEmpty()
-                    || ventanaNvConsulta.getTxtFreCardiaca().getText().isEmpty()
-                    || ventanaNvConsulta.getTxtFrecRespiratoria().getText().isEmpty()
-                    || ventanaNvConsulta.getTxtTemperatura().getText().isEmpty()
-                    || ventanaNvConsulta.getTxtSaturacion().getText().isEmpty()
-                    || ventanaNvConsulta.getTxtOcular().getText().isEmpty()
-                    || ventanaNvConsulta.getTxtVerbal().getText().isEmpty()
-                    || ventanaNvConsulta.getTxtMotora().getText().isEmpty()
-                    || ventanaNvConsulta.getTxtTotal().getText().isEmpty()
-                    || ventanaNvConsulta.getTxtCiclo().getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos requeridos.");
-                return;
-            }
+        // Validar que los campos de texto no estén vacíos y que contengan solo números
+        if (!esNumero(ventanaNvConsulta.getTxtPeso().getText())
+                || !esNumero(ventanaNvConsulta.getTxtEstatura().getText())
+                || !esNumero(ventanaNvConsulta.getTxtFreCardiaca().getText())
+                || !esNumero(ventanaNvConsulta.getTxtFrecRespiratoria().getText())
+                || !esNumero(ventanaNvConsulta.getTxtTemperatura().getText())
+                || !esNumero(ventanaNvConsulta.getTxtSaturacion().getText())
+                || !esNumero(ventanaNvConsulta.getTxtOcular().getText())
+                || !esNumero(ventanaNvConsulta.getTxtVerbal().getText())
+                || !esNumero(ventanaNvConsulta.getTxtMotora().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en los campos requeridos.");
+            return;
+        }
 
             // Manejo de conversiones con validación
             float peso = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtPeso());
             float estatura = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtEstatura());
             float imc = peso / (estatura * estatura);
-            ventanaNvConsulta.getTxtMasaCorporal().setText(String.format("%.2f", imc));
+            ventanaNvConsulta.getLblMasaCorporal().setText(String.format("%.2f", imc));
+            
+            int verbal = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtVerbal());
+            int motora = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtMotora());
+            int ocular = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtOcular());          
+            int total = (verbal + motora + ocular)/3;
+            ventanaNvConsulta.getLblTotal().setText(String.format("%d", total));
+            
 
             int cardiaca = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtFreCardiaca());
             int respiratoria = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtFrecRespiratoria());
             float temperatura = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtTemperatura());
             float saturacion = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtSaturacion());
-
-            int ocular = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtOcular());
-            int verbal = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtVerbal());
-            int motora = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtMotora());
-            int total = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtTotal());
 
             Consulta consulta = new Consulta(ventanaNvConsulta.getTxtNotasConsulta().getText(), true);
 
@@ -387,7 +389,24 @@ public class ControladorFrmNuevaConsul {
             e.printStackTrace(); // Imprimir traza para depuración
         }
     }
+    
+    private boolean esNumero(String texto) {
+    return texto.matches("\\d*\\.?\\d+"); // Permite números enteros y decimales
+}
 
+public void validarSexoYDeshabilitarPagina() {
+    // Obtener el texto del JLabel lblSexo
+    String sexo = ventanaNvConsulta.getLblSexo().getText().trim().toUpperCase();
+
+    // Verificar si el sexo es igual a "M"
+    if (sexo.equals("M")) {
+        // Deshabilitar la página 3 del JTabbedPane (índice 2, ya que los índices empiezan en 0)
+        tabbedPane.setEnabledAt(2, false);
+    } else {
+        // Asegurarse de que la página 3 esté habilitada si el sexo no es "M"
+        tabbedPane.setEnabledAt(2, true);
+    }
+}
 // Método auxiliar para convertir el texto del campo a float
     private float obtenerFloatDesdeCampo(JTextField campo) throws NumberFormatException {
         return Float.parseFloat(campo.getText());
@@ -399,15 +418,40 @@ public class ControladorFrmNuevaConsul {
     }
 
 // Método para cambiar al siguiente panel del JTabbedPane
-    private void cambiarAlSiguientePanel() {
-        int currentIndex = tabbedPane.getSelectedIndex();
-        int nextIndex = currentIndex + 1;
+private void cambiarAlSiguientePanel() {
+    int currentIndex = tabbedPane.getSelectedIndex();
+    int nextIndex = currentIndex + 1;
+
+    // Obtener el texto del JLabel que contiene el sexo
+    String sexo = ventanaNvConsulta.getLblSexo().getText().trim().toUpperCase();
+
+    // Comprobar si el paciente es masculino
+    boolean esMasculino = sexo.equals("M");
+
+    // Verificar si el siguiente índice está dentro del rango válido
+    if (nextIndex < tabbedPane.getTabCount()) {
+        // Si el paciente es masculino y el siguiente panel es la página 3 (índice 2) y está deshabilitado
+        if (esMasculino && nextIndex == 2 && !tabbedPane.isEnabledAt(2)) {
+            // Intentar avanzar dos paneles en lugar de uno
+            nextIndex++;
+        }
+
+        // Verificar si el siguiente panel está deshabilitado y avanzar dos paneles si es necesario
+        if (!tabbedPane.isEnabledAt(nextIndex) && (nextIndex + 1) < tabbedPane.getTabCount()) {
+            nextIndex++;
+        }
+
+        // Si después de ajustar el nextIndex, aún es válido, cambiar al siguiente panel
         if (nextIndex < tabbedPane.getTabCount()) {
             tabbedPane.setSelectedIndex(nextIndex);
         } else {
             JOptionPane.showMessageDialog(null, "No hay más paneles disponibles.");
         }
+    } else {
+        JOptionPane.showMessageDialog(null, "No hay más paneles disponibles.");
     }
+}
+
 
     private int obtenerIdTriage(String triage) {
         System.out.println("Valor de triage: " + triage);

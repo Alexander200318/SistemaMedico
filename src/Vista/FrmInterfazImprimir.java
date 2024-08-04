@@ -5,7 +5,11 @@
 package Vista;
 
 import Controlador.ControladorInterfazImprimir;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +21,18 @@ public class FrmInterfazImprimir extends javax.swing.JFrame {
     public FrmInterfazImprimir() {
         initComponents();
         control=new ControladorInterfazImprimir(this,frmImpresion1);
+        
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        
+                addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                manejarCierreVentana();
+            }
+        });
     }
+    
+    
 
     public JButton getBtnImprimir() {
         return BtnImprimir;
@@ -27,6 +42,29 @@ public class FrmInterfazImprimir extends javax.swing.JFrame {
         this.BtnImprimir = BtnImprimir;
     }
     
+    private void manejarCierreVentana() {
+        // Opciones personalizadas
+        String[] opciones = {"Salir", "Continuar"};
+        
+        // Mostrar cuadro de diálogo de confirmación con opciones personalizadas
+        int opcion = JOptionPane.showOptionDialog(
+            this,
+            "¿Está seguro que desea salir?",
+            "Confirmar salida",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            opciones,
+            opciones[1] // opción predeterminada es "Continuar"
+        );
+
+        // Si el usuario selecciona "Salir", cerrar la ventana
+        if (opcion == JOptionPane.YES_OPTION) {
+            System.out.println("Cerrando FrmNuevaConsulta...");
+            dispose();
+        }
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

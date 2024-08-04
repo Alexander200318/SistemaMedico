@@ -1,2 +1,0 @@
-Controlador.ControldorDatosPaciente
-controlador.ControladorDatosPaciente
