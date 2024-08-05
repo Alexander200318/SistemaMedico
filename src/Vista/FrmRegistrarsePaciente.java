@@ -870,6 +870,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 750, 10));
 
+        Rbn_docente.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Rbn_docente);
         Rbn_docente.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         Rbn_docente.setText("DOCENTE");
@@ -880,6 +881,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         });
         jPanel1.add(Rbn_docente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 100, 20));
 
+        Rbn_Alumno.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Rbn_Alumno);
         Rbn_Alumno.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         Rbn_Alumno.setText("ALUMNO");
@@ -888,6 +890,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         JCL_FechaNacimiento.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
         jPanel1.add(JCL_FechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, 170, -1));
 
+        Ckx_discapacidad.setBackground(new java.awt.Color(255, 255, 255));
         Ckx_discapacidad.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Ckx_discapacidad.setText("SI");
         jPanel1.add(Ckx_discapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, -1, -1));
@@ -1327,7 +1330,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         Cbx_estado_civil.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Cbx_estado_civil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero", "Casado", "Divorciado", "Viudo", "Unión Libre", "Separado" }));
-        jPanel1.add(Cbx_estado_civil, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 170, -1));
+        jPanel1.add(Cbx_estado_civil, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 170, 20));
 
         Cbx_Carreras.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jPanel1.add(Cbx_Carreras, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, 170, 20));
@@ -1372,16 +1375,19 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jLabel50.setText("POSEE CARNET DEL CONADIS : ");
         jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 580, -1, 20));
 
+        RB_No_carnet.setBackground(new java.awt.Color(255, 255, 255));
         Grupo3.add(RB_No_carnet);
         RB_No_carnet.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        RB_No_carnet.setText("No");
-        jPanel1.add(RB_No_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 580, -1, -1));
+        RB_No_carnet.setText("NO");
+        jPanel1.add(RB_No_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 580, -1, 30));
 
+        Rbn_Servicios.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Rbn_Servicios);
         Rbn_Servicios.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         Rbn_Servicios.setText("SERVICIO");
         jPanel1.add(Rbn_Servicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, -1, 30));
 
+        Rbn_Administrativo.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Rbn_Administrativo);
         Rbn_Administrativo.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         Rbn_Administrativo.setText("PERS. ADMINISTRATIVO");
@@ -1392,10 +1398,11 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         });
         jPanel1.add(Rbn_Administrativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, -1, 30));
 
+        RB_Si_carnet.setBackground(new java.awt.Color(255, 255, 255));
         Grupo3.add(RB_Si_carnet);
         RB_Si_carnet.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        RB_Si_carnet.setText("Si");
-        jPanel1.add(RB_Si_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 580, 50, -1));
+        RB_Si_carnet.setText("SI");
+        jPanel1.add(RB_Si_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 580, 60, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

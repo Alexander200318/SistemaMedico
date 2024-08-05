@@ -17,11 +17,11 @@ import java.sql.SQLException;
 public class ConsultaDAO {
 
     private Connection connection;
-    
+
     public ConsultaDAO(Connection connection) {
         this.connection = connection;
     }
-    
+
     public void guardarConsulta(Consulta consulta, Historial historial, Diagnostico diagnostico, Tratamiento tratamiento, Receta receta, RegistraConsulta registraConsulta, SignosVitales signos, ExamenFisico examenFisico, EmergenciaObstetrica obstetrica, ExamenComplementario examenComplementario) throws SQLException {
         try {
             connection.setAutoCommit(false);
@@ -47,10 +47,10 @@ public class ConsultaDAO {
             String historialSQL = "INSERT INTO Historial (Fecha, Descripcion_Hist, His_Est_Activo, Fecha_Cierre, Estado, Id_Consulta, Id_Paciente, Id_Triage, Id_Doctor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             int historialId;
             try ( PreparedStatement historialStmt = connection.prepareStatement(historialSQL, PreparedStatement.RETURN_GENERATED_KEYS)) {
-                historialStmt.setDate(1, historial.getFecha());
+                historialStmt.setDate(1, historial.getFecha()); // Asegúrate de que getFecha() devuelva java.sql.Date
                 historialStmt.setString(2, historial.getDescripcionHist());
                 historialStmt.setBoolean(3, historial.isHisEstActivo());
-                historialStmt.setDate(4, historial.getFechaCierre());
+                historialStmt.setDate(4, historial.getFechaCierre()); // Asegúrate de que getFechaCierre() devuelva java.sql.Date
                 historialStmt.setString(5, historial.getEstado());
                 historialStmt.setInt(6, consulta.getIdConsulta());
                 historialStmt.setInt(7, historial.getIdPaciente());
@@ -104,6 +104,22 @@ public class ConsultaDAO {
                 recetaStmt.executeUpdate();
             }
 
+            // Guardar Triage
+            String triageSQL = "INSERT INTO Triage (Nivel_Prioridad, Tri_Est_Activo) VALUES (?, ?)";
+            int triageId;
+            try ( PreparedStatement triageStmt = connection.prepareStatement(triageSQL, PreparedStatement.RETURN_GENERATED_KEYS)) {
+                triageStmt.setInt(1, historial.getIdPaciente());
+                triageStmt.setInt(2, historial.getIdDoctor());
+                triageStmt.executeUpdate();
+                try ( ResultSet rs = triageStmt.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        triageId = rs.getInt(1);
+                    } else {
+                        throw new SQLException("Failed to retrieve triage ID.");
+                    }
+                }
+            }
+
             // Guardar SignosVitales
             String signosSQL = "INSERT INTO Signos_Vitales (Presion_Arterial, Peso, Talla, Indice_Masa_Corporal, Frecuencia_Cardiaca, Frecuencia_Respiratoria, Temperatura, Saturacion_Oxigeno, Ocular, Verbal, Motora, Total, Llenado_Capilar, R_Pupilar, Id_Triage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             try ( PreparedStatement signosStmt = connection.prepareStatement(signosSQL)) {
@@ -121,7 +137,7 @@ public class ConsultaDAO {
                 signosStmt.setInt(12, signos.getTotal());
                 signosStmt.setString(13, signos.getLlenadoCapilar());
                 signosStmt.setString(14, signos.getrPupilar());
-                signosStmt.setInt(15, signos.getIdTriage());
+                signosStmt.setInt(15, triageId);
                 signosStmt.executeUpdate();
             }
 
@@ -137,16 +153,16 @@ public class ConsultaDAO {
                 examenFisicoStmt.setString(7, examenFisico.getRInguinal());
                 examenFisicoStmt.setString(8, examenFisico.getMSuperiores());
                 examenFisicoStmt.setString(9, examenFisico.getMInferiores());
-                examenFisicoStmt.setInt(10, examenFisico.getIdTriage());
+                examenFisicoStmt.setInt(10, triageId);
                 examenFisicoStmt.executeUpdate();
             }
 
             // Guardar EmergenciaObstetrica
-            String obstetricaSQL = "INSERT INTO Emergencia_Obstetrica (Menarca, Ciclos, FUM, Regularidad, IVSA, Numero_Parejas_Sexuales, Gravides, Abortos, Partos, Cesareas, Mastodinia, Disminorrea, FPP, Semanas_Gestacion, Dias_Gestacion, Controles, Inmunizaciones, Id_Triage, Embarazo) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String obstetricaSQL = "INSERT INTO Emergencia_Obstetrica (Menarca, Ciclos, FUM, Regularidad, IVSA, Numero_Parejas_Sexuales, Gravides, Abortos, Partos, Cesareas, Mastodinia, Disminorrea, FPP, Semanas_Gestacion, Dias_Gestacion, Controles, Inmunizaciones, Id_Triage, Embarazo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             try ( PreparedStatement obstetricaStmt = connection.prepareStatement(obstetricaSQL)) {
                 obstetricaStmt.setInt(1, obstetrica.getMenarca());
                 obstetricaStmt.setInt(2, obstetrica.getCiclos());
-                obstetricaStmt.setDate(3, obstetrica.getFum());
+                obstetricaStmt.setDate(3, obstetrica.getFum()); // Asegúrate de que getFum() devuelva java.sql.Date
                 obstetricaStmt.setString(4, obstetrica.getRegularidad());
                 obstetricaStmt.setInt(5, obstetrica.getIvsa());
                 obstetricaStmt.setInt(6, obstetrica.getNumeroParejasSexuales());
@@ -156,12 +172,12 @@ public class ConsultaDAO {
                 obstetricaStmt.setInt(10, obstetrica.getCesareas());
                 obstetricaStmt.setInt(11, obstetrica.getMastodinia());
                 obstetricaStmt.setInt(12, obstetrica.getDisminorrea());
-                obstetricaStmt.setDate(13, obstetrica.getFpp());
+                obstetricaStmt.setDate(13, obstetrica.getFpp()); // Asegúrate de que getFpp() devuelva java.sql.Date
                 obstetricaStmt.setInt(14, obstetrica.getSemanasGestacion());
                 obstetricaStmt.setInt(15, obstetrica.getDiasGestacion());
                 obstetricaStmt.setInt(16, obstetrica.getControles());
                 obstetricaStmt.setString(17, obstetrica.getInmunizaciones());
-                obstetricaStmt.setInt(18, obstetrica.getIdTriage());
+                obstetricaStmt.setInt(18, triageId);
                 obstetricaStmt.setBoolean(19, obstetrica.isEmbarazo());
                 obstetricaStmt.executeUpdate();
             }
@@ -170,21 +186,31 @@ public class ConsultaDAO {
             String examenComplementarioSQL = "INSERT INTO Examen_Complementario (Resultados, Aplica, Id_Consulta) VALUES (?, ?, ?)";
             try ( PreparedStatement examenComplementarioStmt = connection.prepareStatement(examenComplementarioSQL)) {
                 examenComplementarioStmt.setString(1, examenComplementario.getResultados());
-                examenComplementarioStmt.setBoolean(2, true);
-                examenComplementarioStmt.setInt(3, historial.getIdHistorial());
+                examenComplementarioStmt.setBoolean(2, true); // Asumiendo que siempre aplica
+                examenComplementarioStmt.setInt(3, consulta.getIdConsulta());
                 examenComplementarioStmt.executeUpdate();
+            }
+
+            // Guardar RegistraTriage
+            String registraTriageSQL = "INSERT INTO RegistraTriage (Fecha_Triage, Id_Doctor, Id_Paciente, Id_Triage) VALUES (?, ?, ?, ?)";
+            try ( PreparedStatement registraTriageStmt = connection.prepareStatement(registraTriageSQL)) {
+                registraTriageStmt.setDate(1, new Date(System.currentTimeMillis())); // Fecha actual
+                registraTriageStmt.setInt(2, historial.getIdDoctor());
+                registraTriageStmt.setInt(3, historial.getIdPaciente());
+                registraTriageStmt.setInt(4, triageId);
+                registraTriageStmt.executeUpdate();
             }
 
             // Guardar RegistraConsulta
             String registraConsultaSQL = "INSERT INTO RegistraConsulta (Fecha_Consult, Id_Consulta, Id_Doctor, Id_Paciente) VALUES (?, ?, ?, ?)";
             try ( PreparedStatement registraConsultaStmt = connection.prepareStatement(registraConsultaSQL)) {
-                registraConsultaStmt.setDate(1, registraConsulta.getFechaConsult());
+                registraConsultaStmt.setDate(1, registraConsulta.getFechaConsult()); // Asegúrate de que getFechaConsult() devuelva java.sql.Date
                 registraConsultaStmt.setInt(2, consulta.getIdConsulta());
                 registraConsultaStmt.setInt(3, registraConsulta.getIdDoctor());
                 registraConsultaStmt.setInt(4, registraConsulta.getIdPaciente());
                 registraConsultaStmt.executeUpdate();
             }
-            
+
             connection.commit();
         } catch (SQLException e) {
             connection.rollback();

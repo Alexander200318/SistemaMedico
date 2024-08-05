@@ -164,6 +164,7 @@ public class FrmLogin extends javax.swing.JFrame {
         getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TxtLabelRegistrarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtLabelRegistrarBtnMouseClicked

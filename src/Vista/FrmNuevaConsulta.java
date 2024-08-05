@@ -340,7 +340,9 @@ private void manejarCierreVentana() {
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtNotasConsulta.setColumns(20);
+        txtNotasConsulta.setLineWrap(true);
         txtNotasConsulta.setRows(5);
+        txtNotasConsulta.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtNotasConsulta);
 
         jPanel12.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 33, 290, 260));
@@ -358,7 +360,7 @@ private void manejarCierreVentana() {
 
         lblEstatura.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         lblEstatura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Estatura.png"))); // NOI18N
-        lblEstatura.setText("Estarura:");
+        lblEstatura.setText("Estatura:");
         jPanel22.add(lblEstatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 100, -1));
 
         lblPeso.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -577,49 +579,73 @@ private void manejarCierreVentana() {
         jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, -1, 20));
 
         txtAreaCabeza.setColumns(20);
+        txtAreaCabeza.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaCabeza.setLineWrap(true);
         txtAreaCabeza.setRows(5);
+        txtAreaCabeza.setWrapStyleWord(true);
         jScrollPane4.setViewportView(txtAreaCabeza);
 
         jPanel8.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 340, 50));
 
         txtAreaCuello.setColumns(20);
+        txtAreaCuello.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaCuello.setLineWrap(true);
         txtAreaCuello.setRows(5);
+        txtAreaCuello.setWrapStyleWord(true);
         jScrollPane6.setViewportView(txtAreaCuello);
 
         jPanel8.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 340, 50));
 
         txtAreaTorax.setColumns(20);
+        txtAreaTorax.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaTorax.setLineWrap(true);
         txtAreaTorax.setRows(5);
+        txtAreaTorax.setWrapStyleWord(true);
         jScrollPane7.setViewportView(txtAreaTorax);
 
         jPanel8.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 340, 50));
 
         txtAreaCorazon.setColumns(20);
+        txtAreaCorazon.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaCorazon.setLineWrap(true);
         txtAreaCorazon.setRows(5);
+        txtAreaCorazon.setWrapStyleWord(true);
         jScrollPane8.setViewportView(txtAreaCorazon);
 
         jPanel8.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 340, 50));
 
         txtAreaAbdomen.setColumns(20);
+        txtAreaAbdomen.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaAbdomen.setLineWrap(true);
         txtAreaAbdomen.setRows(5);
+        txtAreaAbdomen.setWrapStyleWord(true);
         jScrollPane9.setViewportView(txtAreaAbdomen);
 
         jPanel8.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 330, 50));
 
         txtAreaR_Inguinal.setColumns(20);
+        txtAreaR_Inguinal.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaR_Inguinal.setLineWrap(true);
         txtAreaR_Inguinal.setRows(5);
+        txtAreaR_Inguinal.setWrapStyleWord(true);
         jScrollPane10.setViewportView(txtAreaR_Inguinal);
 
         jPanel8.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, 330, 50));
 
         txtAreaM_Superior.setColumns(20);
+        txtAreaM_Superior.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaM_Superior.setLineWrap(true);
         txtAreaM_Superior.setRows(5);
+        txtAreaM_Superior.setWrapStyleWord(true);
         jScrollPane11.setViewportView(txtAreaM_Superior);
 
         jPanel8.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 210, 330, 50));
 
         txtAreaM_Inferior.setColumns(20);
+        txtAreaM_Inferior.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaM_Inferior.setLineWrap(true);
         txtAreaM_Inferior.setRows(5);
+        txtAreaM_Inferior.setWrapStyleWord(true);
         jScrollPane12.setViewportView(txtAreaM_Inferior);
 
         jPanel8.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 330, 50));
@@ -633,10 +659,13 @@ private void manejarCierreVentana() {
 
         jLabel12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel12.setText("Piel y faneras");
-        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, -1));
+        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 100, -1));
 
         txtAreaPielYFaneras.setColumns(20);
+        txtAreaPielYFaneras.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaPielYFaneras.setLineWrap(true);
         txtAreaPielYFaneras.setRows(5);
+        txtAreaPielYFaneras.setWrapStyleWord(true);
         jScrollPane13.setViewportView(txtAreaPielYFaneras);
 
         jPanel8.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 250, 40));
