@@ -25,11 +25,11 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
     }
 
     public JButton getBtn_Buscar_Hist() {
-        return Btn_Buscar_Hist;
+        return btnreporte;
     }
 
     public void setBtn_Buscar_Hist(JButton Btn_Buscar_Hist) {
-        this.Btn_Buscar_Hist = Btn_Buscar_Hist;
+        this.btnreporte = Btn_Buscar_Hist;
     }
 
     public JButton getBtn_Limpiar_Hist() {
@@ -103,7 +103,16 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
     public void setTxt_Cedula_Hist(JTextField Txt_Cedula_Hist) {
         this.Txt_Cedula_Hist = Txt_Cedula_Hist;
     }
+//////////////////////////////////
 
+    public JButton getBtnreporte() {
+        return btnreporte;
+    }
+
+    public void setBtnreporte(JButton btnreporte) {
+        this.btnreporte = btnreporte;
+    }
+    
    
 
     @SuppressWarnings("unchecked")
@@ -114,7 +123,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         Txt_Cedula_Hist = new javax.swing.JTextField();
         Cbx_Triage_Hist = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        Btn_Buscar_Hist = new javax.swing.JButton();
+        btnreporte = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Fecha_Calendario_inicial = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
@@ -134,6 +143,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
+        Btn_Buscar_Hist1 = new javax.swing.JButton();
         panelRound2 = new Modelo.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_Historial = new javax.swing.JTable();
@@ -167,10 +177,15 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         jLabel2.setText("Categoria Triage");
         panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 40, 120, -1));
 
-        Btn_Buscar_Hist.setBackground(new java.awt.Color(64, 172, 159));
-        Btn_Buscar_Hist.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        Btn_Buscar_Hist.setText("BUSCAR");
-        panelRound1.add(Btn_Buscar_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 120, 190, 30));
+        btnreporte.setBackground(new java.awt.Color(64, 172, 159));
+        btnreporte.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        btnreporte.setText("REPORTES");
+        btnreporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreporteActionPerformed(evt);
+            }
+        });
+        panelRound1.add(btnreporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 120, 110, 30));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -229,7 +244,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         Btn_Limpiar_Hist.setBackground(new java.awt.Color(64, 172, 159));
         Btn_Limpiar_Hist.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Btn_Limpiar_Hist.setText("LIMPIAR");
-        panelRound1.add(Btn_Limpiar_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 120, 170, 30));
+        panelRound1.add(Btn_Limpiar_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, 130, 30));
         panelRound1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, 220, 10));
         panelRound1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 230, 10));
         panelRound1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 220, 10));
@@ -237,6 +252,11 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         panelRound1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 200, 10));
         panelRound1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 200, 20));
         panelRound1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 190, 20));
+
+        Btn_Buscar_Hist1.setBackground(new java.awt.Color(64, 172, 159));
+        Btn_Buscar_Hist1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        Btn_Buscar_Hist1.setText("BUSCAR");
+        panelRound1.add(Btn_Buscar_Hist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 120, 140, 30));
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
         panelRound2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS DE HISTORIAL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
@@ -277,7 +297,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 1268, Short.MAX_VALUE)
+                    .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -300,9 +320,13 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_Nombres_HistActionPerformed
 
+    private void btnreporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreporteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnreporteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Btn_Buscar_Hist;
+    private javax.swing.JButton Btn_Buscar_Hist1;
     private javax.swing.JButton Btn_Limpiar_Hist;
     private javax.swing.JComboBox<String> Cbx_Sexo_Hist;
     private javax.swing.JComboBox<String> Cbx_Triage_Hist;
@@ -311,6 +335,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
     private javax.swing.JTextField Txt_Apellido_Hist;
     private javax.swing.JTextField Txt_Cedula_Hist;
     private javax.swing.JTextField Txt_Nombres_Hist;
+    private javax.swing.JButton btnreporte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
