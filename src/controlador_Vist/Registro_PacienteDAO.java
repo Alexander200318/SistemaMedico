@@ -14,6 +14,7 @@ import Modelo.Discapacidad;
 import Modelo.Estudiante;
 import Modelo.Paciente;
 import Modelo.Singleton;
+import Vista.CrudCarrera;
 import Vista.FrmRegistrarsePaciente;
 import Vista.PANEL_PRINCIPAL_PACIENTE;
 import java.awt.BorderLayout;
@@ -73,6 +74,14 @@ public class Registro_PacienteDAO {
 
             }
         });
+        vistaPrincipal.getBtnCrudCarrera().addActionListener((e) ->  {
+            CrudCarrera crud = new CrudCarrera();
+            crud.setVisible(true);
+            
+        });
+        
+        
+        
 
         vistaPrincipal.getCbx_Carreras().addActionListener(new ActionListener() {
             @Override
@@ -110,6 +119,8 @@ public class Registro_PacienteDAO {
                 return "Archivos de Imagen (*.jpg, *.jpeg, *.png, *.gif)";
             }
         });
+        
+        
 
         int result = fileChooser.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
@@ -159,10 +170,9 @@ public class Registro_PacienteDAO {
                         }
                     }
 
-                    // Espera breve antes del próximo intento
                     if (!imageLoaded) {
                         try {
-                            Thread.sleep(500); // Esperar 500 milisegundos antes de intentar nuevamente
+                            Thread.sleep(500); 
                         } catch (InterruptedException e) {
                             System.out.println("Error al esperar entre intentos: " + e.getMessage());
                         }

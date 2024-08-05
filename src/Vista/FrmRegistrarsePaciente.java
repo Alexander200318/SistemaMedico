@@ -535,7 +535,15 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     public void setTxt_Identificacion_pac(JTextField Txt_Identificacion_pac) {
         this.Txt_Identificacion_pac = Txt_Identificacion_pac;
     }
+/////////////////////////////
 
+    public JButton getBtnCrudCarrera() {
+        return BtnCrudCarrera;
+    }
+
+    public void setBtnCrudCarrera(JButton BtnCrudCarrera) {
+        this.BtnCrudCarrera = BtnCrudCarrera;
+    }
     
     
     @SuppressWarnings("unchecked")
@@ -693,6 +701,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Rbn_Servicios = new javax.swing.JRadioButton();
         Rbn_Administrativo = new javax.swing.JRadioButton();
         RB_Si_carnet = new javax.swing.JRadioButton();
+        BtnCrudCarrera = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1280, 680));
 
@@ -867,7 +876,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         jLabel32.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel32.setText("CARRERA :");
-        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, -1, -1));
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 750, 10));
 
         Rbn_docente.setBackground(new java.awt.Color(255, 255, 255));
@@ -1333,7 +1342,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(Cbx_estado_civil, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 170, 20));
 
         Cbx_Carreras.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jPanel1.add(Cbx_Carreras, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, 170, 20));
+        jPanel1.add(Cbx_Carreras, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, 170, 20));
 
         Cbx_tipo_sangre.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
         Cbx_tipo_sangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
@@ -1404,6 +1413,9 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         RB_Si_carnet.setText("SI");
         jPanel1.add(RB_Si_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 580, 60, 30));
 
+        BtnCrudCarrera.setText("Añadir");
+        jPanel1.add(BtnCrudCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 600, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -1438,6 +1450,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCrudCarrera;
     private javax.swing.JButton Btn_Cancelar;
     private javax.swing.JButton Btn_Guardar;
     private javax.swing.JButton Btn_Subir_Foto;

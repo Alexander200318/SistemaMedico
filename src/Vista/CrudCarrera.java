@@ -5,7 +5,11 @@
 package Vista;
 
 import Controlador.ControladorAñadirCarrera;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -24,6 +28,39 @@ public class CrudCarrera extends javax.swing.JFrame {
     public CrudCarrera() {
         initComponents();
         Carrera =new ControladorAñadirCarrera(this);
+        
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        
+                addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                manejarCierreVentana();
+            }
+        });
+
+    }
+    
+    private void manejarCierreVentana() {
+        // Opciones personalizadas
+        String[] opciones = {"Salir", "Continuar"};
+        
+        // Mostrar cuadro de diálogo de confirmación con opciones personalizadas
+        int opcion = JOptionPane.showOptionDialog(
+            this,
+            "¿Está seguro que desea salir?",
+            "Confirmar salida",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            opciones,
+            opciones[1] // opción predeterminada es "Continuar"
+        );
+
+        // Si el usuario selecciona "Salir", cerrar la ventana
+        if (opcion == JOptionPane.YES_OPTION) {
+            System.out.println("Cerrando FrmNuevaConsulta...");
+            dispose();
+        }
     }
 
     public JButton getBtnAñadirCarrera() {
