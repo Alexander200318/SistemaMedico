@@ -669,7 +669,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         panelRound4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnNuevaConsulta.setBackground(new java.awt.Color(64, 172, 159));
-        BtnNuevaConsulta.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        BtnNuevaConsulta.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         BtnNuevaConsulta.setText("Nueva Consulta");
         BtnNuevaConsulta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnNuevaConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -677,18 +677,24 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
                 BtnNuevaConsultaActionPerformed(evt);
             }
         });
-        panelRound4.add(BtnNuevaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 320, 40));
+        panelRound4.add(BtnNuevaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 180, 40));
 
+        BtnGuardarCambiosDatos.setBackground(new java.awt.Color(64, 172, 159));
+        BtnGuardarCambiosDatos.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         BtnGuardarCambiosDatos.setText("Guardar Cambios");
+        BtnGuardarCambiosDatos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnGuardarCambiosDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnGuardarCambiosDatosActionPerformed(evt);
             }
         });
-        panelRound4.add(BtnGuardarCambiosDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 140, 40));
+        panelRound4.add(BtnGuardarCambiosDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 140, 40));
 
+        BtnEditarDatos.setBackground(new java.awt.Color(64, 172, 159));
+        BtnEditarDatos.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         BtnEditarDatos.setText("Editar");
-        panelRound4.add(BtnEditarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 22, 100, 40));
+        BtnEditarDatos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelRound4.add(BtnEditarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 100, 40));
 
         jPanel3.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 710, 80));
 
@@ -791,7 +797,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Panelbtn.setBackground(new java.awt.Color(255, 255, 255));
-        Panelbtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Panelbtn.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
         Panelbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 PanelbtnMousePressed(evt);
@@ -802,24 +808,24 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("|");
-        Panelbtn.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, -10, 20, 50));
+        Panelbtn.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 20, 50));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(204, 204, 204));
         jLabel9.setText("|");
-        Panelbtn.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 20, 40));
+        Panelbtn.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 20, 40));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(204, 204, 204));
         jLabel11.setText("|");
         Panelbtn.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 20, 50));
-        Panelbtn.add(LabelAñoUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 70, 20));
+        Panelbtn.add(LabelAñoUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 80, 20));
 
         LabelDocNombreMostrarDatos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Panelbtn.add(LabelDocNombreMostrarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 260, 30));
         Panelbtn.add(LabelMotivoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 180, 30));
-        Panelbtn.add(LabelDiaUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 30));
-        Panelbtn.add(LabelMesUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 70, 20));
+        Panelbtn.add(LabelDiaUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, 20));
+        Panelbtn.add(LabelMesUltimaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 80, 20));
 
         jPanel4.add(Panelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 400, 110));
 

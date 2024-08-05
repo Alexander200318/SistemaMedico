@@ -291,7 +291,7 @@ private void manejarCierreVentana() {
         btnTerminarConsulta.setBackground(new java.awt.Color(64, 172, 159));
         btnTerminarConsulta.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         btnTerminarConsulta.setText("TERMINAR CONSULTA");
-        panelRound2.add(btnTerminarConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 180, 30));
+        panelRound2.add(btnTerminarConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 70, 210, 30));
 
         lblFecha_Actual.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         panelRound2.add(lblFecha_Actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 30, 190, 20));
@@ -544,27 +544,35 @@ private void manejarCierreVentana() {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Cuerpo_1.png"))); // NOI18N
         jPanel8.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 170, 360));
 
+        jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel3.setText("Cabeza");
-        jPanel8.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        jPanel8.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 60, -1));
 
+        jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel4.setText("Cuello");
-        jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 20));
+        jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 50, 20));
 
+        jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel5.setText("Torax");
-        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 30, 20));
+        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 60, 20));
 
-        jLabel6.setText("Corazon");
-        jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, 20));
+        jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel6.setText("Corazón");
+        jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 80, 20));
 
+        jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel7.setText("Abdomen");
         jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, -1, 20));
 
+        jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel8.setText("R_Inguinal");
         jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, -1, 20));
 
+        jLabel9.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel9.setText("M_Inferior");
         jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, -1, 20));
 
+        jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel10.setText("M_superior");
         jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, -1, 20));
 
@@ -616,12 +624,14 @@ private void manejarCierreVentana() {
 
         jPanel8.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 330, 50));
 
+        jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel11.setText("Nivel de prioridad");
         jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 20));
 
         CmbBoxTriage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No prioritario", "Prioritario", "Emergencia" }));
-        jPanel8.add(CmbBoxTriage, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 140, -1));
+        jPanel8.add(CmbBoxTriage, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 140, -1));
 
+        jLabel12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel12.setText("Piel y faneras");
         jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, -1));
 
@@ -906,7 +916,7 @@ private void manejarCierreVentana() {
 
         btnSiAplica.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         btnSiAplica.setText("Aplica");
-        jPanel11.add(btnSiAplica, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+        jPanel11.add(btnSiAplica, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
         jPanel11.add(jSeparator48, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 90, 10));
 
         jPanel6.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 310, 270));
@@ -966,6 +976,7 @@ private void manejarCierreVentana() {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 610));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed

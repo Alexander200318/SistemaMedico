@@ -121,100 +121,139 @@ public class DatosTriage extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Cuerpo_1.png"))); // NOI18N
         jPanel8.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 170, 370));
 
+        jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel3.setText("Cabeza");
         jPanel8.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel4.setText("Cuello");
         jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 60, 20));
 
+        jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel5.setText("Torax");
         jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 80, 20));
 
+        jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel6.setText("Corazon");
         jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, 20));
 
+        jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel7.setText("Abdomen");
         jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, -1, 20));
 
+        jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel8.setText("R_Inguinal");
         jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, -1, 20));
 
+        jLabel9.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel9.setText("M_Inferior");
         jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, 20));
 
+        jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel10.setText("M_superior");
         jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, 10));
 
         txtAreaCabeza.setColumns(20);
+        txtAreaCabeza.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaCabeza.setLineWrap(true);
         txtAreaCabeza.setRows(5);
+        txtAreaCabeza.setWrapStyleWord(true);
         jScrollPane4.setViewportView(txtAreaCabeza);
 
-        jPanel8.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 250, 50));
+        jPanel8.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 240, 50));
 
         jScrollPane6.setRowHeaderView(null);
         jScrollPane6.setViewportView(null);
 
         txtAreaCuello.setColumns(20);
+        txtAreaCuello.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaCuello.setLineWrap(true);
         txtAreaCuello.setRows(5);
+        txtAreaCuello.setWrapStyleWord(true);
         txtAreaCuello.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         txtAreaCuello.setDragEnabled(true);
         txtAreaCuello.setHighlighter(null);
         txtAreaCuello.setKeymap(null);
         jScrollPane6.setViewportView(txtAreaCuello);
 
-        jPanel8.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 260, 50));
+        jPanel8.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 240, 50));
+
+        jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane7.setToolTipText("");
 
         txtAreaTorax.setColumns(20);
+        txtAreaTorax.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaTorax.setLineWrap(true);
         txtAreaTorax.setRows(5);
+        txtAreaTorax.setWrapStyleWord(true);
         jScrollPane7.setViewportView(txtAreaTorax);
 
-        jPanel8.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 250, 50));
+        jPanel8.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 240, 50));
 
         txtAreaCorazon.setColumns(20);
+        txtAreaCorazon.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaCorazon.setLineWrap(true);
         txtAreaCorazon.setRows(5);
+        txtAreaCorazon.setWrapStyleWord(true);
         jScrollPane8.setViewportView(txtAreaCorazon);
 
-        jPanel8.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 250, 50));
+        jPanel8.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 240, 50));
 
         txtAreaAbdomen.setColumns(20);
+        txtAreaAbdomen.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaAbdomen.setLineWrap(true);
         txtAreaAbdomen.setRows(5);
+        txtAreaAbdomen.setWrapStyleWord(true);
         jScrollPane9.setViewportView(txtAreaAbdomen);
 
         jPanel8.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 260, 50));
 
         txtAreaR_Inguinal.setColumns(20);
+        txtAreaR_Inguinal.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaR_Inguinal.setLineWrap(true);
         txtAreaR_Inguinal.setRows(5);
+        txtAreaR_Inguinal.setWrapStyleWord(true);
         jScrollPane10.setViewportView(txtAreaR_Inguinal);
 
         jPanel8.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 260, 50));
 
         txtAreaM_Superior.setColumns(20);
+        txtAreaM_Superior.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaM_Superior.setLineWrap(true);
         txtAreaM_Superior.setRows(5);
+        txtAreaM_Superior.setWrapStyleWord(true);
         jScrollPane11.setViewportView(txtAreaM_Superior);
 
         jPanel8.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 260, 40));
 
         txtAreaM_Inferior.setColumns(20);
+        txtAreaM_Inferior.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        txtAreaM_Inferior.setLineWrap(true);
         txtAreaM_Inferior.setRows(5);
+        txtAreaM_Inferior.setWrapStyleWord(true);
         jScrollPane12.setViewportView(txtAreaM_Inferior);
 
         jPanel8.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 260, 50));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel11.setText("Nivel de prioridad");
         jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 20));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No prioritario", "Prioritario", "Emergencia" }));
         jPanel8.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 380, -1));
 
+        jLabel12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel12.setText("Piel y faneras");
-        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, -1));
+        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
 
         jTextArea9.setColumns(20);
+        jTextArea9.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        jTextArea9.setLineWrap(true);
         jTextArea9.setRows(5);
+        jTextArea9.setWrapStyleWord(true);
         jScrollPane13.setViewportView(jTextArea9);
 
-        jPanel8.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, 270, 40));
+        jPanel8.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 260, 40));
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 560));
 

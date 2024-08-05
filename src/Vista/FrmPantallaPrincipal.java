@@ -114,7 +114,6 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel3 = new javax.swing.JPanel();
         PANEL_CAMBIO = new javax.swing.JPanel();
@@ -131,12 +130,13 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         Btncerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 680));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setForeground(new java.awt.Color(51, 0, 204));
         jPanel3.setEnabled(false);
-        jPanel3.setPreferredSize(new java.awt.Dimension(1280, 720));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1280, 680));
 
         PANEL_CAMBIO.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -144,7 +144,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         PANEL_CAMBIO.setLayout(PANEL_CAMBIOLayout);
         PANEL_CAMBIOLayout.setHorizontalGroup(
             PANEL_CAMBIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGap(0, 1278, Short.MAX_VALUE)
         );
         PANEL_CAMBIOLayout.setVerticalGroup(
             PANEL_CAMBIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,11 +372,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
                 .addComponent(PANEL_CAMBIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        getContentPane().add(jPanel3, gridBagConstraints);
+        getContentPane().add(jPanel3, new java.awt.GridBagConstraints());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

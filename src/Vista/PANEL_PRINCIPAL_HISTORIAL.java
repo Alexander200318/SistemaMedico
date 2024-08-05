@@ -185,7 +185,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
                 btnreporteActionPerformed(evt);
             }
         });
-        panelRound1.add(btnreporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 120, 110, 30));
+        panelRound1.add(btnreporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 120, 110, 30));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -256,7 +256,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         Btn_Buscar_Hist1.setBackground(new java.awt.Color(64, 172, 159));
         Btn_Buscar_Hist1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Btn_Buscar_Hist1.setText("BUSCAR");
-        panelRound1.add(Btn_Buscar_Hist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 120, 140, 30));
+        panelRound1.add(Btn_Buscar_Hist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 120, 140, 30));
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
         panelRound2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS DE HISTORIAL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
@@ -288,7 +288,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         tabla_Historial.setDoubleBuffered(true);
         jScrollPane1.setViewportView(tabla_Historial);
 
-        panelRound2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 28, 1220, 400));
+        panelRound2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 28, 1200, 330));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -307,8 +307,8 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
                 .addGap(17, 17, 17)
                 .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -102,14 +102,17 @@ public class CrudCarrera extends javax.swing.JFrame {
         TxtNuevaCarrera.setBorder(null);
         jPanel1.add(TxtNuevaCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 220, 30));
 
+        BtnAñadirCarrera.setBackground(new java.awt.Color(64, 172, 159));
         BtnAñadirCarrera.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
         BtnAñadirCarrera.setText("Añadir ");
         jPanel1.add(BtnAñadirCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 90, 30));
 
+        BtnEliminarCarrera.setBackground(new java.awt.Color(64, 172, 159));
         BtnEliminarCarrera.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
         BtnEliminarCarrera.setText("Eliminar");
         jPanel1.add(BtnEliminarCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 100, 30));
 
+        BtnModificarCarrera.setBackground(new java.awt.Color(64, 172, 159));
         BtnModificarCarrera.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
         BtnModificarCarrera.setText("Modificar");
         BtnModificarCarrera.addActionListener(new java.awt.event.ActionListener() {

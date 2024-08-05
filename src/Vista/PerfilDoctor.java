@@ -154,73 +154,73 @@ public class PerfilDoctor extends javax.swing.JPanel {
         TxtIdentiResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         TxtIdentiResg.setBorder(null);
         TxtIdentiResg.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        add(TxtIdentiResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 200, 20));
+        add(TxtIdentiResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 200, 20));
 
         JLIdentficacionResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         JLIdentficacionResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLIdentficacionResg.setText("Cédula:");
-        add(JLIdentficacionResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, 20));
-        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 200, 20));
+        add(JLIdentficacionResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, -1, 20));
+        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 200, 20));
 
         LbNomResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         LbNomResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LbNomResg.setText("Nombre:");
-        add(LbNomResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 110, -1));
+        add(LbNomResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, 110, -1));
 
         TxtNombreResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         TxtNombreResg.setBorder(null);
-        add(TxtNombreResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 200, 20));
-        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 200, 10));
+        add(TxtNombreResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 200, 20));
+        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 200, 10));
 
         LbEspeciaResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         LbEspeciaResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LbEspeciaResg.setText("Especialidad:");
-        add(LbEspeciaResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, -1, -1));
+        add(LbEspeciaResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, -1, -1));
 
         LbEmailResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         LbEmailResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LbEmailResg.setText("E-mail:");
-        add(LbEmailResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, 110, -1));
-        add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 580, 200, 10));
-        add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 510, 200, 10));
+        add(LbEmailResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 110, -1));
+        add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 550, 200, 10));
+        add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 480, 200, 10));
 
         TxtEmailResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         TxtEmailResg.setBorder(null);
-        add(TxtEmailResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 490, 200, 20));
-        add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, 200, 10));
+        add(TxtEmailResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 460, 200, 20));
+        add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 410, 200, 10));
 
         TxtEspecialidadResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         TxtEspecialidadResg.setBorder(null);
-        add(TxtEspecialidadResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 420, 200, 20));
+        add(TxtEspecialidadResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, 200, 20));
 
         TxtApellidoResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         TxtApellidoResg.setBorder(null);
-        add(TxtApellidoResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 200, 20));
-        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 580, 200, 10));
+        add(TxtApellidoResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, 200, 20));
+        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, 200, 10));
 
         TxtCelularResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         TxtCelularResg.setBorder(null);
-        add(TxtCelularResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 630, 200, 20));
-        add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 650, 200, 10));
+        add(TxtCelularResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 200, 20));
+        add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 620, 200, 10));
 
         TxtTituloResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         TxtTituloResg.setBorder(null);
-        add(TxtTituloResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 560, 200, 20));
+        add(TxtTituloResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, 200, 20));
 
         LbTituloResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         LbTituloResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LbTituloResg.setText("Título:");
-        add(LbTituloResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, 90, -1));
+        add(LbTituloResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, 90, -1));
 
         LbCeluResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         LbCeluResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LbCeluResg.setText("Celular:");
-        add(LbCeluResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 630, 90, -1));
+        add(LbCeluResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 600, 90, -1));
 
         LbApelliResg.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         LbApelliResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LbApelliResg.setText("Apellido:");
-        add(LbApelliResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 560, 100, -1));
+        add(LbApelliResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 100, -1));
 
         btncontra.setBackground(new java.awt.Color(30, 53, 99));
         btncontra.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -242,7 +242,7 @@ public class PerfilDoctor extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 200, 200));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/marco3.png"))); // NOI18N
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtneditarActionPerformed

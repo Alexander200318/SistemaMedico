@@ -617,7 +617,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         Panl_Ant_Personal = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         TxA_Persn_alergia = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -671,7 +670,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jLabel45 = new javax.swing.JLabel();
         jScrollPane19 = new javax.swing.JScrollPane();
         TxA_Faml_cirugia = new javax.swing.JTextArea();
-        jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         Cb_Parentesco = new javax.swing.JComboBox<>();
         Btn_guardar_Familiar = new javax.swing.JButton();
@@ -695,25 +693,23 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Rbn_Servicios = new javax.swing.JRadioButton();
         Rbn_Administrativo = new javax.swing.JRadioButton();
         RB_Si_carnet = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1280, 680));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DEPARTAMENTO MEDICO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Copperplate Gothic Light", 3, 24), new java.awt.Color(9, 49, 130))); // NOI18N
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(1290, 760));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel1.setText("NÚMERO  IDENTIFICACION : ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, 20));
 
-        Txt_Identificacion_pac.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_Identificacion_pac.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_Identificacion_pac.setBorder(null);
         jPanel1.add(Txt_Identificacion_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 170, 20));
 
-        Txt_Nombres.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_Nombres.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_Nombres.setBorder(null);
         jPanel1.add(Txt_Nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 170, 20));
 
@@ -721,23 +717,23 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 170, 10));
 
-        jLabel3.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel3.setText("TIPO SANGRE :");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 90, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 90, -1, -1));
 
         jSeparator11.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 170, 10));
 
-        Txt_genero.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_genero.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_genero.setBorder(null);
         jPanel1.add(Txt_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, 170, 20));
 
-        jLabel5.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel5.setText("APELLIDOS:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, 20));
 
-        Txt_Apellidos.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_Apellidos.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_Apellidos.setBorder(null);
         jPanel1.add(Txt_Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 170, 20));
 
@@ -745,7 +741,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator13.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 170, 10));
 
-        Txt_ContactoEmergencias.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_ContactoEmergencias.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_ContactoEmergencias.setBorder(null);
         jPanel1.add(Txt_ContactoEmergencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 170, 170, 20));
 
@@ -753,27 +749,27 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator14.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 190, 170, 10));
 
-        jLabel7.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel7.setText("SEXO :");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, -1, 20));
 
-        jLabel8.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel8.setText("GÉNERO :");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, -1, 20));
 
-        jLabel9.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel9.setText("FECHA  DE NACIMIENTO : ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel10.setText("ESTADO CIVIL : ");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel11.setText("E - MAIL : ");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, -1, 20));
 
-        Txt_Email.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_Email.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_Email.setBorder(null);
         jPanel1.add(Txt_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, 170, 20));
 
@@ -781,11 +777,11 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator19.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, 170, 10));
 
-        jLabel12.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel12.setText("TELÉFONO : ");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, -1, 20));
 
-        Txt_telefono.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_telefono.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_telefono.setBorder(null);
         jPanel1.add(Txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 170, 170, 20));
 
@@ -793,11 +789,11 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator20.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, 170, 10));
 
-        jLabel13.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel13.setText("DIRECCIÓN (Calles) : ");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, 20));
 
-        Txt_direccion.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_direccion.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_direccion.setBorder(null);
         jPanel1.add(Txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 170, 20));
 
@@ -805,11 +801,11 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator21.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 170, 10));
 
-        jLabel14.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setText("BARRIO (Vecindario): ");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
 
-        Txt_barrio.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_barrio.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_barrio.setBorder(null);
         jPanel1.add(Txt_barrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 170, 20));
 
@@ -817,11 +813,11 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator22.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator22, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 170, 10));
 
-        jLabel15.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel15.setText("LUGAR (Ciudad) : ");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
-        Txt_lugar.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_lugar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_lugar.setBorder(null);
         jPanel1.add(Txt_lugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 170, 20));
 
@@ -829,27 +825,27 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator23.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator23, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 170, 10));
 
-        jLabel16.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel16.setText("CANTÓN (Distrito) : ");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
 
-        jLabel17.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel17.setText("PROVINCIA : ");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, -1));
 
-        jLabel18.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         jLabel18.setText("ANTECEDENTES");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 230, -1, 20));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 220, -1, 20));
 
-        jLabel19.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel19.setText("ETNIA : ");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 300, -1, 20));
 
-        jLabel20.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel20.setText("DISCAPACIDAD : ");
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 490, -1, -1));
 
-        jLabel21.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel21.setText("TIPO DISCAPACIDAD : ");
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, -1, -1));
 
@@ -857,46 +853,48 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator29.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 540, 170, 10));
 
-        jLabel23.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel23.setText("PORCENTAGE DISCAPACIDAD : ");
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, -1, -1));
 
-        jLabel28.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel28.setText("TIPO  PACIENTE :");
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, -1, 20));
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, -1, 20));
 
-        jLabel31.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel31.setText("CICLO : ");
-        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 580, -1, 20));
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 570, -1, 20));
 
-        jLabel32.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel32.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel32.setText("CARRERA :");
-        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 620, -1, -1));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 660, 750, 10));
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, -1, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 750, 10));
 
         buttonGroup1.add(Rbn_docente);
-        Rbn_docente.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        Rbn_docente.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         Rbn_docente.setText("DOCENTE");
         Rbn_docente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Rbn_docenteActionPerformed(evt);
             }
         });
-        jPanel1.add(Rbn_docente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 80, 20));
+        jPanel1.add(Rbn_docente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 100, 20));
 
         buttonGroup1.add(Rbn_Alumno);
-        Rbn_Alumno.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        Rbn_Alumno.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         Rbn_Alumno.setText("ALUMNO");
-        jPanel1.add(Rbn_Alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 550, -1, -1));
+        jPanel1.add(Rbn_Alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, -1, -1));
+
+        JCL_FechaNacimiento.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
         jPanel1.add(JCL_FechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, 170, -1));
 
-        Ckx_discapacidad.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Ckx_discapacidad.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Ckx_discapacidad.setText("SI");
         jPanel1.add(Ckx_discapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, -1, -1));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 810, 10));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 810, 10));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 1010, 10));
 
-        jLabel35.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel35.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel35.setText("NOMBRES : ");
         jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, 20));
 
@@ -912,10 +910,12 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator16.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, 170, 10));
 
-        Btn_Subir_Foto.setText("Subir");
+        Btn_Subir_Foto.setBackground(new java.awt.Color(64, 172, 159));
+        Btn_Subir_Foto.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        Btn_Subir_Foto.setText("SUBIR");
         jPanel1.add(Btn_Subir_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 150, -1));
 
-        Txt_canton.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_canton.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_canton.setBorder(null);
         jPanel1.add(Txt_canton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 170, 20));
 
@@ -927,7 +927,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator34.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator34, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, 170, 10));
 
-        Txt_etnia.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_etnia.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_etnia.setBorder(null);
         jPanel1.add(Txt_etnia, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 170, 20));
 
@@ -935,11 +935,11 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator27.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, 170, 10));
 
-        Txt_provincia.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_provincia.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_provincia.setBorder(null);
         jPanel1.add(Txt_provincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 170, 20));
 
-        Txt_pais.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_pais.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_pais.setBorder(null);
         jPanel1.add(Txt_pais, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, 170, 20));
 
@@ -947,135 +947,167 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jSeparator28.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator28, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 170, 10));
 
+        Spr_Porcen_Discapasidad.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         Spr_Porcen_Discapasidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
         Spr_Porcen_Discapasidad.setEditor(new javax.swing.JSpinner.NumberEditor(Spr_Porcen_Discapasidad, ""));
-        jPanel1.add(Spr_Porcen_Discapasidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, -1, -1));
+        jPanel1.add(Spr_Porcen_Discapasidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 550, -1, -1));
 
+        Spr_ciclo.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Spr_ciclo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         Spr_ciclo.setEditor(new javax.swing.JSpinner.NumberEditor(Spr_ciclo, ""));
         Spr_ciclo.setEnabled(false);
-        jPanel1.add(Spr_ciclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 580, -1, -1));
+        jPanel1.add(Spr_ciclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, -1, 20));
 
-        Btn_Cancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Btn_Cancelar.setBackground(new java.awt.Color(64, 172, 159));
+        Btn_Cancelar.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Btn_Cancelar.setText("CANCELAR");
-        jPanel1.add(Btn_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 630, 180, -1));
+        jPanel1.add(Btn_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 600, 140, 30));
 
-        Btn_Guardar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Btn_Guardar.setBackground(new java.awt.Color(64, 172, 159));
+        Btn_Guardar.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Btn_Guardar.setText("GUARDAR");
-        jPanel1.add(Btn_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 630, 180, -1));
+        jPanel1.add(Btn_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 600, 140, 30));
 
-        jLabel22.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel22.setText("PAIS : ");
         jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, -1, 20));
 
+        jTabbedPane1.setBackground(new java.awt.Color(64, 172, 159));
+        jTabbedPane1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+
         jScrollPane2.setHorizontalScrollBar(null);
 
+        Panl_Ant_Personal.setBackground(new java.awt.Color(255, 255, 255));
+        Panl_Ant_Personal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PERSONAL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 24))); // NOI18N
         Panl_Ant_Personal.setForeground(new java.awt.Color(255, 255, 255));
         Panl_Ant_Personal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel6.setText("Alergias:");
         Panl_Ant_Personal.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
-        jLabel24.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
-        jLabel24.setText("Personal:");
-        Panl_Ant_Personal.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
-
         TxA_Persn_alergia.setColumns(20);
+        TxA_Persn_alergia.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
+        TxA_Persn_alergia.setLineWrap(true);
         TxA_Persn_alergia.setRows(5);
         TxA_Persn_alergia.setText("\n");
+        TxA_Persn_alergia.setWrapStyleWord(true);
         TxA_Persn_alergia.setAutoscrolls(false);
         jScrollPane3.setViewportView(TxA_Persn_alergia);
 
-        Panl_Ant_Personal.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 64, 330, 40));
+        Panl_Ant_Personal.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 320, 40));
 
         TxA_Persn_clinico.setColumns(20);
+        TxA_Persn_clinico.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
+        TxA_Persn_clinico.setLineWrap(true);
         TxA_Persn_clinico.setRows(5);
+        TxA_Persn_clinico.setWrapStyleWord(true);
         TxA_Persn_clinico.setAutoscrolls(false);
         jScrollPane4.setViewportView(TxA_Persn_clinico);
 
-        Panl_Ant_Personal.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 132, 330, 40));
+        Panl_Ant_Personal.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 320, 40));
 
-        jLabel25.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
-        jLabel25.setText("Clinico");
-        Panl_Ant_Personal.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        jLabel25.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel25.setText("Clinico:");
+        Panl_Ant_Personal.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 60, -1));
 
         TxA_Persn_ginecologico.setColumns(20);
+        TxA_Persn_ginecologico.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
+        TxA_Persn_ginecologico.setLineWrap(true);
         TxA_Persn_ginecologico.setRows(5);
+        TxA_Persn_ginecologico.setWrapStyleWord(true);
         TxA_Persn_ginecologico.setAutoscrolls(false);
         jScrollPane5.setViewportView(TxA_Persn_ginecologico);
 
-        Panl_Ant_Personal.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 200, 330, 40));
+        Panl_Ant_Personal.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 320, 40));
 
-        jLabel26.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel26.setText("Ginecologo:");
-        Panl_Ant_Personal.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        Panl_Ant_Personal.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         TxA_Persn_traumatologico.setColumns(20);
+        TxA_Persn_traumatologico.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
+        TxA_Persn_traumatologico.setLineWrap(true);
         TxA_Persn_traumatologico.setRows(5);
+        TxA_Persn_traumatologico.setWrapStyleWord(true);
         TxA_Persn_traumatologico.setAutoscrolls(false);
         jScrollPane6.setViewportView(TxA_Persn_traumatologico);
 
-        Panl_Ant_Personal.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 339, 40));
+        Panl_Ant_Personal.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 320, 40));
 
-        jLabel27.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel27.setText("Traumatologico:");
-        Panl_Ant_Personal.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        Panl_Ant_Personal.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         TxA_Persn_quirurgico.setColumns(20);
+        TxA_Persn_quirurgico.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
+        TxA_Persn_quirurgico.setLineWrap(true);
         TxA_Persn_quirurgico.setRows(5);
+        TxA_Persn_quirurgico.setWrapStyleWord(true);
         TxA_Persn_quirurgico.setAutoscrolls(false);
         jScrollPane7.setViewportView(TxA_Persn_quirurgico);
 
-        Panl_Ant_Personal.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 339, 40));
+        Panl_Ant_Personal.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 340, 320, 40));
 
-        jLabel29.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel29.setText("Quirurgico:");
-        Panl_Ant_Personal.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+        Panl_Ant_Personal.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
-        jLabel30.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel30.setText("Farmacologico:");
-        Panl_Ant_Personal.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
+        Panl_Ant_Personal.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, 20));
 
         TxA_Persn_farmacologico.setColumns(20);
+        TxA_Persn_farmacologico.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
+        TxA_Persn_farmacologico.setLineWrap(true);
         TxA_Persn_farmacologico.setRows(5);
+        TxA_Persn_farmacologico.setWrapStyleWord(true);
         TxA_Persn_farmacologico.setAutoscrolls(false);
         jScrollPane8.setViewportView(TxA_Persn_farmacologico);
 
-        Panl_Ant_Personal.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 339, 40));
+        Panl_Ant_Personal.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 420, 320, 40));
 
         TxA_Persn_enfermedades.setColumns(20);
+        TxA_Persn_enfermedades.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
+        TxA_Persn_enfermedades.setLineWrap(true);
         TxA_Persn_enfermedades.setRows(5);
+        TxA_Persn_enfermedades.setWrapStyleWord(true);
         TxA_Persn_enfermedades.setAutoscrolls(false);
         jScrollPane9.setViewportView(TxA_Persn_enfermedades);
 
-        Panl_Ant_Personal.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 339, 40));
+        Panl_Ant_Personal.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 490, 320, 40));
 
-        jLabel34.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel34.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel34.setText("Enfermedades");
-        Panl_Ant_Personal.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
+        Panl_Ant_Personal.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, -1, -1));
 
         TxA_Persn_cirugias.setColumns(20);
+        TxA_Persn_cirugias.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
+        TxA_Persn_cirugias.setLineWrap(true);
         TxA_Persn_cirugias.setRows(5);
+        TxA_Persn_cirugias.setWrapStyleWord(true);
         TxA_Persn_cirugias.setAutoscrolls(false);
         jScrollPane10.setViewportView(TxA_Persn_cirugias);
 
-        Panl_Ant_Personal.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 339, 40));
+        Panl_Ant_Personal.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 560, 320, 40));
 
-        jLabel36.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel36.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel36.setText("Cirugias");
-        Panl_Ant_Personal.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, -1, -1));
+        Panl_Ant_Personal.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, -1, -1));
 
-        jLabel37.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel37.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel37.setText("Vacunas:");
-        Panl_Ant_Personal.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, -1, -1));
+        Panl_Ant_Personal.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, -1, -1));
 
         TxA_Persn_vacunas.setColumns(20);
+        TxA_Persn_vacunas.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
+        TxA_Persn_vacunas.setLineWrap(true);
         TxA_Persn_vacunas.setRows(5);
+        TxA_Persn_vacunas.setWrapStyleWord(true);
         TxA_Persn_vacunas.setAutoscrolls(false);
         jScrollPane11.setViewportView(TxA_Persn_vacunas);
 
-        Panl_Ant_Personal.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 630, 340, 40));
+        Panl_Ant_Personal.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 630, 320, 40));
 
         jPanel2.setForeground(new java.awt.Color(204, 204, 204));
 
@@ -1098,132 +1130,174 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         jScrollPane1.setHorizontalScrollBar(null);
 
+        Panl_Ant_Familiares.setBackground(new java.awt.Color(255, 255, 255));
+        Panl_Ant_Familiares.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FAMILIARES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 24))); // NOI18N
         Panl_Ant_Familiares.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jScrollPane12.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
+
         TxA_Faml_alergia.setColumns(20);
+        TxA_Faml_alergia.setLineWrap(true);
         TxA_Faml_alergia.setRows(5);
+        TxA_Faml_alergia.setWrapStyleWord(true);
         TxA_Faml_alergia.setAutoscrolls(false);
         jScrollPane12.setViewportView(TxA_Faml_alergia);
 
-        Panl_Ant_Familiares.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 102, 338, 40));
+        Panl_Ant_Familiares.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 310, 40));
 
-        jLabel38.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel38.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel38.setText("Alergias:");
-        Panl_Ant_Familiares.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 80, -1, -1));
+        Panl_Ant_Familiares.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        jLabel39.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
-        jLabel39.setText("Clinico");
-        Panl_Ant_Familiares.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 154, -1, -1));
+        jLabel39.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel39.setText("Clinico:");
+        Panl_Ant_Familiares.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        jScrollPane13.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
 
         TxA_Faml_clinico.setColumns(20);
+        TxA_Faml_clinico.setLineWrap(true);
         TxA_Faml_clinico.setRows(5);
+        TxA_Faml_clinico.setWrapStyleWord(true);
         TxA_Faml_clinico.setAutoscrolls(false);
         jScrollPane13.setViewportView(TxA_Faml_clinico);
 
-        Panl_Ant_Familiares.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 176, 338, 40));
+        Panl_Ant_Familiares.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 310, 40));
 
-        jLabel40.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel40.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel40.setText("Ginecologo:");
-        Panl_Ant_Familiares.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 228, -1, -1));
+        Panl_Ant_Familiares.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+
+        jScrollPane14.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
 
         TxA_Faml_ginecologo.setColumns(20);
+        TxA_Faml_ginecologo.setLineWrap(true);
         TxA_Faml_ginecologo.setRows(5);
+        TxA_Faml_ginecologo.setWrapStyleWord(true);
         TxA_Faml_ginecologo.setAutoscrolls(false);
         jScrollPane14.setViewportView(TxA_Faml_ginecologo);
 
-        Panl_Ant_Familiares.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 250, 338, 40));
+        Panl_Ant_Familiares.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 310, 40));
 
-        jLabel41.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel41.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel41.setText("Traumatologico:");
-        Panl_Ant_Familiares.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 302, -1, -1));
+        Panl_Ant_Familiares.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+
+        jScrollPane15.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
 
         TxA_Faml_traumatologico.setColumns(20);
+        TxA_Faml_traumatologico.setLineWrap(true);
         TxA_Faml_traumatologico.setRows(5);
+        TxA_Faml_traumatologico.setWrapStyleWord(true);
         TxA_Faml_traumatologico.setAutoscrolls(false);
         jScrollPane15.setViewportView(TxA_Faml_traumatologico);
 
-        Panl_Ant_Familiares.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 324, 338, 40));
+        Panl_Ant_Familiares.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 310, 40));
 
-        jLabel42.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel42.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel42.setText("Quirurgico:");
-        Panl_Ant_Familiares.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 376, -1, -1));
+        Panl_Ant_Familiares.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+
+        jScrollPane16.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
 
         TxA_Faml_quirurgico.setColumns(20);
+        TxA_Faml_quirurgico.setLineWrap(true);
         TxA_Faml_quirurgico.setRows(5);
+        TxA_Faml_quirurgico.setWrapStyleWord(true);
         TxA_Faml_quirurgico.setAutoscrolls(false);
         jScrollPane16.setViewportView(TxA_Faml_quirurgico);
 
-        Panl_Ant_Familiares.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 398, 338, 40));
+        Panl_Ant_Familiares.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 310, 40));
 
-        jLabel43.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel43.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel43.setText("Farmacologico:");
-        Panl_Ant_Familiares.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 450, -1, -1));
+        Panl_Ant_Familiares.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
+
+        jScrollPane17.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
 
         TxA_Faml_farmacologico.setColumns(20);
+        TxA_Faml_farmacologico.setLineWrap(true);
         TxA_Faml_farmacologico.setRows(5);
+        TxA_Faml_farmacologico.setWrapStyleWord(true);
         TxA_Faml_farmacologico.setAutoscrolls(false);
         jScrollPane17.setViewportView(TxA_Faml_farmacologico);
 
-        Panl_Ant_Familiares.add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 472, 338, 40));
+        Panl_Ant_Familiares.add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 310, 40));
 
-        jLabel44.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel44.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel44.setText("Enfermedades:");
-        Panl_Ant_Familiares.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 524, -1, -1));
+        Panl_Ant_Familiares.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, -1, -1));
+
+        jScrollPane18.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
 
         TxA_Faml_enfermedades.setColumns(20);
+        TxA_Faml_enfermedades.setLineWrap(true);
         TxA_Faml_enfermedades.setRows(5);
+        TxA_Faml_enfermedades.setWrapStyleWord(true);
         TxA_Faml_enfermedades.setAutoscrolls(false);
         jScrollPane18.setViewportView(TxA_Faml_enfermedades);
 
-        Panl_Ant_Familiares.add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 546, 338, 40));
+        Panl_Ant_Familiares.add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 310, 40));
 
-        jLabel45.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel45.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel45.setText("Cirugia:");
-        Panl_Ant_Familiares.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 598, -1, -1));
+        Panl_Ant_Familiares.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
+
+        jScrollPane19.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
 
         TxA_Faml_cirugia.setColumns(20);
+        TxA_Faml_cirugia.setLineWrap(true);
         TxA_Faml_cirugia.setRows(5);
+        TxA_Faml_cirugia.setWrapStyleWord(true);
         TxA_Faml_cirugia.setAutoscrolls(false);
         jScrollPane19.setViewportView(TxA_Faml_cirugia);
 
-        Panl_Ant_Familiares.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 338, 40));
+        Panl_Ant_Familiares.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 310, 40));
 
-        jLabel46.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 18)); // NOI18N
-        jLabel46.setText("Familiares");
-        Panl_Ant_Familiares.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
-
-        jLabel47.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel47.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel47.setText("PARENTESCO");
         Panl_Ant_Familiares.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, 30));
 
+        Cb_Parentesco.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Cb_Parentesco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Otro", "Padres", "Hijos", "Abuelos", "Hermanos" }));
-        Panl_Ant_Familiares.add(Cb_Parentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 42, 140, 30));
+        Cb_Parentesco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cb_ParentescoActionPerformed(evt);
+            }
+        });
+        Panl_Ant_Familiares.add(Cb_Parentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 110, 30));
 
-        Btn_guardar_Familiar.setText("Registrar");
-        Panl_Ant_Familiares.add(Btn_guardar_Familiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 44, -1, 26));
+        Btn_guardar_Familiar.setBackground(new java.awt.Color(64, 172, 159));
+        Btn_guardar_Familiar.setFont(new java.awt.Font("Maiandra GD", 1, 13)); // NOI18N
+        Btn_guardar_Familiar.setText("REGISTRAR");
+        Panl_Ant_Familiares.add(Btn_guardar_Familiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 110, 30));
 
-        jLabel48.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel48.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel48.setText("Vacunas:");
-        Panl_Ant_Familiares.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 670, -1, -1));
+        Panl_Ant_Familiares.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, -1, -1));
+
+        jScrollPane20.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
 
         TxA_Faml_vacunas.setColumns(20);
+        TxA_Faml_vacunas.setLineWrap(true);
         TxA_Faml_vacunas.setRows(5);
+        TxA_Faml_vacunas.setWrapStyleWord(true);
         TxA_Faml_vacunas.setAutoscrolls(false);
         jScrollPane20.setViewportView(TxA_Faml_vacunas);
 
-        Panl_Ant_Familiares.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 690, 334, 40));
+        Panl_Ant_Familiares.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 680, 310, 30));
 
         jScrollPane1.setViewportView(Panl_Ant_Familiares);
 
         jTabbedPane1.addTab("FAMILIARES", jScrollPane1);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 260, 360, 340));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 250, 360, 340));
 
-        jLabel49.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel49.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel49.setText("OBSERVACIÓN:");
         jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 170, 20));
 
-        Txt_Observacion.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
+        Txt_Observacion.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         Txt_Observacion.setBorder(null);
         jPanel1.add(Txt_Observacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, 170, 20));
 
@@ -1232,38 +1306,42 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(jSeparator30, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 630, 170, 10));
 
         GrupoGroup2.add(Rbn_Femenino);
+        Rbn_Femenino.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Rbn_Femenino.setText("FEMENINO");
         Rbn_Femenino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Rbn_FemeninoActionPerformed(evt);
             }
         });
-        jPanel1.add(Rbn_Femenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 420, -1, -1));
+        jPanel1.add(Rbn_Femenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 420, -1, -1));
 
         GrupoGroup2.add(Rbn_Masculino);
+        Rbn_Masculino.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Rbn_Masculino.setText("MASCULINO");
         Rbn_Masculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Rbn_MasculinoActionPerformed(evt);
             }
         });
-        jPanel1.add(Rbn_Masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, -1, -1));
+        jPanel1.add(Rbn_Masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, -1, -1));
 
+        Cbx_estado_civil.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         Cbx_estado_civil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero", "Casado", "Divorciado", "Viudo", "Unión Libre", "Separado" }));
         jPanel1.add(Cbx_estado_civil, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 170, -1));
 
-        jPanel1.add(Cbx_Carreras, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 170, -1));
+        Cbx_Carreras.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jPanel1.add(Cbx_Carreras, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, 170, 20));
 
+        Cbx_tipo_sangre.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
         Cbx_tipo_sangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
         jPanel1.add(Cbx_tipo_sangre, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 110, 170, -1));
 
-        jLabel4.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel4.setText("CONTACTO EMERGENCIA : ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 150, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 150, -1, -1));
 
         panel_contenedor_img.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(51, 51, 51)));
 
-        RSlabel_imagen.setForeground(new java.awt.Color(0, 0, 0));
         RSlabel_imagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RSlabel_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/usuario.png"))); // NOI18N
         RSlabel_imagen.setText("Arrastra una imagen");
@@ -1286,41 +1364,38 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         jPanel1.add(panel_contenedor_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 150, 170));
 
+        CBX_tipoDiscapacidad.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         CBX_tipoDiscapacidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Físicas", "Sensoriales", "Intelectuales", "Psicosociales", "Aprendizaje", "Habla y Lenguaje", "Invisibles" }));
         jPanel1.add(CBX_tipoDiscapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 520, 180, -1));
 
-        jLabel50.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
+        jLabel50.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel50.setText("POSEE CARNET DEL CONADIS : ");
         jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 580, -1, 20));
 
         Grupo3.add(RB_No_carnet);
-        RB_No_carnet.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        RB_No_carnet.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         RB_No_carnet.setText("No");
-        jPanel1.add(RB_No_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, -1, -1));
+        jPanel1.add(RB_No_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 580, -1, -1));
 
         buttonGroup1.add(Rbn_Servicios);
-        Rbn_Servicios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Rbn_Servicios.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         Rbn_Servicios.setText("SERVICIO");
-        jPanel1.add(Rbn_Servicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, -1, 30));
+        jPanel1.add(Rbn_Servicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, -1, 30));
 
         buttonGroup1.add(Rbn_Administrativo);
-        Rbn_Administrativo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Rbn_Administrativo.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         Rbn_Administrativo.setText("PERS. ADMINISTRATIVO");
         Rbn_Administrativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Rbn_AdministrativoActionPerformed(evt);
             }
         });
-        jPanel1.add(Rbn_Administrativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, 30));
+        jPanel1.add(Rbn_Administrativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, -1, 30));
 
         Grupo3.add(RB_Si_carnet);
-        RB_Si_carnet.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        RB_Si_carnet.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         RB_Si_carnet.setText("Si");
-        jPanel1.add(RB_Si_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 580, 40, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Si");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 580, 20, -1));
+        jPanel1.add(RB_Si_carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 580, 50, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -1349,6 +1424,10 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private void Rbn_AdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rbn_AdministrativoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Rbn_AdministrativoActionPerformed
+
+    private void Cb_ParentescoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cb_ParentescoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cb_ParentescoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1423,12 +1502,10 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -1451,7 +1528,6 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
