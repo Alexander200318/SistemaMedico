@@ -8,7 +8,6 @@ import Controlador.ButtonEditor;
 import Controlador.ButtonRenderer;
 import Controlador.ControladorPrincHistorial;
 import Controlador.OpacityBackground;
-
 import Modelo.ConsultaTableModel;
 import Modelo.Encabezado_tabla_Histrl;
 import Modelo.Singleton;
@@ -22,7 +21,6 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
@@ -239,88 +237,85 @@ public class Panel_Prin_HistorialDAO {
 
         tabla.revalidate(); // Actualiza el JTable
     }
-    
-    
-    
+
     private void mostrarOpcionesReporte() {
-    JFrame opcionesFrame = new JFrame("Opciones de Reporte");
-    opcionesFrame.setSize(400, 200);
-    opcionesFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        JFrame opcionesFrame = new JFrame("Opciones de Reporte");
+        opcionesFrame.setSize(400, 200);
+        opcionesFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-    
-    JPanel panel = new JPanel();
-    panel.setLayout(new GridLayout(4, 1, 10, 10)); 
-    panel.setBackground(Color.WHITE); 
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(4, 1, 10, 10));
+        panel.setBackground(Color.WHITE);
 
-    Font font = new Font("Maiandra GD", Font.BOLD, 14);
+        Font font = new Font("Maiandra GD", Font.BOLD, 14);
 
-    Color buttonColor = new Color(64, 172, 159);
+        Color buttonColor = new Color(64, 172, 159);
 
-    JButton btnReporteSexo = new JButton("Reporte por Sexo");
-    JButton btnReporteTipoPaciente = new JButton("Reporte por Tipo de Paciente");
-    JButton btnReporteAnual = new JButton("Reportes Anuales");
-    JButton btnReporteDiscapacidad = new JButton("Reportes de Discapacidades");
+        JButton btnReporteSexo = new JButton("Reporte por Sexo");
+        JButton btnReporteTipoPaciente = new JButton("Reporte por Tipo de Paciente");
+        JButton btnReporteAnual = new JButton("Reportes Anuales");
+        JButton btnReporteDiscapacidad = new JButton("Reportes de Discapacidades");
 
-    btnReporteSexo.setFont(font);
-    btnReporteSexo.setBackground(buttonColor);
-    btnReporteSexo.setOpaque(true);
-    btnReporteSexo.setBorder(BorderFactory.createLineBorder(Color.BLACK)); 
+        btnReporteSexo.setFont(font);
+        btnReporteSexo.setBackground(buttonColor);
+        btnReporteSexo.setOpaque(true);
+        btnReporteSexo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-    btnReporteTipoPaciente.setFont(font);
-    btnReporteTipoPaciente.setBackground(buttonColor);
-    btnReporteTipoPaciente.setOpaque(true);
-    btnReporteTipoPaciente.setBorder(BorderFactory.createLineBorder(Color.BLACK)); 
+        btnReporteTipoPaciente.setFont(font);
+        btnReporteTipoPaciente.setBackground(buttonColor);
+        btnReporteTipoPaciente.setOpaque(true);
+        btnReporteTipoPaciente.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-    btnReporteAnual.setFont(font);
-    btnReporteAnual.setBackground(buttonColor);
-    btnReporteAnual.setOpaque(true);
-    btnReporteAnual.setBorder(BorderFactory.createLineBorder(Color.BLACK)); 
+        btnReporteAnual.setFont(font);
+        btnReporteAnual.setBackground(buttonColor);
+        btnReporteAnual.setOpaque(true);
+        btnReporteAnual.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-    btnReporteDiscapacidad.setFont(font);
-    btnReporteDiscapacidad.setBackground(buttonColor);
-    btnReporteDiscapacidad.setOpaque(true);
-    btnReporteDiscapacidad.setBorder(BorderFactory.createLineBorder(Color.BLACK)); 
+        btnReporteDiscapacidad.setFont(font);
+        btnReporteDiscapacidad.setBackground(buttonColor);
+        btnReporteDiscapacidad.setOpaque(true);
+        btnReporteDiscapacidad.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-  
-    btnReporteSexo.addActionListener((e) -> abrirReporteSexo());
-    btnReporteTipoPaciente.addActionListener((e) -> abrirReporteTipoPaciente());
-    btnReporteAnual.addActionListener((e) -> abrirReporteAnual());
-    btnReporteDiscapacidad.addActionListener((e) -> abrirReporteDiscapacidad());
+        btnReporteSexo.addActionListener((e) -> abrirReporteSexo());
+        btnReporteTipoPaciente.addActionListener((e) -> abrirReporteTipoPaciente());
+        btnReporteAnual.addActionListener((e) -> abrirReporteAnual());
+        btnReporteDiscapacidad.addActionListener((e) -> abrirReporteDiscapacidad());
 
-  
-    panel.add(btnReporteSexo);
-    panel.add(btnReporteTipoPaciente);
-    panel.add(btnReporteAnual);
-    panel.add(btnReporteDiscapacidad);
+        panel.add(btnReporteSexo);
+        panel.add(btnReporteTipoPaciente);
+        panel.add(btnReporteAnual);
+        panel.add(btnReporteDiscapacidad);
 
-   
-    opcionesFrame.add(panel);
+        opcionesFrame.add(panel);
 
-    opcionesFrame.setVisible(true);
-}
+        opcionesFrame.setLocationRelativeTo(null); // Centrar el frame
+        opcionesFrame.setVisible(true);
+    }
 
     private void abrirReporteSexo() {
         javax.swing.SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Visualización de Datos por Sexo");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cambiado a DISPOSE_ON_CLOSE
             frame.setSize(800, 715);
 
             imprimirsexo imprimirSexoPanel = new imprimirsexo();
             frame.add(imprimirSexoPanel);
 
+            frame.setLocationRelativeTo(null); // Centrar el frame
             frame.setVisible(true);
         });
     }
 
     private void abrirReporteTipoPaciente() {
         javax.swing.SwingUtilities.invokeLater(() -> {
-           JFrame frame = new JFrame("Visualización de Datos por Tipo de Paciente");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            JFrame frame = new JFrame("Visualización de Datos por Tipo de Paciente");
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cambiado a DISPOSE_ON_CLOSE
             frame.setSize(800, 715);
 
             imprimirdocest imprimirPanel = new imprimirdocest();
             frame.add(imprimirPanel);
 
+            frame.setLocationRelativeTo(null); // Centrar el frame
             frame.setVisible(true);
         });
     }
@@ -328,25 +323,27 @@ public class Panel_Prin_HistorialDAO {
     private void abrirReporteAnual() {
         javax.swing.SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Visualización de Datos por Año");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cambiado a DISPOSE_ON_CLOSE
             frame.setSize(800, 715);
 
             impresionanual imprimirPanel = new impresionanual();
             frame.add(imprimirPanel);
 
+            frame.setLocationRelativeTo(null); // Centrar el frame
             frame.setVisible(true);
         });
     }
 
     private void abrirReporteDiscapacidad() {
         javax.swing.SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Visualización de Datos por Discapacidad ");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            JFrame frame = new JFrame("Visualización de Datos por Discapacidad");
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cambiado a DISPOSE_ON_CLOSE
             frame.setSize(1300, 715);
 
             impresiondiscapacidad imprimirPanel = new impresiondiscapacidad();
             frame.add(imprimirPanel);
 
+            frame.setLocationRelativeTo(null); // Centrar el frame
             frame.setVisible(true);
         });
     }
