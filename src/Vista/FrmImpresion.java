@@ -130,7 +130,7 @@ public class FrmImpresion extends javax.swing.JPanel implements Printable  {
         jLabel2.setFont(new java.awt.Font("Maiandra GD", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(32, 65, 109));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Departamento   Medico");
+        jLabel2.setText("Departamento   Médico");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
 
         LblNombreDocImprimir.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
@@ -247,7 +247,7 @@ public class FrmImpresion extends javax.swing.JPanel implements Printable  {
         add(LblPacienteNombreImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 290, 20));
 
         jLabel19.setFont(new java.awt.Font("Maiandra GD", 1, 11)); // NOI18N
-        jLabel19.setText("Cedula   Profesional:");
+        jLabel19.setText("Cédula   Profesional:");
         add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 

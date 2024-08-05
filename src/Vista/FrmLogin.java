@@ -114,7 +114,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("CORREO:");
+        jLabel5.setText("CÉDULA/CORREO:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 160, 20));
 
         PasswordContraseñaLogin.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
@@ -130,19 +130,19 @@ public class FrmLogin extends javax.swing.JFrame {
         TxtLabelRegistrarBtn.setBackground(new java.awt.Color(255, 255, 255));
         TxtLabelRegistrarBtn.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         TxtLabelRegistrarBtn.setForeground(new java.awt.Color(32, 65, 109));
-        TxtLabelRegistrarBtn.setText("Registrate aquí!");
+        TxtLabelRegistrarBtn.setText("Regístrate aquí!");
         TxtLabelRegistrarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TxtLabelRegistrarBtnMouseClicked(evt);
             }
         });
-        jPanel2.add(TxtLabelRegistrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, -1, 20));
+        jPanel2.add(TxtLabelRegistrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, 120, 30));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(64, 172, 159));
         jLabel7.setText("¿No tienes Cuenta?");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 540, -1, -1));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 310, 10));
 
         LblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -150,7 +150,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel2.add(LblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 310, 190));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 270, 10));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 270, 10));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, 170, 10));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, 170, 10));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 310, 600));
 

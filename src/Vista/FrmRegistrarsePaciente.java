@@ -702,7 +702,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel1.setText("NÚMERO  IDENTIFICACION : ");
+        jLabel1.setText("NÚMERO  IDENTIFICACIÓN : ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, 20));
 
         Txt_Identificacion_pac.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
@@ -835,7 +835,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
 
         jLabel18.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         jLabel18.setText("ANTECEDENTES");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 220, -1, 20));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 220, -1, 30));
 
         jLabel19.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel19.setText("ETNIA : ");
@@ -972,7 +972,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel1.add(Btn_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 600, 140, 30));
 
         jLabel22.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel22.setText("PAIS : ");
+        jLabel22.setText("PAÍS : ");
         jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, -1, 20));
 
         jTabbedPane1.setBackground(new java.awt.Color(64, 172, 159));
@@ -1011,7 +1011,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Panl_Ant_Personal.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 320, 40));
 
         jLabel25.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel25.setText("Clinico:");
+        jLabel25.setText("Clínico:");
         Panl_Ant_Personal.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 60, -1));
 
         TxA_Persn_ginecologico.setColumns(20);
@@ -1025,7 +1025,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Panl_Ant_Personal.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 320, 40));
 
         jLabel26.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel26.setText("Ginecologo:");
+        jLabel26.setText("Ginecológico:");
         Panl_Ant_Personal.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         TxA_Persn_traumatologico.setColumns(20);
@@ -1039,7 +1039,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Panl_Ant_Personal.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 320, 40));
 
         jLabel27.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel27.setText("Traumatologico:");
+        jLabel27.setText("Traumatológico:");
         Panl_Ant_Personal.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         TxA_Persn_quirurgico.setColumns(20);
@@ -1053,11 +1053,11 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Panl_Ant_Personal.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 340, 320, 40));
 
         jLabel29.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel29.setText("Quirurgico:");
+        jLabel29.setText("Quirúrgico:");
         Panl_Ant_Personal.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel30.setText("Farmacologico:");
+        jLabel30.setText("Farmacológico:");
         Panl_Ant_Personal.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, 20));
 
         TxA_Persn_farmacologico.setColumns(20);
@@ -1095,7 +1095,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Panl_Ant_Personal.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 560, 320, 40));
 
         jLabel36.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel36.setText("Cirugias");
+        jLabel36.setText("Cirugías");
         Panl_Ant_Personal.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, -1, -1));
 
         jLabel37.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -1118,14 +1118,14 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 350, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 27, Short.MAX_VALUE)
         );
 
-        Panl_Ant_Personal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 702, -1, -1));
+        Panl_Ant_Personal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 702, 350, -1));
 
         jScrollPane2.setViewportView(Panl_Ant_Personal);
 
@@ -1153,7 +1153,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Panl_Ant_Familiares.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         jLabel39.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel39.setText("Clinico:");
+        jLabel39.setText("Clínico:");
         Panl_Ant_Familiares.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         jScrollPane13.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
@@ -1168,7 +1168,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Panl_Ant_Familiares.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 310, 40));
 
         jLabel40.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel40.setText("Ginecologo:");
+        jLabel40.setText("Ginecológico:");
         Panl_Ant_Familiares.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         jScrollPane14.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
@@ -1183,7 +1183,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Panl_Ant_Familiares.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 310, 40));
 
         jLabel41.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel41.setText("Traumatologico:");
+        jLabel41.setText("Traumatológico:");
         Panl_Ant_Familiares.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
         jScrollPane15.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
@@ -1198,7 +1198,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Panl_Ant_Familiares.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 310, 40));
 
         jLabel42.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel42.setText("Quirurgico:");
+        jLabel42.setText("Quirúrgico:");
         Panl_Ant_Familiares.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
         jScrollPane16.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
@@ -1213,7 +1213,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Panl_Ant_Familiares.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 310, 40));
 
         jLabel43.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel43.setText("Farmacologico:");
+        jLabel43.setText("Farmacológico:");
         Panl_Ant_Familiares.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
 
         jScrollPane17.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
@@ -1243,7 +1243,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
         Panl_Ant_Familiares.add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 310, 40));
 
         jLabel45.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel45.setText("Cirugia:");
+        jLabel45.setText("Cirugías:");
         Panl_Ant_Familiares.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
 
         jScrollPane19.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
@@ -1396,7 +1396,7 @@ public class FrmRegistrarsePaciente extends javax.swing.JPanel {
                 Rbn_AdministrativoActionPerformed(evt);
             }
         });
-        jPanel1.add(Rbn_Administrativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, -1, 30));
+        jPanel1.add(Rbn_Administrativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 170, 30));
 
         RB_Si_carnet.setBackground(new java.awt.Color(255, 255, 255));
         Grupo3.add(RB_Si_carnet);

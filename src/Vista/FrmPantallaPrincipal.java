@@ -130,7 +130,6 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         Btncerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 680));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
@@ -192,7 +191,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         BtnHistorial.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         BtnHistorial.setForeground(new java.awt.Color(255, 255, 255));
         BtnHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/conversacion.png"))); // NOI18N
-        BtnHistorial.setText("Historial Medico");
+        BtnHistorial.setText("Historial Médico");
         BtnHistorial.setBorder(null);
         BtnHistorial.setBorderPainted(false);
         BtnHistorial.setContentAreaFilled(false);

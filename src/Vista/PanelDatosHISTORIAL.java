@@ -142,7 +142,7 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         PNLReporte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PNLIdentifiReport.setBackground(new java.awt.Color(255, 255, 255));
-        PNLIdentifiReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
+        PNLIdentifiReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Búsqueda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
         PNLIdentifiReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JLbCedulaIngreRepor.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 16)); // NOI18N

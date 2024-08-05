@@ -82,26 +82,14 @@ public class ControladorFrmNuevaConsul {
                 cambiarAlSiguientePanel();
             }
         });
-
+        
         // Configurar el ActionListener del botón "Terminar Consulta"
         this.btnTerminarConsulta.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     guardarConsulta();
-                    JOptionPane.showMessageDialog(null, "Consulta guardada con éxito");
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Error al guardar la consulta: " + ex.getMessage());
-                }
-            }
-        });
-        // Configurar el ActionListener del botón "Terminar Consulta"
-        this.btnTerminarConsulta.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    guardarConsulta();
-                    JOptionPane.showMessageDialog(null, "Consulta guardada con éxito");
+                    
                     // Habilitar el botón de imprimir después de guardar la consulta
                     btnimprimir.setEnabled(true);
                 } catch (SQLException ex) {
@@ -258,6 +246,7 @@ public class ControladorFrmNuevaConsul {
             float estatura = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtEstatura());
             float imc = peso / (estatura * estatura);
             ventanaNvConsulta.getLblMasaCorporal().setText(String.format("%.2f", imc));
+            
             
             int verbal = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtVerbal());
             int motora = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtMotora());

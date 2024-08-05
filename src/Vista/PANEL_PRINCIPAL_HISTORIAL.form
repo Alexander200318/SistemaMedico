@@ -118,7 +118,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Maiandra GD" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Categoria Triage"/>
+            <Property name="text" type="java.lang.String" value="Categor&#xed;a Triage"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -153,7 +153,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Maiandra GD" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingresa el numero de Identificacion:"/>
+            <Property name="text" type="java.lang.String" value="Ingresa el n&#xfa;mero de Identificaci&#xf3;n:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -197,7 +197,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Maiandra GD" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingresebla fecha Final"/>
+            <Property name="text" type="java.lang.String" value="Ingrese la fecha Final"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -447,16 +447,58 @@
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="7" rowCount="11">
-                    <Column editable="true" title="Identificacion" type="java.lang.Object"/>
+                    <Column editable="true" title="Identificaci&#xf3;n" type="java.lang.Object"/>
                     <Column editable="true" title="Nombres" type="java.lang.Object"/>
                     <Column editable="true" title="Sexo" type="java.lang.Object"/>
                     <Column editable="true" title="Fecha Consulta" type="java.lang.Object"/>
                     <Column editable="true" title="Doctor " type="java.lang.Object"/>
-                    <Column editable="true" title="Diagnostico" type="java.lang.Object"/>
-                    <Column editable="true" title="Nvl" type="java.lang.Object"/>
+                    <Column editable="true" title="Diagn&#xf3;stico" type="java.lang.Object"/>
+                    <Column editable="true" title="Nivel" type="java.lang.Object"/>
                   </Table>
                 </Property>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
+                </Property>
                 <Property name="doubleBuffered" type="boolean" value="true"/>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>

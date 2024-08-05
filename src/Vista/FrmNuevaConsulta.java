@@ -380,13 +380,13 @@ private void manejarCierreVentana() {
 
         lblFreCardiaca.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         lblFreCardiaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/monitor-de-pulso-cardiaco.png"))); // NOI18N
-        lblFreCardiaca.setText("Frecuencia Cardiaca:");
+        lblFreCardiaca.setText("Frecuencia Cardíaca:");
         jPanel22.add(lblFreCardiaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 180, -1));
         jPanel22.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 600, 10));
 
         jLabel15.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/presion-arterial.png"))); // NOI18N
-        jLabel15.setText("Presion Arterial:");
+        jLabel15.setText("Presión Arterial:");
         jPanel22.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 180, -1));
 
         jLabel18.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -567,15 +567,15 @@ private void manejarCierreVentana() {
         jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, -1, 20));
 
         jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel8.setText("R_Inguinal");
+        jLabel8.setText("Región inguinal");
         jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, -1, 20));
 
         jLabel9.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel9.setText("M_Inferior");
+        jLabel9.setText("Miembro Inferior");
         jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, -1, 20));
 
         jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel10.setText("M_superior");
+        jLabel10.setText("Miembro superior");
         jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, -1, 20));
 
         txtAreaCabeza.setColumns(20);
@@ -674,7 +674,7 @@ private void manejarCierreVentana() {
 
         jPanel2.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 370));
 
-        jTabbedPane.addTab("Examen fisico", jPanel2);
+        jTabbedPane.addTab("Exámen físico", jPanel2);
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "EMERGENCIA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
@@ -730,12 +730,12 @@ private void manejarCierreVentana() {
                 btnIrregularActionPerformed(evt);
             }
         });
-        jPanel14.add(btnIrregular, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
+        jPanel14.add(btnIrregular, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
 
         btnGrpRegularidad.add(btnRegular);
         btnRegular.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         btnRegular.setText("Regular");
-        jPanel14.add(btnRegular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
+        jPanel14.add(btnRegular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
 
         SpinnerNumParejasSexuales.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
         SpinnerNumParejasSexuales.setBorder(null);
@@ -829,29 +829,29 @@ private void manejarCierreVentana() {
         jPanel16.add(lblFrecRespiratoria14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 160, 20));
 
         lblFrecRespiratoria15.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        lblFrecRespiratoria15.setText("Semanas De Gestacion:");
+        lblFrecRespiratoria15.setText("Semanas De Gestación:");
         jPanel16.add(lblFrecRespiratoria15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 150, 20));
 
         lblFrecRespiratoria16.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        lblFrecRespiratoria16.setText("Dias De Gestacion;");
+        lblFrecRespiratoria16.setText("Dias De Gestación:");
         jPanel16.add(lblFrecRespiratoria16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 120, 20));
 
         lblFrecRespiratoria17.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         lblFrecRespiratoria17.setText("Número De Controles:");
-        jPanel16.add(lblFrecRespiratoria17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 140, 20));
+        jPanel16.add(lblFrecRespiratoria17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 160, 20));
         jPanel16.add(jSeparator41, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 130, 10));
         jPanel16.add(jSeparator42, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 140, 10));
         jPanel16.add(jSeparator43, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 170, 10));
-        jPanel16.add(jSeparator44, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 150, 10));
+        jPanel16.add(jSeparator44, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 130, 10));
         jPanel16.add(jSeparator45, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 180, 10));
 
         btnSiEmbarazo.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        btnSiEmbarazo.setText("Si");
-        jPanel16.add(btnSiEmbarazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, 20));
+        btnSiEmbarazo.setText("Sí");
+        jPanel16.add(btnSiEmbarazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, 20));
 
         lblFrecRespiratoria19.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         lblFrecRespiratoria19.setText("¿Se encuentra actualmente embarazada?");
-        jPanel16.add(lblFrecRespiratoria19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 260, 30));
+        jPanel16.add(lblFrecRespiratoria19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 260, 30));
 
         JChFechaProbableParto.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
         jPanel16.add(JChFechaProbableParto, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 90, 120, -1));
@@ -869,7 +869,7 @@ private void manejarCierreVentana() {
         SpinnerNumControles.setFont(new java.awt.Font("Maiandra GD", 0, 13)); // NOI18N
         SpinnerNumControles.setModel(new javax.swing.SpinnerNumberModel(0, 0, 15, 1));
         SpinnerNumControles.setBorder(null);
-        jPanel16.add(SpinnerNumControles, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 140, -1));
+        jPanel16.add(SpinnerNumControles, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 120, -1));
 
         btnGrpInmunizaciones.add(btnActivaInmunizacion);
         btnActivaInmunizacion.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -972,16 +972,16 @@ private void manejarCierreVentana() {
         btnPresuntivo.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         btnPresuntivo.setText("D. Presuntivo");
         jPanel17.add(btnPresuntivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
-        jPanel17.add(jSeparator30, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 100, 10));
+        jPanel17.add(jSeparator30, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 110, 10));
         jPanel17.add(jSeparator34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 100, 10));
 
         lblFrecRespiratoria18.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         lblFrecRespiratoria18.setText("CIE-10");
-        jPanel17.add(lblFrecRespiratoria18, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 50, 20));
+        jPanel17.add(lblFrecRespiratoria18, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 50, 20));
 
         SpinnerCIE10.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         SpinnerCIE10.setBorder(null);
-        jPanel17.add(SpinnerCIE10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 100, -1));
+        jPanel17.add(SpinnerCIE10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 100, -1));
         jPanel17.add(jSeparator26, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 100, 10));
 
         jPanel6.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 310, 270));

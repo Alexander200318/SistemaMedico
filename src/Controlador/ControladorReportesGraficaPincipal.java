@@ -40,112 +40,104 @@ public class ControladorReportesGraficaPincipal {
         DefaultPieDataset datasetRangoEdad = new DefaultPieDataset(); // Dataset para rangos de edad
 
         Conexion conexion = new Conexion();
-        try (Connection connection = conexion.getConexion()) {
+        try ( Connection connection = conexion.getConexion()) {
             // Consulta SQL para obtener la distribución por género
             String consultaGenero = "SELECT Genero, COUNT(*) AS Total FROM Persona GROUP BY Genero";
-            try (PreparedStatement statement = connection.prepareStatement(consultaGenero);
-                 ResultSet resultSet = statement.executeQuery()) {
+            try ( PreparedStatement statement = connection.prepareStatement(consultaGenero);  ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     String genero = resultSet.getString("Genero");
                     int total = resultSet.getInt("Total");
+                    System.out.println("Género: " + genero + ", Total: " + total); // Depuración
                     if (genero != null && !genero.trim().isEmpty()) {
                         datasetGenero.setValue(genero, total);
-                    } else {
-                        datasetGenero.setValue("No especificado", total);
                     }
                 }
             }
 
             // Consulta SQL para obtener la distribución por sexo
             String consultaSexo = "SELECT Sexo, COUNT(*) AS Total FROM Persona GROUP BY Sexo";
-            try (PreparedStatement statement = connection.prepareStatement(consultaSexo);
-                 ResultSet resultSet = statement.executeQuery()) {
+            try ( PreparedStatement statement = connection.prepareStatement(consultaSexo);  ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     String sexo = resultSet.getString("Sexo");
                     int total = resultSet.getInt("Total");
+                    System.out.println("Sexo: " + sexo + ", Total: " + total); // Depuración
                     if (sexo != null && !sexo.trim().isEmpty()) {
                         datasetSexo.setValue(sexo, total);
-                    } else {
-                        datasetSexo.setValue("No especificado", total);
                     }
                 }
             }
 
             // Consulta SQL para obtener la distribución por nivel de prioridad
             String consultaPrioridad = "SELECT Nivel_Prioridad, COUNT(*) AS Total_Pacientes FROM Triage GROUP BY Nivel_Prioridad ORDER BY Nivel_Prioridad";
-            try (PreparedStatement statement = connection.prepareStatement(consultaPrioridad);
-                 ResultSet resultSet = statement.executeQuery()) {
+            try ( PreparedStatement statement = connection.prepareStatement(consultaPrioridad);  ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     String nivelPrioridad = resultSet.getString("Nivel_Prioridad");
                     int totalPacientes = resultSet.getInt("Total_Pacientes");
+                    System.out.println("Nivel Prioridad: " + nivelPrioridad + ", Total Pacientes: " + totalPacientes); // Depuración
                     if (nivelPrioridad != null && !nivelPrioridad.trim().isEmpty()) {
                         datasetPrioridad.setValue(nivelPrioridad, totalPacientes);
-                    } else {
-                        datasetPrioridad.setValue("No especificado", totalPacientes);
                     }
                 }
             }
 
             // Consulta SQL para obtener la distribución por rango de edad
-            String consultaRangoEdad = "SELECT " +
-                "CASE " +
-                "WHEN TIMESTAMPDIFF(YEAR, p.Fecha_Nacimiento, CURDATE()) BETWEEN 0 AND 18 THEN '0-18 años' " +
-                "WHEN TIMESTAMPDIFF(YEAR, p.Fecha_Nacimiento, CURDATE()) BETWEEN 19 AND 35 THEN '19-35 años' " +
-                "WHEN TIMESTAMPDIFF(YEAR, p.Fecha_Nacimiento, CURDATE()) BETWEEN 36 AND 50 THEN '36-50 años' " +
-                "WHEN TIMESTAMPDIFF(YEAR, p.Fecha_Nacimiento, CURDATE()) >= 51 THEN '51+ años' " +
-                "END AS Rango_Edad, " +
-                "COUNT(*) AS Total_Pacientes " +
-                "FROM Paciente pa " +
-                "JOIN Persona p ON pa.Id_Persona = p.Id_Persona " +
-                "GROUP BY Rango_Edad " +
-                "ORDER BY FIELD(Rango_Edad, '0-18 años', '19-35 años', '36-50 años', '51+ años')";
-            try (PreparedStatement statement = connection.prepareStatement(consultaRangoEdad);
-                 ResultSet resultSet = statement.executeQuery()) {
+            String consultaRangoEdad = "SELECT "
+                    + "CASE "
+                    + "WHEN TIMESTAMPDIFF(YEAR, p.Fecha_Nacimiento, CURDATE()) BETWEEN 0 AND 18 THEN '0-18 años' "
+                    + "WHEN TIMESTAMPDIFF(YEAR, p.Fecha_Nacimiento, CURDATE()) BETWEEN 19 AND 35 THEN '19-35 años' "
+                    + "WHEN TIMESTAMPDIFF(YEAR, p.Fecha_Nacimiento, CURDATE()) BETWEEN 36 AND 50 THEN '36-50 años' "
+                    + "WHEN TIMESTAMPDIFF(YEAR, p.Fecha_Nacimiento, CURDATE()) >= 51 THEN '51+ años' "
+                    + "END AS Rango_Edad, "
+                    + "COUNT(*) AS Total_Pacientes "
+                    + "FROM Paciente pa "
+                    + "JOIN Persona p ON pa.Id_Persona = p.Id_Persona "
+                    + "GROUP BY Rango_Edad "
+                    + "ORDER BY FIELD(Rango_Edad, '0-18 años', '19-35 años', '36-50 años', '51+ años')";
+            try ( PreparedStatement statement = connection.prepareStatement(consultaRangoEdad);  ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     String rangoEdad = resultSet.getString("Rango_Edad");
                     int totalPacientes = resultSet.getInt("Total_Pacientes");
+                    System.out.println("Rango Edad: " + rangoEdad + ", Total Pacientes: " + totalPacientes); // Depuración
                     if (rangoEdad != null && !rangoEdad.trim().isEmpty()) {
                         datasetRangoEdad.setValue(rangoEdad, totalPacientes);
-                    } else {
-                        datasetRangoEdad.setValue("No especificado", totalPacientes);
                     }
                 }
             }
 
             // Crear y establecer el gráfico de pastel para género
             JFreeChart graficoPastelGenero = ChartFactory.createPieChart(
-                    "Distribución de Género", // Título del gráfico
-                    datasetGenero,           // Conjunto de datos
-                    true,                    // Incluir leyenda
-                    true,                    // Tooltips
-                    false                    // URLs
+                    "Distribución de Género",
+                    datasetGenero,
+                    true,
+                    true, // Tooltips
+                    false // URLs
             );
 
             // Crear y establecer el gráfico de pastel para sexo
             JFreeChart graficoPastelSexo = ChartFactory.createPieChart(
-                    "Distribución de Sexo",   // Título del gráfico
-                    datasetSexo,             // Conjunto de datos
-                    true,                    // Incluir leyenda
-                    true,                    // Tooltips
-                    false                    // URLs
+                    "Distribución de Sexo", // Título del gráfico
+                    datasetSexo, // Conjunto de datos
+                    true, // Incluir leyenda
+                    true, // Tooltips
+                    false // URLs
             );
 
             // Crear y establecer el gráfico de pastel para prioridad de triage
             JFreeChart graficoPastelPrioridad = ChartFactory.createPieChart(
                     "Distribución de Prioridad", // Título del gráfico
-                    datasetPrioridad,           // Conjunto de datos
-                    true,                       // Incluir leyenda
-                    true,                       // Tooltips
-                    false                       // URLs
+                    datasetPrioridad, // Conjunto de datos
+                    true, // Incluir leyenda
+                    true, // Tooltips
+                    false // URLs
             );
 
             // Crear y establecer el gráfico de pastel para rango de edad
             JFreeChart graficoPastelRangoEdad = ChartFactory.createPieChart(
                     "Distribución por Edades", // Título del gráfico
-                    datasetRangoEdad,               // Conjunto de datos
-                    true,                           // Incluir leyenda
-                    true,                           // Tooltips
-                    false                           // URLs
+                    datasetRangoEdad, // Conjunto de datos
+                    true, // Incluir leyenda
+                    true, // Tooltips
+                    false // URLs
             );
 
             // Crear BufferedImage y ImageIcon para género
@@ -180,4 +172,5 @@ public class ControladorReportesGraficaPincipal {
             e.printStackTrace();
         }
     }
+
 }

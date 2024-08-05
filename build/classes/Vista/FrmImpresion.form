@@ -47,7 +47,7 @@
           <Color blue="6d" green="41" red="20" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Departamento   Medico"/>
+        <Property name="text" type="java.lang.String" value="Departamento   M&#xe9;dico"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -439,7 +439,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Maiandra GD" size="11" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cedula   Profesional:"/>
+        <Property name="text" type="java.lang.String" value="C&#xe9;dula   Profesional:"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

@@ -66,7 +66,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Maiandra GD" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="N&#xda;MERO  IDENTIFICACION : "/>
+            <Property name="text" type="java.lang.String" value="N&#xda;MERO  IDENTIFICACI&#xd3;N : "/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -537,7 +537,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1030" y="220" width="-1" height="20"/>
+              <AbsoluteConstraints x="890" y="220" width="-1" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1005,7 +1005,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Maiandra GD" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="PAIS : "/>
+            <Property name="text" type="java.lang.String" value="PA&#xcd;S : "/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1138,7 +1138,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Clinico:"/>
+                        <Property name="text" type="java.lang.String" value="Cl&#xed;nico:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1177,7 +1177,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Ginecologo:"/>
+                        <Property name="text" type="java.lang.String" value="Ginecol&#xf3;gico:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1216,7 +1216,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Traumatologico:"/>
+                        <Property name="text" type="java.lang.String" value="Traumatol&#xf3;gico:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1255,7 +1255,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Quirurgico:"/>
+                        <Property name="text" type="java.lang.String" value="Quir&#xfa;rgico:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1268,7 +1268,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Farmacologico:"/>
+                        <Property name="text" type="java.lang.String" value="Farmacol&#xf3;gico:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1372,7 +1372,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Cirugias"/>
+                        <Property name="text" type="java.lang.String" value="Cirug&#xed;as"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1427,14 +1427,14 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="6" y="702" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="-4" y="702" width="350" height="-1"/>
                         </Constraint>
                       </Constraints>
 
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="350" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -1528,7 +1528,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Clinico:"/>
+                        <Property name="text" type="java.lang.String" value="Cl&#xed;nico:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1569,7 +1569,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Ginecologo:"/>
+                        <Property name="text" type="java.lang.String" value="Ginecol&#xf3;gico:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1610,7 +1610,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Traumatologico:"/>
+                        <Property name="text" type="java.lang.String" value="Traumatol&#xf3;gico:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1651,7 +1651,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Quirurgico:"/>
+                        <Property name="text" type="java.lang.String" value="Quir&#xfa;rgico:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1692,7 +1692,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Farmacologico:"/>
+                        <Property name="text" type="java.lang.String" value="Farmacol&#xf3;gico:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1774,7 +1774,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Maiandra GD" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Cirugia:"/>
+                        <Property name="text" type="java.lang.String" value="Cirug&#xed;as:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2221,7 +2221,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="190" y="460" width="-1" height="30"/>
+              <AbsoluteConstraints x="190" y="460" width="170" height="30"/>
             </Constraint>
           </Constraints>
         </Component>

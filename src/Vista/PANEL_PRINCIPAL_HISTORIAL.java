@@ -174,7 +174,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel2.setText("Categoria Triage");
+        jLabel2.setText("Categoría Triage");
         panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 40, 120, -1));
 
         btnreporte.setBackground(new java.awt.Color(64, 172, 159));
@@ -189,7 +189,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel1.setText("Ingresa el numero de Identificacion:");
+        jLabel1.setText("Ingresa el número de Identificación:");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         Fecha_Calendario_inicial.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
@@ -202,7 +202,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel4.setText("Ingresebla fecha Final");
+        jLabel4.setText("Ingrese la fecha Final");
         panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, -1, 30));
 
         Fecha_Calendario_final.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
@@ -282,7 +282,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Identificacion", "Nombres", "Sexo", "Fecha Consulta", "Doctor ", "Diagnostico", "Nvl"
+                "Identificación", "Nombres", "Sexo", "Fecha Consulta", "Doctor ", "Diagnóstico", "Nivel"
             }
         ));
         tabla_Historial.setDoubleBuffered(true);

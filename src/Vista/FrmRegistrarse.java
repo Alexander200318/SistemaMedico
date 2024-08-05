@@ -179,39 +179,39 @@ public class FrmRegistrarse extends javax.swing.JFrame {
         PanelDatosResg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LbEspeciaResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
-        LbEspeciaResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbEspeciaResg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LbEspeciaResg.setText("Especialidad:");
-        PanelDatosResg.add(LbEspeciaResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        PanelDatosResg.add(LbEspeciaResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
         LbCeluResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
-        LbCeluResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbCeluResg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LbCeluResg.setText("Celular:");
-        PanelDatosResg.add(LbCeluResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, -1));
+        PanelDatosResg.add(LbCeluResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 90, -1));
 
         LbTituloResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
-        LbTituloResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LbTituloResg.setText("Titulo:");
-        PanelDatosResg.add(LbTituloResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 100, -1));
+        LbTituloResg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LbTituloResg.setText("Título:");
+        PanelDatosResg.add(LbTituloResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 100, -1));
 
         LbContraResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
-        LbContraResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbContraResg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LbContraResg.setText("Contraseña:");
-        PanelDatosResg.add(LbContraResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
+        PanelDatosResg.add(LbContraResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
         LbNomResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
-        LbNomResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbNomResg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LbNomResg.setText("Nombres:");
-        PanelDatosResg.add(LbNomResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 110, -1));
+        PanelDatosResg.add(LbNomResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 100, -1));
 
         LbApelliResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
-        LbApelliResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbApelliResg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LbApelliResg.setText("Apellidos:");
-        PanelDatosResg.add(LbApelliResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 100, -1));
+        PanelDatosResg.add(LbApelliResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 100, -1));
 
         LbEmailResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
-        LbEmailResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbEmailResg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LbEmailResg.setText("Email:");
-        PanelDatosResg.add(LbEmailResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 110, -1));
+        PanelDatosResg.add(LbEmailResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 110, -1));
         PanelDatosResg.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 200, 10));
 
         TxtNombreResg.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
@@ -249,14 +249,14 @@ public class FrmRegistrarse extends javax.swing.JFrame {
         PanelDatosResg.add(JPassContraResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 200, 20));
 
         LbConfContraResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
-        LbConfContraResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbConfContraResg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LbConfContraResg.setText("Confirmar Contraseña:");
         PanelDatosResg.add(LbConfContraResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
         JPassNueContraResg.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
         JPassNueContraResg.setBorder(null);
-        PanelDatosResg.add(JPassNueContraResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, 200, 20));
-        PanelDatosResg.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 200, 10));
+        PanelDatosResg.add(JPassNueContraResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 190, 20));
+        PanelDatosResg.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 340, 190, 10));
 
         PanelIdentifcaResg.setBackground(new java.awt.Color(255, 255, 255));
         PanelIdentifcaResg.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Identificación", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
@@ -269,7 +269,7 @@ public class FrmRegistrarse extends javax.swing.JFrame {
 
         JLIdentficacionResg.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 18)); // NOI18N
         JLIdentficacionResg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLIdentficacionResg.setText("Cedula:");
+        JLIdentficacionResg.setText("Cédula:");
         PanelIdentifcaResg.add(JLIdentficacionResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         PanelDatosResg.add(PanelIdentifcaResg, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 400, 60));
