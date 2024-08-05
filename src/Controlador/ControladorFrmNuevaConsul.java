@@ -216,7 +216,7 @@ public class ControladorFrmNuevaConsul {
     }
 
     private void guardarConsulta() throws SQLException {
-        try {
+    try {
         int idPaciente = singleton.getIdPaciente();
         int idDoctor = singleton.getId_Doctor();
         int CIE10 = (int) ventanaNvConsulta.getSpinnerCIE10().getValue();
@@ -228,134 +228,231 @@ public class ControladorFrmNuevaConsul {
         boolean D_Definitivo = ventanaNvConsulta.getBtnDefinitivo().isSelected();
 
         // Validar que los campos de texto no estén vacíos y que contengan solo números
-        if (!esNumero(ventanaNvConsulta.getTxtPeso().getText())
-                || !esNumero(ventanaNvConsulta.getTxtEstatura().getText())
-                || !esNumero(ventanaNvConsulta.getTxtFreCardiaca().getText())
-                || !esNumero(ventanaNvConsulta.getTxtFrecRespiratoria().getText())
-                || !esNumero(ventanaNvConsulta.getTxtTemperatura().getText())
-                || !esNumero(ventanaNvConsulta.getTxtSaturacion().getText())
-                || !esNumero(ventanaNvConsulta.getTxtOcular().getText())
-                || !esNumero(ventanaNvConsulta.getTxtVerbal().getText())
-                || !esNumero(ventanaNvConsulta.getTxtMotora().getText())) {
-            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en los campos requeridos.");
+        if (!esNumero(ventanaNvConsulta.getTxtPeso().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de peso.");
+            return;
+        }
+        if (!esNumero(ventanaNvConsulta.getTxtEstatura().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de estatura.");
+            return;
+        }
+        if (!esNumero(ventanaNvConsulta.getTxtFreCardiaca().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de frecuencia cardiaca.");
+            return;
+        }
+        if (!esNumero(ventanaNvConsulta.getTxtFrecRespiratoria().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de frecuencia respiratoria.");
+            return;
+        }
+        if (!esNumero(ventanaNvConsulta.getTxtTemperatura().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de temperatura.");
+            return;
+        }
+        if (!esNumero(ventanaNvConsulta.getTxtSaturacion().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de saturación.");
+            return;
+        }
+        if (!esNumero(ventanaNvConsulta.getTxtOcular().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de respuesta ocular.");
+            return;
+        }
+        if (!esNumero(ventanaNvConsulta.getTxtVerbal().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de respuesta verbal.");
+            return;
+        }
+        if (!esNumero(ventanaNvConsulta.getTxtMotora().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de respuesta motora.");
+            return;
+        }
+        
+        if (!esNumero(ventanaNvConsulta.getTxtPresionArterial().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de presión arterial.");
+            return;
+        }
+        if (!esNumero(ventanaNvConsulta.getTxtLlenadoCapilar().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de llenado capilar.");
             return;
         }
 
-            // Manejo de conversiones con validación
-            float peso = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtPeso());
-            float estatura = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtEstatura());
-            float imc = peso / (estatura * estatura);
-            ventanaNvConsulta.getLblMasaCorporal().setText(String.format("%.2f", imc));
-            
-            
-            int verbal = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtVerbal());
-            int motora = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtMotora());
-            int ocular = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtOcular());          
-            int total = (verbal + motora + ocular)/3;
-            ventanaNvConsulta.getLblTotal().setText(String.format("%d", total));
-            
+        if (!esNumero(ventanaNvConsulta.getTxtLlenadoCapilar().getText())) {
+        JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números en el campo de llenado capilar.");
+        return;
+        }
+        
+        if (!esReaccionPupilarValida(ventanaNvConsulta.getTxtReaccionPupilar().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese una reacción pupilar válida (normal, anormal, lenta, ausente).");
+            return;
+        }
 
-            int cardiaca = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtFreCardiaca());
-            int respiratoria = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtFrecRespiratoria());
-            float temperatura = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtTemperatura());
-            float saturacion = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtSaturacion());
+        // Validaciones específicas de rango
+        if (!validarRango(ventanaNvConsulta.getTxtPeso().getText(), 30, 200)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de peso entre 30 y 200.");
+            return;
+        }
+        if (!validarRango(ventanaNvConsulta.getTxtEstatura().getText(), 100, 250)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de estatura entre 100 y 250.");
+            return;
+        }
+        if (!validarRango(ventanaNvConsulta.getTxtFreCardiaca().getText(), 40, 200)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de frecuencia cardiaca entre 40 y 200.");
+            return;
+        }
+        if (!validarRango(ventanaNvConsulta.getTxtFrecRespiratoria().getText(), 10, 60)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de frecuencia respiratoria entre 10 y 60.");
+            return;
+        }
+        if (!validarRango(ventanaNvConsulta.getTxtTemperatura().getText(), 35, 42)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de temperatura entre 35 y 42.");
+            return;
+        }
+        if (!validarRango(ventanaNvConsulta.getTxtSaturacion().getText(), 70, 100)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de saturación entre 70 y 100.");
+            return;
+        }
+        if (!validarRango(ventanaNvConsulta.getTxtOcular().getText(), 0, 10)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de respuesta ocular entre 0 y 10.");
+            return;
+        }
+        if (!validarRango(ventanaNvConsulta.getTxtVerbal().getText(), 0, 10)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de respuesta verbal entre 0 y 10.");
+            return;
+        }
+        if (!validarRango(ventanaNvConsulta.getTxtMotora().getText(), 0, 10)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de respuesta motora entre 0 y 10.");
+            return;
+        }
+        
+        if(!validarRango(ventanaNvConsulta.getTxtPresionArterial().getText(), 70, 190)){
+             JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de presion arterial entre 70 y 190.");
+             return;
+        }
+        
+        if(!validarRango(ventanaNvConsulta.getTxtLlenadoCapilar().getText(), 0, 5)){
+             JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de llenado capilar entre 0 y 5.");
+             return;
+        }
+        
+        if (!validarRango(ventanaNvConsulta.getTxtLlenadoCapilar().getText(), 1, 5)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor de llenado capilar entre 1 y 5 segundos.");
+            return;
+        }
 
-            Consulta consulta = new Consulta(ventanaNvConsulta.getTxtNotasConsulta().getText(), true);
+        // Manejo de conversiones con validación
+        String presionarterial = ventanaNvConsulta.getTxtPresionArterial().getText();
+        float peso = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtPeso());
+        float estaturaCm = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtEstatura());
+        float estaturaM = estaturaCm / 100; 
+        float imc = peso / (estaturaM * estaturaM);
+        ventanaNvConsulta.getLblMasaCorporal().setText(String.format("%.2f", imc));
 
-            SignosVitales signos = new SignosVitales(
-                    ventanaNvConsulta.getTxtPresionArterial().getText(),
-                    peso,
-                    estatura,
-                    imc,
-                    cardiaca,
-                    respiratoria,
-                    temperatura,
-                    saturacion,
-                    ocular,
-                    verbal,
-                    motora,
-                    total,
-                    ventanaNvConsulta.getTxtLlenadoCapilar().getText(),
-                    ventanaNvConsulta.getTxtReaccionPupilar().getText(),
-                    idTriage
-            );
+        int verbal = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtVerbal());
+        int motora = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtMotora());
+        int ocular = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtOcular());
+        int total = (verbal + motora + ocular) / 3;
+        ventanaNvConsulta.getLblTotal().setText(String.format("%d", total));
 
-            String regularidad = ventanaNvConsulta.getBtnRegular().isSelected() ? "Regular" : "Irregular";
-            String inmunizaciones = ventanaNvConsulta.getBtnActivaInmunizacion().isSelected() ? "Activa" : "Pasiva";
+        int cardiaca = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtFreCardiaca());
+        int respiratoria = obtenerIntDesdeCampo(ventanaNvConsulta.getTxtFrecRespiratoria());
+        float temperatura = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtTemperatura());
+        float saturacion = obtenerFloatDesdeCampo(ventanaNvConsulta.getTxtSaturacion());
+        
 
-            boolean estaEmbarazada = ventanaNvConsulta.getBtnSiEmbarazo().isSelected();
+        Consulta consulta = new Consulta(ventanaNvConsulta.getTxtNotasConsulta().getText(), true);
 
-            EmergenciaObstetrica obstetrica = new EmergenciaObstetrica(
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerMenarca().getValue() : 0,
-                    estaEmbarazada ? Integer.parseInt(ventanaNvConsulta.getTxtCiclo().getText()) : 0,
-                    estaEmbarazada ? (ventanaNvConsulta.getJChFechaUltMenstruacion().getDate() != null ? new Date(ventanaNvConsulta.getJChFechaUltMenstruacion().getDate().getTime()) : null) : null,
-                    regularidad,
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpIniVidSexualActiva().getValue() : 0,
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerNumParejasSexuales().getValue() : 0,
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerGravides().getValue() : 0,
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerAbortos().getValue() : 0,
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerPartos().getValue() : 0,
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerCesarias().getValue() : 0,
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerMastodinia().getValue() : 0,
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerDismenorrea().getValue() : 0,
-                    estaEmbarazada ? (ventanaNvConsulta.getJChFechaProbableParto().getDate() != null ? new Date(ventanaNvConsulta.getJChFechaProbableParto().getDate().getTime()) : null) : null,
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerSemGestacion().getValue() : 0,
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerDiasGestacion().getValue() : 0,
-                    estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerNumControles().getValue() : 0,
-                    inmunizaciones,
-                    idTriage,
-                    estaEmbarazada
-            );
+        SignosVitales signos = new SignosVitales(
+                presionarterial,
+                peso,
+                estaturaCm,
+                imc,
+                cardiaca,
+                respiratoria,
+                temperatura,
+                saturacion,
+                ocular,
+                verbal,
+                motora,
+                total,
+                ventanaNvConsulta.getTxtLlenadoCapilar().getText(),
+                ventanaNvConsulta.getTxtReaccionPupilar().getText(),
+                idTriage
+        );
 
-            ExamenFisico exFisico = new ExamenFisico(
-                    ventanaNvConsulta.getTxtAreaPielYFaneras().getText(),
-                    ventanaNvConsulta.getTxtAreaCabeza().getText(),
-                    ventanaNvConsulta.getTxtAreaCuello().getText(),
-                    ventanaNvConsulta.getTxtAreaTorax().getText(),
-                    ventanaNvConsulta.getTxtAreaCorazon().getText(),
-                    ventanaNvConsulta.getTxtAreaAbdomen().getText(),
-                    ventanaNvConsulta.getTxtAreaR_Inguinal().getText(),
-                    ventanaNvConsulta.getTxtAreaM_Superior().getText(),
-                    ventanaNvConsulta.getTxtAreaM_Inferior().getText(),
-                    idTriage
-            );
+        String regularidad = ventanaNvConsulta.getBtnRegular().isSelected() ? "Regular" : "Irregular";
+        String inmunizaciones = ventanaNvConsulta.getBtnActivaInmunizacion().isSelected() ? "Activa" : "Pasiva";
 
-            ExamenComplementario exComplementario = new ExamenComplementario(
-                    ventanaNvConsulta.getTxtAreaExComplemetario().getText(),
-                    ventanaNvConsulta.getBtnSiAplica().isSelected(),
-                    consulta.getIdConsulta()
-            );
+        boolean estaEmbarazada = ventanaNvConsulta.getBtnSiEmbarazo().isSelected();
 
-            Historial historial = new Historial(
-                    Date.valueOf(LocalDate.now()),
-                    ventanaNvConsulta.getTxtNotasConsulta().getText(),
-                    true,
-                    Date.valueOf(LocalDate.now()),
-                    "En proceso",
-                    consulta.getIdConsulta(),
-                    idPaciente,
-                    idTriage,
-                    idDoctor
-            );
+        EmergenciaObstetrica obstetrica = new EmergenciaObstetrica(
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerMenarca().getValue() : 0,
+                estaEmbarazada ? Integer.parseInt(ventanaNvConsulta.getTxtCiclo().getText()) : 0,
+                estaEmbarazada ? (ventanaNvConsulta.getJChFechaUltMenstruacion().getDate() != null ? new Date(ventanaNvConsulta.getJChFechaUltMenstruacion().getDate().getTime()) : null) : null,
+                regularidad,
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpIniVidSexualActiva().getValue() : 0,
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerNumParejasSexuales().getValue() : 0,
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerGravides().getValue() : 0,
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerAbortos().getValue() : 0,
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerPartos().getValue() : 0,
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerCesarias().getValue() : 0,
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerMastodinia().getValue() : 0,
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerDismenorrea().getValue() : 0,
+                estaEmbarazada ? (ventanaNvConsulta.getJChFechaProbableParto().getDate() != null ? new Date(ventanaNvConsulta.getJChFechaProbableParto().getDate().getTime()) : null) : null,
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerSemGestacion().getValue() : 0,
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerDiasGestacion().getValue() : 0,
+                estaEmbarazada ? (int) ventanaNvConsulta.getSpinnerNumControles().getValue() : 0,
+                inmunizaciones,
+                idTriage,
+                estaEmbarazada
+        );
+        
+        ExamenFisico exFisico = new ExamenFisico(
+                ventanaNvConsulta.getTxtAreaPielYFaneras().getText(),
+                ventanaNvConsulta.getTxtAreaCabeza().getText(),
+                ventanaNvConsulta.getTxtAreaCuello().getText(),
+                ventanaNvConsulta.getTxtAreaTorax().getText(),
+                ventanaNvConsulta.getTxtAreaCorazon().getText(),
+                ventanaNvConsulta.getTxtAreaAbdomen().getText(),
+                ventanaNvConsulta.getTxtAreaR_Inguinal().getText(),
+                ventanaNvConsulta.getTxtAreaM_Superior().getText(),
+                ventanaNvConsulta.getTxtAreaM_Inferior().getText(),
+                idTriage
+        );
 
-            Diagnostico diagnostico = new Diagnostico(
-                    ventanaNvConsulta.getTxtAreaDiagnostico().getText(),
-                    CIE10,
-                    D_Presuntivo,
-                    D_Definitivo,
-                    historial.getIdHistorial()
-            );
+        ExamenComplementario exComplementario = new ExamenComplementario(
+                ventanaNvConsulta.getTxtAreaExComplemetario().getText(),
+                ventanaNvConsulta.getBtnSiAplica().isSelected(),
+                consulta.getIdConsulta()
+        );
 
-            Tratamiento tratamiento = new Tratamiento(
-                    ventanaNvConsulta.getTxtAreaPlanTrat().getText(),
-                    historial.getIdHistorial()
-            );
+        Historial historial = new Historial(
+                Date.valueOf(LocalDate.now()),
+                ventanaNvConsulta.getTxtNotasConsulta().getText(),
+                true,
+                Date.valueOf(LocalDate.now()),
+                "En proceso",
+                consulta.getIdConsulta(),
+                idPaciente,
+                idTriage,
+                idDoctor
+        );
 
-            Receta receta = new Receta(
-                    ventanaNvConsulta.getTxtAreaPlanTrat().getText(),
-                    ventanaNvConsulta.getTxtAreaInstrucciones().getText(),
-                    tratamiento.getIdTratamiento()
-            );
+        Diagnostico diagnostico = new Diagnostico(
+                ventanaNvConsulta.getTxtAreaDiagnostico().getText(),
+                CIE10,
+                D_Presuntivo,
+                D_Definitivo,
+                historial.getIdHistorial()
+        );
+
+        Tratamiento tratamiento = new Tratamiento(
+                ventanaNvConsulta.getTxtAreaPlanTrat().getText(),
+                historial.getIdHistorial()
+        );
+
+        Receta receta = new Receta(
+                ventanaNvConsulta.getTxtAreaPlanTrat().getText(),
+                ventanaNvConsulta.getTxtAreaInstrucciones().getText(),
+                tratamiento.getIdTratamiento()
+        );
 
             RegistraConsulta registraConsulta = new RegistraConsulta(
                     Date.valueOf(LocalDate.now()),
@@ -364,25 +461,33 @@ public class ControladorFrmNuevaConsul {
                     idPaciente
             );
 
-            consultaDAO.guardarConsulta(consulta, historial, diagnostico, tratamiento, receta, registraConsulta, signos, exFisico, obstetrica, exComplementario);
-
-            JOptionPane.showMessageDialog(null, "Consulta guardada con éxito");
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Error en la conversión de datos: " + e.getMessage());
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar la consulta: " + e.getMessage());
-            e.printStackTrace(); // Imprimir traza para depuración
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error inesperado: " + e.getMessage());
-            e.printStackTrace(); // Imprimir traza para depuración
-        }
+        // Guardar los datos en la base de datos usando ConsultaDAO
+        consultaDAO.guardarConsulta(consulta, historial, diagnostico, tratamiento, receta, registraConsulta, signos, exFisico, obstetrica, exComplementario);
+        
+        JOptionPane.showMessageDialog(null, "Consulta guardada exitosamente.");
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Error de formato numérico: " + e.getMessage());
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al guardar la consulta: " + e.getMessage());
+        throw e;
     }
+}
     
     private boolean esNumero(String texto) {
     return texto.matches("\\d*\\.?\\d+"); // Permite números enteros y decimales
 }
 
+    
+    private boolean esReaccionPupilarValida(String texto) {
+    String[] validas = {"normal", "anormal", "lenta", "ausente"};
+    for (String valida : validas) {
+        if (valida.equalsIgnoreCase(texto)) {
+            return true;
+        }
+    }
+    return false;
+}
+    
 public void validarSexoYDeshabilitarPagina() {
     // Obtener el texto del JLabel lblSexo
     String sexo = ventanaNvConsulta.getLblSexo().getText().trim().toUpperCase();
@@ -456,10 +561,20 @@ private void cambiarAlSiguientePanel() {
         }
     }
 
+        private boolean validarRango(String valor, int min, int max) {
+    try {
+        int numero = Integer.parseInt(valor);
+        return numero >= min && numero <= max;
+    } catch (NumberFormatException e) {
+        return false;
+    }
+}
     private int calcularEdad(String fechaNacimiento) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate birthDate = LocalDate.parse(fechaNacimiento, formatter);
         LocalDate currentDate = LocalDate.now();
         return Period.between(birthDate, currentDate).getYears();
     }
+    
+
 }
