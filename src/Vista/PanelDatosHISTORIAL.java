@@ -127,9 +127,6 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         Pnl_Cambio_Datos_Hist = new javax.swing.JPanel();
         BtnSeleccionarConsulta = new javax.swing.JButton();
         BtnSeleccionarTriage = new javax.swing.JButton();
-        JLbCedulaIngreRepor2 = new javax.swing.JLabel();
-        TxtCedBuscarReport1 = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
         Fondo = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 680));
@@ -142,7 +139,7 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         PNLReporte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PNLIdentifiReport.setBackground(new java.awt.Color(255, 255, 255));
-        PNLIdentifiReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Búsqueda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
+        PNLIdentifiReport.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14))); // NOI18N
         PNLIdentifiReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JLbCedulaIngreRepor.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 16)); // NOI18N
@@ -254,16 +251,6 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
         });
         PNLReporte.add(BtnSeleccionarTriage, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 50, 40));
 
-        JLbCedulaIngreRepor2.setFont(new java.awt.Font("Neue Haas Grotesk Text Pro", 1, 14)); // NOI18N
-        JLbCedulaIngreRepor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLbCedulaIngreRepor2.setText("Nombre Paciente:");
-        PNLReporte.add(JLbCedulaIngreRepor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 150, -1));
-
-        TxtCedBuscarReport1.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
-        TxtCedBuscarReport1.setBorder(null);
-        PNLReporte.add(TxtCedBuscarReport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 350, 20));
-        PNLReporte.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 350, 10));
-
         add(PNLReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 1200, 650));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo Login.png"))); // NOI18N
@@ -297,17 +284,14 @@ public class PanelDatosHISTORIAL extends javax.swing.JPanel {
     private javax.swing.JLabel Fondo;
     public javax.swing.JLabel JLbCedulaIngreRepor;
     public javax.swing.JLabel JLbCedulaIngreRepor1;
-    public javax.swing.JLabel JLbCedulaIngreRepor2;
     public javax.swing.JLabel JLbCedulaIngreRepor3;
     private javax.swing.JPanel PNLDatosReport;
     private javax.swing.JPanel PNLIdentifiReport;
     private javax.swing.JPanel PNLReporte;
     private javax.swing.JPanel Pnl_Cambio_Datos_Hist;
     private javax.swing.JTable TBLDatReport;
-    public javax.swing.JTextField TxtCedBuscarReport1;
     public javax.swing.JTextField Txt_motivo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
     // End of variables declaration//GEN-END:variables
 }

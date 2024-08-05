@@ -16,6 +16,8 @@ import Vista.DatosTriage;
 import Vista.PanelDatosHISTORIAL;
 import com.toedter.calendar.JDateChooser;
 import java.awt.BorderLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -36,6 +38,7 @@ public class Panel_DatosHistorial {
         this.vistaPanel = vistaPanel;
         
         Panelconsulta();
+         singleton.setId_historialPersonal(0);
         
         vistaPanel.getBtnSeleccionarConsulta().addActionListener((e) -> {
             Panelconsulta();
@@ -57,8 +60,53 @@ public class Panel_DatosHistorial {
             RecetearDatos();
         });
         
+        MouseclickedTabla(vistaPanel.getTBLDatReport());
         
-        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    public void MouseclickedTabla(JTable table) {
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = table.rowAtPoint(e.getPoint());
+                if (row >= 0) {
+                    Tabla(table, row);
+                     Panelconsulta();
+                }
+            }
+        });
+    }
+    
+    private void Tabla(JTable table, int row) {
+        if (row >= 0 && row < table.getRowCount()) {
+            ConsultaHistorialPaciente model = (ConsultaHistorialPaciente) table.getModel();
+            if (model != null) {
+                List<Encabezado_HistorialPaciente> pacientes = model.getConsultas();
+                if (pacientes != null && row < pacientes.size()) {
+                    Encabezado_HistorialPaciente paciente = pacientes.get(table.convertRowIndexToModel(row));
+                    if (paciente != null) {
+                        int id_historisl = paciente.getId_historial();
+                        System.out.println("ID Historial: " + id_historisl); 
+                        singleton.setId_historialPersonal(id_historisl);
+                        
+//                        CambioDatosPa();
+                    } else {
+                        System.out.println("Historial no encontrado.");
+                    }
+                } else {
+                    System.out.println("Índice de fila fuera de rango.");
+                }
+            } else {
+                System.out.println("Modelo de tabla no válido.");
+            }
+        }
     }
     
       public void RecetearDatos() {

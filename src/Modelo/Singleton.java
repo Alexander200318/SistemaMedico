@@ -16,6 +16,7 @@ public class Singleton {
  private String Identificacion_Historial;
  private int IdDiagnostico;
  private int idtratamiento;
+ private int Id_historialPersonal;
 
  
  
@@ -25,6 +26,16 @@ public class Singleton {
         }
         return instance;
     }
+
+    public int getId_historialPersonal() {
+        return Id_historialPersonal;
+    }
+
+    public void setId_historialPersonal(int Id_historialPersonal) {
+        this.Id_historialPersonal = Id_historialPersonal;
+    }
+    
+
 
     public String getIdentificacion_Historial() {
         return Identificacion_Historial;
