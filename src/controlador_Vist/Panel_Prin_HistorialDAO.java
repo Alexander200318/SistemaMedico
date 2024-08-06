@@ -338,7 +338,7 @@ public class Panel_Prin_HistorialDAO {
         javax.swing.SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Visualización de Datos por Discapacidad");
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cambiado a DISPOSE_ON_CLOSE
-            frame.setSize(1300, 715);
+            frame.setSize(1350,715);
 
             impresiondiscapacidad imprimirPanel = new impresiondiscapacidad();
             frame.add(imprimirPanel);

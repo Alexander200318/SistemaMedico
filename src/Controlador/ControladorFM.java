@@ -31,8 +31,8 @@ public class ControladorFM {
     public void cargarDatos() {
     String sql = "SELECT MONTH(rc.Fecha_Consult) AS Mes, " +
                  "YEAR(rc.Fecha_Consult) AS Año, " +
-                 "SUM(CASE WHEN p.Sexo = 'Masculino' THEN 1 ELSE 0 END) AS Hombres, " +
-                 "SUM(CASE WHEN p.Sexo = 'Femenino' THEN 1 ELSE 0 END) AS Mujeres " +
+                 "SUM(CASE WHEN p.Sexo = 'M' THEN 1 ELSE 0 END) AS Hombres, " +
+                 "SUM(CASE WHEN p.Sexo = 'F' THEN 1 ELSE 0 END) AS Mujeres " +
                  "FROM RegistraConsulta rc " +
                  "JOIN Paciente pa ON rc.Id_Paciente = pa.Id_Paciente " +
                  "JOIN Persona p ON pa.Id_Persona = p.Id_Persona " +
