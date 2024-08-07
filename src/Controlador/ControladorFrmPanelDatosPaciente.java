@@ -8,7 +8,6 @@ package Controlador;
 import Modelo.Singleton;
 import Vista.PanelDatosPaciente;
 import Modelo.Conexion;
-import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

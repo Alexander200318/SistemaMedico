@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.ControladorEditarFoto;
 import Controlador.ControladorFrmPanelDatosPaciente;
 import Controlador.ControladorMostrarDatosPanelbtn;
 import javax.swing.JButton;
@@ -24,11 +25,12 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
      */
     ControladorFrmPanelDatosPaciente control;
     ControladorMostrarDatosPanelbtn panel;
-
+    ControladorEditarFoto editar;
     public PanelDatosPaciente() {
         initComponents();
         control = new ControladorFrmPanelDatosPaciente(this);
         panel = new ControladorMostrarDatosPanelbtn(this);
+        editar = new ControladorEditarFoto(this);
     }
 
     //getters and setters panel
@@ -420,7 +422,16 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
     public void setTxtTraumatologiaFamiliares(JTextField TxtTraumatologiaFamiliares) {
         this.TxtTraumatologiaFamiliares = TxtTraumatologiaFamiliares;
     }
+///////////////////////////////////
 
+    public JButton getBtnEditarFotos() {
+        return BtnEditarFotos;
+    }
+
+    public void setBtnEditarFotos(JButton BtnEditarFotos) {
+        this.BtnEditarFotos = BtnEditarFotos;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -461,6 +472,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        BtnEditarFotos = new javax.swing.JButton();
         panelRound4 = new Modelo.PanelRound();
         BtnNuevaConsulta = new javax.swing.JButton();
         BtnGuardarCambiosDatos = new javax.swing.JButton();
@@ -667,6 +679,9 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setText("Sexo:");
         panelRound1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
+
+        BtnEditarFotos.setText("Editar");
+        panelRound1.add(BtnEditarFotos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 140, -1));
 
         jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 710, 280));
 
@@ -1008,6 +1023,7 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEditarDatos;
+    private javax.swing.JButton BtnEditarFotos;
     private javax.swing.JButton BtnGuardarCambiosDatos;
     private javax.swing.JButton BtnNuevaConsulta;
     private javax.swing.JComboBox<String> ComboBoxParentesco;
