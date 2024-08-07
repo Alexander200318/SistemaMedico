@@ -143,10 +143,10 @@ public class Panel_Prin_HistorialDAO {
         Object selectedItem = this.panelHistorial.getCbx_Sexo_Hist().getSelectedItem();
         if (selectedItem != null) {
             String selectedItemString = String.valueOf(selectedItem);
-            if (selectedItemString.equalsIgnoreCase("hombre")) {
-                valor = "Hombre";
-            } else if (selectedItemString.equalsIgnoreCase("mujer")) {
-                valor = "Mujer";
+            if (selectedItemString.equalsIgnoreCase("Masculino")) {
+                valor = "M";
+            } else if (selectedItemString.equalsIgnoreCase("Femenino")) {
+                valor = "F";
             }
         }
         return valor;
@@ -157,12 +157,12 @@ public class Panel_Prin_HistorialDAO {
         Object selectedItem = this.panelHistorial.getCbx_Triage_Hist().getSelectedItem();
         if (selectedItem != null) {
             String selectedItemString = String.valueOf(selectedItem);
-            if (selectedItemString.equalsIgnoreCase("Emergencia")) {
+            if (selectedItemString.equalsIgnoreCase("No Prioritario")) {
+                nivel = "No Prioritario";
+            } else if (selectedItemString.equalsIgnoreCase("Prioritario")) {
+                nivel = "Prioritario";
+            } else if (selectedItemString.equalsIgnoreCase("Emergencia")) {
                 nivel = "Emergencia";
-            } else if (selectedItemString.equalsIgnoreCase("Prioridad")) {
-                nivel = "Prioridad";
-            } else if (selectedItemString.equalsIgnoreCase("No urgente")) {
-                nivel = "No urgente";
             }
         }
         return nivel;

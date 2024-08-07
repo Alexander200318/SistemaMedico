@@ -25,12 +25,13 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
     }
 
     public JButton getBtn_Buscar_Hist() {
-        return btnreporte;
+        return Btn_Buscar_Hist;
     }
 
     public void setBtn_Buscar_Hist(JButton Btn_Buscar_Hist) {
-        this.btnreporte = Btn_Buscar_Hist;
+        this.Btn_Buscar_Hist = Btn_Buscar_Hist;
     }
+
 
     public JButton getBtn_Limpiar_Hist() {
         return Btn_Limpiar_Hist;
@@ -143,7 +144,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        Btn_Buscar_Hist1 = new javax.swing.JButton();
+        Btn_Buscar_Hist = new javax.swing.JButton();
         panelRound2 = new Modelo.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_Historial = new javax.swing.JTable();
@@ -168,7 +169,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         panelRound1.add(Txt_Cedula_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 220, 20));
 
         Cbx_Triage_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
-        Cbx_Triage_Hist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "No Urgente", "Prioridad", "Emergencia" }));
+        Cbx_Triage_Hist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "No prioritario", "Prioritario", "Emergencia" }));
         Cbx_Triage_Hist.setBorder(null);
         panelRound1.add(Cbx_Triage_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 68, 200, -1));
 
@@ -225,10 +226,10 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel7.setText("Sexo:");
-        panelRound1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 40, 40, -1));
+        panelRound1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 40, 70, -1));
 
         Cbx_Sexo_Hist.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
-        Cbx_Sexo_Hist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "Hombre", "Mujer" }));
+        Cbx_Sexo_Hist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "Masxulito ", "Femenino" }));
         Cbx_Sexo_Hist.setBorder(null);
         panelRound1.add(Cbx_Sexo_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 68, 200, -1));
 
@@ -253,10 +254,10 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
         panelRound1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 200, 20));
         panelRound1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 190, 20));
 
-        Btn_Buscar_Hist1.setBackground(new java.awt.Color(64, 172, 159));
-        Btn_Buscar_Hist1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        Btn_Buscar_Hist1.setText("BUSCAR");
-        panelRound1.add(Btn_Buscar_Hist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 120, 140, 30));
+        Btn_Buscar_Hist.setBackground(new java.awt.Color(64, 172, 159));
+        Btn_Buscar_Hist.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        Btn_Buscar_Hist.setText("BUSCAR");
+        panelRound1.add(Btn_Buscar_Hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 120, 140, 30));
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
         panelRound2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS DE HISTORIAL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 18))); // NOI18N
@@ -326,7 +327,7 @@ public class PANEL_PRINCIPAL_HISTORIAL extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Btn_Buscar_Hist1;
+    private javax.swing.JButton Btn_Buscar_Hist;
     private javax.swing.JButton Btn_Limpiar_Hist;
     private javax.swing.JComboBox<String> Cbx_Sexo_Hist;
     private javax.swing.JComboBox<String> Cbx_Triage_Hist;

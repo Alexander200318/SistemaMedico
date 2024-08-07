@@ -64,6 +64,9 @@ public class SignosVitales {
         this.idTriage = idTriage;
     }
 
+    public SignosVitales() {
+    }
+
     
     
    

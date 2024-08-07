@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -92,8 +92,8 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
                 <StringItem index="0" value="Ninguno"/>
-                <StringItem index="1" value="No Urgente"/>
-                <StringItem index="2" value="Prioridad"/>
+                <StringItem index="1" value="No prioritario"/>
+                <StringItem index="2" value="Prioritario"/>
                 <StringItem index="3" value="Emergencia"/>
               </StringArray>
             </Property>
@@ -276,7 +276,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="800" y="40" width="40" height="-1"/>
+              <AbsoluteConstraints x="800" y="40" width="70" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -288,8 +288,8 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
                 <StringItem index="0" value="Ninguno"/>
-                <StringItem index="1" value="Hombre"/>
-                <StringItem index="2" value="Mujer"/>
+                <StringItem index="1" value="Masxulito "/>
+                <StringItem index="2" value="Femenino"/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -388,7 +388,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="Btn_Buscar_Hist1">
+        <Component class="javax.swing.JButton" name="Btn_Buscar_Hist">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="9f" green="ac" red="40" type="rgb"/>

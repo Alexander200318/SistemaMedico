@@ -46,6 +46,7 @@ public class ControladorFrmNuevaConsul {
     private JRadioButton btnActivaInmunizacion;
     private JRadioButton btnPasivaInmunizacion;
     private JButton btnimprimir;
+    boolean sexoPaciente=true;
 
     public ControladorFrmNuevaConsul(FrmNuevaConsulta ventanaNvConsulta) {
         this.ventanaNvConsulta = ventanaNvConsulta;
@@ -118,6 +119,7 @@ public class ControladorFrmNuevaConsul {
                 }
             }
         });
+        
         jChFechaProbableParto.setEnabled(false);
         SpinnerSemGestacion.setEnabled(false);
         SpinnerDiasGestacion.setEnabled(false);
@@ -158,6 +160,32 @@ public class ControladorFrmNuevaConsul {
                 interfazImprimir.setVisible(true);
             }
         });
+        
+        
+        
+        
+        
+        
+        
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    }
+    
+  
+    public String Seleccion_Nivel_Prioridad() {
+        String valor = "";
+        Object selectedItem = this.ventanaNvConsulta.getCmbBoxTriage().getSelectedItem();
+        if (selectedItem != null) {
+            String selectedItemString = String.valueOf(selectedItem);
+            if (selectedItemString.equalsIgnoreCase("No prioritario")) {
+                valor = "No prioritario";
+            } else if (selectedItemString.equalsIgnoreCase("Prioritario")) {
+                valor = "Prioritario";
+            } else if (selectedItemString.equalsIgnoreCase("Emergencia")) {
+                valor = "Emergencia";
+            }    
+            
+        }
+        return valor;
 
     }
 
@@ -359,24 +387,23 @@ public class ControladorFrmNuevaConsul {
 
         Consulta consulta = new Consulta(ventanaNvConsulta.getTxtNotasConsulta().getText(), true);
 
-        SignosVitales signos = new SignosVitales(
-                presionarterial,
-                peso,
-                estaturaCm,
-                imc,
-                cardiaca,
-                respiratoria,
-                temperatura,
-                saturacion,
-                ocular,
-                verbal,
-                motora,
-                total,
-                ventanaNvConsulta.getTxtLlenadoCapilar().getText(),
-                ventanaNvConsulta.getTxtReaccionPupilar().getText(),
-                idTriage
-        );
-
+        SignosVitales signos = new SignosVitales();
+        signos.setPresionArterial(presionarterial);
+        signos.setPeso(peso);
+        signos.setTalla(imc);
+        signos.setIndiceMasaCorporal(imc);
+        signos.setFrecuenciaCardiaca(cardiaca);
+        signos.setFrecuenciaRespiratoria(respiratoria);
+        signos.setTemperatura(temperatura);
+        signos.setSaturacionOxigeno(saturacion);
+        signos.setOcular(ocular);
+        signos.setVerbal(verbal);
+        signos.setMotora(motora);
+        signos.setTotal(total);
+        signos.setLlenadoCapilar(ventanaNvConsulta.getTxtLlenadoCapilar().getText());
+        signos.setrPupilar(ventanaNvConsulta.getTxtReaccionPupilar().getText());
+        signos.setIdTriage(idTriage);            
+                
         String regularidad = ventanaNvConsulta.getBtnRegular().isSelected() ? "Regular" : "Irregular";
         String inmunizaciones = ventanaNvConsulta.getBtnActivaInmunizacion().isSelected() ? "Activa" : "Pasiva";
 
@@ -423,17 +450,13 @@ public class ControladorFrmNuevaConsul {
                 consulta.getIdConsulta()
         );
 
-        Historial historial = new Historial(
-                Date.valueOf(LocalDate.now()),
-                ventanaNvConsulta.getTxtNotasConsulta().getText(),
-                true,
-                Date.valueOf(LocalDate.now()),
-                "En proceso",
-                consulta.getIdConsulta(),
-                idPaciente,
-                idTriage,
-                idDoctor
-        );
+        Historial historial = new Historial();
+        historial.setFecha(Date.valueOf(LocalDate.now()));
+        historial.setDescripcionHist(  ventanaNvConsulta.getTxtNotasConsulta().getText());
+                historial.setHisEstActivo(true);
+        historial.setEstado("En proceso");
+        historial.setIdPaciente(idPaciente);
+        historial.setIdDoctor(idDoctor);
 
         Diagnostico diagnostico = new Diagnostico(
                 ventanaNvConsulta.getTxtAreaDiagnostico().getText(),
@@ -460,9 +483,12 @@ public class ControladorFrmNuevaConsul {
                     idDoctor,
                     idPaciente
             );
+            Triage triage=new Triage();
+            triage.setNivelPrioridad(Seleccion_Nivel_Prioridad());
+           
 
         // Guardar los datos en la base de datos usando ConsultaDAO
-        consultaDAO.guardarConsulta(consulta, historial, diagnostico, tratamiento, receta, registraConsulta, signos, exFisico, obstetrica, exComplementario);
+        consultaDAO.guardarConsulta(triage,consulta, historial, diagnostico, tratamiento, receta, registraConsulta, signos, exFisico, obstetrica, exComplementario,sexoPaciente); 
         
         JOptionPane.showMessageDialog(null, "Consulta guardada exitosamente.");
     } catch (NumberFormatException e) {
@@ -496,9 +522,11 @@ public void validarSexoYDeshabilitarPagina() {
     if (sexo.equals("M")) {
         // Deshabilitar la página 3 del JTabbedPane (índice 2, ya que los índices empiezan en 0)
         tabbedPane.setEnabledAt(2, false);
+        sexoPaciente=false;
     } else {
         // Asegurarse de que la página 3 esté habilitada si el sexo no es "M"
         tabbedPane.setEnabledAt(2, true);
+          sexoPaciente=true;
     }
 }
 // Método auxiliar para convertir el texto del campo a float
