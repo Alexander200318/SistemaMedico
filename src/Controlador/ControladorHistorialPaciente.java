@@ -45,7 +45,7 @@ public class ControladorHistorialPaciente {
             "    h.Fecha, " +
             "    CONCAT(doc.prim_Nombre, ' ', IFNULL(doc.seg_Nombre, ''), ' ', doc.prim_Apellido, ' ', IFNULL(doc.seg_Apellido, '')) AS nombreDoctor, " +
             "    t.Nivel_Prioridad, " +
-            "    c.Motivo " +
+                "    c.Motivo " +
             "FROM historial h " +
             "JOIN paciente pc ON pc.Id_Paciente = h.Id_Paciente " +
             "JOIN persona pac ON pac.Id_Persona = pc.Id_Persona " +

@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Carrera;
 import Modelo.Conexion;
+import Vista.CarrerasAdmin;
 import Vista.CrudCarrera;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -23,12 +24,12 @@ import java.util.regex.Pattern;
 
 public class ControladorAñadirCarrera {
 
-    private CrudCarrera vista;
+    private CarrerasAdmin vista;
     private Conexion conexion;
     private int idCarreraSeleccionada;
     private boolean enModoModificacion = false;
 
-    public ControladorAñadirCarrera(CrudCarrera vista) {
+    public ControladorAñadirCarrera(CarrerasAdmin vista) {
         this.vista = vista;
         this.conexion = new Conexion(); // Inicializar la conexión
         init();

@@ -10,6 +10,7 @@ import java.sql.Date;
 public class Paciente extends Persona {
     private int idPaciente;
     private boolean pacEstActivo;
+    private String rol;
 
     // Constructor completo
 
@@ -17,6 +18,16 @@ public class Paciente extends Persona {
         super(idPersona, identificacion, primNombre, segNombre, primApellido, segApellido, email, direccion, barrio, canton, provincia, telefono, fechaNacimiento, lugar, pais, genero, estadoCivil, sexo, foto, etnia, fechaRegistro, contactoEmergencia, estadoActivo, tipo_sangre);
         this.idPaciente = idPaciente;
     }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    
 
     // Constructor por defecto
     public Paciente() {

@@ -24,19 +24,19 @@ public class CrudCarrera extends javax.swing.JFrame {
      */
     
     
-    ControladorAñadirCarrera Carrera;
+  
     public CrudCarrera() {
         initComponents();
-        Carrera =new ControladorAñadirCarrera(this);
         
-        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
-                addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                manejarCierreVentana();
-            }
-        });
+//        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+//        
+//                addWindowListener(new WindowAdapter() {
+//            @Override
+//            public void windowClosing(WindowEvent e) {
+//                manejarCierreVentana();
+//            }
+//        });
 
     }
     
@@ -63,46 +63,46 @@ public class CrudCarrera extends javax.swing.JFrame {
         }
     }
 
-    public JButton getBtnAñadirCarrera() {
-        return BtnAñadirCarrera;
-    }
-
-    public void setBtnAñadirCarrera(JButton BtnAñadirCarrera) {
-        this.BtnAñadirCarrera = BtnAñadirCarrera;
-    }
-
-    public JButton getBtnEliminarCarrera() {
-        return BtnEliminarCarrera;
-    }
-
-    public void setBtnEliminarCarrera(JButton BtnEliminarCarrera) {
-        this.BtnEliminarCarrera = BtnEliminarCarrera;
-    }
-
-    public JButton getBtnModificarCarrera() {
-        return BtnModificarCarrera;
-    }
-
-    public void setBtnModificarCarrera(JButton BtnModificarCarrera) {
-        this.BtnModificarCarrera = BtnModificarCarrera;
-    }
-
-    public JTable getTablaCarreras() {
-        return TablaCarreras;
-    }
-
-    public void setTablaCarreras(JTable TablaCarreras) {
-        this.TablaCarreras = TablaCarreras;
-    }
-
-    public JTextField getTxtNuevaCarrera() {
-        return TxtNuevaCarrera;
-    }
-
-    public void setTxtNuevaCarrera(JTextField TxtNuevaCarrera) {
-        this.TxtNuevaCarrera = TxtNuevaCarrera;
-    }
-    
+//    public JButton getBtnAñadirCarrera() {
+//        return BtnAñadirCarrera;
+//    }
+//
+//    public void setBtnAñadirCarrera(JButton BtnAñadirCarrera) {
+//        this.BtnAñadirCarrera = BtnAñadirCarrera;
+//    }
+//
+//    public JButton getBtnEliminarCarrera() {
+//        return BtnEliminarCarrera;
+//    }
+//
+//    public void setBtnEliminarCarrera(JButton BtnEliminarCarrera) {
+//        this.BtnEliminarCarrera = BtnEliminarCarrera;
+//    }
+//
+//    public JButton getBtnModificarCarrera() {
+//        return BtnModificarCarrera;
+//    }
+//
+//    public void setBtnModificarCarrera(JButton BtnModificarCarrera) {
+//        this.BtnModificarCarrera = BtnModificarCarrera;
+//    }
+//
+//    public JTable getTablaCarreras() {
+//        return TablaCarreras;
+//    }
+//
+//    public void setTablaCarreras(JTable TablaCarreras) {
+//        this.TablaCarreras = TablaCarreras;
+//    }
+//
+//    public JTextField getTxtNuevaCarrera() {
+//        return TxtNuevaCarrera;
+//    }
+//
+//    public void setTxtNuevaCarrera(JTextField TxtNuevaCarrera) {
+//        this.TxtNuevaCarrera = TxtNuevaCarrera;
+//    }
+//    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -113,101 +113,21 @@ public class CrudCarrera extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        TxtNuevaCarrera = new javax.swing.JTextField();
-        BtnAñadirCarrera = new javax.swing.JButton();
-        BtnEliminarCarrera = new javax.swing.JButton();
-        BtnModificarCarrera = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TablaCarreras = new javax.swing.JTable();
-        jSeparator2 = new javax.swing.JSeparator();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "AÑADIR CARRERAS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Maiandra GD", 1, 36))); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-        jLabel1.setText("Carrera:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 80, 20));
-
-        TxtNuevaCarrera.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        TxtNuevaCarrera.setBorder(null);
-        jPanel1.add(TxtNuevaCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 220, 30));
-
-        BtnAñadirCarrera.setBackground(new java.awt.Color(64, 172, 159));
-        BtnAñadirCarrera.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-        BtnAñadirCarrera.setText("Añadir ");
-        jPanel1.add(BtnAñadirCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 90, 30));
-
-        BtnEliminarCarrera.setBackground(new java.awt.Color(64, 172, 159));
-        BtnEliminarCarrera.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-        BtnEliminarCarrera.setText("Eliminar");
-        jPanel1.add(BtnEliminarCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 100, 30));
-
-        BtnModificarCarrera.setBackground(new java.awt.Color(64, 172, 159));
-        BtnModificarCarrera.setFont(new java.awt.Font("Maiandra GD", 1, 16)); // NOI18N
-        BtnModificarCarrera.setText("Modificar");
-        BtnModificarCarrera.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnModificarCarreraActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnModificarCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 160, 30));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 220, 10));
-
-        jPanel2.setBackground(new java.awt.Color(64, 172, 159));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS EXISTENTES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Maiandra GD", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        TablaCarreras.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        TablaCarreras.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "ID", "Nombre Carrera"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(TablaCarreras);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 640, 200));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 680, 260));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 720, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 732, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+            .addGap(0, 421, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BtnModificarCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarCarreraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnModificarCarreraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,16 +165,5 @@ public class CrudCarrera extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnAñadirCarrera;
-    private javax.swing.JButton BtnEliminarCarrera;
-    private javax.swing.JButton BtnModificarCarrera;
-    private javax.swing.JTable TablaCarreras;
-    private javax.swing.JTextField TxtNuevaCarrera;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }
